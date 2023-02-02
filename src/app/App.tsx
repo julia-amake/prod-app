@@ -2,10 +2,10 @@ import React, {Suspense} from 'react';
 import 'normalize.css';
 import './styles/index.scss';
 import {Link, Route, Routes} from 'react-router-dom';
-import {MainPageAsync} from './pages/MainPage/MainPage.async';
-import {AboutPageAsync} from './pages/AboutPage/AboutPage.async';
-import {useTheme} from './theme/useTheme';
-import {cn} from './helpers/classNames/classNames';
+import {MainPageAsync} from 'pages/MainPage/MainPage.async';
+import {AboutPageAsync} from 'pages/AboutPage/AboutPage.async';
+import {cn} from 'helpers/classNames/classNames';
+import {useTheme} from 'app/providers/ThemeProvider';
 
 const App = () => {
     const {theme, toggleTheme} = useTheme();

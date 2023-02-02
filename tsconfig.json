@@ -11,6 +11,9 @@
     "moduleResolution": "node",
     // baseUrl для импорта с абсолютными путями
     "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
     // esModuleInterop позволяет работать с пакетами, которые используют common js как с обычными пакетами с помощью import require module.export – короче, делают импорты в конфигах привычными
     "esModuleInterop": true,
     // allowSyntheticDefaultImports позволяет использовать импорты без звездочки (* as что-то)

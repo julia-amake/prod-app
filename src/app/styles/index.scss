@@ -1,6 +1,7 @@
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
+@import "some.css";
 
 .app {
   font: var(--font-m);
@@ -9,6 +10,8 @@
   min-height: 100vh;
 }
 
+$color: red;
+
 a {
-  color: inherit;
+  color: $color;
 }

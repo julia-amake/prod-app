@@ -1,17 +1,22 @@
 @import "variables/global";
-@import "themes/normal";
+@import "fonts";
+@import "themes/light";
 @import "themes/dark";
-@import "some.css";
 
 .app {
   font: var(--font-m);
-  color: var(--primary-color);
+  color: var(--inverted-bg-color);
   background: var(--bg-color);
   min-height: 100vh;
+  letter-spacing: 0.03em;
 }
 
-$color: red;
-
 a {
-  color: $color;
+  color: inherit;
+}
+
+.container {
+  width: 86%;
+  max-width: 1120px;
+  margin: 0 auto;
 }

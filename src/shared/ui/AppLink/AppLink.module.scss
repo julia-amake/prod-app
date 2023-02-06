@@ -1,0 +1,17 @@
+.link {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: background-color 0.1s ease, border-color 0.1s ease, box-shadow 0.1s ease, color 0.1s ease, fill 0.1s ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.secondary {
+  color: var(--secondary-color);
+}

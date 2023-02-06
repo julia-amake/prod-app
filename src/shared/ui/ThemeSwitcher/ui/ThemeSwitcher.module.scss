@@ -1,0 +1,19 @@
+.switcher {
+  border: 0;
+  padding: 8px;
+  margin: 0;
+  font-size: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  fill: var(--secondary-color);
+
+  .switcher:hover & {
+    fill: var(--inverted-bg-color);
+  }
+}

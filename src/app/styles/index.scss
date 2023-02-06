@@ -4,6 +4,7 @@
 @import "themes/dark";
 
 .app {
+  display: flex;
   font: var(--font-m);
   color: var(--inverted-bg-color);
   background: var(--bg-color);
@@ -11,8 +12,8 @@
   letter-spacing: 0.03em;
 }
 
-a {
-  color: inherit;
+.main {
+  flex: 1 0 auto;
 }
 
 .container {

@@ -1,0 +1,18 @@
+.sidebar {
+  flex: 0 0 auto;
+  width: 240px;
+  box-sizing: border-box;
+  padding: 24px 0;
+  border-right: 1px solid var(--devider-color);
+  color: var(--bg-color);
+  background: var(--inverted-bg-color);
+  transition: transform .3s, margin-right .3s, width .3s;
+}
+
+.collapsed {
+  width: 80px;
+}
+
+.collapseBtn {
+  padding: 0 16px;
+}

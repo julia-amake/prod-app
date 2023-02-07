@@ -8,6 +8,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         port: port,
         open: true,
         // historyApiFallback чтобы пути в SPA при обновлении страницы работали, а не показывалась 404 страница
-        historyApiFallback: true
+        historyApiFallback: true,
+        hot:true,
     };
 }

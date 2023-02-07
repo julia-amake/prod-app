@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import 'normalize.css';
 import './styles/index.scss';
 import {cn} from 'shared/lib/classNames/classNames';
@@ -12,11 +12,13 @@ const App = () => {
 
     return (
         <div className={cn('app', {[theme]: true}, [])}>
-            <Sidebar/>
-            <div className="main">
-                <Navbar/>
-                <AppRouter/>
-            </div>
+            <Suspense fallback={<div>...Loading</div>}>
+                <Sidebar/>
+                <div className="main">
+                    <Navbar/>
+                    <AppRouter/>
+                </div>
+            </Suspense>
         </div>
     );
 };

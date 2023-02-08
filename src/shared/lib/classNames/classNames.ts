@@ -1,10 +1,10 @@
-//Record здесь создает тип с ключом string и значением boolean | string
+// Record здесь создает тип с ключом string и значением boolean | string
 type Mode = Record<string, boolean | string>
 
 export function cn(cls: string, mods: Mode = {}, additional: string[] = []): string {
     return [
         cls,
         ...additional.filter(Boolean),
-        ...Object.keys(mods).filter(key => mods[key])
+        ...Object.keys(mods).filter((key) => mods[key]),
     ].join(' ');
 }

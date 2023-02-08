@@ -1,5 +1,5 @@
-import React, {ButtonHTMLAttributes} from 'react';
-import {cn} from 'shared/lib/classNames/classNames';
+import { FC, ButtonHTMLAttributes } from 'react';
+import { cn } from 'shared/lib/classNames/classNames';
 import s from './Button.module.scss';
 
 export enum ThemeButton {
@@ -11,10 +11,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ThemeButton;
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: FC<ButtonProps> = (props) => {
     const {
         theme = ThemeButton.CLEAR,
-        className,
+        className = '',
         children,
         ...otherProps
     } = props;
@@ -22,6 +22,8 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
         <button
             className={cn(s.button, {}, [className, s[theme]])}
+            type="button"
+            /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...otherProps}
         >
             {children}

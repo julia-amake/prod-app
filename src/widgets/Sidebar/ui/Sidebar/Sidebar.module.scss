@@ -6,7 +6,7 @@
   border-right: 1px solid var(--devider-color);
   color: var(--bg-color);
   background: var(--inverted-bg-color);
-  transition: transform .3s, margin-right .3s, width .3s;
+  transition: transform 0.3s, margin-right 0.3s, width 0.3s;
 }
 
 .collapsed {

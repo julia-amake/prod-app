@@ -1,15 +1,17 @@
 @font-face {
-  font-family: 'Uni Neue';
-  src: url('../../../public/fonts/UniNeueRegular.woff2') format('woff2'),
-  url('../../../public/fonts/UniNeueRegular.woff') format('woff');
+  font-family: "Uni Neue";
+  src:
+    url("../../../public/fonts/UniNeueRegular.woff2") format("woff2"),
+    url("../../../public/fonts/UniNeueRegular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Uni Neue';
-  src: url('../../../public/fonts/UniNeueBold.woff2') format('woff2'),
-  url('../../../public/fonts/UniNeueBold.woff') format('woff');
+  font-family: "Uni Neue";
+  src:
+    url("../../../public/fonts/UniNeueBold.woff2") format("woff2"),
+    url("../../../public/fonts/UniNeueBold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }

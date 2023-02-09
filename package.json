@@ -10,8 +10,8 @@
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**.*.{ts, tsx}\"",
     "lint:ts:fix": "eslint \"**.*.{ts, tsx}\" --fix",
-    "lint:scss": "stylelint \"**.*.scss\"",
-    "lint:scss:fix": "stylelint \"**.*.scss\" --fix"
+    "lint:scss": "stylelint \"**/*.scss\"",
+    "lint:scss:fix": "stylelint \"**/*.scss\" --fix"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +36,7 @@
     "css-loader": "^6.6.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-react-hooks": "^4.3.0",
     "file-loader": "^6.2.0",

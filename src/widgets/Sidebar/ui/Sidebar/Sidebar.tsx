@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {cn} from 'shared/lib/classNames/classNames';
+import React, { useState } from 'react';
+import { cn } from 'shared/lib/classNames/classNames';
 import Button from 'shared/ui/Button/Button';
-import s from './Sidebar.module.scss';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import s from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string;
@@ -14,16 +14,21 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
         className,
     } = props;
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const [collapsed, setCollapsed] = useState(false);
 
     const onToggle = () => {
-        setCollapsed(prev => !prev);
+        setCollapsed((prev) => !prev);
     };
 
     return (
-        <div className={cn(s.sidebar, {[s.collapsed]: collapsed}, [className])}>
+        <div className={cn(
+            s.sidebar,
+            { [s.collapsed]: collapsed },
+            [className],
+        )}
+        >
             <Button
                 className={s.collapseBtn}
                 onClick={onToggle}
@@ -31,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
             >
                 {t(collapsed ? 'Развернуть' : 'Свернуть')}
             </Button>
-            <LangSwitcher/>
+            <LangSwitcher />
         </div>
     );
 };

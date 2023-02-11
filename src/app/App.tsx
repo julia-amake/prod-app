@@ -14,7 +14,7 @@ function App() {
 
     return (
         <div className={cn('app', { [theme]: true }, [])}>
-            <Suspense fallback={<div>{t('...Loading')}</div>}>
+            <Suspense fallback={<div>{`...${t('Loading')}`}</div>}>
                 <Sidebar />
                 <div className="main">
                     <Navbar />

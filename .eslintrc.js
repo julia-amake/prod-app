@@ -40,12 +40,23 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/function-component-definition': 'off',
         'import/extensions': 'off',
-        'import/no-extraneous-dependencies': 'warn',
+        'import/no-extraneous-dependencies': [
+            'error',
+            { devDependencies: true },
+        ],
         'no-underscore-dangle': 'off',
-        'max-len': ['error', { ignoreComments: true }],
+        'max-len': [
+            'error',
+            {
+                ignoreComments: true,
+                ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
+            },
+        ],
         'i18next/no-literal-string': [2, { markupOnly: true }],
+
     },
     globals: {
-        __IS__DEV__: true,
+        __IS_DEV__: true,
+        React: true,
     },
 };

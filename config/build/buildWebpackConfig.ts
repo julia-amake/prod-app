@@ -1,26 +1,27 @@
-import {BuildOptions} from './types/config';
 import webpack from 'webpack';
-import {buildPlugins} from './buildPlugins';
-import {buildLoaders} from './buildLoaders';
-import {buildResolvers} from './buildResolvers';
-import {buildDevServer} from './buildDevServer';
+import { BuildOptions } from './types/config';
+import { buildPlugins } from './buildPlugins';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
-export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
-    const {mode, paths, isDev} = options;
+export function buildWebpackConfig(options: BuildOptions)
+    : webpack.Configuration {
+    const { mode, paths, isDev } = options;
 
     return {
-        //mode: 'production' - если уже публикуем, а мы пока разрабатываем, поэтому:
+        // mode: 'production' - если уже публикуем, а мы пока разрабатываем, поэтому:
         mode,
-        //стартовая точка приложения:
+        // стартовая точка приложения:
         entry: paths.entry,
-        //куда и как будем делать сборку приложения:
+        // куда и как будем делать сборку приложения:
         output: {
-            //как будет называться файл сборки:
+            // как будет называться файл сборки:
             filename: '[name].[contenthash].js',
-            //куда сохранять сборку:
+            // куда сохранять сборку:
             path: paths.build,
-            //подчищать сборку от лишних/старых файлов
-            clean: true
+            // подчищать сборку от лишних/старых файлов
+            clean: true,
         },
         plugins: buildPlugins(options),
         module: {

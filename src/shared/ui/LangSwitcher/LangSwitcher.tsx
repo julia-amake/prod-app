@@ -20,7 +20,10 @@ const LangSwitcher: React.FC<LangSwitcherProps> = (props) => {
     };
 
     return (
-        <Button className={cn(s.langSwitcher, {}, [className])} onClick={toggleLang}>
+        <Button
+            className={cn(s.langSwitcher, {}, [className])}
+            onClick={toggleLang}
+        >
             {t('Перевести')}
         </Button>
     );

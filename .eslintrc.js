@@ -52,7 +52,12 @@ module.exports = {
                 ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
             },
         ],
-        'i18next/no-literal-string': [2, { markupOnly: true }],
+        'i18next/no-literal-string': [
+            2, {
+                markupOnly: true,
+                onlyAttribute: [''],
+            },
+        ],
 
     },
     globals: {

@@ -3,8 +3,11 @@
 @import "./themes/light";
 @import "./themes/dark";
 
-.app {
+
+.app,
+#root {
   display: flex;
+  width: 100%;
   font: var(--font-m);
   color: var(--inverted-bg-color);
   background: var(--bg-color);

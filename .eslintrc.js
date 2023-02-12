@@ -52,9 +52,11 @@ module.exports = {
                 ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
             },
         ],
+        'no-console': 'warn',
         'i18next/no-literal-string': [
             2, {
                 markupOnly: true,
+                ignoreComponent: ['ButtonThrow'],
                 onlyAttribute: [''],
             },
         ],

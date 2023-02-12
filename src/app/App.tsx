@@ -6,19 +6,20 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useTranslation } from 'react-i18next';
+import { ContentLoader } from 'shared/ui';
 
 function App() {
     const { theme } = useTheme();
-    const { t } = useTranslation();
 
     return (
         <div className={cn('app', { [theme]: true }, [])}>
-            <Suspense fallback={<div>{`...${t('Loading')}`}</div>}>
+            <Suspense fallback={<ContentLoader />}>
                 <Sidebar />
                 <div className="main">
                     <Navbar />
-                    <AppRouter />
+                    <Suspense fallback={<ContentLoader />}>
+                        <AppRouter />
+                    </Suspense>
                 </div>
             </Suspense>
         </div>

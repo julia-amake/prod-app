@@ -1,0 +1,13 @@
+.outer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-size: 40px;
+  line-height: 1.2;
+}

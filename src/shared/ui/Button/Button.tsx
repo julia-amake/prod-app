@@ -3,7 +3,7 @@ import { cn } from 'shared/lib/classNames/classNames';
 import s from './Button.module.scss';
 
 export enum ThemeButton {
-    CLEAR = 'clear'
+    CLEAR = 'clear',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,7 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: FC<ButtonProps> = (props) => {
     const {
-        theme = ThemeButton.CLEAR,
+        theme,
         className = '',
         children,
         ...otherProps
@@ -21,7 +21,11 @@ const Button: FC<ButtonProps> = (props) => {
 
     return (
         <button
-            className={cn(s.button, {}, [className, s[theme]])}
+            className={cn(
+                s.button,
+                { [s.clear]: theme === ThemeButton.CLEAR },
+                [className],
+            )}
             type="button"
             /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...otherProps}

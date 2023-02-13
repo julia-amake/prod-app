@@ -50,6 +50,7 @@ module.exports = {
             {
                 ignoreComments: true,
                 ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
+                code: 100,
             },
         ],
         'no-console': 'warn',

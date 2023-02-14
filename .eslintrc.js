@@ -40,10 +40,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/function-component-definition': 'off',
         'import/extensions': 'off',
-        'import/no-extraneous-dependencies': [
-            'error',
-            { devDependencies: true },
-        ],
+        'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'max-len': [
             'error',
@@ -67,4 +64,12 @@ module.exports = {
         __IS_DEV__: true,
         React: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };

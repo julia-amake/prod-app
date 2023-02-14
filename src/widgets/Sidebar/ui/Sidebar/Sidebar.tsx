@@ -23,16 +23,19 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
     };
 
     return (
-        <div className={cn(
-            s.sidebar,
-            { [s.collapsed]: collapsed },
-            [className],
-        )}
+        <div
+            className={cn(
+                s.sidebar,
+                { [s.collapsed]: collapsed },
+                [className],
+            )}
+            data-testid="sidebar"
         >
             <Button
                 className={s.collapseBtn}
                 onClick={onToggle}
                 title={t(collapsed ? 'Развернуть' : 'Свернуть')}
+                data-testid="sidebar-toggle"
             >
                 {t(collapsed ? 'Развернуть' : 'Свернуть')}
             </Button>

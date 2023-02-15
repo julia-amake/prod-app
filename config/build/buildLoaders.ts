@@ -1,15 +1,9 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { BuildOptions } from './types/config';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
-export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-    const { isDev } = options;
-
-    const svgLoader = {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack'],
-    };
+export function buildLoaders(): webpack.RuleSetRule[] {
+    const svgLoader = buildSvgLoader();
 
     const babelLoader = {
         test: /\.(js|jsx|ts|tsx)$/,
@@ -31,27 +25,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         },
     };
 
-    const scssLoader = {
-        test: /\.(sc|sa|c)ss$/i,
-        use: [
-            // Creates `style` nodes from JS strings
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            // Translates CSS into CommonJS
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: {
-                        auto: /.module./,
-                        localIdentName: isDev
-                            ? '[path][name]__[local]--[hash:base64:5]'
-                            : '[hash:base64:8]',
-                    },
-                },
-            },
-            // Compiles Sass to CSS
-            'sass-loader',
-        ],
-    };
+    const scssLoader = buildCssLoader(true);
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff|woff2)$/i,

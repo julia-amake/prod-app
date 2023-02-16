@@ -3,10 +3,7 @@
 @import "./themes/light";
 @import "./themes/dark";
 
-.app,
-#root {
-  display: flex;
-  width: 100%;
+.app {
   font: var(--font-m);
   color: var(--inverted-bg-color);
   background: var(--bg-color);

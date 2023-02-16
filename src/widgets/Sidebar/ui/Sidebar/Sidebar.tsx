@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import Button from 'shared/ui/Button/Button';
+import Button, { ThemeButton } from 'shared/ui/Button/Button';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
 import { useTranslation } from 'react-i18next';
+import ArrowLeftLong from 'shared/assets/icons/ArrowLeftLong.svg';
 import s from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -32,6 +33,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
             data-testid="sidebar"
         >
             <Button
+                theme={ThemeButton.CLEAR}
                 className={s.collapseBtn}
                 onClick={onToggle}
                 title={t(collapsed ? 'Развернуть' : 'Свернуть')}
@@ -40,6 +42,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
                 {t(collapsed ? 'Развернуть' : 'Свернуть')}
             </Button>
             <LangSwitcher />
+            <ArrowLeftLong />
         </div>
     );
 };

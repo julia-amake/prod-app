@@ -8,12 +8,12 @@ interface PreloaderProps {
 }
 
 const Preloader: React.FC<PreloaderProps> = (props) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     return (
-        <PreloaderIcon className={cn(s.preloader, {}, [className])} />
+        <PreloaderIcon
+            className={cn(s.preloader, {}, [className])}
+        />
     );
 };
 

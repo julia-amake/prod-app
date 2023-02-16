@@ -4,6 +4,7 @@ import Button, { ThemeButton } from 'shared/ui/Button/Button';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
 import { useTranslation } from 'react-i18next';
 import ArrowLeftLong from 'shared/assets/icons/ArrowLeftLong.svg';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import s from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -42,6 +43,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
                 {t(collapsed ? 'Развернуть' : 'Свернуть')}
             </Button>
             <LangSwitcher />
+            <ThemeSwitcher />
             <ArrowLeftLong />
         </div>
     );

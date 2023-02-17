@@ -14,12 +14,14 @@ function App() {
     return (
         <div className={cn('app', { [theme]: true }, [])}>
             <Suspense fallback={<ContentLoader />}>
-                <Sidebar />
-                <div className="main">
-                    <Navbar />
-                    <Suspense fallback={<ContentLoader />}>
-                        <AppRouter />
-                    </Suspense>
+                <div className="wrapper">
+                    <Sidebar />
+                    <div className="main">
+                        <Navbar />
+                        <Suspense fallback={<ContentLoader />}>
+                            <AppRouter />
+                        </Suspense>
+                    </div>
                 </div>
             </Suspense>
         </div>

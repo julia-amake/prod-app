@@ -12,9 +12,5 @@
   width: 24px;
   height: 24px;
   object-fit: contain;
-  fill: var(--secondary-color);
-
-  .switcher:hover & {
-    fill: var(--inverted-bg-color);
-  }
+  fill: var(--bg-color) !important;
 }

@@ -3,7 +3,7 @@ import { cn } from 'shared/lib/classNames/classNames';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import NightOn from 'shared/assets/icons/NightOn.svg';
 import NightOff from 'shared/assets/icons/NightOff.svg';
-import Button, { ThemeButton } from 'shared/ui/Button/Button';
+import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import s from './ThemeSwitcher.module.scss';
 
@@ -19,7 +19,7 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = (props) => {
 
     return (
         <Button
-            theme={ThemeButton.CLEAR}
+            theme={ButtonTheme.CLEAR}
             className={cn(s.switcher, {}, [className])}
             onClick={toggleTheme}
             title={t('Переключить тему')}

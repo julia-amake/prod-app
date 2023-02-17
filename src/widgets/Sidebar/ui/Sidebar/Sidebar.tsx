@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import Button, { ThemeButton } from 'shared/ui/Button/Button';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
-import { useTranslation } from 'react-i18next';
-import ArrowLeftLong from 'shared/assets/icons/ArrowLeftLong.svg';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import SidebarToggle from 'widgets/Sidebar/ui/Sidebar/SidebarToggle/SidebarToggle';
 import s from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -16,13 +14,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
         className,
     } = props;
 
-    const { t } = useTranslation();
-
     const [collapsed, setCollapsed] = useState(false);
-
-    const onToggle = () => {
-        setCollapsed((prev) => !prev);
-    };
 
     return (
         <div
@@ -33,18 +25,11 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
             )}
             data-testid="sidebar"
         >
-            <Button
-                theme={ThemeButton.CLEAR}
-                className={s.collapseBtn}
-                onClick={onToggle}
-                title={t(collapsed ? 'Развернуть' : 'Свернуть')}
-                data-testid="sidebar-toggle"
-            >
-                {t(collapsed ? 'Развернуть' : 'Свернуть')}
-            </Button>
-            <LangSwitcher />
-            <ThemeSwitcher />
-            <ArrowLeftLong />
+            <div className={s.actions}>
+                <ThemeSwitcher className={s.themeSwitcher} />
+                <LangSwitcher isShort={collapsed} />
+            </div>
+            <SidebarToggle collapsed={collapsed} setCollapsed={setCollapsed} />
         </div>
     );
 };

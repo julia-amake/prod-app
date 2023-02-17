@@ -1,8 +1,11 @@
 .sidebar {
+  position: relative;
   flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
   width: 240px;
+  padding: 24px 0 0;
   box-sizing: border-box;
-  padding: 24px 0;
   border-right: 1px solid var(--devider-color);
   color: var(--bg-color);
   background: var(--inverted-bg-color);
@@ -10,9 +13,24 @@
 }
 
 .collapsed {
-  width: 80px;
+  width: 64px;
 }
 
-.collapseBtn {
-  padding: 0 16px;
+.actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .collapsed & {
+    flex-direction: column;
+  }
+}
+
+.themeSwitcher {
+  margin-right: 8px;
+
+  .collapsed & {
+    margin-right: 0;
+  }
 }

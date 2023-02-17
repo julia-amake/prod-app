@@ -1,0 +1,18 @@
+.sidebarToggle {
+  margin-top: 16px;
+  width: 100% !important;
+  height: 64px !important;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.collapsed {
+  justify-content: center;
+}
+
+.icon {
+  width: 40px !important;
+  height: 40px !important;
+}

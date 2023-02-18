@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   width: 240px;
-  padding: 24px 0 0;
+  padding: var(--navbar-height) 0 0;
   box-sizing: border-box;
   border-right: 1px solid var(--devider-color);
   color: var(--bg-color);
@@ -32,5 +32,69 @@
 
   .collapsed & {
     margin-right: 0;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  .collapsed & {
+    align-items: center;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+
+  &:hover {
+    background: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .collapsed & {
+    width: 100%;
+    flex-direction: column;
+    padding: 8px 0;
+  }
+}
+
+.linkIcon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-right: 14px;
+  object-fit: contain;
+  fill: var(--bg-color);
+
+  &Home {
+    top: -2px;
+  }
+
+  .collapsed & {
+    margin-right: 0;
+    top: 0;
+  }
+
+  .link:hover & {
+    fill: var(--primary-color-font);
+  }
+}
+
+.linkTitle {
+  font-weight: bold;
+  font-size: var(--font-size-s);
+  line-height: var(--font-line-s);
+  white-space: nowrap;
+  color: var(--bg-color);
+
+  .collapsed & {
+    font-size: 8px;
+  }
+
+  .link:hover & {
+    color: var(--primary-color-font);
   }
 }

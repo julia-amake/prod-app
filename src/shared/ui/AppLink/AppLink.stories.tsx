@@ -25,7 +25,6 @@ Primary.args = {
     theme: AppLinkTheme.PRIMARY,
 };
 export const PrimaryDark = Template.bind({});
-
 PrimaryDark.args = {
     theme: AppLinkTheme.PRIMARY,
 };

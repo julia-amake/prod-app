@@ -8,21 +8,3 @@
   gap: 16px;
   padding: 0 12px;
 }
-
-.link {
-  padding: 6px 12px;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 28px;
-  border-radius: 100px;
-
-  &Active {
-    color: var(--bg-color);
-    background: var(--inverted-bg-color);
-  }
-
-  &:hover {
-    color: var(--inverted-bg-color);
-    text-decoration: none;
-  }
-}

@@ -1,7 +1,17 @@
 {
   "extends": "stylelint-config-standard-scss",
   "rules": {
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "color-function-notation": "legacy",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "global",
+          "local"
+        ]
+      }
+    ]
   },
   "ignoreFiles": ["build/css/**.css"]
 }

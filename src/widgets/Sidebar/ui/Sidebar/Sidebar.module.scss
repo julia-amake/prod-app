@@ -33,6 +33,10 @@
   .collapsed & {
     margin-right: 0;
   }
+
+  svg {
+    fill: var(--bg-color);
+  }
 }
 
 .menu {

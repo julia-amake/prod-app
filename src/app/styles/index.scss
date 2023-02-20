@@ -1,13 +1,17 @@
 @import "./variables/global";
+@import "./helpers/helpers";
 @import "fonts";
 @import "./themes/light";
 @import "./themes/dark";
 
-.app {
+body {
   font: var(--font-m);
+  letter-spacing: 0.03em;
+}
+
+.app {
   color: var(--inverted-bg-color);
   background: var(--bg-color);
-  letter-spacing: 0.03em;
   height: 100vh;
 }
 

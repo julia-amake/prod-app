@@ -1,6 +1,10 @@
+@import "./src/app/styles/helpers/helpers";
+
 .app.light {
   --bg-color: #fcfcfd;
+  --bg-color-rgb: #{hex-to-rgb(#fcfcfd)};
   --inverted-bg-color: #141416;
+  --inverted-bg-color-rgb: #{hex-to-rgb(#141416)};
   --primary-color: #3772ff;
   --primary-color-font: #fcfcfd;
   --primary-color-hover: #2955bf;

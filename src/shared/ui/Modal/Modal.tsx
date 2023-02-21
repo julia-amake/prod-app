@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import Portal from 'shared/ui/Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
 import s from './Modal.module.scss';
 
 interface ModalProps {
@@ -22,8 +21,6 @@ const Modal: React.FC<ModalProps> = (props) => {
         className,
         children,
     } = props;
-
-    const { theme } = useTheme();
 
     // Нужен для плавного закрытия модалки
     const [isClosing, setIsClosing] = useState(false);
@@ -69,7 +66,7 @@ const Modal: React.FC<ModalProps> = (props) => {
 
     return (
         <Portal>
-            <div className={cn(s.modal, modalMods, [className, theme])}>
+            <div className={cn(s.modal, modalMods, [className])}>
                 <div className={s.overlay} onClick={closeHandler}>
                     <div className={s.content} onClick={onContentClick}>
                         {children}

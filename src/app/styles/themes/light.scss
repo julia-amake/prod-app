@@ -1,6 +1,6 @@
 @import "./src/app/styles/helpers/helpers";
 
-.app.light {
+.app_theme_light {
   --bg-color: #fcfcfd;
   --bg-color-rgb: #{hex-to-rgb(#fcfcfd)};
   --inverted-bg-color: #141416;

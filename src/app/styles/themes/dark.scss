@@ -1,6 +1,6 @@
 @import "./src/app/styles/helpers/helpers";
 
-.app.dark {
+.app_theme_dark {
   --bg-color: #141416;
   --bg-color-rgb: #{hex-to-rgb(#141416)};
   --inverted-bg-color: #fcfcfd;

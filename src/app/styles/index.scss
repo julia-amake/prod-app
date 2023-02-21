@@ -4,13 +4,14 @@
 @import "./themes/light";
 @import "./themes/dark";
 
-body {
+body,
+.app {
   font: var(--font-m);
   letter-spacing: 0.03em;
+  color: var(--inverted-bg-color);
 }
 
 .app {
-  color: var(--inverted-bg-color);
   background: var(--bg-color);
   height: 100vh;
 }

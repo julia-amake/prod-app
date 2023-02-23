@@ -9,6 +9,7 @@ body,
   font: var(--font-m);
   letter-spacing: 0.03em;
   color: var(--inverted-bg-color);
+  -webkit-font-smoothing: antialiased;
 }
 
 .app {

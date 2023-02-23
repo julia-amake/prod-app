@@ -10,5 +10,9 @@
   "Обновить страницу": "Refresh the page",
   "Язык": "English",
   "Короткий язык": "En",
-  "Войти": "Sign in"
+  "Войти": "Sign in",
+  "Имя пользователя": "User name",
+  "Введите имя пользователя": "Enter user name",
+  "Пароль": "Password",
+  "Введите пароль": "Enter password"
 }

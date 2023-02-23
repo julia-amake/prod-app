@@ -42,6 +42,7 @@ module.exports = {
         'react/function-component-definition': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
+        'react/prop-types': 'off',
         'import/extensions': 'off',
         'no-param-reassign': 'off',
         'import/no-extraneous-dependencies': 'off',

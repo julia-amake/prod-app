@@ -6,10 +6,11 @@ import Portal from 'shared/ui/Portal/Portal';
 import s from './Modal.module.scss';
 
 interface ModalProps {
-    isOpen?: boolean,
-    onClose?: () => void,
+    isOpen?: boolean;
     className?: string;
-    children?: ReactNode
+    children?: ReactNode;
+    onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
@@ -20,12 +21,20 @@ const Modal: React.FC<ModalProps> = (props) => {
         onClose,
         className,
         children,
+        lazy = false,
     } = props;
 
     // Нужен для плавного закрытия модалки
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const modalMods = {
         [s.opened]: isOpen,
@@ -63,6 +72,10 @@ const Modal: React.FC<ModalProps> = (props) => {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>

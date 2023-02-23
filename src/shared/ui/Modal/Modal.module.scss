@@ -23,6 +23,7 @@
   width: 448px;
   box-sizing: border-box;
   border-radius: 20px;
+  background: var(--bg-color);
   transition: transform 0.3s ease-in;
   transform: scale(0.5);
 }
@@ -55,7 +56,6 @@
 
   .content {
     color: var(--inverted-bg-color);
-    background: var(--bg-color);
   }
 }
 
@@ -66,6 +66,5 @@
 
   .content {
     color: var(--bg-color);
-    background: var(--inverted-bg-color);
   }
 }

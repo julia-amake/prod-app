@@ -1,0 +1,31 @@
+// .wrapper {}
+
+.label {
+  padding-left: 2px;
+  margin-bottom: 1em;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--neutral-color-5);
+}
+
+.field {
+  width: 100%;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  color: inherit;
+  font-weight: 500;
+  font-size: var(--font-size-s);
+  line-height: var(--font-line-s);
+  font-family: var(--font-family-secondary);
+  background: none;
+  outline: none;
+  border: 2px solid var(--devider-color);
+  border-radius: 12px;
+
+  &::placeholder {
+    font-family: var(--font-family-secondary);
+    color: var(--secondary-color);
+  }
+}

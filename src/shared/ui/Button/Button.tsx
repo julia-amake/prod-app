@@ -23,8 +23,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
     shape?: ButtonShape;
-    size?: ButtonSize,
-    iconOnly?: boolean,
+    size?: ButtonSize;
+    iconOnly?: boolean;
+    disabled?: boolean;
+    isLoading?: boolean;
 }
 
 const Button: FC<ButtonProps> = (props) => {
@@ -35,6 +37,8 @@ const Button: FC<ButtonProps> = (props) => {
         iconOnly = false,
         className = '',
         children,
+        disabled = false,
+        isLoading = false,
         ...otherProps
     } = props;
 
@@ -42,10 +46,14 @@ const Button: FC<ButtonProps> = (props) => {
         <button
             className={cn(
                 s.button,
-                { [s.iconOnly]: iconOnly },
+                {
+                    [s.iconOnly]: iconOnly,
+                    [s.button_disabled]: isLoading || disabled,
+                },
                 [className, s[theme], s[shape], s[size]],
             )}
             type="button"
+            disabled={disabled || isLoading}
             /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...otherProps}
         >

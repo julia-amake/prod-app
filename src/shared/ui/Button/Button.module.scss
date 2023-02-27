@@ -8,8 +8,9 @@
   border: 0;
   box-sizing: border-box;
 
-  &:disabled {
+  &_disabled {
     opacity: 0.5;
+    cursor: auto;
   }
 
   --font-size-s: 14px;
@@ -29,7 +30,9 @@
   }
 
   &:hover {
-    background: var(--primary-color-hover);
+    &:not(.button_disabled) {
+      background: var(--primary-color-hover);
+    }
   }
 }
 

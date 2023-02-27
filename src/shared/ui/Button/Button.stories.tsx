@@ -302,3 +302,12 @@ ClearDark.args = {
     size: ButtonSize.L,
 };
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'Button',
+    theme: ButtonTheme.PRIMARY,
+    shape: ButtonShape.ROUND,
+    size: ButtonSize.M,
+    disabled: true,
+};

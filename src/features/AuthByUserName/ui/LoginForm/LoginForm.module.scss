@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.title {
+  margin-bottom: 40px;
+  padding-right: 48px;
+}
+
 .input {
   width: 100%;
   margin-bottom: 32px;
@@ -11,4 +16,8 @@
 
 .loginBtn {
   width: 100%;
+}
+
+.error {
+  margin-bottom: 32px;
 }

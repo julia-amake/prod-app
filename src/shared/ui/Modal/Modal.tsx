@@ -24,20 +24,24 @@ const Modal: React.FC<ModalProps> = (props) => {
         lazy = false,
     } = props;
 
-    // Нужен для плавного закрытия модалки
-    const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
+    // Нужны для плавного закрытия модалки
+    const [isClosing, setIsClosing] = useState(false);
+    const [isShown, setIsShown] = useState(false);
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
+            timerRef.current = setTimeout(() => {
+                setIsShown(true);
+            }, 0);
         }
     }, [isOpen]);
 
     const modalMods = {
-        [s.opened]: isOpen,
+        [s.opened]: isShown,
         [s.isClosing]: isClosing,
     };
 
@@ -47,6 +51,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             timerRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
+                setIsShown(false);
             }, ANIMATION_DELAY);
         }
     }, [onClose]);

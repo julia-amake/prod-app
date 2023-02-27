@@ -18,7 +18,7 @@ export function componentRender(component: ReactNode, options: componentRenderOp
     } = options;
 
     return render(
-        <StoreProvider initialState={initialState}>
+        <StoreProvider initialState={initialState as StateSchema}>
             <MemoryRouter initialEntries={[route]}>
                 <I18nextProvider i18n={i18nForTests}>
                     {component}

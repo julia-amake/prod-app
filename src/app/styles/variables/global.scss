@@ -27,6 +27,7 @@
   --inverted-bg-color: #141416;
   --inverted-bg-color-rgb: #{hex-to-rgb(#141416)};
   --primary-color: #3772ff;
+  --primary-color-rgb: #{hex-to-rgb(#3772ff)};
   --primary-color-font: #fcfcfd;
   --primary-color-hover: #2955bf;
   --secondary-color: #777e90;
@@ -35,6 +36,8 @@
   --neutral-color-2-rgb: #{hex-to-rgb(#23262f)};
   --neutral-color-4: #353945;
   --neutral-color-5: #b1b5c3;
+  --error-color: #ef466f;
+  --error-color-rgb: #{hex-to-rgb(#ef466f)};
 
   // z-indexes
   --modal-z-index: 10;

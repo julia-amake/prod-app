@@ -1,0 +1,39 @@
+.heading {
+  display: block;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.size {
+  &_s {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.01em;
+  }
+
+  &_m {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.01em;
+  }
+
+  &_l {
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: 0.02em;
+  }
+
+  &_xl {
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+}
+
+.position {
+  &_center {
+    text-align: center;
+  }
+}

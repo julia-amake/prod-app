@@ -3,12 +3,20 @@
   "Decrement": "Decrement",
   "Increment": "Increment",
   "Loading": "Loading",
+  "Lorem ipsum dolor sit amet": "Lorem ipsum dolor sit amet",
+  "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet": "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
+    " Accusamus animi enim, eum explicabo harum labore odit! Aliquid illum unde veniam!": " Accusamus animi enim, eum explicabo harum labore odit! Aliquid illum unde veniam!"
+  },
   "Введите имя пользователя": "Введите имя пользователя",
   "Введите пароль": "Введите пароль",
   "Войти": "Войти",
+  "Вы ввели неверный логин или пароль": "Вы ввели неверный логин или пароль",
+  "Выйти": "Выйти",
   "Главная": "Главная",
   "Главная страница": "Главная страница",
   "Главная страница23": "Главная страница23",
+  "Заголовок": "Заголовок",
   "Имя пользователя": "Имя пользователя",
   "Лэйбл": "Лэйбл",
   "Модалка": "Модалка",
@@ -21,5 +29,6 @@
   "Сменить тему": "Сменить тему",
   "Страница не найдена": "Страница не найдена",
   "Ура!": "Ура!",
+  "Форма авторизации": "Форма авторизации",
   "Что-то пошло не так": "Что-то пошло не так"
 }

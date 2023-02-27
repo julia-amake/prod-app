@@ -1,18 +1,19 @@
 {
+  "Введите имя пользователя": "Enter user name",
+  "Введите пароль": "Enter password",
+  "Войти": "Sign in",
+  "Вы ввели неверный логин или пароль": "You have entered an incorrect username or password",
   "Главная": "Main",
   "Главная страница": "Главная страница",
+  "Имя пользователя": "User name",
+  "Короткий язык": "En",
   "О сайте": "About",
+  "Обновить страницу": "Refresh the page",
+  "Пароль": "Password",
   "Перевести": "Translate",
   "Развернуть": "Expand",
   "Свернуть": "Collapse",
   "Страница не найдена": "Page not found",
   "Что-то пошло не так": "Something went wrong",
-  "Обновить страницу": "Refresh the page",
-  "Язык": "English",
-  "Короткий язык": "En",
-  "Войти": "Sign in",
-  "Имя пользователя": "User name",
-  "Введите имя пользователя": "Enter user name",
-  "Пароль": "Password",
-  "Введите пароль": "Enter password"
+  "Язык": "English"
 }

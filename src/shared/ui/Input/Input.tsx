@@ -1,5 +1,5 @@
 import React, {
-    FC, InputHTMLAttributes, memo, useEffect, useRef,
+    FC, InputHTMLAttributes, memo,
 } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import s from './Input.module.scss';
@@ -23,21 +23,15 @@ const Input: FC<InputProps> = memo((props) => {
         placeholder,
         value,
         name,
-        autofocus = false,
+        autoFocus = false,
         onChange,
         className,
         ...otherProps
     } = props;
 
-    const ref = useRef<HTMLInputElement>(null);
-
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
-
-    useEffect(() => {
-        if (autofocus) ref.current?.focus();
-    }, [autofocus]);
 
     return (
         <div className={cn(s.wrapper, {}, [className])}>
@@ -49,13 +43,14 @@ const Input: FC<InputProps> = memo((props) => {
                 </div>
             )}
             <input
-                ref={ref}
                 name={name}
                 type={type}
                 value={value}
                 placeholder={placeholder}
                 onChange={onChangeHandler}
                 className={s.field}
+                /* eslint-disable-next-line react/jsx-props-no-spreading */
+                {...(autoFocus ? { autoFocus: true } : {})}
                 /* eslint-disable-next-line react/jsx-props-no-spreading */
                 {...otherProps}
             />

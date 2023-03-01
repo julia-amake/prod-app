@@ -39,6 +39,7 @@ module.exports = {
         'no-shadow': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'warn',
+        'react/jsx-no-useless-fragment': 'warn',
         'react/function-component-definition': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
@@ -52,7 +53,7 @@ module.exports = {
             {
                 ignoreComments: true,
                 ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
-                code: 100,
+                code: 120,
             },
         ],
         'no-console': 'warn',

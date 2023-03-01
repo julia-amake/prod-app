@@ -28,6 +28,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
+        setIsAuthModal(false);
     }, [dispatch]);
 
     if (authData) {
@@ -53,7 +54,12 @@ const Navbar: React.FC<NavbarProps> = (props) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
+            )}
         </div>
     );
 };

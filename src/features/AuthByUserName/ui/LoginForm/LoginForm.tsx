@@ -6,14 +6,22 @@ import Input from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import Informer from 'shared/ui/Informer/Informer';
 import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import s from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string;
 }
+
+const initialReducers: ReducersList = {
+    loginForm: loginReducer,
+};
 
 const LoginForm: React.FC<LoginFormProps> = (props) => {
     const {
@@ -22,9 +30,10 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
 
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const {
-        username, password, error, isLoading,
-    } = useSelector(getLoginState);
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const isLoading = useSelector(getLoginIsLoading);
+    const error = useSelector(getLoginError);
 
     const onChangeUsername = (value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -39,45 +48,51 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
     }, [username, password, dispatch]);
 
     return (
-        <div className={cn(s.loginForm, {}, [className])}>
-            <Heading
-                size={HeadingSize.S}
-                className={s.title}
-            >
-                {t('Войти')}
-            </Heading>
-            <Input
-                type="text"
-                label={t('Имя пользователя')}
-                placeholder={t('Введите имя пользователя')}
-                className={s.input}
-                onChange={onChangeUsername}
-                value={username}
-                autofocus
-            />
-            <Input
-                type="text"
-                label={t('Пароль')}
-                placeholder={t('Введите пароль')}
-                className={s.input}
-                onChange={onChangePassword}
-                value={password}
-            />
-            {error && (
-                <Informer
-                    title={t('Вы ввели неверный логин или пароль')}
-                    isCentered
-                    className={s.error}
+        <DynamicModuleLoader
+            name="loginForm"
+            reducers={initialReducers}
+            removeAfterUnmount
+        >
+            <div className={cn(s.loginForm, {}, [className])}>
+                <Heading
+                    size={HeadingSize.S}
+                    className={s.title}
+                >
+                    {t('Войти')}
+                </Heading>
+                <Input
+                    type="text"
+                    label={t('Имя пользователя')}
+                    placeholder={t('Введите имя пользователя')}
+                    className={s.input}
+                    onChange={onChangeUsername}
+                    value={username}
+                    autoFocus
                 />
-            )}
-            <Button
-                onClick={onLoginClick}
-                className={s.loginBtn}
-                disabled={isLoading}
-            >
-                {t('Войти')}
-            </Button>
-        </div>
+                <Input
+                    type="text"
+                    label={t('Пароль')}
+                    placeholder={t('Введите пароль')}
+                    className={s.input}
+                    onChange={onChangePassword}
+                    value={password}
+                />
+                {error && (
+                    <Informer
+                        title={t('Вы ввели неверный логин или пароль')}
+                        isCentered
+                        className={s.error}
+                    />
+                )}
+                <Button
+                    onClick={onLoginClick}
+                    className={s.loginBtn}
+                    disabled={isLoading}
+                >
+                    {t('Войти')}
+                </Button>
+            </div>
+        </DynamicModuleLoader>
     );
 };
 

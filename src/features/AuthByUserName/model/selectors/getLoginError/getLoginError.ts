@@ -4,5 +4,5 @@ import { getLoginState } from '../getLoginState/getLoginState';
 
 export const getLoginError = createSelector(
     getLoginState,
-    (loginForm: LoginSchema) => loginForm?.error,
+    (loginForm: LoginSchema) => loginForm.error,
 );

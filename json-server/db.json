@@ -15,5 +15,14 @@
       "password":  "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "Yulia",
+    "lastname": "Starchenko",
+    "age": 36,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Sochi",
+    "username": "admin",
+    "avatar": "https://avatars.githubusercontent.com/u/11091224"
+  }
 }

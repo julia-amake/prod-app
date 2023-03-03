@@ -28,7 +28,6 @@ const Navbar: React.FC<NavbarProps> = (props) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
-        setIsAuthModal(false);
     }, [dispatch]);
 
     if (authData) {

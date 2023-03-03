@@ -25,7 +25,7 @@ const LoginModal: React.FC<LoginModalProps> = (props) => {
             className={cn('', {}, [className])}
         >
             <Suspense fallback={<Preloader />}>
-                <LoginForm />
+                <LoginForm onSuccess={onClose} />
             </Suspense>
         </Modal>
     );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import NightOn from 'shared/assets/icons/NightOn.svg';
@@ -11,7 +11,7 @@ interface ThemeSwitcherProps {
     className?: string;
 }
 
-const ThemeSwitcher: React.FC<ThemeSwitcherProps> = (props) => {
+const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
     const { className } = props;
 
     const { theme, toggleTheme } = useTheme();
@@ -29,6 +29,6 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = (props) => {
                 : <NightOn className={s.icon} />}
         </Button>
     );
-};
+});
 
 export default ThemeSwitcher;

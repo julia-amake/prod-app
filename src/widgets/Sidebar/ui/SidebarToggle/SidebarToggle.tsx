@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, memo, SetStateAction } from 'react';
 import Button, { ButtonShape, ButtonSize } from 'shared/ui/Button/Button';
 import ArrowRight from 'shared/assets/icons/ArrowRightSimpleLine.svg';
 import ArrowLeft from 'shared/assets/icons/ArrowLeftSimpleLine.svg';
@@ -11,7 +11,7 @@ interface SidebarToggleProps {
     setCollapsed: Dispatch<SetStateAction<boolean>>;
 }
 
-const SidebarToggle: React.FC<SidebarToggleProps> = (props) => {
+const SidebarToggle = memo((props: SidebarToggleProps) => {
     const {
         collapsed,
         setCollapsed,
@@ -38,6 +38,6 @@ const SidebarToggle: React.FC<SidebarToggleProps> = (props) => {
                 : <ArrowLeft className={s.icon} />}
         </Button>
     );
-};
+});
 
 export default SidebarToggle;

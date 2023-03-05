@@ -1,7 +1,6 @@
-import React, {
-    FC, InputHTMLAttributes, memo,
-} from 'react';
+import React, { InputHTMLAttributes, memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 import s from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>,
@@ -16,7 +15,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-const Input: FC<InputProps> = memo((props) => {
+const Input = memo((props: InputProps) => {
     const {
         type = 'text',
         label,
@@ -29,6 +28,8 @@ const Input: FC<InputProps> = memo((props) => {
         ...otherProps
     } = props;
 
+    const { t } = useTranslation();
+
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
@@ -39,14 +40,14 @@ const Input: FC<InputProps> = memo((props) => {
                 <div
                     className={s.label}
                 >
-                    {label}
+                    {t(label)}
                 </div>
             )}
             <input
                 name={name}
                 type={type}
                 value={value}
-                placeholder={placeholder}
+                placeholder={t(placeholder)}
                 onChange={onChangeHandler}
                 className={s.field}
                 /* eslint-disable-next-line react/jsx-props-no-spreading */

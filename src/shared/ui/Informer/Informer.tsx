@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import InfoLine from 'shared/assets/icons/InfoLine.svg';
 import { RequireAtLeastOne } from 'shared/lib/tsUtils';
@@ -19,7 +19,7 @@ interface InformerPropsBase {
 }
 type InformerProps = RequireAtLeastOne<InformerPropsBase, 'title' | 'text'>
 
-const Informer: React.FC<InformerProps> = (props) => {
+const Informer = memo((props: InformerProps) => {
     const {
         status = InformerStatuses.ERROR,
         title,
@@ -45,6 +45,6 @@ const Informer: React.FC<InformerProps> = (props) => {
             </div>
         </div>
     );
-};
+});
 
 export default Informer;

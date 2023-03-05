@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import Button, { ButtonSize } from 'shared/ui/Button/Button';
@@ -11,7 +11,7 @@ interface NavbarProps {
     className?: string;
 }
 
-const Navbar: React.FC<NavbarProps> = (props) => {
+const Navbar = memo((props:NavbarProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
@@ -28,6 +28,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
+        setIsAuthModal(false);
     }, [dispatch]);
 
     if (authData) {
@@ -61,6 +62,6 @@ const Navbar: React.FC<NavbarProps> = (props) => {
             )}
         </div>
     );
-};
+});
 
 export default Navbar;

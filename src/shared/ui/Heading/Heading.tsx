@@ -1,4 +1,4 @@
-import React, { ElementType, ReactNode } from 'react';
+import React, { ElementType, memo, ReactNode } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import s from './Heading.module.scss';
 
@@ -22,7 +22,7 @@ interface HeadingProps {
     className?: string;
 }
 
-const Heading: React.FC<HeadingProps> = (props) => {
+const Heading = memo((props: HeadingProps) => {
     const {
         as: Tag = 'p',
         children,
@@ -36,6 +36,6 @@ const Heading: React.FC<HeadingProps> = (props) => {
             {children}
         </Tag>
     );
-};
+});
 
 export default Heading;

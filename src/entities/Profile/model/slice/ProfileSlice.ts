@@ -4,8 +4,8 @@ import { ProfileSchema } from '../types/profile';
 const initialState: ProfileSchema = {
     readonly: true,
     isLoading: false,
-    error: undefined,
-    data: undefined,
+    error: null,
+    data: null,
 };
 
 export const ProfileSlice = createSlice({

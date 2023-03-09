@@ -12,7 +12,7 @@ interface NavbarProps {
 }
 
 const Navbar = memo((props:NavbarProps) => {
-    const { className } = props;
+    const { className = '' } = props;
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
@@ -35,12 +35,11 @@ const Navbar = memo((props:NavbarProps) => {
         return (
             <div className={cn(s.navbar, {}, [className])}>
                 <Button
+                    label={t('Выйти')}
                     size={ButtonSize.M}
                     onClick={onLogout}
                     type="button"
-                >
-                    {t('Выйти')}
-                </Button>
+                />
             </div>
         );
     }
@@ -48,12 +47,11 @@ const Navbar = memo((props:NavbarProps) => {
     return (
         <div className={cn(s.navbar, {}, [className])}>
             <Button
+                label={t('Войти')}
                 size={ButtonSize.M}
                 onClick={onOpenModal}
                 type="button"
-            >
-                {t('Войти')}
-            </Button>
+            />
             {isAuthModal && (
                 <LoginModal
                     isOpen={isAuthModal}

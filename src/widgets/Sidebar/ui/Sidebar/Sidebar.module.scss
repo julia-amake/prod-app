@@ -28,14 +28,11 @@
 }
 
 .themeSwitcher {
-  margin-right: 8px;
+  margin-right: 16px;
 
   .collapsed & {
     margin-right: 0;
-  }
-
-  svg {
-    fill: var(--bg-color);
+    margin-bottom: 8px;
   }
 }
 

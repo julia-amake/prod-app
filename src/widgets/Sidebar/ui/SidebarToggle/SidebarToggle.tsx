@@ -1,4 +1,6 @@
-import React, { Dispatch, memo, SetStateAction } from 'react';
+import React, {
+    Dispatch, memo, SetStateAction,
+} from 'react';
 import Button, { ButtonShape, ButtonSize } from 'shared/ui/Button/Button';
 import ArrowRight from 'shared/assets/icons/ArrowRightSimpleLine.svg';
 import ArrowLeft from 'shared/assets/icons/ArrowLeftSimpleLine.svg';
@@ -29,14 +31,13 @@ const SidebarToggle = memo((props: SidebarToggleProps) => {
             title={t(collapsed ? 'Развернуть' : 'Свернуть')}
             shape={ButtonShape.SQUARE}
             size={ButtonSize.L}
-            iconOnly
+            icon={{
+                element: collapsed ? ArrowRight : ArrowLeft,
+                className: s.icon,
+            }}
             onClick={onToggle}
             data-testid="sidebar-toggle"
-        >
-            {collapsed
-                ? <ArrowRight className={s.icon} />
-                : <ArrowLeft className={s.icon} />}
-        </Button>
+        />
     );
 });
 

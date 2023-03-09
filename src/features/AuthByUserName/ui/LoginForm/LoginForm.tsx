@@ -28,7 +28,7 @@ const initialReducers: ReducersList = {
 const LoginForm = memo((props: LoginFormProps) => {
     const {
         onSuccess,
-        className,
+        className = '',
     } = props;
 
     const { t } = useTranslation();
@@ -88,12 +88,11 @@ const LoginForm = memo((props: LoginFormProps) => {
                 />
             )}
             <Button
+                label={t('Войти')}
                 onClick={onLoginClick}
                 className={s.loginBtn}
                 disabled={isLoading}
-            >
-                {t('Войти')}
-            </Button>
+            />
         </div>
     );
 });

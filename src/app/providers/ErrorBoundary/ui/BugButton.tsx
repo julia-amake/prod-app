@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ButtonThrow from 'shared/ui/Button/Button';
+import Button from 'shared/ui/Button/Button';
 
 // Component for testing ErrorBoundary
 const BugButton = () => {
@@ -14,9 +14,10 @@ const BugButton = () => {
     }, [error]);
 
     return (
-        <ButtonThrow onClick={onThrow}>
-            Throw Error
-        </ButtonThrow>
+        <Button
+            label="Throw Error"
+            onClick={onThrow}
+        />
     );
 };
 

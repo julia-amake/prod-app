@@ -12,7 +12,7 @@ interface SidebarProps {
 }
 
 const Sidebar = memo((props: SidebarProps) => {
-    const { className } = props;
+    const { className = '' } = props;
     const [collapsed, setCollapsed] = useState(false);
 
     return (
@@ -34,7 +34,7 @@ const Sidebar = memo((props: SidebarProps) => {
                 ))}
             </div>
             <div className={s.actions}>
-                <ThemeSwitcher className={s.themeSwitcher} />
+                <ThemeSwitcher className={s.themeSwitcher} isInvertedColor />
                 <LangSwitcher isShort={collapsed} />
             </div>
             <SidebarToggle collapsed={collapsed} setCollapsed={setCollapsed} />

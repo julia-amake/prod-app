@@ -1,4 +1,6 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import React, {
+    ButtonHTMLAttributes, memo, useEffect, useMemo, useState,
+} from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import s from './Button.module.scss';
 
@@ -9,14 +11,26 @@ export enum ButtonTheme {
 }
 
 export enum ButtonShape {
-    ROUND = 'shape-rounded',
-    SQUARE = 'shape-square'
+    ROUND = 'shape_rounded',
+    SQUARE = 'shape_square'
+}
+
+export enum IconPosition {
+    LEFT = 'position_left',
+    RIGHT = 'position_right'
 }
 
 export enum ButtonSize {
-    S= 'size-s',
-    M= 'size-m',
-    L= 'size-l'
+    S= 'size_s',
+    M= 'size_m',
+    L= 'size_l'
+}
+
+interface ButtonIcon {
+    element: React.VFC<React.SVGProps<SVGSVGElement>>;
+    position?: IconPosition;
+    size?: ButtonSize;
+    className?: string;
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -24,10 +38,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ButtonTheme;
     shape?: ButtonShape;
     size?: ButtonSize;
-    iconOnly?: boolean;
     disabled?: boolean;
     isLoading?: boolean;
-    children: ReactNode;
+    label?: string;
+    icon?: ButtonIcon;
+    children?: never;
 }
 
 const Button = memo((props: ButtonProps) => {
@@ -35,30 +50,54 @@ const Button = memo((props: ButtonProps) => {
         theme = ButtonTheme.PRIMARY,
         shape = ButtonShape.ROUND,
         size = ButtonSize.L,
-        iconOnly = false,
         className = '',
-        children,
+        label = '',
+        icon,
         disabled = false,
         isLoading = false,
         ...otherProps
     } = props;
+
+    const [currIcon, setCurrIcon] = useState<ButtonIcon | null>(null);
+
+    useEffect(() => {
+        if (!icon) return;
+
+        setCurrIcon({
+            element: icon.element,
+            size: icon.size || size,
+            position: (!icon.position && label) ? IconPosition.RIGHT : icon.position,
+            className: icon.className || '',
+        });
+    }, [label, icon, size]);
+
+    const Icon = useMemo(() => currIcon?.element, [currIcon]);
 
     return (
         <button
             className={cn(
                 s.button,
                 {
-                    [s.iconOnly]: iconOnly,
+                    // todo разобраться с as boolean
+                    [s.iconOnly]: (Icon && !label) as boolean,
                     [s.button_disabled]: isLoading || disabled,
+                    [s.button_reverse]: icon?.position === IconPosition.LEFT,
                 },
                 [className, s[theme], s[shape], s[size]],
             )}
             type="button"
             disabled={disabled || isLoading}
-            /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...otherProps}
         >
-            {children}
+            {label && <span>{label}</span>}
+            {Icon && (
+                <Icon className={cn(
+                    s.icon,
+                    { [s[`icon_${currIcon?.position}`]]: label },
+                    [s[`icon_${currIcon?.size}`], currIcon?.className],
+                )}
+                />
+            )}
         </button>
     );
 });

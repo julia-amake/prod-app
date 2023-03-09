@@ -12,7 +12,7 @@ interface LangSwitcherProps {
 const LangSwitcher = memo((props: LangSwitcherProps) => {
     const {
         isShort,
-        className,
+        className = '',
     } = props;
 
     const { t, i18n } = useTranslation();
@@ -23,12 +23,11 @@ const LangSwitcher = memo((props: LangSwitcherProps) => {
 
     return (
         <Button
+            label={t(isShort ? 'Короткий язык' : 'Язык')}
             theme={ButtonTheme.CLEAR}
             className={cn(s.langSwitcher, {}, [className])}
             onClick={toggleLang}
-        >
-            {t(isShort ? 'Короткий язык' : 'Язык')}
-        </Button>
+        />
     );
 });
 

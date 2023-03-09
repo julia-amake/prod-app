@@ -3,11 +3,7 @@ import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import s from './NotFoundPage.module.scss';
 
-interface NotFoundPageProps {
-
-}
-
-const NotFoundPage: React.FC<NotFoundPageProps> = () => {
+const NotFoundPage: React.FC = () => {
     const { t } = useTranslation();
 
     return (

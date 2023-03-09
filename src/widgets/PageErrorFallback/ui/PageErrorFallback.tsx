@@ -9,7 +9,7 @@ interface PageErrorFallbackProps {
 }
 
 const PageErrorFallback: React.FC<PageErrorFallbackProps> = (props) => {
-    const { className } = props;
+    const { className = '' } = props;
     const { t } = useTranslation();
 
     const onReloadPage = () => window.location.reload();
@@ -17,9 +17,10 @@ const PageErrorFallback: React.FC<PageErrorFallbackProps> = (props) => {
     return (
         <div className={cn(s.outer, {}, [className])}>
             <h1 className={s.title}>{t('Что-то пошло не так')}</h1>
-            <Button onClick={onReloadPage}>
-                {t('Обновить страницу')}
-            </Button>
+            <Button
+                label={t('Обновить страницу')}
+                onClick={onReloadPage}
+            />
         </div>
     );
 };

@@ -14,7 +14,7 @@ const LoginModal: React.FC<LoginModalProps> = (props) => {
     const {
         isOpen,
         onClose,
-        className,
+        className = '',
     } = props;
 
     return (

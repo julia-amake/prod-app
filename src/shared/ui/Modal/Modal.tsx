@@ -1,7 +1,7 @@
 import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
+import { cn, Mode } from 'shared/lib/classNames/classNames';
 import Portal from 'shared/ui/Portal/Portal';
 import s from './Modal.module.scss';
 
@@ -19,7 +19,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     const {
         isOpen,
         onClose,
-        className,
+        className = '',
         children,
         lazy = false,
     } = props;
@@ -40,7 +40,7 @@ const Modal: React.FC<ModalProps> = (props) => {
         }
     }, [isOpen]);
 
-    const modalMods = {
+    const modalMods: Mode = {
         [s.opened]: isShown,
         [s.isClosing]: isClosing,
     };

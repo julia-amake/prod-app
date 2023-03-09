@@ -7,7 +7,7 @@ interface PreloaderProps {
 }
 
 const Preloader: React.FC<PreloaderProps> = (props) => {
-    const { className } = props;
+    const { className = '' } = props;
 
     return (
         <div className={cn(s.preloader, {}, [className])}>

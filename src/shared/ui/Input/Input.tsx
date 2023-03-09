@@ -19,12 +19,12 @@ const Input = memo((props: InputProps) => {
     const {
         type = 'text',
         label,
-        placeholder,
+        placeholder = '',
         value,
         name,
         autoFocus = false,
         onChange,
-        className,
+        className = '',
         ...otherProps
     } = props;
 

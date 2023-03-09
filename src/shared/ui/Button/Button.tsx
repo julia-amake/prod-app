@@ -21,9 +21,9 @@ export enum IconPosition {
 }
 
 export enum ButtonSize {
-    S= 'size_s',
-    M= 'size_m',
-    L= 'size_l'
+    S = 'size_s',
+    M = 'size_m',
+    L = 'size_l'
 }
 
 interface ButtonIcon {
@@ -33,7 +33,8 @@ interface ButtonIcon {
     className?: string;
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes
+    <HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
     shape?: ButtonShape;
@@ -89,7 +90,7 @@ const Button = memo((props: ButtonProps) => {
             disabled={disabled || isLoading}
             {...otherProps}
         >
-            {label && <span>{label}</span>}
+            {label && (Icon ? <span>{label}</span> : label)}
             {Icon && (
                 <Icon className={cn(
                     s.icon,

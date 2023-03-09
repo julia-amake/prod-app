@@ -5,5 +5,5 @@ export interface User {
 
 // state:
 export interface UserSchema {
-    authData?: User;
+    authData?: User | null;
 }

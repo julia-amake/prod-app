@@ -9,7 +9,7 @@ interface PageLoaderProps {
 
 const ContentLoader: React.FC<PageLoaderProps> = (props) => {
     const {
-        className,
+        className = '',
     } = props;
 
     return (

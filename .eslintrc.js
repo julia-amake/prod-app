@@ -38,7 +38,7 @@ module.exports = {
         'react/require-default-props': 'off',
         'no-shadow': 'off',
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-props-no-spreading': 'warn',
+        'react/jsx-props-no-spreading': 'off',
         'react/jsx-no-useless-fragment': 'warn',
         'react/function-component-definition': 'off',
         'react-hooks/rules-of-hooks': 'error',
@@ -53,10 +53,11 @@ module.exports = {
             {
                 ignoreComments: true,
                 ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
-                code: 120,
+                code: 130,
             },
         ],
         'no-console': 'warn',
+        'no-undef': 'off',
         'i18next/no-literal-string': [
             2, {
                 markupOnly: true,
@@ -70,6 +71,7 @@ module.exports = {
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
         React: true,
     },
     overrides: [

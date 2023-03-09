@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import InfoLine from 'shared/assets/icons/InfoLine.svg';
-import { RequireAtLeastOne } from 'shared/lib/tsUtils';
 import s from './Informer.module.scss';
 
 export enum InformerStatuses {
@@ -9,7 +8,7 @@ export enum InformerStatuses {
     ERROR = 'status_error'
 }
 
-interface InformerPropsBase {
+interface InformerProps {
     status?: InformerStatuses;
     title? : string;
     text?: string;
@@ -17,7 +16,6 @@ interface InformerPropsBase {
     showIcon?: boolean;
     isCentered?: boolean;
 }
-type InformerProps = RequireAtLeastOne<InformerPropsBase, 'title' | 'text'>
 
 const Informer = memo((props: InformerProps) => {
     const {

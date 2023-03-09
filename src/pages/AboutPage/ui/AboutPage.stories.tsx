@@ -10,14 +10,11 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-
-    },
 } as ComponentMeta<typeof AboutPage>;
 
-const Template: ComponentStory<typeof AboutPage> = (args) => (
+const Template: ComponentStory<typeof AboutPage> = () => (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <AboutPage {...args} />
+    <AboutPage />
 );
 
 export const Normal = Template.bind({});

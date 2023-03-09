@@ -30,7 +30,6 @@ const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
             icon={{
                 element: theme === Theme.DARK ? NightOff : NightOn,
                 className: cn('', { [s.inverted]: isInvertedColor }, [s.icon]),
-                size: ButtonSize.M,
             }}
         />
     );

@@ -38,23 +38,15 @@
   }
 }
 
-.clear {
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
-  background: none;
-  border-radius: 0;
-}
-
 .iconOnly {
   padding: 0 !important;
 }
 
 .size {
   &_s {
-    padding: 4px 16px;
-    font-size: var(--font-size-s);
-    line-height: var(--font-line-s);
+    padding: 0 12px;
+    font-size: 14px;
+    line-height: 32px;
   }
 
   &_m {
@@ -95,6 +87,14 @@
   }
 }
 
+.clear {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+  background: none;
+  border-radius: 0;
+}
+
 .icon {
   .primary & {
     fill: var(--primary-color-font);
@@ -118,25 +118,25 @@
       height: 16px;
 
       &.icon_position_left {
-        margin-right: 12px;
+        margin-right: 8px;
       }
 
       &.icon_position_right {
-        margin-left: 12px;
+        margin-left: 8px;
       }
     }
 
     &_m {
-      width: 24px;
-      height: 24px;
+      width: 16px;
+      height: 16px;
 
       &.icon_position {
         &_left {
-          margin-right: 16px;
+          margin-right: 12px;
         }
 
         &_right {
-          margin-left: 16px;
+          margin-left: 12px;
         }
       }
     }

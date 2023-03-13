@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  margin-right: 16px;
+}

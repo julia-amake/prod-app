@@ -1,6 +1,5 @@
 import React, { InputHTMLAttributes, memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import s from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>,
@@ -8,9 +7,10 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>,
 interface InputProps extends HTMLInputProps {
     className?: string;
     type?: string;
-    value?: string;
+    value?: string | number;
     label?: string;
     placeholder?: string;
+    readOnly?: boolean;
     autofocus?: boolean;
     onChange?: (value: string) => void;
 }
@@ -22,13 +22,12 @@ const Input = memo((props: InputProps) => {
         placeholder = '',
         value,
         name,
+        readOnly = false,
         autoFocus = false,
         onChange,
         className = '',
         ...otherProps
     } = props;
-
-    const { t } = useTranslation();
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
@@ -40,19 +39,18 @@ const Input = memo((props: InputProps) => {
                 <div
                     className={s.label}
                 >
-                    {t(label)}
+                    {label}
                 </div>
             )}
             <input
                 name={name}
                 type={type}
                 value={value}
-                placeholder={t(placeholder)}
+                placeholder={placeholder}
                 onChange={onChangeHandler}
-                className={s.field}
-                /* eslint-disable-next-line react/jsx-props-no-spreading */
+                className={cn(s.field, { [s.readonly]: readOnly }, [])}
+                readOnly={readOnly}
                 {...(autoFocus ? { autoFocus: true } : {})}
-                /* eslint-disable-next-line react/jsx-props-no-spreading */
                 {...otherProps}
             />
         </div>

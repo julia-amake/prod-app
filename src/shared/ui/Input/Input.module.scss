@@ -1,5 +1,3 @@
-// .wrapper {}
-
 .label {
   padding-left: 2px;
   margin-bottom: 1em;
@@ -28,4 +26,9 @@
     font-family: var(--font-family-secondary);
     color: var(--secondary-color);
   }
+}
+
+.readonly {
+  opacity: 0.5;
+  cursor: auto;
 }

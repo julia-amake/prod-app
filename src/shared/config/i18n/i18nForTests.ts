@@ -7,6 +7,7 @@ i18n
         lng: 'ru',
         fallbackLng: 'ru',
         debug: false,
+        returnNull: false,
 
         interpolation: {
             escapeValue: false, // not needed for react!!

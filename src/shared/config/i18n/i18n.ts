@@ -12,6 +12,7 @@ i18n
         fallbackLng: 'ru',
         supportedLngs: ['en', 'ru'],
         debug: __IS_DEV__,
+        returnNull: false,
 
         interpolation: {
             escapeValue: false,

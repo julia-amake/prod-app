@@ -2,6 +2,7 @@
   "Введите имя пользователя": "Enter user name",
   "Введите пароль": "Enter password",
   "Войти": "Sign in",
+  "Выйти": "Log out",
   "Вы ввели неверный логин или пароль": "You have entered an incorrect username or password",
   "Главная": "Main",
   "Главная страница": "Главная страница",
@@ -9,13 +10,18 @@
   "Короткий язык": "En",
   "О сайте": "About",
   "Обновить страницу": "Refresh the page",
+  "Отменить": "Cancel",
   "Пароль": "Password",
   "Перевести": "Translate",
+  "Переключить тему": "Switch theme",
+  "Попробуйте_обновить_страницу": "Try refreshing the page",
   "Профиль": "Profile",
   "Развернуть": "Expand",
   "Редактировать": "Edit",
   "Свернуть": "Collapse",
+  "Сохранить": "Save",
   "Страница не найдена": "Page not found",
   "Что-то пошло не так": "Something went wrong",
-  "Язык": "English"
+  "Язык": "English",
+  "Страна": "Country"
 }

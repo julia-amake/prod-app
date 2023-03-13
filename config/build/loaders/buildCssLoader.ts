@@ -18,6 +18,7 @@ export function buildCssLoader(isDev: boolean) {
                     },
                 },
             },
+            'postcss-loader',
             // Compiles Sass to CSS
             'sass-loader',
         ],

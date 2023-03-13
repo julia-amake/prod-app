@@ -1,0 +1,36 @@
+.label {
+  padding-left: 2px;
+  margin-bottom: 1em;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--neutral-color-5);
+}
+
+.select {
+  width: 100%;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  color: var(--inverted-bg-color);
+  font-weight: 500;
+  font-size: var(--font-size-s);
+  line-height: var(--font-line-s);
+  font-family: var(--font-family-secondary);
+  outline: none;
+  border: 2px solid var(--devider-color);
+  border-radius: 12px;
+  text-align: left;
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url("shared/assets/icons/ArrowDownLine.svg");
+  background-size: 24px 24px;
+  background-position: center right 10px;
+  background-repeat: no-repeat;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: auto;
+}

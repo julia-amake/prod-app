@@ -23,5 +23,10 @@
   "Страница не найдена": "Page not found",
   "Что-то пошло не так": "Something went wrong",
   "Язык": "English",
-  "Страна": "Country"
+  "Страна": "Country",
+  "Серверная ошибка при сохранении": "Server error when saving",
+  "Данные не указаны": "No date specified",
+  "Имя и фамилия обязательны": "First and last name are required",
+  "Некорректный возраст": "Incorrect age",
+  "Некорректный регион": "Incorrect country"
 }

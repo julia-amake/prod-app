@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import {
     fetchProfileData,
@@ -6,6 +6,7 @@ import {
     getProfileFormData,
     getProfileIsLoading,
     getProfileReadonly,
+    getProfileValidateErrors,
     profileActions,
     ProfileCard,
     profileReducer,
@@ -15,7 +16,11 @@ import { useSelector } from 'react-redux';
 import { IntegerValidation } from 'shared/lib/utils/validations';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import Informer from 'shared/ui/Informer/Informer';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { useTranslation } from 'react-i18next';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
+import s from './ProfilePage.module.scss';
 
 const initialReducers: ReducersList = {
     profile: profileReducer,
@@ -29,6 +34,32 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const dispatch = useAppDispatch();
+
+    const { t } = useTranslation();
+
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorTranslations = useMemo(() => ({
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }), []);
+
+    const errorsList = useMemo(() => (
+        <ul className={s.errors}>
+            {validateErrors?.map((err) => (
+                <li
+                    className={s.errorsItem}
+                    key={err}
+                >
+                    {validateErrorTranslations[err]}
+                </li>
+            ))}
+        </ul>
+    ), [validateErrors, validateErrorTranslations]);
 
     useDynamicModuleLoader(initialReducers, true);
 
@@ -114,6 +145,15 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
                 readonly={readonly}
                 isLoading={isLoading}
             />
+            {validateErrors?.length
+                ? (
+                    <Informer
+                        text={errorsList}
+                        isCentered={validateErrors.length === 1}
+                        className={s.errorInformer}
+                    />
+                )
+                : null}
             <ProfileCard
                 data={formData}
                 isLoading={isLoading}

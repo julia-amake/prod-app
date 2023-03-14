@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import InfoLine from 'shared/assets/icons/InfoLine.svg';
 import s from './Informer.module.scss';
@@ -11,7 +11,7 @@ export enum InformerStatuses {
 interface InformerProps {
     status?: InformerStatuses;
     title? : string;
-    text?: string;
+    text?: string | ReactNode;
     className?: string;
     showIcon?: boolean;
     isCentered?: boolean;

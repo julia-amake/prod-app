@@ -64,6 +64,7 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
     useDynamicModuleLoader(initialReducers, true);
 
     useEffect(() => {
+        if (__PROJECT__ === 'storybook') return;
         dispatch(fetchProfileData());
     }, [dispatch]);
 

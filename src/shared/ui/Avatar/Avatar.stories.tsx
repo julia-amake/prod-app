@@ -2,14 +2,14 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import avatarSrc from 'shared/assets/tests/avatar.jpeg';
+import { AVATAR } from 'shared/consts/tests';
 import Avatar from './Avatar';
 
 export default {
     title: 'shared/Avatar',
     component: Avatar,
     args: {
-        src: avatarSrc,
+        src: AVATAR,
     },
 } as ComponentMeta<typeof Avatar>;
 

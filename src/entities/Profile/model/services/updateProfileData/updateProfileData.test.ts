@@ -1,8 +1,8 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import avatar from 'shared/assets/tests/avatar.jpeg';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { AVATAR } from 'shared/consts/tests';
 import { updateProfileData } from './updateProfileData';
 
 const profileData = {
@@ -13,7 +13,7 @@ const profileData = {
     country: Country.ARMENIA,
     city: 'City',
     username: 'admin',
-    avatar,
+    avatar: AVATAR,
 };
 
 describe('updateProfileData.test', () => {

@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import avatarSrc from 'shared/assets/tests/avatar.jpeg';
+import { AVATAR } from 'shared/consts/tests';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -22,7 +22,7 @@ export default {
                 country: Country.UKRAINE,
                 city: 'Город',
                 username: 'admin',
-                avatar: avatarSrc,
+                avatar: AVATAR,
             },
         },
     })],

@@ -1,6 +1,6 @@
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import avatar from 'shared/assets/tests/avatar.jpeg';
+import { AVATAR } from 'shared/consts/tests';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema, ValidateProfileError } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
@@ -13,7 +13,7 @@ const profileData = {
     country: Country.ARMENIA,
     city: 'City',
     username: 'admin',
-    avatar,
+    avatar: AVATAR,
 };
 
 describe('profileSlice.test', () => {

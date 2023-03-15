@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import avatarSrc from 'shared/assets/tests/avatar.jpeg';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { AVATAR } from 'shared/consts/tests';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -19,7 +19,7 @@ export default {
             country: Country.UKRAINE,
             city: 'Город',
             username: 'admin',
-            avatar: avatarSrc,
+            avatar: AVATAR,
         },
     },
 } as ComponentMeta<typeof ProfileCard>;

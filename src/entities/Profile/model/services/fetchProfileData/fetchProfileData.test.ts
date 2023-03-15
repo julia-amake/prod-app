@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import avatar from 'shared/assets/tests/avatar.jpeg';
+import { AVATAR } from 'shared/consts/tests';
 import { fetchProfileData } from './fetchProfileData';
 
 const profileData = {
@@ -12,7 +12,7 @@ const profileData = {
     country: Country.ARMENIA,
     city: 'City',
     username: 'admin',
-    avatar,
+    avatar: AVATAR,
 };
 
 describe('fetchProfileData.test', () => {

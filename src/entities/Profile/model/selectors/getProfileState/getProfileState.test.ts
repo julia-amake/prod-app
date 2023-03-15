@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import avatar from 'shared/assets/tests/avatar.jpeg';
+import { AVATAR } from 'shared/consts/tests';
 import { getProfileState } from './getProfileState';
 
 describe('getProfileState.test', () => {
@@ -14,7 +14,7 @@ describe('getProfileState.test', () => {
             country: Country.ARMENIA,
             city: 'City',
             username: 'admin',
-            avatar,
+            avatar: AVATAR,
         };
 
         const profileState = {

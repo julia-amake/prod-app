@@ -1,0 +1,20 @@
+@import "./src/app/styles/helpers/helpers";
+
+.app_theme_colored {
+  --bg-color: #3772ff;
+  --bg-color-rgb: #{hex-to-rgb(#3772ff)};
+  --inverted-bg-color: #fcfcfd;
+  --inverted-bg-color-rgb: #{hex-to-rgb(#fcfcfd)};
+  --secondary-color: #729bfc;
+  --devider-color: #c2cbe7;
+  --neutral-color-2: #fcfcfd;
+  --neutral-color-2-rgb: #{hex-to-rgb(#fcfcfd)};
+  --primary-color: #fcfcfd;
+  --primary-color-rgb: #{hex-to-rgb(#fcfcfd)};
+  --primary-color-font: #141416;
+  --primary-color-hover: #e0ebff;
+  --neutral-color-5: #d4d8e8;
+  --error-color: #f61344;
+  --error-color-rgb: #{hex-to-rgb(#f61344)};
+  --sidebar-bg: #141416;
+}

@@ -28,8 +28,13 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
         if (classNames.contains(theme)) return;
         if (theme === Theme.LIGHT) {
             classNames.remove(Theme.DARK);
+            classNames.remove(Theme.COLORED);
+        } else if (theme === Theme.DARK) {
+            classNames.remove(Theme.LIGHT);
+            classNames.remove(Theme.COLORED);
         } else {
             classNames.remove(Theme.LIGHT);
+            classNames.remove(Theme.DARK);
         }
         classNames.add(theme);
     }, [theme]);

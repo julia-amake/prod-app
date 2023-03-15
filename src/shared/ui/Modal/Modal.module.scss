@@ -68,3 +68,9 @@
     color: var(--bg-color);
   }
 }
+
+:global(.app_theme_colored) {
+  .overlay {
+    background: rgba(var(--neutral-color-2-rgb), 0.9);
+  }
+}

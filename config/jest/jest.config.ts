@@ -10,6 +10,7 @@ export default {
     globals: {
         __IS_DEV__: true,
         __API__: '',
+        __PROJECT__: 'jest',
     },
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
@@ -49,6 +50,9 @@ export default {
     moduleNameMapper: {
         '\\.(s?css)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '\\.jpg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '\\.jpeg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '\\.png': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
 
     // All imported modules in your tests should be mocked automatically

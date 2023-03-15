@@ -6,10 +6,10 @@ export {
 export {
     profileActions,
     profileReducer,
-} from './model/slice/ProfileSlice';
+} from './model/slice/profileSlice';
 
-export { fetchProfileData } from './model/serveces/fetchProfileData/fetchProfileData';
-export { updateProfileData } from './model/serveces/updateProfileData/updateProfileData';
+export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
+export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 export { getProfileData } from './model/selectors/getProfileData/getProfileData';
 export { getProfileFormData } from './model/selectors/getProfileFormData/getProfileFormData';
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';

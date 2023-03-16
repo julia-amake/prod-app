@@ -20,6 +20,7 @@ export function buildWebpackConfig(options: BuildOptions)
             filename: '[name].[contenthash].js',
             // куда сохранять сборку:
             path: paths.build,
+            publicPath: '/',
             // подчищать сборку от лишних/старых файлов
             clean: true,
         },

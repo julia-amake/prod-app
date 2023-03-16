@@ -28,5 +28,6 @@
   "Данные не указаны": "No date specified",
   "Имя и фамилия обязательны": "First and last name are required",
   "Некорректный возраст": "Incorrect age",
-  "Некорректный регион": "Incorrect country"
+  "Некорректный регион": "Incorrect country",
+  "Статьи": "Posts"
 }

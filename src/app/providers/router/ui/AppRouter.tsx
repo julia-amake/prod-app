@@ -1,28 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
-import { memo, useMemo } from 'react';
+import { memo, useCallback } from 'react';
+import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
 
 const AppRouter = memo(() => {
-    const isAuth = useSelector(getUserAuthData);
-    const routes = useMemo(() => Object.values(routeConfig).filter((route) => {
-        if (route.authOnly && !isAuth) {
-            return false;
-        }
-        return true;
-    }), [isAuth]);
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => (
+        <Route
+            key={route.path}
+            path={route.path}
+            /* eslint-disable-next-line react/jsx-no-useless-fragment */
+            element={route.authOnly ? <RequireAuth><>{route.element}</></RequireAuth> : route.element}
+        />
+    ), []);
 
     return (
         <Routes>
-            {Object.values(routes)
-                .map(({ path, element }) => (
-                    <Route
-                        key={path}
-                        path={path}
-                        element={element}
-                    />
-                ))}
+            {Object.values(routeConfig).map(renderWithWrapper)}
         </Routes>
     );
 });

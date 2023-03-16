@@ -4,11 +4,12 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { ContentLoader } from 'shared/ui';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'entities/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserIsInitialized, userActions } from 'entities/User';
 
 function App() {
     const dispatch = useDispatch();
+    const isUserInitialized = useSelector(getUserIsInitialized);
 
     // берем юзера из local storage
     useEffect(() => {
@@ -23,7 +24,7 @@ function App() {
                     <div className="main">
                         <Navbar />
                         <Suspense fallback={<ContentLoader />}>
-                            <AppRouter />
+                            {isUserInitialized ? <AppRouter /> : null}
                         </Suspense>
                     </div>
                 </div>

@@ -39,6 +39,10 @@
   --error-color: #ef466f;
   --error-color-rgb: #{hex-to-rgb(#ef466f)};
 
+  // skeleton
+  --skeleton-bg-start: #f4f5f6;
+  --skeleton-bg-end: #dee7fa;
+
   // z-indexes
   --modal-z-index: 10;
 }

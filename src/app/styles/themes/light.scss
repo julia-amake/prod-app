@@ -8,4 +8,9 @@
   --secondary-color: #777e90;
   --devider-color: #e6e8ec;
   --sidebar-bg: var(--inverted-bg-color);
+
+  // skeleton
+  --skeleton-bg: #eaedf5;
+  --skeleton-effect: #fcfcfd;
+  --skeleton-effect-rgb: #{hex-to-rgb(#fcfcfd)};
 }

@@ -10,14 +10,14 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {},
+    args: {
+        content: 'Заголовок',
+    },
 } as ComponentMeta<typeof Heading>;
 
 const Template: ComponentStory<typeof Heading> = (args) => (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <Heading {...args}>
-        Заголовок
-    </Heading>
+    <Heading {...args} />
 );
 
 export const SizeS = Template.bind({});

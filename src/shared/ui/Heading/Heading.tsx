@@ -1,5 +1,8 @@
-import React, { ElementType, memo, ReactNode } from 'react';
+import React, {
+    ElementType, memo,
+} from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
+import { getDangerouslySetInnerHTML } from 'shared/lib/utils/getDangerouslySetInnerHTML';
 import s from './Heading.module.scss';
 
 export enum HeadingSize {
@@ -16,7 +19,7 @@ export enum HeadingPosition {
 
 interface HeadingProps {
     as?: ElementType;
-    children: ReactNode;
+    content: string;
     size?: HeadingSize;
     position?: HeadingPosition;
     className?: string;
@@ -25,16 +28,17 @@ interface HeadingProps {
 const Heading = memo((props: HeadingProps) => {
     const {
         as: Tag = 'p',
-        children,
+        content,
         size = HeadingSize.M,
         position = HeadingPosition.LEFT,
         className,
     } = props;
 
     return (
-        <Tag className={cn(s.heading, {}, [s[size], s[position], className])}>
-            {children}
-        </Tag>
+        <Tag
+            {...getDangerouslySetInnerHTML(content)}
+            className={cn(s.heading, {}, [s[size], s[position], className])}
+        />
     );
 });
 

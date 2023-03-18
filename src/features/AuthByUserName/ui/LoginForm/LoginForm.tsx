@@ -60,9 +60,8 @@ const LoginForm = memo((props: LoginFormProps) => {
             <Heading
                 size={HeadingSize.S}
                 className={s.title}
-            >
-                {t('Войти')}
-            </Heading>
+                content={t('Войти')}
+            />
             <Input
                 type="text"
                 label={t('Имя пользователя')}

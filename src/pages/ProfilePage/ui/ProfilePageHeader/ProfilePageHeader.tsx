@@ -52,9 +52,8 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
             <Heading
                 size={HeadingSize.L}
                 className={s.title}
-            >
-                {t('Профиль')}
-            </Heading>
+                content={t('Профиль')}
+            />
             <div className={s.buttons}>
                 {readonly
                     ? (

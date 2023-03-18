@@ -21,18 +21,90 @@
       "author": "typicode"
     }
   ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "12 приемов работы с JavaScript",
+      "subtitle": "Приемы, которых нет в большинстве туториалов",
+      "image": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/727/f54/666/727f54666075840f2c6a6d521f39e8f1.jpeg",
+      "views": 1052,
+      "createdAt": "16.03.2023",
+      "type": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "paragraphs": [
+            "Когда я начал изучать JavaScript, то первым делом составил список приемов, которые помогали мне экономить время. Я подсмотрел их у других программистов, на разных сайтах и в мануалах.",
+            "В этой статье я покажу 12 отличных способов улучшить и ускорить свой JavaScript-код. В большинстве случаев они универсальны."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "DIVIDER"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Фильтрация уникальных значений",
+          "paragraphs": [
+            "Тип объекта Set был введен в ES6, вместе с ..., spread-оператором, мы можем использовать его для создания нового массива, в котором содержатся лишь уникальные значения."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const array = [1, 1, 2, 3, 5, 5, 1]\nconst uniqueArray = [...new Set(array)];\n \nconsole.log(uniqueArray); // Result: [1, 2, 3, 5]"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "paragraphs": [
+            "В обычной ситуации для выполнения той же операции нужно гораздо больше кода.",
+            "Этот прием работает для массивов, содержащих примитивные типы: undefined, null, boolean, string и number. Если вы работаете с массивом, содержащим объекты, функции или дополнительные массивы, вам понадобится другой подход."
+          ]
+        },
+        {
+          "id": "5",
+          "type": "IMAGE",
+          "title": "",
+          "src": "https://hsto.org/getpro/habr/upload_files/b2c/96a/e4f/b2c96ae4fe80085850a87835d9b7ed48.png"
+        }
+      ]
+    }
+  ],
   "comments": [
     {
       "id": "1",
-      "body": "some comment",
-      "postId": 1
+      "text": "some comment 1",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "some comment 2",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "text": "some comment 3",
+      "articleId": "1",
+      "userId": "1"
     }
   ],
   "users": [
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "role": "USER"
     }
   ],
   "profile": {

@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
+import { getDangerouslySetInnerHTML } from 'shared/lib/utils/getDangerouslySetInnerHTML';
 import s from './Paragraph.module.scss';
 
 export enum ParagraphSize {
@@ -24,7 +25,7 @@ interface ParagraphProps {
     className?: string;
 }
 
-export const Paragraph = memo((props: ParagraphProps) => {
+const Paragraph = memo((props: ParagraphProps) => {
     const {
         content,
         size = ParagraphSize.M,
@@ -34,13 +35,15 @@ export const Paragraph = memo((props: ParagraphProps) => {
     } = props;
 
     return (
-        <p className={cn(
-            s.outer,
-            { [s.bold]: isBold },
-            [s[size], s[margin], className],
-        )}
-        >
-            {content}
-        </p>
+        <p
+            {...getDangerouslySetInnerHTML(content)}
+            className={cn(
+                s.outer,
+                { [s.bold]: isBold },
+                [s[size], s[margin], className],
+            )}
+        />
     );
 });
+
+export default Paragraph;

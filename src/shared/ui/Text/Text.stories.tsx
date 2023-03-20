@@ -2,41 +2,41 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Paragraph, ParagraphMargin, ParagraphSize } from './Paragraph';
+import { Text, TextMargin, TextSize } from './Text';
 
 export default {
-    title: 'shared/Paragraph',
-    component: Paragraph,
+    title: 'shared/Text',
+    component: Text,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     args: {
         content: 'Здесь тестовый текст для параграфов больших и маленьких, жирных и худых, c отступами и без',
     },
-} as ComponentMeta<typeof Paragraph>;
+} as ComponentMeta<typeof Text>;
 
-const Template: ComponentStory<typeof Paragraph> = (args) => (
+const Template: ComponentStory<typeof Text> = (args) => (
     <div style={{ overflow: 'hidden' }}>
-        <Paragraph {...args} />
-        <Paragraph {...args} />
+        <Text {...args} />
+        <Text {...args} />
     </div>
 );
 
 export const SizeXS = Template.bind({});
 SizeXS.args = {
-    size: ParagraphSize.XS,
+    size: TextSize.XS,
 };
 
 export const SizeS = Template.bind({});
 SizeS.args = {
-    size: ParagraphSize.S,
+    size: TextSize.S,
 };
 
 export const SizeM = Template.bind({});
 
 export const SizeL = Template.bind({});
 SizeL.args = {
-    size: ParagraphSize.L,
+    size: TextSize.L,
 };
 
 export const Bold = Template.bind({});
@@ -46,7 +46,7 @@ Bold.args = {
 
 export const MarginNone = Template.bind({});
 MarginNone.args = {
-    margin: ParagraphMargin.NONE,
+    margin: TextMargin.NONE,
 };
 
 export const Dark = Template.bind({});

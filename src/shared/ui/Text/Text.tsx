@@ -1,16 +1,16 @@
-import React, { memo } from 'react';
+import React, { ElementType, memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { getDangerouslySetInnerHTML } from 'shared/lib/utils/getDangerouslySetInnerHTML';
-import s from './Paragraph.module.scss';
+import s from './Text.module.scss';
 
-export enum ParagraphSize {
+export enum TextSize {
     L = 'size_l',
     M = 'size_m',
     S = 'size_s',
     XS = 'size_xs',
 }
 
-export enum ParagraphMargin {
+export enum TextMargin {
     NONE = 'margin_none',
     ALL = 'margin_all',
     TOP_ONLY = 'margin_top_only',
@@ -18,24 +18,26 @@ export enum ParagraphMargin {
 }
 
 interface ParagraphProps {
+    as?: ElementType;
     content: string;
-    size?: ParagraphSize;
+    size?: TextSize;
     isBold?: boolean;
-    margin?: ParagraphMargin;
+    margin?: TextMargin;
     className?: string;
 }
 
-const Paragraph = memo((props: ParagraphProps) => {
+export const Text = memo((props: ParagraphProps) => {
     const {
+        as: Tag = 'p',
         content,
-        size = ParagraphSize.M,
+        size = TextSize.M,
         isBold = false,
-        margin = ParagraphMargin.ALL,
+        margin = TextMargin.ALL,
         className = '',
     } = props;
 
     return (
-        <p
+        <Tag
             {...getDangerouslySetInnerHTML(content)}
             className={cn(
                 s.outer,
@@ -45,5 +47,3 @@ const Paragraph = memo((props: ParagraphProps) => {
         />
     );
 });
-
-export default Paragraph;

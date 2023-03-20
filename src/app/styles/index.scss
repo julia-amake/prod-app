@@ -43,3 +43,12 @@ body,
 
   @include scrollbar;
 }
+
+.inner-content {
+  max-width: 864px;
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+}

@@ -28,6 +28,15 @@
 @font-face {
   font-family: Montserrat;
   src:
+    url("../../../public/fonts/Montserrat-Italic.woff2") format("woff2"),
+    url("../../../public/fonts/Montserrat-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src:
     url("../../../public/fonts/Montserrat-Medium.woff2") format("woff2"),
     url("../../../public/fonts/Montserrat-Medium.woff") format("woff");
   font-weight: 500;

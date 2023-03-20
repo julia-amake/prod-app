@@ -54,13 +54,15 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const renderBlock = useCallback(
         (block: ArticleBlock) => {
+            const mods = { [s.block_last]: data?.blocks[data.blocks.length - 1] === block };
+
             switch (block.type) {
             case ArticleBlockType.TEXT:
                 return (
                     <ArticleTextBlockComponent
                         block={block}
                         key={block.id}
-                        className={s.block}
+                        className={cn(s.block, mods)}
                     />
                 );
             case ArticleBlockType.CODE:
@@ -68,7 +70,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <ArticleCodeBlockComponent
                         block={block}
                         key={block.id}
-                        className={s.block}
+                        className={cn(s.block, mods)}
                     />
                 );
             case ArticleBlockType.IMAGE:
@@ -76,21 +78,21 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <ArticleImageBlockComponent
                         block={block}
                         key={block.id}
-                        className={s.block}
+                        className={cn(s.block, mods)}
                     />
                 );
             case ArticleBlockType.DIVIDER:
                 return (
                     <ArticleDividerBlockComponent
                         key={block.id}
-                        className={s.block}
+                        className={cn(s.block, mods)}
                     />
                 );
             default:
                 return null;
             }
         },
-        [],
+        [data],
     );
 
     useEffect(() => {

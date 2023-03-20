@@ -30,4 +30,8 @@
 .block {
   margin-top: 40px;
   margin-bottom: 40px;
+
+  &_last {
+    margin-bottom: 0;
+  }
 }

@@ -29,5 +29,7 @@
   "Имя и фамилия обязательны": "First and last name are required",
   "Некорректный возраст": "Incorrect age",
   "Некорректный регион": "Incorrect country",
-  "Статьи": "Posts"
+  "Статьи": "Articles",
+  "Копировать": "Copy",
+  "Скопировано": "Copied"
 }

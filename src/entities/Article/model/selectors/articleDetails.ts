@@ -1,21 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { createSelector } from '@reduxjs/toolkit';
-import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { initialState } from '../slice/articleDetailsSlice';
 
-export const getArticleDetails = (state: StateSchema) => state.articleDetails || initialState;
-
-export const getArticleDetailsData = createSelector(
-    getArticleDetails,
-    (state: ArticleDetailsSchema) => state.data,
-);
-
-export const getArticleDetailsIsLoading = createSelector(
-    getArticleDetails,
-    (state: ArticleDetailsSchema) => state.isLoading,
-);
-
-export const getArticleDetailsError = createSelector(
-    getArticleDetails,
-    (state: ArticleDetailsSchema) => state.error,
-);
+export const getArticleDetailsData = (state: StateSchema) => state.articleDetails?.data || initialState.data;
+export const getArticleDetailsIsLoading = (state: StateSchema) => state.articleDetails?.isLoading || initialState.isLoading;
+export const getArticleDetailsError = (state: StateSchema) => state.articleDetails?.error || initialState.error;

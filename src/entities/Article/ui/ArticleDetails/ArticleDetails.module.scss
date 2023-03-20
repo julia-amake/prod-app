@@ -1,0 +1,33 @@
+.title {
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  margin-bottom: 1.5em;
+}
+
+.stats {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+
+  &_last {
+    margin-right: 0;
+  }
+}
+
+.stat_icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+}
+
+.block {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

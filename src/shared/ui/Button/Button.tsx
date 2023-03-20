@@ -13,7 +13,8 @@ export enum ButtonTheme {
 
 export enum ButtonShape {
     ROUND = 'shape_rounded',
-    SQUARE = 'shape_square'
+    SQUARE = 'shape_square',
+    CIRCLE = 'shape_circle'
 }
 
 export enum IconPosition {
@@ -75,17 +76,24 @@ const Button = memo((props: ButtonProps) => {
 
     const Icon = useMemo(() => currIcon?.element, [currIcon]);
 
+    const mods = useMemo(() => {
+        const iconOnly = !!(Icon && !label);
+
+        return {
+            [s[shape]]: iconOnly ? ButtonShape.CIRCLE : shape,
+            [s.iconOnly]: iconOnly,
+            [s.iconOnly_clear]: iconOnly && theme === ButtonTheme.CLEAR,
+            [s.button_disabled]: isLoading || disabled,
+            [s.button_reverse]: icon?.position === IconPosition.LEFT,
+        };
+    }, [Icon, label, shape, theme, isLoading, disabled, icon?.position]);
+
     return (
         <button
             className={cn(
                 s.button,
-                {
-                    // todo разобраться с as boolean
-                    [s.iconOnly]: (Icon && !label) as boolean,
-                    [s.button_disabled]: isLoading || disabled,
-                    [s.button_reverse]: icon?.position === IconPosition.LEFT,
-                },
-                [className, s[theme], s[shape], s[size]],
+                mods,
+                [className, s[theme], s[size]],
             )}
             type="button"
             disabled={disabled || isLoading}
@@ -95,8 +103,10 @@ const Button = memo((props: ButtonProps) => {
             {Icon && (
                 <Icon className={cn(
                     s.icon,
-                    { [s[`icon_${currIcon?.position}`]]: label },
-                    [s[`icon_${currIcon?.size}`], currIcon?.className],
+                    {
+                        [s[`icon_${currIcon?.position}`]]: label,
+                    },
+                    [s[`icon_${theme}`], s[`icon_${currIcon?.size}`], currIcon?.className],
                 )}
                 />
             )}

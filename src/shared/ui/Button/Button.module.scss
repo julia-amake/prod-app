@@ -39,7 +39,11 @@
 }
 
 .iconOnly {
-  padding: 8px !important;
+  padding: 8px;
+
+  &_clear {
+    padding: 0;
+  }
 }
 
 .size {
@@ -88,14 +92,14 @@
 .shape {
   &_rounded {
     border-radius: 90px;
-
-    &.iconOnly {
-      border-radius: 50%;
-    }
   }
 
   &_square {
     border-radius: 0;
+  }
+
+  &_circle {
+    border-radius: 50%;
   }
 }
 
@@ -108,28 +112,28 @@
 }
 
 .icon {
-  .primary & {
+  &_primary {
     fill: var(--primary-color-font);
   }
 
-  .clear & {
+  &_clear {
     fill: var(--inverted-bg-color);
   }
 
-  .outlined & {
+  &_outlined {
     fill: var(--inverted-bg-color);
+
+    .outlined:not(.button_disabled):hover & {
+      fill: var(--bg-color);
+    }
   }
 
-  .red_outlined & {
+  &_red_outlined {
     fill: var(--error-color);
-  }
 
-  .outlined:not(.button_disabled):hover & {
-    fill: var(--bg-color);
-  }
-
-  .red_outlined:not(.button_disabled):hover & {
-    fill: var(--primary-color-font);
+    .red_outlined:not(.button_disabled):hover & {
+      fill: var(--primary-color-font);
+    }
   }
 
   &_size {

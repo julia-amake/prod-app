@@ -11,6 +11,8 @@
   --sidebar-bg: var(--inverted-bg-color);
 
   // skeleton
-  --skeleton-bg-start: #131315;
-  --skeleton-bg-end: #2f313a;
+  --skeleton-bg: #242426;
+  --skeleton-bg-rgb: #{hex-to-rgb(#242426)};
+  --skeleton-effect: #343434;
+  --skeleton-effect-rgb: #{hex-to-rgb(#343434)};
 }

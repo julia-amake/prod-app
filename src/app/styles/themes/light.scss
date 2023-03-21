@@ -12,6 +12,7 @@
 
   // skeleton
   --skeleton-bg: #eaedf5;
+  --skeleton-bg-rgb: #{hex-to-rgb(#eaedf5)};
   --skeleton-effect: #fcfcfd;
   --skeleton-effect-rgb: #{hex-to-rgb(#fcfcfd)};
 }

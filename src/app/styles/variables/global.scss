@@ -41,8 +41,10 @@
   --success-color: #45b26b;
 
   // skeleton
-  --skeleton-bg-start: #f4f5f6;
-  --skeleton-bg-end: #dee7fa;
+  --skeleton-bg: #eaedf5;
+  --skeleton-bg-rgb: #{hex-to-rgb(#eaedf5)};
+  --skeleton-effect: #fcfcfd;
+  --skeleton-effect-rgb: #{hex-to-rgb(#fcfcfd)};
 
   // z-indexes
   --modal-z-index: 10;

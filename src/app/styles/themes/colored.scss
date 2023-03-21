@@ -19,6 +19,8 @@
   --sidebar-bg: #141416;
 
   // skeleton
-  --skeleton-bg-start: #6c96fd;
-  --skeleton-bg-end: #3772ff;
+  --skeleton-bg: #eaedf5;
+  --skeleton-bg-rgb: #{hex-to-rgb(#a9abb0)};
+  --skeleton-effect: #c0d2fd;
+  --skeleton-effect-rgb: #{hex-to-rgb(#c0d2fd)};
 }

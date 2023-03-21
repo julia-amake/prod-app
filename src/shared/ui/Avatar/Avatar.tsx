@@ -24,12 +24,14 @@ const Avatar: FC<AvatarProps> = (props) => {
     }), [size]);
 
     return (
-        <img
-            className={cn(s.avatar, {}, [className])}
-            src={src}
-            alt={alt}
-            style={styles}
-        />
+        src ? (
+            <img
+                className={cn(s.avatar, {}, [className])}
+                src={src}
+                alt={alt}
+                style={styles}
+            />
+        ) : <div style={styles} className={cn(s.avatar, {}, [className])} />
     );
 };
 

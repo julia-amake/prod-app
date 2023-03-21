@@ -1,4 +1,5 @@
 .avatar {
   object-fit: cover;
   border-radius: 50%;
+  background: rgba(var(--inverted-bg-color-rgb), 0.05);
 }

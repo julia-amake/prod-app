@@ -3,6 +3,8 @@ import { cn } from 'shared/lib/classNames/classNames';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import { Text, TextMargin, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import AppLink from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Comment } from '../../model/types/comment';
 import s from './CommentCard.module.scss';
 
@@ -22,7 +24,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
     if (isLoading) {
         return (
             <div className={cn(s.outer, {}, [className, s.skeleton])}>
-                <div className={s.header}>
+                <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={s.header}>
                     <Skeleton
                         className={s.avatar}
                         width={40}
@@ -35,7 +37,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                         height={18}
                         inline
                     />
-                </div>
+                </AppLink>
                 <Skeleton
                     width={400}
                     height={14}
@@ -51,7 +53,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     return (
         <div className={cn(s.outer, {}, [className])}>
-            <div className={s.header}>
+            <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={s.header}>
                 <Avatar
                     size={40}
                     src={comment.user.avatar}
@@ -63,7 +65,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                     isBold
                     margin={TextMargin.NONE}
                 />
-            </div>
+            </AppLink>
             <Text
                 content={comment.text}
                 margin={TextMargin.NONE}

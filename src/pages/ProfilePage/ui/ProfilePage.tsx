@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import {
     fetchProfileData,
@@ -19,6 +19,8 @@ import { Country } from 'entities/Country';
 import Informer from 'shared/ui/Informer/Informer';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 import s from './ProfilePage.module.scss';
 
@@ -34,6 +36,7 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const dispatch = useAppDispatch();
+    const { id } = useParams<{id: string}>();
 
     const { t } = useTranslation();
 
@@ -63,10 +66,10 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
 
     useDynamicModuleLoader(initialReducers, true);
 
-    useEffect(() => {
-        if (__PROJECT__ === 'storybook') return;
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+    useInitialEffect(() => {
+        if (!id) return;
+        dispatch(fetchProfileData(id));
+    });
 
     const onChangeFirstname = useCallback(
         (value?: string) => {

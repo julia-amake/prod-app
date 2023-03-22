@@ -142,14 +142,28 @@
       "avatar": "https://static10.tgstat.ru/channels/_0/12/1207e9a8bc05cb00522bc45c6e57eaca.jpg"
     }
   ],
-  "profile": {
-    "name": "Yulia",
-    "lastname": "Starchenko",
-    "age": 36,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Sochi",
-    "username": "admin",
-    "avatar": "https://avatars.githubusercontent.com/u/11091224"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "name": "Yulia",
+      "lastname": "Starchenko",
+      "age": 36,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Sochi",
+      "username": "admin",
+      "avatar": "https://avatars.githubusercontent.com/u/11091224"
+    },
+    {
+      "id": "2",
+      "name": "Ded",
+      "lastname": "Vasya",
+      "age": 24,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "user",
+      "avatar": "https://static10.tgstat.ru/channels/_0/12/1207e9a8bc05cb00522bc45c6e57eaca.jpg"
+    }
+  ]
 }

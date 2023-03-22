@@ -117,7 +117,7 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     },
     {
       "id": "3",
@@ -131,13 +131,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://avatars.githubusercontent.com/u/11091224"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://static10.tgstat.ru/channels/_0/12/1207e9a8bc05cb00522bc45c6e57eaca.jpg"
     }
   ],
   "profile": {

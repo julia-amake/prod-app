@@ -1,5 +1,5 @@
 import React, {
-    memo, useCallback, useEffect, useMemo,
+    memo, useCallback, useMemo,
 } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
@@ -13,6 +13,7 @@ import { Text, TextMargin, TextSize } from 'shared/ui/Text/Text';
 import EyeLine from 'shared/assets/icons/EyeLine.svg';
 import CalendarLine from 'shared/assets/icons/CalendarLine.svg';
 import { Image } from 'shared/ui/Image/Image';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import {
     ArticleDividerBlockComponent,
@@ -23,7 +24,6 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
-    getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -35,19 +35,20 @@ const reducers: ReducersList = {
 
 interface ArticleDetailsProps {
     id: string;
+    isLoading?: boolean;
     className?: string;
 }
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const {
         id,
+        isLoading,
         className = '',
     } = props;
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const data = useSelector(getArticleDetailsData);
-    const isLoading = useSelector(getArticleDetailsIsLoading);
     const error = useSelector(getArticleDetailsError);
 
     useDynamicModuleLoader(reducers, true);
@@ -95,10 +96,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         [data],
     );
 
-    useEffect(() => {
-        if (__PROJECT__ === 'storybook') return;
+    useInitialEffect(() => {
         dispatch(fetchArticleById(id));
-    }, [id, dispatch]);
+    });
 
     const content = useMemo(() => {
         if (isLoading) {

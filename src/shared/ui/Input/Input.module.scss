@@ -19,13 +19,20 @@
   font-family: var(--font-family-secondary);
   background: none;
   outline: none;
-  border: 2px solid var(--devider-color);
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--devider-color);
   border-radius: 12px;
+  resize: none;
 
   &::placeholder {
     font-family: var(--font-family-secondary);
     color: var(--secondary-color);
   }
+}
+
+.block {
+  display: block;
 }
 
 .readonly {

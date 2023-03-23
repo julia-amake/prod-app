@@ -103,7 +103,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const content = useMemo(() => {
         if (isLoading) {
             return (
-                <div className="inner-content">
+                <>
                     <Skeleton
                         width="70%"
                         height={48}
@@ -152,21 +152,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         width="70%"
                         height={18}
                     />
-                </div>
+                </>
             );
         }
         if (error || !data) {
             return (
-                <div className="inner-content">
-                    <Informer
-                        title={t('Произошла ошибка при загрузке статьи')}
-                        isCentered
-                    />
-                </div>
+                <Informer
+                    title={t('Произошла ошибка при загрузке статьи')}
+                    isCentered
+                />
             );
         }
         return (
-            <div className="inner-content">
+            <>
                 <Heading className={s.title} size={HeadingSize.L} content={data?.title} />
                 <Text content={data.subtitle} className={s.subtitle} />
                 <div className={s.stats}>
@@ -189,7 +187,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 </div>
                 <Image src={data.image} alt="" />
                 {data.blocks.map((block) => renderBlock(block))}
-            </div>
+            </>
         );
     }, [renderBlock, isLoading, error, data, t]);
 

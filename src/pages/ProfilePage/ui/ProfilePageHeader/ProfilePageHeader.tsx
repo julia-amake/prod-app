@@ -7,7 +7,9 @@ import EditLine from 'shared/assets/icons/EditLine.svg';
 import DoneLine from 'shared/assets/icons/DoneLine.svg';
 import EraserLine from 'shared/assets/icons/EraserLine.svg';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { profileActions, updateProfileData } from 'entities/Profile';
+import { getProfileData, profileActions, updateProfileData } from 'entities/Profile';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import s from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -24,6 +26,9 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
     } = props;
 
     const { t } = useTranslation();
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
     const dispatch = useAppDispatch();
 
     const onEdit = useCallback(
@@ -55,40 +60,42 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
                 content={t('Профиль')}
             />
             <div className={s.buttons}>
-                {readonly
-                    ? (
-                        <Button
-                            label={t('Редактировать')}
-                            theme={ButtonTheme.OUTLINED}
-                            size={ButtonSize.M}
-                            icon={{ element: EditLine }}
-                            onClick={onEdit}
-                            className={s.btn}
-                            disabled={isLoading}
-                        />
-                    )
-                    : (
-                        <>
+                {canEdit && (
+                    readonly
+                        ? (
                             <Button
-                                label={t('Отменить')}
+                                label={t('Редактировать')}
                                 theme={ButtonTheme.OUTLINED}
                                 size={ButtonSize.M}
-                                icon={{ element: EraserLine }}
-                                onClick={onCancelEdit}
+                                icon={{ element: EditLine }}
+                                onClick={onEdit}
                                 className={s.btn}
                                 disabled={isLoading}
                             />
-                            <Button
-                                label={t('Сохранить')}
-                                theme={ButtonTheme.PRIMARY}
-                                size={ButtonSize.M}
-                                icon={{ element: DoneLine }}
-                                onClick={onSaveEdit}
-                                className={cn(s.btn, {}, [s.btn_last])}
-                                disabled={isLoading}
-                            />
-                        </>
-                    )}
+                        )
+                        : (
+                            <>
+                                <Button
+                                    label={t('Отменить')}
+                                    theme={ButtonTheme.OUTLINED}
+                                    size={ButtonSize.M}
+                                    icon={{ element: EraserLine }}
+                                    onClick={onCancelEdit}
+                                    className={s.btn}
+                                    disabled={isLoading}
+                                />
+                                <Button
+                                    label={t('Сохранить')}
+                                    theme={ButtonTheme.PRIMARY}
+                                    size={ButtonSize.M}
+                                    icon={{ element: DoneLine }}
+                                    onClick={onSaveEdit}
+                                    className={cn(s.btn, {}, [s.btn_last])}
+                                    disabled={isLoading}
+                                />
+                            </>
+                        )
+                )}
             </div>
         </header>
     );

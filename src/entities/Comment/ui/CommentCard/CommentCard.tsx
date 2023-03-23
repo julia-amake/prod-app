@@ -9,7 +9,7 @@ import { Comment } from '../../model/types/comment';
 import s from './CommentCard.module.scss';
 
 interface CommentCardProps {
-    comment: Comment;
+    comment?: Comment;
     className?: string;
     isLoading?: boolean;
 }
@@ -24,7 +24,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
     if (isLoading) {
         return (
             <div className={cn(s.outer, {}, [className, s.skeleton])}>
-                <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={s.header}>
+                <div className={s.header}>
                     <Skeleton
                         className={s.avatar}
                         width={40}
@@ -37,7 +37,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                         height={18}
                         inline
                     />
-                </AppLink>
+                </div>
                 <Skeleton
                     width={400}
                     height={14}
@@ -50,6 +50,8 @@ export const CommentCard = memo((props: CommentCardProps) => {
             </div>
         );
     }
+
+    if (!comment) return null;
 
     return (
         <div className={cn(s.outer, {}, [className])}>

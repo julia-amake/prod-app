@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
@@ -10,11 +10,15 @@ import { useSelector } from 'react-redux';
 import { getArticleDetailsIsLoading } from 'entities/Article/model/selectors/articleDetails';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/addCommentForm';
+import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
 import {
     fetchCommentsBrArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import s from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -44,18 +48,37 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         dispatch(fetchCommentsBrArticleId(id));
     });
 
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
+
     const content = useMemo(() => {
         if (!id) return <Informer title={t('Статья не найдена')} />;
         return (
-            <>
+            <div className="inner-content">
                 <ArticleDetails id={id} isLoading={isLoading} />
-                <CommentList
-                    comments={comments}
-                    isLoading={commentsIsLoading || isLoading}
-                />
-            </>
+                <div className={s.comments}>
+                    <Heading
+                        content={t('Комментарии')}
+                        className={s.comments_title}
+                        size={HeadingSize.S}
+                    />
+                    <AddCommentForm
+                        onSendComment={onSendComment}
+                        className={s.comments_form}
+                        isLoading={commentsIsLoading || isLoading}
+                    />
+                    <CommentList
+                        comments={comments}
+                        isLoading={commentsIsLoading || isLoading}
+                    />
+                </div>
+            </div>
         );
-    }, [isLoading, commentsIsLoading, comments, t, id]);
+    }, [onSendComment, isLoading, commentsIsLoading, comments, t, id]);
 
     return (
         <div className={cn('main-content', {}, [className])}>

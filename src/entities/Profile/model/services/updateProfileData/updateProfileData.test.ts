@@ -6,6 +6,7 @@ import { AVATAR } from 'shared/consts/tests';
 import { updateProfileData } from './updateProfileData';
 
 const profileData = {
+    id: '1',
     name: 'Name',
     lastname: 'Lastname',
     age: 30,

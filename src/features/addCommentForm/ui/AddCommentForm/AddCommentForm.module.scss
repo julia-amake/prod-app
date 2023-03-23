@@ -1,0 +1,13 @@
+.outer {
+  padding: 24px 16px;
+  background: rgba(var(--inverted-bg-color-rgb), 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(var(--devider-color-rgb), 0.4);
+}
+
+.field {
+  margin-bottom: 16px;
+  font-family: var(--font-family-secondary);
+  font-weight: 400 !important;
+  border-width: 1px !important;
+}

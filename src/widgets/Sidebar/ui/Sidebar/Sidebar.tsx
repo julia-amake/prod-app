@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useMemo, useState } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
@@ -17,6 +17,19 @@ const Sidebar = memo((props: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const SidebarItemsList = useSelector(getSidebarItems);
 
+    const itemsList = useMemo(
+        () => (
+            SidebarItemsList.map((item) => (
+                <SidebarItem
+                    item={item}
+                    collapsed={collapsed}
+                    key={item.path}
+                />
+            ))
+        ),
+        [SidebarItemsList, collapsed],
+    );
+
     return (
         <div
             className={cn(
@@ -27,13 +40,7 @@ const Sidebar = memo((props: SidebarProps) => {
             data-testid="sidebar"
         >
             <div className={s.menu}>
-                {SidebarItemsList.map((item) => (
-                    <SidebarItem
-                        item={item}
-                        collapsed={collapsed}
-                        key={item.path}
-                    />
-                ))}
+                {itemsList}
             </div>
             <div className={s.actions}>
                 <ThemeSwitcher className={s.themeSwitcher} isInvertedColor />

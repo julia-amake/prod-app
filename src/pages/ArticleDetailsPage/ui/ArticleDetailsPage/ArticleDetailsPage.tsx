@@ -2,7 +2,7 @@ import React, { memo, useCallback, useMemo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Informer from 'shared/ui/Informer/Informer';
 import { CommentList } from 'entities/Comment';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
@@ -12,9 +12,9 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm';
 import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
-import {
-    fetchCommentsBrArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { fetchCommentsBrArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
@@ -44,6 +44,8 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const error = useSelector(getArticleCommentsError);
 
+    const navigate = useNavigate();
+
     useInitialEffect(() => {
         dispatch(fetchCommentsBrArticleId(id));
     });
@@ -55,30 +57,46 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         [dispatch],
     );
 
+    const onBackToList = useCallback(
+        () => {
+            navigate(RoutePath.articles);
+        },
+        [navigate],
+    );
+
     const content = useMemo(() => {
         if (!id) return <Informer title={t('Статья не найдена')} />;
         return (
             <div className="inner-content">
+                <Button
+                    label={t('К списку статей')}
+                    theme={ButtonTheme.OUTLINED}
+                    size={ButtonSize.S}
+                    onClick={onBackToList}
+                    className={s.backBtn}
+                />
                 <ArticleDetails id={id} isLoading={isLoading} />
-                <div className={s.comments}>
-                    <Heading
-                        content={t('Комментарии')}
-                        className={s.comments_title}
-                        size={HeadingSize.S}
-                    />
-                    <AddCommentForm
-                        onSendComment={onSendComment}
-                        className={s.comments_form}
-                        isLoading={commentsIsLoading || isLoading}
-                    />
-                    <CommentList
-                        comments={comments}
-                        isLoading={commentsIsLoading || isLoading}
-                    />
-                </div>
+                {!error && (
+                    <div className={s.comments}>
+                        <Heading
+                            content={t('Комментарии')}
+                            className={s.comments_title}
+                            size={HeadingSize.S}
+                        />
+                        <AddCommentForm
+                            onSendComment={onSendComment}
+                            className={s.comments_form}
+                            isLoading={commentsIsLoading || isLoading}
+                        />
+                        <CommentList
+                            comments={comments}
+                            isLoading={commentsIsLoading || isLoading}
+                        />
+                    </div>
+                )}
             </div>
         );
-    }, [onSendComment, isLoading, commentsIsLoading, comments, t, id]);
+    }, [id, t, onBackToList, isLoading, error, onSendComment, commentsIsLoading, comments]);
 
     return (
         <div className={cn('main-content', {}, [className])}>

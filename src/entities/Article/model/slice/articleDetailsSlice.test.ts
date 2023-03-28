@@ -7,6 +7,10 @@ const data:Article = {
     id: '1',
     title: 'Title',
     subtitle: 'Subtitle',
+    user: {
+        id: '1',
+        username: 'Name',
+    },
     image: 'https://habrastorage.org/r/w1560/getpro/habr/upload_files/727/f54/666/727f54666075840f2c6a6d521f39e8f1.jpeg',
     views: 123,
     createdAt: '20.03.2023',

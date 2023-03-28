@@ -1,0 +1,21 @@
+.outer {
+  position: relative;
+  left: -40px;
+  width: calc(100% + 40px);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -64px;
+
+  &_list {
+    margin-bottom: -72px;
+  }
+}
+
+.item {
+  margin-bottom: 64px;
+  margin-left: 40px;
+
+  .outer_list & {
+    margin-bottom: 72px;
+  }
+}

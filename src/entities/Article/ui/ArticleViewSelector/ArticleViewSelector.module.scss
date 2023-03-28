@@ -1,0 +1,22 @@
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.btn {
+  margin-left: 8px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  will-change: fill;
+  transition: fill 0.2s ease-in-out;
+
+  .btn:hover &,
+  &_active {
+    fill: var(--primary-color);
+  }
+}

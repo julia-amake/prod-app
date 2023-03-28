@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { getArticleDetailsIsLoading } from 'entities/Article/model/selectors/articleDetails';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AddCommentForm } from 'features/addCommentForm';
+import { AddCommentForm } from 'features/AddCommentForm';
 import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
 import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';

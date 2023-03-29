@@ -1,0 +1,9 @@
+@import "../../../../src/app/styles/helpers/helpers";
+
+.outer {
+  padding: 40px 32px;
+  overflow-y: auto;
+  height: 100%;
+
+  @include scrollbar;
+}

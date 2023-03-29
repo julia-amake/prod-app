@@ -1,5 +1,4 @@
 import React, { memo, useCallback, useMemo } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -14,6 +13,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
 import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { fetchCommentsBrArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
@@ -99,9 +99,9 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     }, [id, t, onBackToList, isLoading, error, onSendComment, commentsIsLoading, comments]);
 
     return (
-        <div className={cn('main-content', {}, [className])}>
+        <Page className={className}>
             {content}
-        </div>
+        </Page>
     );
 });
 

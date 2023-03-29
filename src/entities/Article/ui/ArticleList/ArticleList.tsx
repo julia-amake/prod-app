@@ -34,26 +34,21 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     };
 
-    if (isLoading) {
-        return (
-            <div className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}>
-                {Array.from(Array(view === ArticleView.GRID ? 11 : 3), (_, idx) => (
+    return (
+        <div className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}>
+            {articles.length
+                ? articles.map((article, idx) => renderArticle(article, idx))
+                : null}
+            {isLoading && (
+                Array.from(Array(view === ArticleView.GRID ? 11 : 3), (_, idx) => (
                     <ArticleListItemSkeleton
                         view={view}
                         isExtra={idx === 0}
                         className={cn(s.item)}
                         key={idx}
                     />
-                ))}
-            </div>
-        );
-    }
-
-    return (
-        <div className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}>
-            {articles.length
-                ? articles.map((article, idx) => renderArticle(article, idx))
-                : null}
+                ))
+            )}
         </div>
     );
 });

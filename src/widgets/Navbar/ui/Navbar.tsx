@@ -33,14 +33,14 @@ const Navbar = memo((props:NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={cn(s.navbar, {}, [className])}>
+            <header className={cn(s.navbar, {}, [className])}>
                 <Button
                     label={t('Выйти')}
                     size={ButtonSize.M}
                     onClick={onLogout}
                     type="button"
                 />
-            </div>
+            </header>
         );
     }
 

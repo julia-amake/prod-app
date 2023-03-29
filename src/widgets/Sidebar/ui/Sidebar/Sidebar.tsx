@@ -31,7 +31,7 @@ const Sidebar = memo((props: SidebarProps) => {
     );
 
     return (
-        <div
+        <aside
             className={cn(
                 s.sidebar,
                 { [s.collapsed]: collapsed },
@@ -39,15 +39,15 @@ const Sidebar = memo((props: SidebarProps) => {
             )}
             data-testid="sidebar"
         >
-            <div className={s.menu}>
+            <nav className={s.menu}>
                 {itemsList}
-            </div>
+            </nav>
             <div className={s.actions}>
                 <ThemeSwitcher className={s.themeSwitcher} isInvertedColor />
                 <LangSwitcher isShort={collapsed} />
             </div>
             <SidebarToggle collapsed={collapsed} setCollapsed={setCollapsed} />
-        </div>
+        </aside>
     );
 });
 

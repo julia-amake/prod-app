@@ -1,10 +1,12 @@
 import React, { memo, useCallback } from 'react';
 import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
-import { cn } from 'shared/lib/classNames/classNames';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { Page } from 'shared/ui/Page/Page';
+import Informer from 'shared/ui/Informer/Informer';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageError,
@@ -34,11 +36,6 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
 
     useDynamicModuleLoader(reducersList);
 
-    useInitialEffect(() => {
-        dispatch(fetchArticlesList());
-        dispatch(articlesPageActions.initState());
-    });
-
     const onChangeView = useCallback(
         (view: ArticleView) => {
             dispatch(articlesPageActions.setView(view));
@@ -46,8 +43,31 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
         [dispatch],
     );
 
+    const onLoadNextPart = useCallback(
+        () => {
+            dispatch(fetchNextArticlesPage());
+        },
+        [dispatch],
+    );
+
+    useInitialEffect(() => {
+        dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({ page: 1 }));
+    });
+
+    if (error) {
+        return (
+            <Page>
+                <Informer title={error} isCentered />
+            </Page>
+        );
+    }
+
     return (
-        <div className={cn('main-content', {}, [className])}>
+        <Page
+            onScrollEnd={onLoadNextPart}
+            className={className}
+        >
             <div className="inner-content--large">
                 <ArticleViewSelector
                     view={view}
@@ -59,7 +79,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
                     view={view}
                 />
             </div>
-        </div>
+        </Page>
     );
 });
 

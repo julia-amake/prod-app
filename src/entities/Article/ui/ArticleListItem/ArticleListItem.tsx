@@ -115,14 +115,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         className={s.title}
                         margin={TextMargin.NONE}
                     />
-                    {isExtra && article.subtitle && (
-                        <Text
-                            content={article.subtitle}
-                            className={s.subtitle}
-                            margin={TextMargin.NONE}
-                            size={TextSize.XS}
-                        />
-                    )}
                 </div>
             </Card>
         );

@@ -145,8 +145,10 @@
   margin-right: 8px;
 }
 
-.subtitle {
-  margin-top: 0.4em;
+.title {
+  .outer_grid_extra & {
+    max-width: 460px;
+  }
 }
 
 .footer {

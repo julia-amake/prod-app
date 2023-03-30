@@ -39,6 +39,7 @@ const Navbar = memo((props:NavbarProps) => {
                     size={ButtonSize.M}
                     onClick={onLogout}
                     type="button"
+                    className={s.loginBtn}
                 />
             </header>
         );
@@ -51,6 +52,7 @@ const Navbar = memo((props:NavbarProps) => {
                 size={ButtonSize.M}
                 onClick={onOpenModal}
                 type="button"
+                className={s.loginBtn}
             />
             {isAuthModal && (
                 <LoginModal

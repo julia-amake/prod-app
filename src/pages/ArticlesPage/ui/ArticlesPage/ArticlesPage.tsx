@@ -6,8 +6,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
 import Informer from 'shared/ui/Informer/Informer';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
@@ -34,7 +34,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
 
-    useDynamicModuleLoader(reducersList);
+    useDynamicModuleLoader(reducersList, false);
 
     const onChangeView = useCallback(
         (view: ArticleView) => {
@@ -51,8 +51,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     );
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({ page: 1 }));
+        dispatch(initArticlesPage());
     });
 
     if (error) {

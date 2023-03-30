@@ -11,11 +11,15 @@ export const useDynamicModuleLoader = (
 ) => {
     const store = useStore() as ReducerStoreWithManager;
     const dispatch = useDispatch();
+    const mountedReducers = store.reducerManager?.getReducerMap();
 
     useEffect(() => {
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager?.add(name as StateSchemaKey, reducer);
-            dispatch({ type: `@INIT ${name} reducer` });
+            const mounted = mountedReducers ? mountedReducers[name as StateSchemaKey] : null;
+            if (!mounted) {
+                store.reducerManager?.add(name as StateSchemaKey, reducer);
+                dispatch({ type: `@INIT ${name} reducer` });
+            }
         });
 
         return () => {

@@ -27,11 +27,6 @@ GridOneCategory.args = {
     article: { ...article, type: [ArticleType.ECONOMIC] },
 };
 
-export const GridExtra = Template.bind({});
-GridExtra.args = {
-    isExtra: true,
-};
-
 export const List = Template.bind({});
 List.args = {
     view: ArticleView.LIST,

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -20,30 +20,27 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className = '',
     } = props;
 
-    const renderArticle = (article: Article, idx: number) => {
-        const isExtra = idx === 0;
-
-        return (
-            <ArticleListItem
-                article={article}
-                view={view}
-                key={article.id}
-                className={cn(s.item)}
-                isExtra={isExtra}
-            />
-        );
-    };
+    const isExtra = useCallback((num:number) => {
+        const currNum = num + 1;
+        return currNum === 1 || currNum % 6 === 0;
+    }, []);
 
     return (
         <div className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}>
             {articles.length
-                ? articles.map((article, idx) => renderArticle(article, idx))
+                ? articles.map((article) => (
+                    <ArticleListItem
+                        article={article}
+                        view={view}
+                        key={article.id}
+                        className={cn(s.item)}
+                    />
+                ))
                 : null}
             {isLoading && (
-                Array.from(Array(view === ArticleView.GRID ? 11 : 3), (_, idx) => (
+                Array.from(Array(view === ArticleView.GRID ? 6 : 3), (_, idx) => (
                     <ArticleListItemSkeleton
                         view={view}
-                        isExtra={idx === 0}
                         className={cn(s.item)}
                         key={idx}
                     />

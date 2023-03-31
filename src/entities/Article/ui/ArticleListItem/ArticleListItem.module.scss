@@ -2,7 +2,8 @@
   &_grid {
     width: 250px;
 
-    &_extra {
+    &:nth-child(6n+1),
+    &:nth-child(6n+6) {
       width: 540px;
     }
   }
@@ -146,7 +147,8 @@
 }
 
 .title {
-  .outer_grid_extra & {
+  .outer_grid:nth-child(6n+1) &,
+  .outer_grid:nth-child(6n+6) & {
     max-width: 460px;
   }
 }

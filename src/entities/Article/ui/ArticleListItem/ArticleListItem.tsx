@@ -15,7 +15,6 @@ import s from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
     article: Article;
-    isExtra?: boolean;
     view?: ArticleView;
     className?: string;
 }
@@ -23,7 +22,6 @@ interface ArticleListItemProps {
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const {
         article,
-        isExtra = false,
         view = ArticleView.GRID,
         className = '',
     } = props;
@@ -87,7 +85,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     if (view === ArticleView.GRID) {
         return (
             <Card
-                className={cn(s.outer, { [s.outer_grid_extra]: isExtra }, [className, s.outer_grid, s.card])}
+                className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
                 onClick={onOpenArticle}
             >
                 <div className={s.pic_outer}>

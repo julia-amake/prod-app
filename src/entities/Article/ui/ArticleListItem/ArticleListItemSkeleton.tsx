@@ -5,14 +5,12 @@ import { ArticleView } from '../../model/types/article';
 import s from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
-    isExtra?: boolean;
     view?: ArticleView;
     className?: string;
 }
 
 export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => {
     const {
-        isExtra = false,
         view = ArticleView.GRID,
         className = '',
     } = props;
@@ -20,7 +18,7 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
     if (view === ArticleView.GRID) {
         return (
             <Card
-                className={cn(s.outer, { [s.outer_grid_extra]: isExtra }, [className, s.outer_grid, s.card])}
+                className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
             >
                 <div className={cn(s.pic_outer, {}, [s.pic_outer_skeleton])}>
                     <Skeleton

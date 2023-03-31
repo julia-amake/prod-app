@@ -66,7 +66,6 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
         <Page
             onScrollEnd={onLoadNextPart}
             className={className}
-            saveScroll
         >
             <div className="inner-content--large">
                 <ArticleViewSelector

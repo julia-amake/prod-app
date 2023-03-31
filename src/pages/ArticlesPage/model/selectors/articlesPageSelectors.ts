@@ -5,6 +5,6 @@ export const getArticlesPageIsLoading = (state: StateSchema) => state.articlesPa
 export const getArticlesPageError = (state: StateSchema) => state.articlesPage?.error || '';
 export const getArticlesPageView = (state: StateSchema) => state.articlesPage?.view || ArticleView.GRID;
 export const getArticlesPageNumber = (state: StateSchema) => state.articlesPage?.page || 1;
-export const getArticlesPageLimit = (state: StateSchema) => state.articlesPage?.limit || 7;
+export const getArticlesPageLimit = (state: StateSchema) => state.articlesPage?.limit || 6;
 export const getArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore ?? true;
 export const getArticlesPageIsInitialized = (state: StateSchema) => state.articlesPage?._isInitialized ?? false;

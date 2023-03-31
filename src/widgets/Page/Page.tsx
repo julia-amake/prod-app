@@ -15,7 +15,6 @@ import s from './Page.module.scss';
 interface PageProps {
     children: ReactNode;
     onScrollEnd?: () => void;
-    saveScroll?: boolean;
     className?: string;
 }
 
@@ -23,7 +22,6 @@ export const Page = (props: PageProps) => {
     const {
         children,
         onScrollEnd,
-        saveScroll = false,
         className = '',
     } = props;
 
@@ -56,10 +54,10 @@ export const Page = (props: PageProps) => {
         <main
             ref={wrapperRef}
             className={cn(s.outer, {}, [className])}
-            {...saveScroll ? { onScroll: onScrollHandler } : {}}
+            {...onScrollEnd ? { onScroll: onScrollHandler } : {}}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd && <div ref={triggerRef} />}
         </main>
     );
 };

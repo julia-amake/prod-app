@@ -1,0 +1,28 @@
+.outer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  &_notActive {
+    color: var(--neutral-color-4);
+    background: rgba(var(--neutral-color-3-rgb), 0);
+
+    &:hover {
+      color: var(--inverted-bg-color);
+      background: rgba(var(--neutral-color-3-rgb), 0) !important;
+    }
+  }
+
+  &_active {
+    color: var(--bg-color);
+    background: var(--neutral-color-3);
+    cursor: auto;
+
+    &:hover {
+      color: var(--bg-color);
+      background: var(--neutral-color-3) !important;
+    }
+  }
+}

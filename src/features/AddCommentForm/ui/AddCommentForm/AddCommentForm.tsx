@@ -56,7 +56,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                 value={text}
                 onChange={onCommentTextChange}
                 inputClassName={s.field}
-                isTextarea
+                type="textarea"
                 disabled={isLoading}
             />
             <Button

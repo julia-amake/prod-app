@@ -286,11 +286,11 @@
     },
     {
       "id": "4",
-      "title": "Java для начинающих: решаем задачу умножения матриц",
-      "subtitle": "Для тех, кто только начинает учиться программировать на языке Java",
-      "image": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/6d9/0bb/d6d/6d90bbd6d00501aabc2ed525e6c603eb.png",
-      "views": 36,
-      "createdAt": "16.03.2023",
+      "title": "6 новых возможностей CSS, которые должен знать каждый front-end разработчик в 2023 году",
+      "subtitle": "Мощные и стабильные CSS фичи, которые вы можете использовать уже сегодня",
+      "image": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/8cf/408/4c3/8cf4084c3f49a1289a8389603e081363.png",
+      "views": 614,
+      "createdAt": "31.03.2023",
       "userId": "1",
       "type": [
         "IT",
@@ -309,14 +309,14 @@
     },
     {
       "id": "5",
-      "title": "Java для начинающих: решаем задачу умножения матриц",
-      "subtitle": "Для тех, кто только начинает учиться программировать на языке Java",
-      "image": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/6d9/0bb/d6d/6d90bbd6d00501aabc2ed525e6c603eb.png",
-      "views": 36,
-      "createdAt": "16.03.2023",
+      "title": "Как упростить анализ данных? Запуск и сценарии использования готовой виртуальной машины для аналитики",
+      "image": "https://habrastorage.org/webt/wt/uv/mp/wtuvmpgmivrxsgeea6eks1eobfe.png",
+      "views": 370,
+      "createdAt": "30.03.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -331,14 +331,14 @@
     },
     {
       "id": "6",
-      "title": "Java для начинающих: решаем задачу умножения матриц",
-      "subtitle": "Для тех, кто только начинает учиться программировать на языке Java",
-      "image": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/6d9/0bb/d6d/6d90bbd6d00501aabc2ed525e6c603eb.png",
-      "views": 36,
-      "createdAt": "16.03.2023",
+      "title": "Не навреди. Деликатные советы для наставников, работающих с новичками",
+      "image": "https://habrastorage.org/r/w780/getpro/habr/upload_files/415/072/b08/415072b08671995e8ba242b99b539011.jpg",
+      "views": 1400,
+      "createdAt": "18.03.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMIC",
+        "PEOPLE"
       ],
       "blocks": [
         {
@@ -401,7 +401,7 @@
       "subtitle": "Для тех, кто только начинает учиться программировать на языке Java",
       "image": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/6d9/0bb/d6d/6d90bbd6d00501aabc2ed525e6c603eb.png",
       "views": 36,
-      "createdAt": "16.03.2023",
+      "createdAt": "16.03.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -423,7 +423,7 @@
       "subtitle": "Для тех, кто только начинает учиться программировать на языке Java",
       "image": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/6d9/0bb/d6d/6d90bbd6d00501aabc2ed525e6c603eb.png",
       "views": 36,
-      "createdAt": "16.03.2023",
+      "createdAt": "16.03.2019",
       "userId": "1",
       "type": [
         "IT"
@@ -492,7 +492,7 @@
       "createdAt": "16.03.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "PEOPLE"
       ],
       "blocks": [
         {

@@ -1,6 +1,8 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import Informer, { InformerStatuses } from 'shared/ui/Informer/Informer';
+import { useTranslation } from 'react-i18next';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import s from './ArticleList.module.scss';
@@ -20,10 +22,19 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className = '',
     } = props;
 
-    const isExtra = useCallback((num:number) => {
-        const currNum = num + 1;
-        return currNum === 1 || currNum % 6 === 0;
-    }, []);
+    const { t } = useTranslation();
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={cn(s.outer, {}, [s.informer, className])}>
+                <Informer
+                    status={InformerStatuses.INFO}
+                    title={t('Статьи не найдены')}
+                    text={t('Попробуйте изменить параметры поиска')}
+                />
+            </div>
+        );
+    }
 
     return (
         <div className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}>

@@ -11,7 +11,7 @@ interface CurrencySelectProps {
     readOnly?: boolean;
 }
 
-const options:SelectOption[] = Object.values(Currency).map((item) => ({
+const options:SelectOption<Currency>[] = Object.values(Currency).map((item) => ({
     value: item, content: item,
 }));
 

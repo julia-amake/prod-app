@@ -11,7 +11,7 @@ interface CountrySelectProps {
     readOnly?: boolean;
 }
 
-const options:SelectOption[] = Object.values(Country).map((item) => ({
+const options:SelectOption<Country>[] = Object.values(Country).map((item) => ({
     value: item, content: item,
 }));
 

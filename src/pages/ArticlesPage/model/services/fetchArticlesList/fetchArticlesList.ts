@@ -1,10 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
-import { getArticlesPageLimit } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { Article, ArticleType } from 'entities/Article';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import {
+    getArticlesPageLimit,
+    getArticlesPageNumber,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
+} from '../../selectors/articlesPageSelectors';
 
 interface FetchArticlesListProps {
-    page?: number;
+    replace?: boolean;
 }
 
 export const fetchArticlesList = createAsyncThunk<
@@ -16,10 +24,17 @@ export const fetchArticlesList = createAsyncThunk<
         async (props, thunkAPI) => {
             const { rejectWithValue, getState, extra } = thunkAPI;
 
-            const { page } = props;
+            const page = getArticlesPageNumber(getState());
             const limit = getArticlesPageLimit(getState());
+            const order = getArticlesPageOrder(getState());
+            const sort = getArticlesPageSort(getState());
+            const search = getArticlesPageSearch(getState());
+            const type = getArticlesPageType(getState());
 
             try {
+                addQueryParams({
+                    sort, order, search, type,
+                });
                 const response = await extra.api.get<Article[]>(
                     '/articles',
                     {
@@ -27,6 +42,10 @@ export const fetchArticlesList = createAsyncThunk<
                             _expand: 'user',
                             _page: page,
                             _limit: limit,
+                            _sort: sort,
+                            _order: order,
+                            q: search,
+                            type: type === ArticleType.ALL ? undefined : type,
                         },
                     },
                 );

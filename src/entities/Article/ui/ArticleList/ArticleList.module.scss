@@ -1,21 +1,16 @@
 .outer {
   position: relative;
-  left: -40px;
   width: calc(100% + 40px);
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: -64px;
+  gap: 64px 40px;
+  padding-bottom: 16px;
 
   &_list {
-    margin-bottom: -72px;
+    gap: 72px 0;
   }
 }
 
-.item {
-  margin-bottom: 64px;
-  margin-left: 40px;
-
-  .outer_list & {
-    margin-bottom: 72px;
-  }
+.informer {
+  padding-bottom: 0;
 }

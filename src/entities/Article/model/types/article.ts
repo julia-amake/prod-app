@@ -1,5 +1,11 @@
 import { User } from 'entities/User';
 
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt',
+}
+
 export enum ArticleBlockType {
     'TEXT' = 'TEXT',
     'CODE' = 'CODE',
@@ -36,10 +42,11 @@ export interface ArticleDividerBlock extends ArticleBaseBlock{
 export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock | ArticleDividerBlock;
 
 export enum ArticleType {
-    'IT' = 'IT',
-    'SCIENCE' = 'SCIENCE',
-    'ECONOMIC' = 'ECONOMIC',
-    'PEOPLE' = 'PEOPLE'
+    ALL= 'ALL',
+    IT = 'IT',
+    SCIENCE = 'SCIENCE',
+    ECONOMIC = 'ECONOMIC',
+    PEOPLE = 'PEOPLE'
 }
 
 export enum ArticleView {

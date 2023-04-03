@@ -46,7 +46,7 @@ interface ButtonProps extends ButtonHTMLAttributes
     label?: string;
     icon?: ButtonIcon;
     children?: never;
-    onClick?: () => void;
+    onClick?: (value?: any) => void;
 }
 
 const Button = memo((props: ButtonProps) => {

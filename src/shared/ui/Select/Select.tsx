@@ -1,26 +1,27 @@
-import {
-    ChangeEvent, FC, memo, SelectHTMLAttributes, useMemo,
-} from 'react';
+import { ChangeEvent, SelectHTMLAttributes, useMemo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import s from './Select.module.scss';
 
-export interface SelectOption {
-    value: string;
+export interface SelectOption<T extends string> {
+    value: T;
     content: string;
 }
 
-type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange'>
+type SelectSize = 'M' | 'S';
 
-interface SelectProps extends HTMLSelectProps {
+type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'size'>
+
+interface SelectProps<T extends string> extends HTMLSelectProps {
     label?: string;
-    options: SelectOption[];
-    value?: string;
-    onChange?: (value: string) => void;
+    options: SelectOption<T>[];
+    value?: T;
+    onChange?: (value: T) => void;
     className?: string;
     readOnly?: boolean;
+    size?: SelectSize;
 }
 
-const Select: FC<SelectProps> = memo((props) => {
+const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         label = '',
         options,
@@ -28,10 +29,11 @@ const Select: FC<SelectProps> = memo((props) => {
         onChange,
         className = '',
         readOnly = false,
+        size = 'M',
     } = props;
 
     const optionsList = useMemo(() => (
-        options.map((opt: SelectOption) => (
+        options.map((opt: SelectOption<T>) => (
             <option
                 value={opt.value}
                 key={opt.value}
@@ -42,7 +44,7 @@ const Select: FC<SelectProps> = memo((props) => {
     ), [options]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
+        onChange?.(e.target.value as T);
     };
 
     return (
@@ -55,7 +57,7 @@ const Select: FC<SelectProps> = memo((props) => {
                 </div>
             )}
             <select
-                className={cn(s.select, { [s.disabled]: readOnly })}
+                className={cn(s.select, { [s.disabled]: readOnly }, [s[`select_size_${size}`]])}
                 {...(value ? { value } : {})}
                 onChange={onChangeHandler}
                 disabled={readOnly}
@@ -64,6 +66,6 @@ const Select: FC<SelectProps> = memo((props) => {
             </select>
         </div>
     );
-});
+};
 
 export default Select;

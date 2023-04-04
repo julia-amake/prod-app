@@ -70,15 +70,13 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
             onScrollEnd={!isLoading ? onLoadNextPart : undefined}
             className={className}
         >
-            <div className="inner-content--large">
-                <Heading content={t('Статьи')} className={s.title} />
-                <ArticlesPageFilters className={s.filters} />
-                <ArticleList
-                    articles={articles}
-                    isLoading={isLoading}
-                    view={view}
-                />
-            </div>
+            <Heading content={t('Статьи')} className={s.title} />
+            <ArticlesPageFilters className={s.filters} />
+            <ArticleList
+                articles={articles}
+                isLoading={isLoading}
+                view={view}
+            />
         </Page>
     );
 });

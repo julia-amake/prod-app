@@ -67,7 +67,7 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
     if (view === ArticleView.LIST) {
         return (
             <Card
-                className={cn(s.outer, {}, [className, s.outer_list, s.card])}
+                className={cn(s.outer, { }, [className, s.outer_list, s.card])}
             >
                 <div className={s.header}>
                     <div className={s.additional}>

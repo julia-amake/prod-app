@@ -32,17 +32,9 @@ body,
 }
 
 .container {
-  width: 86%;
+  min-width: 1116px;
   max-width: 1120px;
   margin: 0 auto;
-}
-
-.inner-content {
-  max-width: 864px;
-
-  &--large {
-    max-width: 1120px;
-  }
 }
 
 img {

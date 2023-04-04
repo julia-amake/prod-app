@@ -56,8 +56,10 @@ export const Page = (props: PageProps) => {
             className={cn(s.outer, {}, [className])}
             {...onScrollEnd ? { onScroll: onScrollHandler } : {}}
         >
-            {children}
-            {onScrollEnd && <div ref={triggerRef} />}
+            <div className="container">
+                {children}
+                {onScrollEnd && <div ref={triggerRef} />}
+            </div>
         </main>
     );
 };

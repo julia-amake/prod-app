@@ -1,9 +1,9 @@
 .outer {
   position: relative;
-  width: calc(100% + 40px);
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 64px 40px;
+  gap: 64px 3.57%;
   padding-bottom: 16px;
 
   &_list {

@@ -1,10 +1,10 @@
 .outer {
   &_grid {
-    width: 250px;
+    width: 22.3%; // 250
 
     &:nth-child(6n+1),
     &:nth-child(6n+6) {
-      width: 540px;
+      width: 48.2%; // 540
     }
   }
 

@@ -1,9 +1,13 @@
-import React, { HTMLAttributes, memo, ReactNode } from 'react';
+import React, {
+    ElementType, HTMLAttributes, memo, ReactNode,
+} from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import s from './Card.module.scss';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
+    as?: ElementType;
+    to?: string;
     children: ReactNode;
     className?: string;
 }
@@ -12,18 +16,23 @@ export const Card = memo((props: CardProps) => {
     const {
         children,
         className = '',
+        as = 'div',
+        to,
         ...otherProps
     } = props;
 
-    const { isHover, bindHover } = useHover();
+    const Tag = as;
+
+    const { bindHover } = useHover();
 
     return (
-        <div
+        <Tag
             className={cn(s.outer, {}, [className])}
+            {...to ? { to } : {}}
             {...otherProps}
             {...bindHover}
         >
             {children}
-        </div>
+        </Tag>
     );
 });

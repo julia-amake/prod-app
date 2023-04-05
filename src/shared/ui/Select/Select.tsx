@@ -1,5 +1,8 @@
-import { ChangeEvent, SelectHTMLAttributes, useMemo } from 'react';
+import {
+    ChangeEvent, SelectHTMLAttributes, useMemo,
+} from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
+import { typedMemo } from 'shared/lib/utils/typedMemo';
 import s from './Select.module.scss';
 
 export interface SelectOption<T extends string> {
@@ -21,7 +24,7 @@ interface SelectProps<T extends string> extends HTMLSelectProps {
     size?: SelectSize;
 }
 
-const Select = <T extends string>(props: SelectProps<T>) => {
+export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
     const {
         label = '',
         options,
@@ -66,6 +69,6 @@ const Select = <T extends string>(props: SelectProps<T>) => {
             </select>
         </div>
     );
-};
+});
 
 export default Select;

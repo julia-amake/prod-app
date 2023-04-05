@@ -1,9 +1,10 @@
 @import "../../app/styles/helpers/helpers";
 
 .outer {
+  width: 100%;
   padding: 40px;
+  box-sizing: border-box;
   overflow-y: auto;
-  height: 100%;
 
   @include scrollbar;
 }

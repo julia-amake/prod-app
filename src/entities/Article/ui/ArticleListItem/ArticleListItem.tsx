@@ -1,12 +1,13 @@
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import EyeLine from 'shared/assets/icons/EyeLine.svg';
 import { Text, TextMargin, TextSize } from 'shared/ui/Text/Text';
 import { Card } from 'shared/ui/Card/Card';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import Button, { ButtonSize } from 'shared/ui/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import AppLink from 'shared/ui/AppLink/AppLink';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -25,8 +26,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         view = ArticleView.GRID,
         className = '',
     } = props;
-
-    const navigate = useNavigate();
 
     const views = useMemo(() => (
         <div className={s.views}>
@@ -75,18 +74,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         );
     }, [article.type, view]);
 
-    const onOpenArticle = useCallback(
-        () => {
-            navigate(RoutePath.article_details + article.id);
-        },
-        [article.id, navigate],
-    );
-
     if (view === ArticleView.GRID) {
         return (
+
             <Card
+                as={Link}
+                to={RoutePath.article_details + article.id}
                 className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
-                onClick={onOpenArticle}
             >
                 <div className={s.pic_outer}>
                     <img
@@ -124,7 +118,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         return (
             <Card
                 className={cn(s.outer, {}, [className, s.outer_list, s.card])}
-                onClick={onOpenArticle}
             >
                 <div className={s.header}>
                     <div className={s.additional}>
@@ -175,10 +168,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         </div>
                     )}
                     <div className={s.actions}>
-                        <Button
-                            size={ButtonSize.M}
-                            label="Читать далее..."
-                        />
+                        <AppLink
+                            to={RoutePath.article_details + article.id}
+                        >
+                            <Button
+                                size={ButtonSize.M}
+                                label="Читать далее..."
+                            />
+                        </AppLink>
                         {views}
                     </div>
                 </div>

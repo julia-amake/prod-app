@@ -98,7 +98,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
-    });
+    }, [id]);
 
     const content = useMemo(() => {
         if (isLoading) {

@@ -45,6 +45,7 @@ interface ButtonProps extends ButtonHTMLAttributes
     isLoading?: boolean;
     label?: string;
     icon?: ButtonIcon;
+    hoverUnderlined?: boolean;
     children?: never;
     onClick?: (value?: any) => void;
 }
@@ -57,6 +58,7 @@ const Button = memo((props: ButtonProps) => {
         className = '',
         label = '',
         icon,
+        hoverUnderlined = false,
         disabled = false,
         isLoading = false,
         ...otherProps
@@ -86,6 +88,7 @@ const Button = memo((props: ButtonProps) => {
             [s.iconOnly_clear]: iconOnly && theme === ButtonTheme.CLEAR,
             [s.button_disabled]: isLoading || disabled,
             [s.button_reverse]: icon?.position === IconPosition.LEFT,
+            [s.hover_underlined]: hoverUnderlined,
         };
     }, [Icon, label, shape, theme, isLoading, disabled, icon?.position]);
 

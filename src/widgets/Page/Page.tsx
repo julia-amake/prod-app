@@ -60,12 +60,12 @@ export const Page = (props: PageProps) => {
         >
             {header && (
                 <div className={s.header}>
-                    <div className="container">
+                    <div className="container container_size_l">
                         {header}
                     </div>
                 </div>
             )}
-            <div className={cn(s.content, {}, ['container'])}>
+            <div className={cn(s.content, {}, ['container container_size_m'])}>
                 {children}
                 {onScrollEnd && <div ref={triggerRef} />}
             </div>

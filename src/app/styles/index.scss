@@ -32,8 +32,18 @@ body,
 }
 
 .container {
-  max-width: 1120px;
+  width: calc(100% - 56px);
   margin: 0 auto;
+
+  &_size {
+    &_m {
+      max-width: 1120px;
+    }
+
+    &_l {
+      max-width: 1370px;
+    }
+  }
 }
 
 img {

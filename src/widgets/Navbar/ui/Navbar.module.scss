@@ -1,14 +1,12 @@
 .navbar {
   flex: 0 0 auto;
-  height: var(--navbar-height);
   border-bottom: 1px solid var(--devider-color);
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 0 28px; // todo: если не будет кнопки с краю, вернуть 32px
 }
 
-.loginBtn {
-  margin-left: auto;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  height: var(--navbar-height);
 }

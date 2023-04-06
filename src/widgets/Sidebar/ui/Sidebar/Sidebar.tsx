@@ -3,6 +3,10 @@ import { cn } from 'shared/lib/classNames/classNames';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { useSelector } from 'react-redux';
+import LogoSmall from 'shared/assets/icons/LogoSmall.svg';
+import LogoLarge from 'shared/assets/icons/LogoLarge.svg';
+import { Link } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarToggle from '../SidebarToggle/SidebarToggle';
 import SidebarItem from '../SidebarItem/SidebarItem';
@@ -39,6 +43,16 @@ const Sidebar = memo((props: SidebarProps) => {
             )}
             data-testid="sidebar"
         >
+            <Link
+                className={cn(s.logo, { [s.logo_size_s]: collapsed, [s.logo_size_l]: !collapsed })}
+                to={RoutePath.main}
+            >
+                {collapsed ? (
+                    <LogoSmall className={s.logo_pic} />
+                ) : (
+                    <LogoLarge className={s.logo_pic} />
+                )}
+            </Link>
             <nav className={s.menu}>
                 {itemsList}
             </nav>

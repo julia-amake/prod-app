@@ -1,6 +1,9 @@
 {
   "": "",
+  "Create Article": "Create Article",
+  "Create article": "Create article",
   "Decrement": "Decrement",
+  "Edit article": "Edit article",
   "Increment": "Increment",
   "Loading": "Loading",
   "Lorem ipsum dolor sit amet": "",
@@ -39,6 +42,7 @@
   "Данные не указаны": "Данные не указаны",
   "Дата создания": "Дата создания",
   "Добавить комментарий": "Добавить комментарий",
+  "Добавить статью": "Добавить статью",
   "Заголовок": "",
   "Имя и фамилия обязательны": "Имя и фамилия обязательны",
   "Имя пользователя": "Имя пользователя",

@@ -7,3 +7,4 @@ export {
 } from './model/types/articleDetailsRecommendationsSchema';
 
 export { ArticleDetailsPageSchema } from './model/types';
+export { getCanEditArticle } from './model/selectors/article/article';

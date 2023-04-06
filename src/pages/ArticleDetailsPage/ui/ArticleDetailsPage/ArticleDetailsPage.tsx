@@ -14,6 +14,7 @@ import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
 import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducers } from '../../model/slice';
 import {
     fetchArticleRecommendations,
@@ -56,8 +57,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
     const recommendationsError = useSelector(getArticleRecommendationsError);
 
-    const navigate = useNavigate();
-
     useInitialEffect(() => {
         dispatch(fetchCommentsBrArticleId(id));
         dispatch(fetchArticleRecommendations());
@@ -70,13 +69,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         [dispatch],
     );
 
-    const onBackToList = useCallback(
-        () => {
-            navigate(RoutePath.articles);
-        },
-        [navigate],
-    );
-
     if (!id) {
         return (
             <Page className={className}>
@@ -86,14 +78,10 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     }
 
     return (
-        <Page className={className}>
-            <Button
-                label={t('К списку статей')}
-                theme={ButtonTheme.OUTLINED}
-                size={ButtonSize.S}
-                onClick={onBackToList}
-                className={s.backBtn}
-            />
+        <Page
+            header={<ArticleDetailsPageHeader />}
+            className={className}
+        >
             <ArticleDetails id={id} isLoading={isLoading} />
             {!commentsError && (
                 <div className={s.comments}>

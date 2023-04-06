@@ -17,6 +17,7 @@ export const fetchArticleRecommendations = createAsyncThunk<
                     {
                         params: {
                             _limit: 3,
+                            _expand: 'user',
                         },
                     },
                 );

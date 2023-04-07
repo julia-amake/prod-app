@@ -1,5 +1,5 @@
 import React, {
-    UIEvent, MutableRefObject, ReactNode, useRef,
+    UIEvent, MutableRefObject, ReactNode, useRef, useEffect,
 } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -16,6 +16,7 @@ interface PageProps {
     header?: ReactNode;
     children: ReactNode;
     onScrollEnd?: () => void;
+    scrollToTop?: boolean;
     className?: string;
 }
 
@@ -24,6 +25,7 @@ export const Page = (props: PageProps) => {
         header,
         children,
         onScrollEnd,
+        scrollToTop,
         className = '',
     } = props;
 
@@ -44,6 +46,11 @@ export const Page = (props: PageProps) => {
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
+
+    useEffect(() => () => {
+        if (!scrollToTop) return;
+        wrapperRef.current.scroll(0, 0);
+    }, [scrollToTop, pathname]);
 
     const onScrollHandler = useThrottle((e: UIEvent<HTMLDivElement>) => {
         dispatch(uiActions.setScrollPosition({

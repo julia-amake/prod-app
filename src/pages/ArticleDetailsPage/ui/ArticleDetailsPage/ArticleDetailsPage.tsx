@@ -79,7 +79,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         <Page
             header={<ArticleDetailsPageHeader />}
             className={className}
-            scrollToTop
         >
             <ArticleDetails id={id} isLoading={isLoading} />
             {!commentsError && (

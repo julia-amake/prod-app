@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails, ArticleList } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Informer from 'shared/ui/Informer/Informer';
 import { CommentList } from 'entities/Comment';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
@@ -11,10 +11,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
-import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
-import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducers } from '../../model/slice';
 import {
     fetchArticleRecommendations,
@@ -81,6 +79,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         <Page
             header={<ArticleDetailsPageHeader />}
             className={className}
+            scrollToTop
         >
             <ArticleDetails id={id} isLoading={isLoading} />
             {!commentsError && (

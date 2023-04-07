@@ -61,20 +61,23 @@ const Navbar = memo((props:NavbarProps) => {
     }
 
     return (
-        <div className={cn(s.navbar, {}, [className])}>
-            <Button
-                label={t('Войти')}
-                size={ButtonSize.M}
-                onClick={onOpenModal}
-                type="button"
-            />
-            {isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
+        <header className={cn(s.navbar, {}, [className])}>
+            <div className={cn(s.container, {}, ['container', 'container_size_l'])}>
+                <div />
+                <Button
+                    label={t('Войти')}
+                    size={ButtonSize.M}
+                    onClick={onOpenModal}
+                    type="button"
                 />
-            )}
-        </div>
+                {isAuthModal && (
+                    <LoginModal
+                        isOpen={isAuthModal}
+                        onClose={onCloseModal}
+                    />
+                )}
+            </div>
+        </header>
     );
 });
 

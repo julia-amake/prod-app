@@ -8,6 +8,7 @@ import s from './Card.module.scss';
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     as?: ElementType;
     to?: string;
+    target?: string;
     children: ReactNode;
     className?: string;
 }
@@ -18,6 +19,7 @@ export const Card = memo((props: CardProps) => {
         className = '',
         as = 'div',
         to,
+        target,
         ...otherProps
     } = props;
 
@@ -28,7 +30,7 @@ export const Card = memo((props: CardProps) => {
     return (
         <Tag
             className={cn(s.outer, {}, [className])}
-            {...to ? { to } : {}}
+            {...to ? { to, target } : {}}
             {...otherProps}
             {...bindHover}
         >

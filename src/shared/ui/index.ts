@@ -1,3 +1,3 @@
-import ContentLoader from './ConentLoader/ContentLoader';
+import ContentLoader from '../../widgets/ConentLoader/ContentLoader';
 
 export { ContentLoader };

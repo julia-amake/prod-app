@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import Informer, { InformerStatuses } from 'shared/ui/Informer/Informer';
 import { useTranslation } from 'react-i18next';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import s from './ArticleList.module.scss';

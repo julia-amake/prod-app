@@ -1,7 +1,7 @@
 import React, { memo, useMemo, useState } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import LangSwitcher from 'widgets/LangSwitcher/LangSwitcher';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { useSelector } from 'react-redux';
 import LogoSmall from 'shared/assets/icons/LogoSmall.svg';
 import LogoLarge from 'shared/assets/icons/LogoLarge.svg';

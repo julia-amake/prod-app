@@ -90,7 +90,7 @@ const Button = memo((props: ButtonProps) => {
             [s.button_reverse]: icon?.position === IconPosition.LEFT,
             [s.hover_underlined]: hoverUnderlined,
         };
-    }, [Icon, label, shape, theme, isLoading, disabled, icon?.position]);
+    }, [Icon, label, shape, theme, isLoading, disabled, icon?.position, hoverUnderlined]);
 
     return (
         <button

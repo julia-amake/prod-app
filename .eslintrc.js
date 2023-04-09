@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'amake-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -68,6 +69,7 @@ module.exports = {
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-autofocus': 'warn',
+        'amake-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

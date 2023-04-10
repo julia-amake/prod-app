@@ -1,8 +1,6 @@
 .sidebar {
   position: relative;
   flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
   width: 240px;
   box-sizing: border-box;
   border-right: 1px solid var(--devider-color);
@@ -17,8 +15,6 @@
 
 .logo {
   position: relative;
-  display: flex;
-  align-items: center;
   height: var(--navbar-height);
   margin-bottom: 16px;
 
@@ -57,29 +53,10 @@
 
 .actions {
   margin-top: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .collapsed & {
-    flex-direction: column;
-  }
 }
 
 .themeSwitcher {
-  margin-right: 16px;
-
   .collapsed & {
-    margin-right: 0;
     margin-bottom: 8px;
-  }
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-
-  .collapsed & {
-    align-items: center;
   }
 }

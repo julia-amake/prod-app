@@ -22,6 +22,8 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
+import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
+import { VStack } from 'shared/ui/Stack';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 import s from './ProfilePage.module.scss';
 
@@ -145,34 +147,41 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
     );
 
     return (
-        <Page>
+        <Page header={(
             <ProfilePageHeader
                 readonly={readonly}
                 isLoading={isLoading}
             />
-            {validateErrors?.length
-                ? (
-                    <Informer
-                        text={errorsList}
-                        isCentered={validateErrors.length === 1}
-                        className={s.errorInformer}
-                    />
-                )
-                : null}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                readOnly={readonly}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-            />
+        )}
+        >
+            <VStack gap="32">
+                <Heading
+                    size={HeadingSize.L}
+                    content={t('Профиль')}
+                />
+                {validateErrors?.length
+                    ? (
+                        <Informer
+                            text={errorsList}
+                            isCentered={validateErrors.length === 1}
+                        />
+                    )
+                    : null}
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    readOnly={readonly}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                />
+            </VStack>
         </Page>
     );
 };

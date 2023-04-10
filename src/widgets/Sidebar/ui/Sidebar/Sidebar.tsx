@@ -5,8 +5,9 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { useSelector } from 'react-redux';
 import LogoSmall from 'shared/assets/icons/LogoSmall.svg';
 import LogoLarge from 'shared/assets/icons/LogoLarge.svg';
-import { Link } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarToggle from '../SidebarToggle/SidebarToggle';
 import SidebarItem from '../SidebarItem/SidebarItem';
@@ -15,6 +16,8 @@ import s from './Sidebar.module.scss';
 interface SidebarProps {
     className?: string;
 }
+
+const customLogoProps:LinkProps = { to: RoutePath.main };
 
 const Sidebar = memo((props: SidebarProps) => {
     const { className = '' } = props;
@@ -34,8 +37,12 @@ const Sidebar = memo((props: SidebarProps) => {
         [SidebarItemsList, collapsed],
     );
 
+    const Actions = useMemo(() => (collapsed ? VStack : HStack), [collapsed]);
+    const Logo = useMemo(() => (collapsed ? LogoSmall : LogoLarge), [collapsed]);
+
     return (
-        <aside
+        <VStack
+            as="aside"
             className={cn(
                 s.sidebar,
                 { [s.collapsed]: collapsed },
@@ -43,25 +50,32 @@ const Sidebar = memo((props: SidebarProps) => {
             )}
             data-testid="sidebar"
         >
-            <Link
+            <HStack
+                as={Link}
                 className={cn(s.logo, { [s.logo_size_s]: collapsed, [s.logo_size_l]: !collapsed })}
-                to={RoutePath.main}
+                align="center"
+                customProps={customLogoProps}
             >
-                {collapsed ? (
-                    <LogoSmall className={s.logo_pic} />
-                ) : (
-                    <LogoLarge className={s.logo_pic} />
-                )}
-            </Link>
-            <nav className={s.menu}>
+                <Logo className={s.logo_pic} />
+            </HStack>
+            <VStack
+                as="nav"
+                align={collapsed ? 'center' : 'start'}
+                className={s.menu}
+            >
                 {itemsList}
-            </nav>
-            <div className={s.actions}>
+            </VStack>
+            <Actions
+                className={s.actions}
+                justify="center"
+                align="center"
+                gap={collapsed ? 'none' : '16'}
+            >
                 <ThemeSwitcher className={s.themeSwitcher} isInvertedColor />
                 <LangSwitcher isShort={collapsed} />
-            </div>
+            </Actions>
             <SidebarToggle collapsed={collapsed} setCollapsed={setCollapsed} />
-        </aside>
+        </VStack>
     );
 });
 

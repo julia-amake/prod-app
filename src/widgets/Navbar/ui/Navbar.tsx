@@ -7,6 +7,7 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { HStack } from 'shared/ui/Stack';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -41,7 +42,12 @@ const Navbar = memo((props:NavbarProps) => {
     if (authData) {
         return (
             <header className={cn(s.navbar, {}, [className])}>
-                <div className={cn(s.container, {}, ['container', 'container_size_l'])}>
+                <HStack
+                    className={cn(s.container, {}, ['container', 'container_size_l'])}
+                    justify="between"
+                    align="center"
+                    gap="16"
+                >
                     <Button
                         label={t('Добавить статью')}
                         size={ButtonSize.M}
@@ -55,15 +61,19 @@ const Navbar = memo((props:NavbarProps) => {
                         onClick={onLogout}
                         type="button"
                     />
-                </div>
+                </HStack>
             </header>
         );
     }
 
     return (
         <header className={cn(s.navbar, {}, [className])}>
-            <div className={cn(s.container, {}, ['container', 'container_size_l'])}>
-                <div />
+            <HStack
+                className={cn(s.container, {}, ['container', 'container_size_l'])}
+                justify="end"
+                align="center"
+                gap="16"
+            >
                 <Button
                     label={t('Войти')}
                     size={ButtonSize.M}
@@ -76,7 +86,7 @@ const Navbar = memo((props:NavbarProps) => {
                         onClose={onCloseModal}
                     />
                 )}
-            </div>
+            </HStack>
         </header>
     );
 });

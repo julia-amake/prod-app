@@ -9,7 +9,7 @@ export enum AppLinkTheme {
     CLEAR = 'clear'
 }
 
-interface AppLinkProps extends LinkProps {
+export interface AppLinkProps extends LinkProps {
     className?: string;
     theme?: AppLinkTheme;
     children: ReactNode;

@@ -1,5 +1,4 @@
 import React, { FC, useCallback } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
 import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
@@ -10,7 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileData, profileActions, updateProfileData } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
-import s from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -53,13 +52,18 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
     );
 
     return (
-        <header className={cn(s.header, {}, [className])}>
-            <Heading
-                size={HeadingSize.L}
-                className={s.title}
-                content={t('Профиль')}
-            />
-            <div className={s.buttons}>
+        <HStack
+            as="header"
+            className={className}
+            align="center"
+            justify="between"
+            gap="24"
+        >
+            <div />
+            <HStack
+                align="center"
+                gap="16"
+            >
                 {canEdit && (
                     readonly
                         ? (
@@ -69,7 +73,6 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
                                 size={ButtonSize.M}
                                 icon={{ element: EditLine }}
                                 onClick={onEdit}
-                                className={s.btn}
                                 disabled={isLoading}
                             />
                         )
@@ -81,7 +84,6 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
                                     size={ButtonSize.M}
                                     icon={{ element: EraserLine }}
                                     onClick={onCancelEdit}
-                                    className={s.btn}
                                     disabled={isLoading}
                                 />
                                 <Button
@@ -90,14 +92,13 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
                                     size={ButtonSize.M}
                                     icon={{ element: DoneLine }}
                                     onClick={onSaveEdit}
-                                    className={cn(s.btn, {}, [s.btn_last])}
                                     disabled={isLoading}
                                 />
                             </>
                         )
                 )}
-            </div>
-        </header>
+            </HStack>
+        </HStack>
     );
 };
 

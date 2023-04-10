@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import Preloader from 'shared/ui/Preloader/Preloader';
+import { HStack } from 'shared/ui/Stack';
 import s from './ContentLoader.module.scss';
 
 interface PageLoaderProps {
@@ -13,9 +14,13 @@ const ContentLoader: React.FC<PageLoaderProps> = (props) => {
     } = props;
 
     return (
-        <div className={cn(s.wrapper, {}, [className])}>
+        <HStack
+            className={cn(s.wrapper, {}, [className])}
+            align="center"
+            justify="center"
+        >
             <Preloader />
-        </div>
+        </HStack>
     );
 };
 

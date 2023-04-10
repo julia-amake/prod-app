@@ -1,9 +1,11 @@
 import webpack from 'webpack';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { BuildOptions } from './types/config';
 
-export function buildLoaders(): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = buildSvgLoader();
+    const { isDev } = options;
 
     const babelLoader = {
         test: /\.(js|jsx|ts|tsx)$/,
@@ -25,7 +27,7 @@ export function buildLoaders(): webpack.RuleSetRule[] {
         },
     };
 
-    const scssLoader = buildCssLoader(true);
+    const scssLoader = buildCssLoader(isDev);
 
     const fontsLoader = {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

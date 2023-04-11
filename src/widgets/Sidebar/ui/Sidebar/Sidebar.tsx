@@ -37,8 +37,8 @@ const Sidebar = memo((props: SidebarProps) => {
         [SidebarItemsList, collapsed],
     );
 
-    const Actions = useMemo(() => (collapsed ? VStack : HStack), [collapsed]);
     const Logo = useMemo(() => (collapsed ? LogoSmall : LogoLarge), [collapsed]);
+    const Actions = useMemo(() => (collapsed ? VStack : HStack), [collapsed]);
 
     return (
         <VStack

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { cn } from 'shared/lib/classNames/classNames';
+import { Float } from '@headlessui-float/react';
 import s from './ListBox.module.scss';
 
 interface ListBoxItemIcon {
@@ -54,30 +55,41 @@ export const ListBox = (props: ListBoxProps) => {
                 className={s.select}
                 disabled={readonly || !options || !options.length}
             >
-                <HListBox.Button className={cn(s.btn, { [s.btn_disabled]: readonly })}>
-                    {value ?? defaultValue}
-                </HListBox.Button>
-                <HListBox.Options className={s.options}>
-                    {options?.map((item) => (
-                        <HListBox.Option
-                            key={item.value}
-                            value={item.value}
-                            disabled={item.disabled}
-                            as={Fragment}
-                        >
-                            {({ active, selected, disabled }) => (
-                                <li className={cn(s.option, {
-                                    [s.option_active]: active,
-                                    [s.option_selected]: selected,
-                                    [s.option_disabled]: disabled,
-                                })}
-                                >
-                                    {item.title}
-                                </li>
-                            )}
-                        </HListBox.Option>
-                    ))}
-                </HListBox.Options>
+                <Float
+                    as="div"
+                    floatingAs={Fragment}
+                    offset={12}
+                    flip={8}
+                >
+                    <HListBox.Button
+                        className={cn(s.btn, { [s.btn_disabled]: readonly })}
+                    >
+                        {value ?? defaultValue}
+                    </HListBox.Button>
+                    <HListBox.Options
+                        className={s.options}
+                    >
+                        {options?.map((item) => (
+                            <HListBox.Option
+                                key={item.value}
+                                value={item.value}
+                                disabled={item.disabled}
+                                as={Fragment}
+                            >
+                                {({ active, selected, disabled }) => (
+                                    <li className={cn(s.option, {
+                                        [s.option_active]: active,
+                                        [s.option_selected]: selected,
+                                        [s.option_disabled]: disabled,
+                                    })}
+                                    >
+                                        {item.title}
+                                    </li>
+                                )}
+                            </HListBox.Option>
+                        ))}
+                    </HListBox.Options>
+                </Float>
             </HListBox>
         </div>
     );

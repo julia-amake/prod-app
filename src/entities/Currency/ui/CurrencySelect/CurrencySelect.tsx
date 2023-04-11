@@ -1,6 +1,6 @@
 import React, { FC, memo, useCallback } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import Select, { SelectOption } from 'shared/ui/Select/Select';
+import { ListBox, ListBoxOption } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
@@ -11,8 +11,8 @@ interface CurrencySelectProps {
     readOnly?: boolean;
 }
 
-const options:SelectOption<Currency>[] = Object.values(Currency).map((item) => ({
-    value: item, content: item,
+const options:ListBoxOption[] = Object.values(Currency).map((item) => ({
+    value: item, title: item,
 }));
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo((props) => {
@@ -29,13 +29,13 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo((props) => {
     }, [onChange]);
 
     return (
-        <Select
-            className={cn('', {}, [className])}
+        <ListBox
             label={label}
             options={options}
-            value={value}
             onChange={onChangeHandler}
-            readOnly={readOnly}
+            value={value}
+            readonly={readOnly}
+            className={cn('', {}, [className])}
         />
     );
 });

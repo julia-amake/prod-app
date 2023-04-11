@@ -2,15 +2,12 @@
   margin-bottom: 32px;
 }
 
-.fields {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.form {
+  gap: 32px 0;
 }
 
 .input {
   width: calc(50% - 12px);
-  margin-bottom: 32px;
 
   &:last-child {
     margin-bottom: 0;

@@ -7,6 +7,7 @@ import Informer from 'shared/ui/Informer/Informer';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { HStack } from 'shared/ui/Stack';
 import { Profile } from '../../model/types/profile';
 import s from './ProfileCard.module.scss';
 
@@ -56,7 +57,11 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                             />
                         </div>
                     )}
-                    <div className={s.fields}>
+                    <HStack
+                        justify="between"
+                        wrap
+                        className={s.form}
+                    >
                         <Input
                             label={t('Ваше имя')}
                             value={data?.name}
@@ -113,7 +118,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                             readOnly={readOnly}
                             className={s.input}
                         />
-                    </div>
+                    </HStack>
                 </div>
             )}
             {isLoading && <Preloader />}

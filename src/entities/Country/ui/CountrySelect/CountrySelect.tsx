@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import Select, { SelectOption } from 'shared/ui/Select/Select';
+import { ListBox, ListBoxOption } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
@@ -11,8 +11,8 @@ interface CountrySelectProps {
     readOnly?: boolean;
 }
 
-const options:SelectOption<Country>[] = Object.values(Country).map((item) => ({
-    value: item, content: item,
+const options:ListBoxOption[] = Object.values(Country).map((item) => ({
+    value: item, title: item,
 }));
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
@@ -29,13 +29,13 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     }, [onChange]);
 
     return (
-        <Select
-            className={cn('', {}, [className])}
+        <ListBox
             label={label}
             options={options}
-            value={value}
             onChange={onChangeHandler}
-            readOnly={readOnly}
+            value={value}
+            readonly={readOnly}
+            className={cn('', {}, [className])}
         />
     );
 });

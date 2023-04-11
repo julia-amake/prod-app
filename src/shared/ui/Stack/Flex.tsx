@@ -44,6 +44,7 @@ export interface FlexProps {
     justify?: FlexJustify;
     align?: FlexAlign;
     direction: FlexDirection;
+    wrap?: boolean;
     gap?: FlexGap;
     fullWidth?: boolean;
     customProps?: object;
@@ -57,6 +58,7 @@ export const Flex = (props: FlexProps) => {
         justify = 'start',
         align = 'stretch',
         direction = 'row',
+        wrap = false,
         gap = 'none',
         fullWidth = false,
         customProps,
@@ -68,7 +70,7 @@ export const Flex = (props: FlexProps) => {
         <Tag
             className={cn(
                 s.flex,
-                { [s.fullWidth]: fullWidth },
+                { [s.fullWidth]: fullWidth, [s.wrap]: wrap, [s.nowrap]: !wrap },
                 [className, justifyClasses[justify], alignClasses[align], directionClasses[direction], gapClasses[gap]],
             )}
             {...customProps}

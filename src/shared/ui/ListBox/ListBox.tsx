@@ -2,17 +2,13 @@ import React, { Fragment } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { Float } from '@headlessui-float/react';
+import { ItemIcon } from 'shared/types';
 import s from './ListBox.module.scss';
-
-interface ListBoxItemIcon {
-    element: React.VFC<React.SVGProps<SVGSVGElement>>;
-    className?: string;
-}
 
 export interface ListBoxOption {
     value: string,
     title: string,
-    icon?: ListBoxItemIcon
+    icon?: ItemIcon,
     disabled?: boolean
 }
 

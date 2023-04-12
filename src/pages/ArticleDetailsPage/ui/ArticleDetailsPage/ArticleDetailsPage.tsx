@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails, ArticleList } from 'entities/Article';
+import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import Informer from 'shared/ui/Informer/Informer';
 import { CommentList } from 'entities/Comment';
@@ -10,25 +10,19 @@ import { getArticleDetailsIsLoading } from 'entities/Article/model/selectors/art
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
 import { Page } from 'widgets/Page/Page';
+import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
+import { PageSection } from 'shared/ui/PageSection/PageSection';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducers } from '../../model/slice';
 import {
     fetchArticleRecommendations,
 } from '../../model/services/FetchArticleRecommendations/FetchArticleRecommendations';
-import {
-    getArticleRecommendationsError,
-    getArticleRecommendationsIsLoading,
-} from '../../model/selectors/recommendations/recommendations';
 import { fetchCommentsBrArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import s from './ArticleDetailsPage.module.scss';
-import {
-    getArticleRecommendations,
-} from '../../model/slice/articleDetailsRecommendationsSlice';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -51,9 +45,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const commentsError = useSelector(getArticleCommentsError);
-    const recommendations = useSelector(getArticleRecommendations.selectAll);
-    const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-    const recommendationsError = useSelector(getArticleRecommendationsError);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsBrArticleId(id));
@@ -82,12 +73,9 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         >
             <ArticleDetails id={id} isLoading={isLoading} />
             {!commentsError && (
-                <div className={s.comments}>
-                    <Heading
-                        content={t('Комментарии')}
-                        className={s.comments_title}
-                        size={HeadingSize.S}
-                    />
+                <PageSection
+                    title={t('Комментарии')}
+                >
                     <AddCommentForm
                         onSendComment={onSendComment}
                         className={s.comments_form}
@@ -97,21 +85,9 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
                         comments={comments}
                         isLoading={commentsIsLoading || isLoading}
                     />
-                </div>
+                </PageSection>
             )}
-            {!recommendationsError && (
-                <div className={s.recommend}>
-                    <Heading
-                        content={t('Рекомендуем')}
-                        className={s.recommend_title}
-                        size={HeadingSize.S}
-                    />
-                    <ArticleList
-                        articles={recommendations}
-                        isLoading={recommendationsIsLoading}
-                    />
-                </div>
-            )}
+            <ArticleRecommendationsList />
         </Page>
     );
 });

@@ -45,7 +45,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         >
             <ArticleDetails id={id} isLoading={isLoading} />
             <ArticleDetailsComments id={id} isLoading={isLoading} />
-            <ArticleRecommendationsList />
+            <ArticleRecommendationsList id={id} />
         </Page>
     );
 });

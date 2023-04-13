@@ -1,26 +1,27 @@
 import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
 import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import EditLine from 'shared/assets/icons/EditLine.svg';
 import DoneLine from 'shared/assets/icons/DoneLine.svg';
 import EraserLine from 'shared/assets/icons/EraserLine.svg';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getProfileData, profileActions, updateProfileData } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack';
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import {
+    getProfileIsLoading,
+} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
     className?: string;
-    readonly: boolean;
-    isLoading?: boolean;
 }
 
-const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
+export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) => {
     const {
-        readonly,
-        isLoading = false,
         className = '',
     } = props;
 
@@ -28,6 +29,8 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
+    const readonly = useSelector(getProfileReadonly);
+    const isLoading = useSelector(getProfileIsLoading);
     const dispatch = useAppDispatch();
 
     const onEdit = useCallback(
@@ -101,5 +104,3 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
         </HStack>
     );
 };
-
-export default ProfilePageHeader;

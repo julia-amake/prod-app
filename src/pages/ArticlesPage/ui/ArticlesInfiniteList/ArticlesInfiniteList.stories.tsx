@@ -1,19 +1,19 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticlesPageFilters } from './ArticlesPageFilters';
+import { ArticlesInfiniteList } from './ArticlesInfiniteList';
 
 export default {
-    title: 'pages/Article/ArticlesPageFilters',
-    component: ArticlesPageFilters,
+    title: 'pages/ArticlesPage/ArticlesInfiniteList',
+    component: ArticlesInfiniteList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     args: {},
-} as ComponentMeta<typeof ArticlesPageFilters>;
+} as ComponentMeta<typeof ArticlesInfiniteList>;
 
-const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => (
-    <ArticlesPageFilters {...args} />
+const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => (
+    <ArticlesInfiniteList {...args} />
 );
 
 export const Normal = Template.bind({});

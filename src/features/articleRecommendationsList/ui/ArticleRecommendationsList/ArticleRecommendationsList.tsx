@@ -11,20 +11,22 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
+    id: string;
     className?: string;
 }
 
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
     const {
+        id,
         className = '',
     } = props;
     const { t } = useTranslation();
-    const { data: articles, isLoading, error } = useArticleRecommendationsList(3);
+    const { data: articles, isLoading, error } = useArticleRecommendationsList({ limit: 3, excluded: id });
     const dispatch = useAppDispatch();
 
     useInitialEffect(() => {
-        dispatch(fetchArticleRecommendations());
-    }, []);
+        dispatch(fetchArticleRecommendations(id));
+    }, [id]);
 
     if (isLoading) return <Preloader />;
     if (error) return null;

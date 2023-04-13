@@ -1,23 +1,21 @@
 import React, { memo, useCallback } from 'react';
-import { ArticleList } from 'entities/Article';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/Page';
-import Informer from 'shared/ui/Informer/Informer';
 import { useSearchParams } from 'react-router-dom';
 import Heading from 'shared/ui/Heading/Heading';
 import { useTranslation } from 'react-i18next';
+import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
-    getArticlesPageError, getArticlesPageHasMore,
+    getArticlesPageHasMore,
     getArticlesPageIsLoading,
-    getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import s from './ArticlesPage.module.scss';
 
 const reducersList: ReducersList = {
@@ -36,11 +34,8 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     const { t } = useTranslation();
 
     const dispatch = useAppDispatch();
-    const articles = useSelector(getArticles.selectAll);
-    const view = useSelector(getArticlesPageView);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const hasMore = useSelector(getArticlesPageHasMore);
-    const error = useSelector(getArticlesPageError);
     const [searchParams] = useSearchParams();
 
     useDynamicModuleLoader(reducersList, false);
@@ -57,14 +52,6 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
         dispatch(initArticlesPage(searchParams));
     });
 
-    if (error) {
-        return (
-            <Page>
-                <Informer title={error} isCentered />
-            </Page>
-        );
-    }
-
     return (
         <Page
             onScrollEnd={!isLoading ? onLoadNextPart : undefined}
@@ -72,11 +59,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
         >
             <Heading content={t('Статьи')} className={s.title} />
             <ArticlesPageFilters className={s.filters} />
-            <ArticleList
-                articles={articles}
-                isLoading={isLoading}
-                view={view}
-            />
+            <ArticlesInfiniteList />
         </Page>
     );
 });

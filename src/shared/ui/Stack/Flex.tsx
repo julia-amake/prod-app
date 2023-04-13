@@ -62,6 +62,7 @@ export const Flex = (props: FlexProps) => {
         gap = 'none',
         fullWidth = false,
         customProps,
+        ...otherProps
     } = props;
 
     const Tag = as;
@@ -74,6 +75,7 @@ export const Flex = (props: FlexProps) => {
                 [className, justifyClasses[justify], alignClasses[align], directionClasses[direction], gapClasses[gap]],
             )}
             {...customProps}
+            {...otherProps}
         >
             {children}
         </Tag>

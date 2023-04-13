@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { CommentList } from 'entities/Comment';
@@ -44,23 +44,24 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
         [dispatch],
     );
 
-    if (commentsIsLoading || isLoading) return <Preloader />;
     if (error) return null;
 
     return (
-        <PageSection
-            className={className}
-            title={t('Комментарии')}
-        >
-            <AddCommentForm
-                onSendComment={onSendComment}
-                className={s.form}
-                isLoading={commentsIsLoading || isLoading}
-            />
-            <CommentList
-                comments={comments}
-                isLoading={commentsIsLoading || isLoading}
-            />
-        </PageSection>
+        <Suspense fallback={<Preloader />}>
+            <PageSection
+                className={className}
+                title={t('Комментарии')}
+            >
+                <AddCommentForm
+                    onSendComment={onSendComment}
+                    className={s.form}
+                    isLoading={commentsIsLoading || isLoading}
+                />
+                <CommentList
+                    comments={comments}
+                    isLoading={commentsIsLoading || isLoading}
+                />
+            </PageSection>
+        </Suspense>
     );
 });

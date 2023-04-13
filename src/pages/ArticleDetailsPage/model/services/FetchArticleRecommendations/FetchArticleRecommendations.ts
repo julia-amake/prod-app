@@ -4,11 +4,11 @@ import { Article } from 'entities/Article';
 
 export const fetchArticleRecommendations = createAsyncThunk<
     Article[],
-    void,
+    string,
     ThunkConfig<string>
     >(
         'article/fetchArticleRecommendations',
-        async (_, thunkAPI) => {
+        async (excludeId, thunkAPI) => {
             const { rejectWithValue, extra } = thunkAPI;
 
             try {
@@ -18,6 +18,7 @@ export const fetchArticleRecommendations = createAsyncThunk<
                         params: {
                             _limit: 3,
                             _expand: 'user',
+                            _id_ne: excludeId,
                         },
                     },
                 );

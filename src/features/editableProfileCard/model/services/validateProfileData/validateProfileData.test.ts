@@ -82,6 +82,7 @@ describe('validateProfileData.test', () => {
 
         expect(result).toEqual([
             ValidateProfileError.INCORRECT_USER_DATA,
+            ValidateProfileError.INCORRECT_USERNAME,
             ValidateProfileError.INCORRECT_AGE,
             ValidateProfileError.INCORRECT_COUNTRY,
         ]);

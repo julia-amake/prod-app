@@ -42,10 +42,8 @@ export default {
     ],
     // The root directory that Jest should scan for tests and modules within
     rootDir: '../../',
-
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
-
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     moduleNameMapper: {
         '\\.(s?css)$': 'identity-obj-proxy',
@@ -54,6 +52,16 @@ export default {
         '\\.jpeg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '\\.png': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
+    // Use this configuration option to add custom reporters to Jest
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            openReport: true,
+            inlineSource: true,
+        }],
+    ],
 
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -119,9 +127,6 @@ export default {
 
     // Run tests from one or more projects
     // projects: undefined,
-
-    // Use this configuration option to add custom reporters to Jest
-    // reporters: undefined,
 
     // Automatically reset mock state before every test
     // resetMocks: false,

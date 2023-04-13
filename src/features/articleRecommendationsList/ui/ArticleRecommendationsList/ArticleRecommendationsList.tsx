@@ -29,7 +29,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     }, [id]);
 
     if (isLoading) return <Preloader />;
-    if (error) return null;
+    if (error || !articles?.length) return null;
 
     return (
         <PageSection

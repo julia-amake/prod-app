@@ -18,7 +18,6 @@ import {
 } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
-import s from './EditableProfileCard.module.scss';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import {
@@ -52,18 +51,16 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_USERNAME]: t('Имя пользователя обязательно'),
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }), []);
 
     const errorsList = useMemo(() => (
-        <ul className={s.errors}>
+        <ul>
             {validateErrors?.map((err) => (
-                <li
-                    className={s.errorsItem}
-                    key={err}
-                >
+                <li key={err}>
                     {validateErrorTranslations[err]}
                 </li>
             ))}

@@ -11,6 +11,7 @@ export const validateProfileData = (profile?: Profile | null) => {
         lastname,
         age,
         country,
+        username,
     } = profile;
 
     const errors: ValidateProfileError[] = [];
@@ -19,6 +20,10 @@ export const validateProfileData = (profile?: Profile | null) => {
 
     if (!name || !lastname) {
         errors.push(ValidateProfileError.INCORRECT_USER_DATA);
+    }
+
+    if (!username) {
+        errors.push(ValidateProfileError.INCORRECT_USERNAME);
     }
 
     if (!age || !Number.isInteger(age)) {

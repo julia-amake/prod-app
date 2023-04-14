@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page/Page';
+import { PageContent } from 'shared/ui/Page/PageContent/PageContent';
 import s from './NotFoundPage.module.scss';
 
 const NotFoundPage: React.FC = () => {
@@ -8,7 +9,9 @@ const NotFoundPage: React.FC = () => {
 
     return (
         <Page className={s.page}>
-            {t('Страница не найдена')}
+            <PageContent>
+                {t('Страница не найдена')}
+            </PageContent>
         </Page>
     );
 };

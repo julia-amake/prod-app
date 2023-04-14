@@ -8,6 +8,7 @@ import ArrowLeftLongLine from 'shared/assets/icons/ArrowLeftLongLine.svg';
 import EditLine from 'shared/assets/icons/EditLine.svg';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
+import { PageHeader } from 'shared/ui/Page';
 import { getCanEditArticle } from '../../model/selectors/article/article';
 import s from './ArticleDetailsPageHeader.module.scss';
 
@@ -41,7 +42,7 @@ export const ArticleDetailsPageHeader:FC<ArticleDetailsPageHeaderProps> = memo((
     );
 
     return (
-        <div className={cn(s.outer, {}, [className])}>
+        <PageHeader className={cn(s.outer, {}, [className])}>
             <Button
                 label={t('К списку статей')}
                 theme={ButtonTheme.CLEAR}
@@ -61,8 +62,6 @@ export const ArticleDetailsPageHeader:FC<ArticleDetailsPageHeaderProps> = memo((
                     onClick={onEditArticle}
                 />
             )}
-        </div>
+        </PageHeader>
     );
 });
-
-// 194

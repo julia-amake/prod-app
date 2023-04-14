@@ -3,6 +3,7 @@ import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+import { PageContent } from 'shared/ui/Page/PageContent/PageContent';
 import s from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
@@ -20,7 +21,9 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
 
     return (
         <Page className={cn(s.outer, {}, [className])}>
-            {isEdit ? t('Edit article') : t('Create article')}
+            <PageContent>
+                {isEdit ? t('Edit article') : t('Create article')}
+            </PageContent>
         </Page>
     );
 });

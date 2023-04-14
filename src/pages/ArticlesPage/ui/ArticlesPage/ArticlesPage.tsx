@@ -7,6 +7,7 @@ import { Page } from 'widgets/Page/Page';
 import { useSearchParams } from 'react-router-dom';
 import Heading from 'shared/ui/Heading/Heading';
 import { useTranslation } from 'react-i18next';
+import { PageContent } from 'shared/ui/Page/PageContent/PageContent';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
@@ -57,9 +58,11 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
             onScrollEnd={!isLoading ? onLoadNextPart : undefined}
             className={className}
         >
-            <Heading content={t('Статьи')} className={s.title} />
-            <ArticlesPageFilters className={s.filters} />
-            <ArticlesInfiniteList />
+            <PageContent>
+                <Heading content={t('Статьи')} className={s.title} />
+                <ArticlesPageFilters className={s.filters} />
+                <ArticlesInfiniteList />
+            </PageContent>
         </Page>
     );
 });

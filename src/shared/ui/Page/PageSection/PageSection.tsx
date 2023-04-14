@@ -1,6 +1,6 @@
-import React, { memo, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import Heading, { HeadingSize } from '../Heading/Heading';
+import Heading, { HeadingSize } from '../../Heading/Heading';
 import s from './PageSection.module.scss';
 
 interface PageSectionProps {
@@ -9,7 +9,7 @@ interface PageSectionProps {
     className?: string;
 }
 
-export const PageSection = memo((props: PageSectionProps) => {
+export const PageSection = (props: PageSectionProps) => {
     const {
         title,
         children,
@@ -28,4 +28,4 @@ export const PageSection = memo((props: PageSectionProps) => {
             {children}
         </div>
     );
-});
+};

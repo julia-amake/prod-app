@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { getArticleDetailsIsLoading } from 'entities/Article/model/selectors/articleDetails';
 import { Page } from 'widgets/Page/Page';
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
+import { PageContent } from 'shared/ui/Page/PageContent/PageContent';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducers } from '../../model/slice';
@@ -39,13 +40,13 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     }
 
     return (
-        <Page
-            header={<ArticleDetailsPageHeader />}
-            className={className}
-        >
-            <ArticleDetails id={id} isLoading={isLoading} />
-            <ArticleDetailsComments id={id} isLoading={isLoading} />
-            <ArticleRecommendationsList id={id} />
+        <Page className={className}>
+            <ArticleDetailsPageHeader />
+            <PageContent>
+                <ArticleDetails id={id} isLoading={isLoading} />
+                <ArticleDetailsComments id={id} isLoading={isLoading} />
+                <ArticleRecommendationsList id={id} />
+            </PageContent>
         </Page>
     );
 });

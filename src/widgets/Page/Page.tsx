@@ -13,7 +13,6 @@ import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import s from './Page.module.scss';
 
 interface PageProps {
-    header?: ReactNode;
     children: ReactNode;
     onScrollEnd?: () => void;
     className?: string;
@@ -21,7 +20,6 @@ interface PageProps {
 
 export const Page = (props: PageProps) => {
     const {
-        header,
         children,
         onScrollEnd,
         className = '',
@@ -58,17 +56,8 @@ export const Page = (props: PageProps) => {
             className={cn(s.outer, {}, [className])}
             {...onScrollEnd ? { onScroll: onScrollHandler } : {}}
         >
-            {header && (
-                <div className={s.header}>
-                    <div className="container container_size_l">
-                        {header}
-                    </div>
-                </div>
-            )}
-            <div className={cn(s.content, {}, ['container container_size_m'])}>
-                {children}
-                {onScrollEnd && <div ref={triggerRef} />}
-            </div>
+            {children}
+            {onScrollEnd && <div ref={triggerRef} />}
         </main>
     );
 };

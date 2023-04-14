@@ -17,3 +17,14 @@
     border: 1px solid var(--primary-color); /* padding вокруг плашки */
   }
 }
+
+@mixin container($size: m) {
+  width: calc(100% - 56px);
+  margin: 0 auto;
+
+  @if $size == m {
+    max-width: 1120px;
+  } @else if $size == l {
+    max-width: 1370px;
+  }
+}

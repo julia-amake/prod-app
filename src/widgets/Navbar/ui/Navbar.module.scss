@@ -1,3 +1,5 @@
+@import "../../../app/styles/helpers/helpers";
+
 .navbar {
   flex: 0 0 auto;
   border-bottom: 1px solid var(--devider-color);
@@ -5,4 +7,6 @@
 
 .container {
   height: var(--navbar-height);
+
+  @include container(l);
 }

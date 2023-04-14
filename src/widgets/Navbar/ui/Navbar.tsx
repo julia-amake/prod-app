@@ -47,7 +47,7 @@ const Navbar = memo((props:NavbarProps) => {
         return (
             <header className={cn(s.navbar, {}, [className])}>
                 <HStack
-                    className={cn(s.container, {}, ['container', 'container_size_l'])}
+                    className={s.container}
                     justify="between"
                     align="center"
                     gap="16"

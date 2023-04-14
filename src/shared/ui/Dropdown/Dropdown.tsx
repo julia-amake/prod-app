@@ -52,7 +52,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                         const ItemTag: ElementType = item.to ? Link : 'button';
                         const Icon = item.icon?.element;
                         return (
-                            <Menu.Item as={Fragment}>
+                            <Menu.Item as={Fragment} key={item.title}>
                                 {({ active, disabled }) => (
                                     <ItemTag
                                         {...item.to ? { to: item.to } : { onClick: item.onClick }}

@@ -11,6 +11,8 @@ import Informer from 'shared/ui/Informer/Informer';
 import { VStack } from 'shared/ui/Stack';
 import { ProfileCard } from 'entities/Profile';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import { PageContent } from 'shared/ui/Page/PageContent/PageContent';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import {
@@ -147,33 +149,43 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     );
 
     return (
-        <VStack gap="32" className={className}>
-            <Heading
-                size={HeadingSize.L}
-                content={t('Профиль')}
-            />
-            {validateErrors?.length
-                ? (
-                    <Informer
-                        text={errorsList}
-                        isCentered={validateErrors.length === 1}
+        <>
+            <EditableProfileCardHeader />
+            <PageContent>
+                <VStack
+                    gap="32"
+                    className={className}
+                    data-testid="EditableProfileCard"
+                >
+                    <Heading
+                        size={HeadingSize.L}
+                        content={t('Профиль')}
                     />
-                )
-                : null}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                readOnly={readonly}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-            />
-        </VStack>
+                    {validateErrors?.length
+                        ? (
+                            <Informer
+                                text={errorsList}
+                                isCentered={validateErrors.length === 1}
+                                data-testid="EditableProfileCard.Error"
+                            />
+                        )
+                        : null}
+                    <ProfileCard
+                        data={formData}
+                        isLoading={isLoading}
+                        error={error}
+                        readOnly={readonly}
+                        onChangeFirstname={onChangeFirstname}
+                        onChangeLastname={onChangeLastname}
+                        onChangeAge={onChangeAge}
+                        onChangeCity={onChangeCity}
+                        onChangeUsername={onChangeUsername}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeCurrency={onChangeCurrency}
+                        onChangeCountry={onChangeCountry}
+                    />
+                </VStack>
+            </PageContent>
+        </>
     );
 });

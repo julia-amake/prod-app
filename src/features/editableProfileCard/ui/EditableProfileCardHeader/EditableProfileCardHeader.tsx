@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack';
+import { PageHeader } from 'shared/ui/Page';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
@@ -55,52 +56,57 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (pr
     );
 
     return (
-        <HStack
-            as="header"
-            className={className}
-            align="center"
-            justify="between"
-            gap="24"
-        >
-            <div />
+        <PageHeader>
             <HStack
+                as="header"
+                className={className}
                 align="center"
-                gap="16"
+                justify="between"
+                gap="24"
             >
-                {canEdit && (
-                    readonly
-                        ? (
-                            <Button
-                                label={t('Редактировать')}
-                                theme={ButtonTheme.OUTLINED}
-                                size={ButtonSize.M}
-                                icon={{ element: EditLine }}
-                                onClick={onEdit}
-                                disabled={isLoading}
-                            />
-                        )
-                        : (
-                            <>
+                <div />
+                <HStack
+                    align="center"
+                    gap="16"
+                >
+                    {canEdit && (
+                        readonly
+                            ? (
                                 <Button
-                                    label={t('Отменить')}
+                                    label={t('Редактировать')}
                                     theme={ButtonTheme.OUTLINED}
                                     size={ButtonSize.M}
-                                    icon={{ element: EraserLine }}
-                                    onClick={onCancelEdit}
+                                    icon={{ element: EditLine }}
+                                    onClick={onEdit}
                                     disabled={isLoading}
+                                    data-testid="EditableProfileCardHeader.EditButton"
                                 />
-                                <Button
-                                    label={t('Сохранить')}
-                                    theme={ButtonTheme.PRIMARY}
-                                    size={ButtonSize.M}
-                                    icon={{ element: DoneLine }}
-                                    onClick={onSaveEdit}
-                                    disabled={isLoading}
-                                />
-                            </>
-                        )
-                )}
+                            )
+                            : (
+                                <>
+                                    <Button
+                                        label={t('Отменить')}
+                                        theme={ButtonTheme.OUTLINED}
+                                        size={ButtonSize.M}
+                                        icon={{ element: EraserLine }}
+                                        onClick={onCancelEdit}
+                                        disabled={isLoading}
+                                        data-testid="EditableProfileCardHeader.CancelButton"
+                                    />
+                                    <Button
+                                        label={t('Сохранить')}
+                                        theme={ButtonTheme.PRIMARY}
+                                        size={ButtonSize.M}
+                                        icon={{ element: DoneLine }}
+                                        onClick={onSaveEdit}
+                                        disabled={isLoading}
+                                        data-testid="EditableProfileCardHeader.SaveButton"
+                                    />
+                                </>
+                            )
+                    )}
+                </HStack>
             </HStack>
-        </HStack>
+        </PageHeader>
     );
 };

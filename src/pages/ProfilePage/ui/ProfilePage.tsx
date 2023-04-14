@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page } from 'widgets/Page/Page';
-import { EditableProfileCard, EditableProfileCardHeader } from 'features/editableProfileCard';
+import { EditableProfileCard } from 'features/editableProfileCard';
 import { useParams } from 'react-router-dom';
 import Informer from 'shared/ui/Informer/Informer';
 import { useTranslation } from 'react-i18next';
@@ -21,7 +21,7 @@ const ProfilePage: React.FC<ProfilePageProps> = () => {
     }
 
     return (
-        <Page header={<EditableProfileCardHeader />}>
+        <Page>
             <EditableProfileCard id={id} />
         </Page>
     );

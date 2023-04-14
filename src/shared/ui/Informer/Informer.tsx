@@ -15,6 +15,8 @@ interface InformerProps {
     className?: string;
     showIcon?: boolean;
     isCentered?: boolean;
+
+    'data-testid'?: string;
 }
 
 const Informer = memo((props: InformerProps) => {
@@ -25,6 +27,7 @@ const Informer = memo((props: InformerProps) => {
         showIcon = true,
         isCentered = false,
         className,
+        'data-testid': dataTestId = 'Informer',
     } = props;
 
     return (
@@ -32,14 +35,22 @@ const Informer = memo((props: InformerProps) => {
             [s.informer_centered]: isCentered,
         }, [s[status], className])}
         >
-            {showIcon && <InfoLine className={cn(s.icon, { [s.icon_offset]: !isCentered })} />}
+            {showIcon && (
+                <InfoLine
+                    className={cn(s.icon, { [s.icon_offset]: !isCentered })}
+                    data-testid={`${dataTestId}.Icon`}
+                />
+            )}
             <div className={s.info}>
                 {title && (
-                    <h3 className={s.title}>
+                    <h3
+                        className={s.title}
+                        data-testid={`${dataTestId}.Title`}
+                    >
                         {title}
                     </h3>
                 )}
-                {text && <p className={s.text}>{text}</p>}
+                {text && <p className={s.text} data-testid={`${dataTestId}.Text`}>{text}</p>}
             </div>
         </div>
     );

@@ -3,7 +3,9 @@ import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import Button, { ButtonSize } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUserName';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getIsAdmin, getIsManager, getUserAuthData, userActions,
+} from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -12,6 +14,7 @@ import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import Logout from 'shared/assets/icons/Logout.svg';
 import ProfileLine from 'shared/assets/icons/ProfileLine.svg';
+import Settings from 'shared/assets/icons/Settings.svg';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -25,6 +28,9 @@ const Navbar = memo((props:NavbarProps) => {
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const isAdmin = useSelector(getIsAdmin);
+    const isManager = useSelector(getIsManager);
+    const showAdminPanel = isAdmin || isManager;
 
     const onOpenModal = useCallback(() => {
         setIsAuthModal(true);
@@ -62,6 +68,13 @@ const Navbar = memo((props:NavbarProps) => {
                         width="auto"
                         trigger={<Avatar size={40} src={authData.avatar} />}
                         items={[
+                            ...showAdminPanel ? [{
+                                title: t('Панель управления'),
+                                icon: {
+                                    element: Settings,
+                                },
+                                to: RoutePath.admin_panel,
+                            }] : [],
                             {
                                 title: t('Мой профиль'),
                                 icon: {

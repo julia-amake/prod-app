@@ -8,8 +8,10 @@ const AppRouter = memo(() => {
         <Route
             key={route.path}
             path={route.path}
-            /* eslint-disable-next-line react/jsx-no-useless-fragment */
-            element={route.authOnly ? <RequireAuth><>{route.element}</></RequireAuth> : route.element}
+            element={route.authOnly
+                // eslint-disable-next-line react/jsx-no-useless-fragment
+                ? <RequireAuth roles={route.roles}><>{route.element}</></RequireAuth>
+                : route.element}
         />
     ), []);
 

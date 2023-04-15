@@ -1,5 +1,4 @@
 import React, { FC, memo, useCallback } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import Button, { ButtonSize, ButtonTheme, IconPosition } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -9,8 +8,8 @@ import EditLine from 'shared/assets/icons/EditLine.svg';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
 import { PageHeader } from 'shared/ui/Page';
+import { HStack } from 'shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article/article';
-import s from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
@@ -42,26 +41,29 @@ export const ArticleDetailsPageHeader:FC<ArticleDetailsPageHeaderProps> = memo((
     );
 
     return (
-        <PageHeader className={cn(s.outer, {}, [className])}>
-            <Button
-                label={t('К списку статей')}
-                theme={ButtonTheme.CLEAR}
-                icon={{ element: ArrowLeftLongLine, position: IconPosition.LEFT }}
-                size={ButtonSize.M}
-                onClick={onBackToList}
-                className={s.backBtn}
-                hoverUnderlined
-            />
-            {canEdit && (
+        <PageHeader className={className}>
+            <HStack
+                align="center"
+                justify="between"
+            >
                 <Button
-                    label={t('Редактировать')}
-                    theme={ButtonTheme.OUTLINED}
+                    label={t('К списку статей')}
+                    theme={ButtonTheme.CLEAR}
+                    icon={{ element: ArrowLeftLongLine, position: IconPosition.LEFT }}
                     size={ButtonSize.M}
-                    icon={{ element: EditLine }}
-                    className={s.btn}
-                    onClick={onEditArticle}
+                    onClick={onBackToList}
+                    hoverUnderlined
                 />
-            )}
+                {canEdit && (
+                    <Button
+                        label={t('Редактировать')}
+                        theme={ButtonTheme.OUTLINED}
+                        size={ButtonSize.M}
+                        icon={{ element: EditLine }}
+                        onClick={onEditArticle}
+                    />
+                )}
+            </HStack>
         </PageHeader>
     );
 });

@@ -24,17 +24,15 @@ const Counter: React.FC = () => {
                 {`value = ${counterValue}`}
             </h1>
             <Button
+                label={t('Decrement')}
                 onClick={decrement}
                 data-testid="decrement-btn"
-            >
-                {t('Decrement')}
-            </Button>
+            />
             <Button
                 onClick={increment}
                 data-testid="increment-btn"
-            >
-                {t('Increment')}
-            </Button>
+                label={t('Increment')}
+            />
         </div>
     );
 };

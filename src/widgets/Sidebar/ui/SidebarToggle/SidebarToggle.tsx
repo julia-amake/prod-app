@@ -6,7 +6,6 @@ import ArrowRight from 'shared/assets/icons/ArrowRightSimpleLine.svg';
 import ArrowLeft from 'shared/assets/icons/ArrowLeftSimpleLine.svg';
 import { useTranslation } from 'react-i18next';
 import { cn } from 'shared/lib/classNames/classNames';
-import { HStack } from 'shared/ui/Stack';
 import s from './SidebarToggle.module.scss';
 
 interface SidebarToggleProps {

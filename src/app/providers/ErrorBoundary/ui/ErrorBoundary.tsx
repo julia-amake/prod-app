@@ -35,7 +35,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
         const { children } = this.props;
 
         return (
-            <Suspense fallback={ContentLoader}>
+            <Suspense fallback={<ContentLoader />}>
                 {hasError ? <PageErrorFallback /> : children}
             </Suspense>
         );

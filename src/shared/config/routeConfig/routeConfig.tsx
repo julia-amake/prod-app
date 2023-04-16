@@ -10,7 +10,7 @@ import { AdminPanelPage } from 'pages/AdminPanelPage';
 import { UserRole } from 'entities/User/model/types/user';
 import { ForbiddenPage } from 'pages/ForbiddenPage';
 
-export interface AppRoutesProps extends RouteProps {
+export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
     roles?: UserRole[];
 }

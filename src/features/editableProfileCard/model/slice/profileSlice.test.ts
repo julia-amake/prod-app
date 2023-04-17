@@ -1,9 +1,10 @@
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { AVATAR } from 'shared/consts/tests';
-import { ProfileSchema, ValidateProfileError } from '../types/editableProfileCardSchema';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from './profileSlice';
+import { ValidateProfileError } from '../consts/consts';
 
 const profileData = {
     name: 'Name',

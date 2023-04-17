@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/consts';
 import { articles } from '../../mocks/data';
 import { ArticleList } from './ArticleList';
 

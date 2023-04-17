@@ -3,8 +3,8 @@ import { cn } from 'shared/lib/classNames/classNames';
 import GridList from 'shared/assets/icons/GridLine.svg';
 import ListLine from 'shared/assets/icons/ListLine.svg';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
+import { ArticleView } from '../../model/consts/consts';
 import s from './ArticleViewSelector.module.scss';
-import { ArticleView } from '../../model/types/article';
 
 interface ArticleViewSelectorProps {
     view: ArticleView;

@@ -1,1 +1,1 @@
-export { RequireAtLeastOne } from './RequireAtLeastOne/RequireAtListOne';
+export type { RequireAtLeastOne } from './RequireAtLeastOne/RequireAtListOne';

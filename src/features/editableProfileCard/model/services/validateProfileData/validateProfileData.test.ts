@@ -1,8 +1,8 @@
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { AVATAR } from 'shared/consts/tests';
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 import { validateProfileData } from './validateProfileData';
+import { ValidateProfileError } from '../../consts/consts';
 
 const profileData = {
     name: 'Name',

@@ -2,9 +2,10 @@ import React, { memo } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import Informer, { InformerStatuses } from 'shared/ui/Informer/Informer';
 import { useTranslation } from 'react-i18next';
+import { ArticleView } from '../../model/consts/consts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import s from './ArticleList.module.scss';
 
 interface ArticleListProps {

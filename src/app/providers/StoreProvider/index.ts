@@ -1,11 +1,10 @@
 import StoreProvider from './ui/StoreProvider';
 
-export {
-    AppDispatch,
-    createReduxStore,
-} from './config/store';
+export type { AppDispatch } from './config/store';
 
-export {
+export { createReduxStore } from './config/store';
+
+export type {
     StateSchema,
     ReducerStoreWithManager,
     StateSchemaKey,

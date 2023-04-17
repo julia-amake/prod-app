@@ -14,13 +14,14 @@ import EyeLine from 'shared/assets/icons/EyeLine.svg';
 import CalendarLine from 'shared/assets/icons/CalendarLine.svg';
 import { Image } from 'shared/ui/Image/Image';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import {
     ArticleDividerBlockComponent,
 } from '../ArticleDividerBlockComponent/ArticleDividerBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 import {
     getArticleDetailsData,
     getArticleDetailsError,

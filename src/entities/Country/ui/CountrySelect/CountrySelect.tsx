@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { ListBox, ListBoxOption } from 'shared/ui/ListBox/ListBox';
-import { Country } from '../../model/types/country';
+import { Country } from '../../model/consts/country';
 
 interface CountrySelectProps {
     className?: string;

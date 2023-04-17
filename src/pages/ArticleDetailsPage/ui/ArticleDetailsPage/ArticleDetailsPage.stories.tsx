@@ -78,5 +78,5 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [
     StoreDecorator({ articleDetails: { data: article } }),
-    RouterDecorator('/articles/2', '/articles/:id'),
+    RouterDecorator('/articles/1', '/articles/:id'),
 ];

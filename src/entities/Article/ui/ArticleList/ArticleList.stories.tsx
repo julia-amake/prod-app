@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ArticleView } from '../../model/types/article';
 import { articles } from '../../mocks/data';
 import { ArticleList } from './ArticleList';
@@ -13,6 +14,7 @@ export default {
     args: {
         articles,
     },
+    decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleList>;
 
 const Template: ComponentStory<typeof ArticleList> = (args) => (
@@ -33,10 +35,4 @@ GridLoading.args = {
 export const List = Template.bind({});
 List.args = {
     view: ArticleView.LIST,
-};
-
-export const ListLoading = Template.bind({});
-ListLoading.args = {
-    view: ArticleView.LIST,
-    isLoading: true,
 };

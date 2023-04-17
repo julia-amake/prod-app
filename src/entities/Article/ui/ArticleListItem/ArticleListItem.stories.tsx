@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ArticleType, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 import { article } from '../../mocks/data';
@@ -13,6 +14,7 @@ export default {
     args: {
         article,
     },
+    decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleListItem>;
 
 const Template: ComponentStory<typeof ArticleListItem> = (args) => (
@@ -20,10 +22,13 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => (
 );
 
 export const Grid = Template.bind({});
-Grid.args = {};
+Grid.args = {
+    view: ArticleView.GRID,
+};
 
 export const GridOneCategory = Template.bind({});
 GridOneCategory.args = {
+    view: ArticleView.GRID,
     article: { ...article, type: [ArticleType.ECONOMIC] },
 };
 

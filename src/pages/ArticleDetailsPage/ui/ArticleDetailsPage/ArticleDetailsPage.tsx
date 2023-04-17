@@ -34,7 +34,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     if (!id) {
         return (
             <Page className={className}>
-                <Informer title={t('Статья не найдена')} />
+                <Informer title={t('Статья не найдена')} isCentered />
             </Page>
         );
     }

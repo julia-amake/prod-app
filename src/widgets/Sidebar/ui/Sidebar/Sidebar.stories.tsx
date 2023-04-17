@@ -3,12 +3,16 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import Sidebar from './Sidebar';
 
 export default {
     title: 'widget/Sidebar',
     component: Sidebar,
-    decorators: [StoreDecorator({ user: { authData: { id: '1', username: 'user' } } })],
+    decorators: [
+        StoreDecorator({ user: { authData: { id: '1', username: 'user' } } }),
+        RouterDecorator(),
+    ],
     argTypes: {
         backgroundColor: { control: 'color' },
     },

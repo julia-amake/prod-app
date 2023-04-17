@@ -1,11 +1,10 @@
-import React, { memo, Suspense, useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { CommentList } from 'entities/Comment';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
-import Preloader from 'shared/ui/Preloader/Preloader';
 import { PageSection } from 'shared/ui/Page';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
@@ -47,21 +46,19 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     if (error) return null;
 
     return (
-        <Suspense fallback={<Preloader />}>
-            <PageSection
-                className={className}
-                title={t('Комментарии')}
-            >
-                <AddCommentForm
-                    onSendComment={onSendComment}
-                    className={s.form}
-                    isLoading={commentsIsLoading || isLoading}
-                />
-                <CommentList
-                    comments={comments}
-                    isLoading={commentsIsLoading || isLoading}
-                />
-            </PageSection>
-        </Suspense>
+        <PageSection
+            className={className}
+            title={t('Комментарии')}
+        >
+            <AddCommentForm
+                onSendComment={onSendComment}
+                className={s.form}
+                isLoading={commentsIsLoading || isLoading}
+            />
+            <CommentList
+                comments={comments}
+                isLoading={commentsIsLoading || isLoading}
+            />
+        </PageSection>
     );
 });

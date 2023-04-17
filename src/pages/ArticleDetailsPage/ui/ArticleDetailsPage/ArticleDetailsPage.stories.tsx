@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { ArticleBlockType, ArticleType } from '../../../../entities/Article/model/types/article';
 
@@ -71,14 +72,11 @@ export default {
     args: {},
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
-    <ArticleDetailsPage {...args} />
-);
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({ articleDetails: { data: article } }),
+    RouterDecorator('/articles/2', '/articles/:id'),
+];

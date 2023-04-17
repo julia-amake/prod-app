@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { CommentCard } from './CommentCard';
 
 const user = {
@@ -22,6 +23,7 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {},
+    decorators: [RouterDecorator()],
 } as ComponentMeta<typeof CommentCard>;
 
 const Template: ComponentStory<typeof CommentCard> = (args) => (

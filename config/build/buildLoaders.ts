@@ -9,7 +9,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const { isDev } = options;
 
     const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false });
-    const tsBabelLoader = buildBabelLoader({ ...options, isTSX: true });
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 
     const scssLoader = buildCssLoader(isDev);
 
@@ -42,7 +42,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         // babelLoader,
         // tsLoader,
         codeBabelLoader,
-        tsBabelLoader,
+        tsxCodeBabelLoader,
         scssLoader,
     ];
 }

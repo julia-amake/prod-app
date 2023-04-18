@@ -32,6 +32,15 @@ export function buildPlugins(options: BuildOptions)
                 { from: paths.locales, to: paths.buildLocales },
             ],
         }),
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
+            },
+        }),
     ];
 
     if (isDev) {
@@ -43,15 +52,6 @@ export function buildPlugins(options: BuildOptions)
         plugins.push(new CircularDependencyPlugin({
             exclude: /node_modules/,
             failOnError: true,
-        }));
-        plugins.push(new ForkTsCheckerWebpackPlugin({
-            typescript: {
-                diagnosticOptions: {
-                    semantic: true,
-                    syntactic: true,
-                },
-                mode: 'write-references',
-            },
         }));
     }
 

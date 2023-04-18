@@ -11,9 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-        articles,
-    },
+    args: {},
     decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleList>;
 
@@ -24,6 +22,7 @@ const Template: ComponentStory<typeof ArticleList> = (args) => (
 export const Grid = Template.bind({});
 Grid.args = {
     view: ArticleView.GRID,
+    articles,
 };
 
 export const GridLoading = Template.bind({});
@@ -35,4 +34,5 @@ GridLoading.args = {
 export const List = Template.bind({});
 List.args = {
     view: ArticleView.LIST,
+    articles,
 };

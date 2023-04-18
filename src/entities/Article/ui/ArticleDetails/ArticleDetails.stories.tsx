@@ -11,6 +11,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    args: {
+        id: '1',
+    },
     decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleDetails>;
 
@@ -27,12 +30,10 @@ Normal.decorators = [StoreDecorator({
 })];
 
 export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+Loading.args = {
+    isLoading: true,
+};
+Loading.decorators = [StoreDecorator({})];
 
 export const Error = Template.bind({});
 Error.args = {};

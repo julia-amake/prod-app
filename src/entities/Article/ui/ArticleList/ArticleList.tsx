@@ -39,7 +39,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     return (
         <div className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}>
-            {articles.length
+            {articles?.length
                 ? articles.map((article) => (
                     <ArticleListItem
                         article={article}

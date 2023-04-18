@@ -3,6 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticlesInfiniteList } from './ArticlesInfiniteList';
 
+// todo: Вывести данные
+
 export default {
     title: 'pages/ArticlesPage/ArticlesInfiniteList',
     component: ArticlesInfiniteList,
@@ -18,4 +20,6 @@ const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
+Normal.decorators = [StoreDecorator({
+
+})];

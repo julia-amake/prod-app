@@ -1,21 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Profile } from 'entities/Profile';
-import { ProfileSchema } from '../types/editableProfileCardSchema';
+import { profileInitialState } from '../consts/consts';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 
-export const initialState: ProfileSchema = {
-    readonly: true,
-    isLoading: false,
-    error: '',
-    data: null,
-    formData: null,
-    validateErrors: [],
-};
-
 export const ProfileSlice = createSlice({
     name: 'profile',
-    initialState,
+    initialState: profileInitialState,
     reducers: {
         setReadOnly: (state, action:PayloadAction<boolean>) => {
             state.readonly = action.payload;

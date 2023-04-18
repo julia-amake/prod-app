@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { initialState } from '../slice/articlesPageSlice';
+import { articlesPageInitialState as initialState } from '../consts/consts';
 
 export const getArticlesPageIsLoading = (state: StateSchema) => state.articlesPage?.isLoading || initialState.isLoading;
 export const getArticlesPageError = (state: StateSchema) => state.articlesPage?.error || initialState.error;

@@ -7,6 +7,7 @@ import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/consts/localstorage';
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
+import { articlesPageInitialState } from '../consts/consts';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
@@ -16,25 +17,9 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
     (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
-export const initialState: ArticlesPageSchema = {
-    isLoading: false,
-    error: '',
-    view: ArticleView.GRID,
-    page: 1,
-    hasMore: true,
-    entities: {},
-    ids: [],
-    limit: 6,
-    order: 'desc',
-    sort: ArticleSortField.CREATED,
-    search: '',
-    type: ArticleType.ALL,
-    _isInitialized: false,
-};
-
 const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
-    initialState: articlesAdapter.getInitialState<ArticlesPageSchema>(initialState),
+    initialState: articlesAdapter.getInitialState<ArticlesPageSchema>(articlesPageInitialState),
     reducers: {
         setView: (state, action:PayloadAction<ArticleView>) => {
             state.view = action.payload;

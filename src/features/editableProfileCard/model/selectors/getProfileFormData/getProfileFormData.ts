@@ -1,4 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { initialState } from '../../slice/profileSlice';
+import { profileInitialState } from '../../consts/consts';
 
-export const getProfileFormData = (state: StateSchema) => state.profile?.formData || initialState.formData;
+export const getProfileFormData = (state: StateSchema) => state.profile?.formData || profileInitialState.formData;

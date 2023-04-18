@@ -1,4 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { initialState } from '../../slice/profileSlice';
+import { profileInitialState } from '../../consts/consts';
 
-export const getProfileData = (state: StateSchema) => state.profile?.data || initialState.data;
+export const getProfileData = (state: StateSchema) => state.profile?.data || profileInitialState.data;

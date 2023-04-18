@@ -1,4 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { initialState } from '../../slice/profileSlice';
+import { profileInitialState } from '../../consts/consts';
 
-export const getProfileIsLoading = (state: StateSchema) => state.profile?.isLoading || initialState.isLoading;
+export const getProfileIsLoading = (state: StateSchema) => state.profile?.isLoading || profileInitialState.isLoading;

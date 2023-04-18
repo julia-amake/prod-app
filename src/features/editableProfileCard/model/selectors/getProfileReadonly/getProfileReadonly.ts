@@ -1,4 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { initialState } from '../../slice/profileSlice';
+import { profileInitialState } from '../../consts/consts';
 
-export const getProfileReadonly = (state: StateSchema) => state.profile?.readonly ?? initialState.readonly;
+export const getProfileReadonly = (state: StateSchema) => state.profile?.readonly ?? profileInitialState.readonly;

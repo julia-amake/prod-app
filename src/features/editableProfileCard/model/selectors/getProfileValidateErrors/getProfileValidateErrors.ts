@@ -1,4 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { initialState } from '../../slice/profileSlice';
+import { profileInitialState } from '../../consts/consts';
 
-export const getProfileValidateErrors = (state: StateSchema) => state.profile?.validateErrors || initialState.validateErrors;
+export const getProfileValidateErrors = (state: StateSchema) => (
+    state.profile?.validateErrors || profileInitialState.validateErrors
+);

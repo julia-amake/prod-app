@@ -49,7 +49,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const validateErrors = useSelector(getProfileValidateErrors);
 
-    const validateErrorTranslations = useMemo(() => ({
+    const validateErrorTranslations: Record<ValidateProfileError, string> = useMemo(() => ({
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
@@ -61,7 +61,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const errorsList = useMemo(() => (
         <ul>
-            {validateErrors?.map((err) => (
+            {validateErrors?.map((err:ValidateProfileError) => (
                 <li key={err}>
                     {validateErrorTranslations[err]}
                 </li>

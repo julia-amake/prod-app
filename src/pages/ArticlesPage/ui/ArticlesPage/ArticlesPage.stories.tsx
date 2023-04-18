@@ -13,7 +13,7 @@ export default {
     args: {},
     decorators: [
         StoreDecorator({}),
-        RouterDecorator(),
+        RouterDecorator('/articles?_expand=user&_page=2&_limit=6&_sort=createdAt&_order=desc&q=some'),
     ],
 } as ComponentMeta<typeof ArticlesPage>;
 

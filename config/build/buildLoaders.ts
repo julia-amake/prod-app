@@ -2,30 +2,14 @@ import webpack from 'webpack';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from './types/config';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = buildSvgLoader();
     const { isDev } = options;
 
-    const babelLoader = {
-        test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-                plugins: [
-                    [
-                        'i18next-extract',
-                        {
-                            locales: ['ru', 'en'],
-                            keyAsDefaultValue: true,
-                        },
-                    ],
-                ],
-            },
-        },
-    };
+    const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false });
+    const tsBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 
     const scssLoader = buildCssLoader(isDev);
 
@@ -44,18 +28,21 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     };
 
     // Если бы не было TS-лоудера, нужно было бы добавить babel-loader
-    const tsLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    // И когда в проекте уже есть babel-loader, то нужно настроить для TS именно его, тк сборка будет сильно быстрее
+    // const tsLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
     return [
         fileLoader,
         svgLoader,
         fontsLoader,
-        babelLoader,
-        tsLoader,
+        // babelLoader,
+        // tsLoader,
+        codeBabelLoader,
+        tsBabelLoader,
         scssLoader,
     ];
 }

@@ -6,7 +6,9 @@ import { Menu } from '@headlessui/react';
 import { ItemIcon } from 'shared/types';
 import { Link } from 'react-router-dom';
 import { Float } from '@headlessui-float/react';
-import Heading from '../Heading/Heading';
+import { PopoverWidth } from '../../types/popover';
+import Heading from '../../../Heading/Heading';
+import sPopup from '../../styles/popup.module.scss';
 import s from './Dropdown.module.scss';
 
 interface DropdownItem {
@@ -17,14 +19,13 @@ interface DropdownItem {
     disabled?: boolean;
 }
 
-type DropdownWidth = 'auto' | 'full' | 'fix' | 'minFix';
-
 interface DropdownProps {
     trigger: ReactNode;
     title?: string;
     items: DropdownItem[];
-    width?: DropdownWidth;
+    width?: PopoverWidth;
     className?: string;
+    disabled?: boolean;
 }
 
 export const Dropdown = memo((props: DropdownProps) => {
@@ -33,11 +34,12 @@ export const Dropdown = memo((props: DropdownProps) => {
         items,
         title,
         width = 'minFix',
+        disabled = true,
         className = '',
     } = props;
 
     return (
-        <Menu as="div" className={cn(s.outer, {}, [s[`outer_width_${width}`], className])}>
+        <Menu as="div" className={cn(sPopup.outer, {}, [sPopup[`outer_width_${width}`], className])}>
             <Float
                 as="div"
                 floatingAs={Fragment}
@@ -45,9 +47,9 @@ export const Dropdown = memo((props: DropdownProps) => {
                 flip={8}
                 className={s.float}
             >
-                <Menu.Button className={s.btn}>{trigger}</Menu.Button>
-                <Menu.Items className={s.items}>
-                    {title && <Heading content={title} className={s.title} />}
+                <Menu.Button className={cn(s.btn, { [sPopup.btn_disabled]: disabled }, [sPopup.btn])}>{trigger}</Menu.Button>
+                <Menu.Items className={cn(s.items, {}, [sPopup.items])}>
+                    {title && <Heading content={title} className={sPopup.title} />}
                     {items.map((item, idx, arr) => {
                         const ItemTag: ElementType = item.to ? Link : 'button';
                         const Icon = item.icon?.element;

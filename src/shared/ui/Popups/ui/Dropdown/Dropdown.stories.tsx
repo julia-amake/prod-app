@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import HomeLine from 'shared/assets/icons/HomeLine.svg';
 import ProfileLine from 'shared/assets/icons/ProfileLine.svg';
 import ArticleLine from 'shared/assets/icons/ArticleLine.svg';
-import Button, { ButtonSize } from '../Button/Button';
+import Button, { ButtonSize } from '../../../Button/Button';
 import { Dropdown } from './Dropdown';
 
 export default {

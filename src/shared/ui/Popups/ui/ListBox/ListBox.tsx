@@ -3,7 +3,9 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { cn } from 'shared/lib/classNames/classNames';
 import { Float } from '@headlessui-float/react';
 import { ItemIcon } from 'shared/types';
+import sPopup from '../../styles/popup.module.scss';
 import s from './ListBox.module.scss';
+import { PopoverWidth } from '../../types/popover';
 
 export interface ListBoxOption {
     value: string,
@@ -12,15 +14,13 @@ export interface ListBoxOption {
     disabled?: boolean
 }
 
-type ListBoxWidth = 'full' | 'fixed' | 'minFixed' | 'auto';
-
 interface ListBoxProps {
     label?: string,
     options?: ListBoxOption[];
     value?: string;
     defaultValue?: string;
     className?: string;
-    width?: ListBoxWidth;
+    width?: PopoverWidth;
     readonly?: boolean;
     onChange: (value: string) => void;
 }
@@ -38,7 +38,7 @@ export const ListBox = (props: ListBoxProps) => {
     } = props;
 
     return (
-        <div className={cn(s.outer, {}, [className, s[`outer_width_${width}`]])}>
+        <div className={cn(sPopup.outer, {}, [className, sPopup[`outer_width_${width}`]])}>
             {label && (
                 <div className={s.label}>
                     {label}
@@ -58,12 +58,12 @@ export const ListBox = (props: ListBoxProps) => {
                     flip={8}
                 >
                     <HListBox.Button
-                        className={cn(s.btn, { [s.btn_disabled]: readonly })}
+                        className={cn(s.btn, { [sPopup.btn_disabled]: readonly }, [sPopup.btn])}
                     >
                         {value ?? defaultValue}
                     </HListBox.Button>
                     <HListBox.Options
-                        className={s.options}
+                        className={cn(s.options, {}, [sPopup.items])}
                     >
                         {options?.map((item) => (
                             <HListBox.Option

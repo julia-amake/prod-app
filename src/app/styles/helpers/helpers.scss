@@ -2,7 +2,7 @@
   @return red($hex), green($hex), blue($hex);
 }
 
-@mixin scrollbar() {
+@mixin scrollbar($color: var(--primary-color)) {
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -12,9 +12,9 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color); /* цвет плашки */
+    background-color: $color; /* цвет плашки */
     border-radius: 2px; /* закругления плашки */
-    border: 1px solid var(--primary-color); /* padding вокруг плашки */
+    border: 1px solid $color; /* padding вокруг плашки */
   }
 }
 

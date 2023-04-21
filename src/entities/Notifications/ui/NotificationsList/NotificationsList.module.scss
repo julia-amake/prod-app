@@ -1,0 +1,32 @@
+@import "../../../../app/styles/helpers/helpers";
+
+.outer {
+  width: 344px;
+  transition: 0.3s ease-out;
+}
+
+.title {
+  padding-left: 16px;
+  margin-bottom: 0.3em;
+}
+
+.list {
+  width: calc(100% - 4px);
+  max-height: 440px;
+  overflow-y: auto;
+
+  @include scrollbar;
+
+  &_withScroll {
+    width: 100%;
+  }
+}
+
+.more {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.empty {
+  padding-left: 16px;
+}

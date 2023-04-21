@@ -3,18 +3,13 @@ import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import Button, { ButtonSize } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUserName';
-import {
-    getIsAdmin, getIsManager, getUserAuthData, userActions,
-} from 'entities/User';
-import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { HStack } from 'shared/ui/Stack';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
-import Avatar from 'shared/ui/Avatar/Avatar';
-import Logout from 'shared/assets/icons/Logout.svg';
-import ProfileLine from 'shared/assets/icons/ProfileLine.svg';
-import Settings from 'shared/assets/icons/Settings.svg';
+import { NotificationButton } from 'features/notificationButton';
+import { UserDropdown } from 'features/userDropdown';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -26,11 +21,7 @@ const Navbar = memo((props:NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const isAdmin = useSelector(getIsAdmin);
-    const isManager = useSelector(getIsManager);
-    const showAdminPanel = isAdmin || isManager;
 
     const onOpenModal = useCallback(() => {
         setIsAuthModal(true);
@@ -39,11 +30,6 @@ const Navbar = memo((props:NavbarProps) => {
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
-
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-        setIsAuthModal(false);
-    }, [dispatch]);
 
     const onAddArticle = useCallback(() => {
         navigate(RoutePath.article_create);
@@ -64,33 +50,15 @@ const Navbar = memo((props:NavbarProps) => {
                         onClick={onAddArticle}
                         type="button"
                     />
-                    <Dropdown
-                        width="auto"
-                        trigger={<Avatar size={40} src={authData.avatar} />}
-                        items={[
-                            ...showAdminPanel ? [{
-                                title: t('Панель управления'),
-                                icon: {
-                                    element: Settings,
-                                },
-                                to: RoutePath.admin_panel,
-                            }] : [],
-                            {
-                                title: t('Мой профиль'),
-                                icon: {
-                                    element: ProfileLine,
-                                },
-                                to: RoutePath.profile + authData.id,
-                            },
-                            {
-                                title: t('Выйти'),
-                                icon: {
-                                    element: Logout,
-                                },
-                                onClick: onLogout,
-                            },
-                        ]}
-                    />
+                    <HStack
+                        align="center"
+                        gap="24"
+                    >
+                        <NotificationButton />
+                        <UserDropdown
+                            setIsAuthModal={setIsAuthModal}
+                        />
+                    </HStack>
                 </HStack>
             </header>
         );

@@ -1,0 +1,66 @@
+.outer {
+  padding: 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    background: var(--neutral-color-7);
+  }
+}
+
+.pic {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px; // 56/4
+  overflow: hidden;
+
+  &_default {
+    background: var(--primary-color);
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  flex-grow: 1;
+}
+
+.title {
+  max-width: 156px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.desc {
+  color: var(--secondary-color);
+}
+
+.status {
+  position: relative;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  font-size: 0;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
+.more {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  fill: var(--bg-color);
+  transform: translate(-50%, -50%);
+}

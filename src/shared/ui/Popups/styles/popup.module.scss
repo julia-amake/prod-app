@@ -1,0 +1,45 @@
+.outer {
+  position: relative;
+  width: fit-content;
+  box-sizing: border-box;
+
+  &_width {
+    &_full {
+      width: 100%;
+    }
+
+    &_fixed {
+      width: 256px;
+    }
+
+    &_minFixed {
+      min-width: 256px;
+    }
+  }
+}
+
+.btn {
+  cursor: pointer;
+
+  &_disabled {
+    cursor: auto;
+  }
+}
+
+.items {
+  position: absolute;
+  padding: 32px 16px;
+  outline: none;
+  border-radius: 12px;
+  background: var(--bg-color);
+  box-sizing: border-box;
+  box-shadow: 0 16px 64px -16px rgba(#1f2f46, 0.4);
+}
+
+.title {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: var(--font-family-secondary);
+}

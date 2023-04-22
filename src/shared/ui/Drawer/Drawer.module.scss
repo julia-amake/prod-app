@@ -66,6 +66,33 @@
   }
 }
 
+.isClosing {
+  .overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .content {
+    transition: transform 0.4s ease-in-out;
+
+    &_left {
+      transform: translateX(-102%);
+    }
+
+    &_right {
+      transform: translateX(102%);
+    }
+
+    &_top {
+      transform: translateY(-102%);
+    }
+
+    &_bottom {
+      transform: translateY(102%);
+    }
+  }
+}
+
 :global(.app_theme_light) {
   .content {
     color: var(--inverted-bg-color);

@@ -12,11 +12,13 @@ import { NotificationsItem } from '../NotificationsItem/NotificationsItem';
 import s from './NotificationsList.module.scss';
 
 interface NotificationsListProps {
+    isShort?: boolean;
     className?: string;
 }
 
 export const NotificationsList = memo((props: NotificationsListProps) => {
     const {
+        isShort = true,
         className = '',
     } = props;
 
@@ -29,12 +31,12 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
 
     useEffect(() => {
         if (!data || !data.length) return;
-        if (shownAll) {
+        if (shownAll || !isShort) {
             setNotifications(data);
             return;
         }
         setNotifications(data.slice(0, 4));
-    }, [shownAll, data]);
+    }, [isShort, shownAll, data]);
 
     const moreClickHandler = () => {
         setShownAll(true);
@@ -81,7 +83,7 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
                 content={t('Уведомления')}
             />
             {content}
-            {!shownAll && (data && data?.length > 5) && (
+            {isShort && !shownAll && (data && data?.length > 5) && (
                 <Button
                     className={s.more}
                     label={t('Показать все')}

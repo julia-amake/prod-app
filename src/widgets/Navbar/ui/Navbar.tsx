@@ -55,9 +55,7 @@ const Navbar = memo((props:NavbarProps) => {
                         gap="24"
                     >
                         <NotificationButton />
-                        <UserDropdown
-                            setIsAuthModal={setIsAuthModal}
-                        />
+                        <UserDropdown setIsAuthModal={setIsAuthModal} />
                     </HStack>
                 </HStack>
             </header>

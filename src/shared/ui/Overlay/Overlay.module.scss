@@ -1,0 +1,25 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+:global(.app_theme_light) {
+  .overlay {
+    background: rgba(var(--inverted-bg-color-rgb), 0.9);
+  }
+}
+
+:global(.app_theme_dark) {
+  .overlay {
+    background: rgba(var(--neutral-color-2-rgb), 0.9);
+  }
+}
+
+:global(.app_theme_colored) {
+  .overlay {
+    background: rgba(var(--neutral-color-2-rgb), 0.9);
+  }
+}

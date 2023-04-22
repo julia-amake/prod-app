@@ -1,5 +1,7 @@
 .modal {
   position: fixed;
+  width: 100%;
+  height: 100%;
   top: 0;
   right: 0;
   bottom: 0;
@@ -8,17 +10,14 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease-in;
-}
-
-.overlay {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
 }
 
 .content {
+  position: relative;
+  z-index: 1;
   padding: 32px;
   width: 448px;
   box-sizing: border-box;
@@ -50,27 +49,13 @@
 }
 
 :global(.app_theme_light) {
-  .overlay {
-    background: rgba(var(--inverted-bg-color-rgb), 0.9);
-  }
-
   .content {
     color: var(--inverted-bg-color);
   }
 }
 
 :global(.app_theme_dark) {
-  .overlay {
-    background: rgba(var(--neutral-color-2-rgb), 0.9);
-  }
-
   .content {
     color: var(--bg-color);
-  }
-}
-
-:global(.app_theme_colored) {
-  .overlay {
-    background: rgba(var(--neutral-color-2-rgb), 0.9);
   }
 }

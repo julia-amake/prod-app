@@ -6,91 +6,22 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease-in;
   display: flex;
+  align-items: flex-end;
 }
 
 .content {
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  z-index: var(--modal-z-index);
   padding: 24px 16px;
   box-sizing: border-box;
   background: var(--bg-color);
-  transition: transform 0.4s ease-out;
-
-  &_left {
-    max-width: 80%;
-    margin-right: auto;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    transform: translateX(-102%);
-  }
-
-  &_right {
-    max-width: 80%;
-    margin-left: auto;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    transform: translateX(102%);
-  }
-
-  &_top {
-    max-height: 80%;
-    width: 100%;
-    margin-bottom: auto;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    transform: translateY(-102%);
-  }
-
-  &_bottom {
-    max-height: 80%;
-    width: 100%;
-    margin-top: auto;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    transform: translateY(102%);
-  }
-}
-
-.opened {
-  z-index: var(--modal-z-index);
-  opacity: 1;
-  pointer-events: auto;
-
-  .content {
-    transform: none;
-  }
-}
-
-.isClosing {
-  .overlay {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .content {
-    transition: transform 0.4s ease-in-out;
-
-    &_left {
-      transform: translateX(-102%);
-    }
-
-    &_right {
-      transform: translateX(102%);
-    }
-
-    &_top {
-      transform: translateY(-102%);
-    }
-
-    &_bottom {
-      transform: translateY(102%);
-    }
-  }
+  width: 100%;
+  max-height: 80%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  touch-action: none;
+  user-select: none;
 }
 
 :global(.app_theme_light) {

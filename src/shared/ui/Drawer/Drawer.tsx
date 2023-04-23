@@ -39,11 +39,11 @@ const DrawerContent = memo((props: DrawerProps) => {
         [api],
     );
 
-    const close = (velocity = 0) => {
+    const close = (velocity = 0, duration = 300) => {
         api.start({
             y: height,
             immediate: false,
-            config: { ...Spring.config.stiff, velocity },
+            config: { ...Spring.config.stiff, velocity, duration },
             onResolve: onClose,
         });
     };
@@ -82,7 +82,7 @@ const DrawerContent = memo((props: DrawerProps) => {
     return (
         <Portal>
             <div className={cn(s.outer, {}, [className, theme])}>
-                <Overlay onClick={close} className={s.overlay} />
+                <Overlay onClick={() => close()} className={s.overlay} />
                 <Spring.a.div
                     className={s.content}
                     style={{ display, y }}

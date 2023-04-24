@@ -35,8 +35,7 @@ interface ButtonIcon {
     className?: string;
 }
 
-export interface ButtonProps extends ButtonHTMLAttributes
-    <HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
     shape?: ButtonShape;

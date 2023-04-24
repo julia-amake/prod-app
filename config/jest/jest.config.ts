@@ -51,6 +51,7 @@ export default {
         '\\.jpg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '\\.jpeg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '\\.png': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^@/(.*)$': '<rootDir>src/$1',
     },
     // Use this configuration option to add custom reporters to Jest
     reporters: [

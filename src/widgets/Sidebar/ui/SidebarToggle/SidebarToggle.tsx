@@ -1,11 +1,11 @@
 import React, {
     Dispatch, memo, SetStateAction,
 } from 'react';
-import Button, { ButtonShape, ButtonSize } from 'shared/ui/Button/Button';
-import ArrowRight from 'shared/assets/icons/ArrowRightSimpleLine.svg';
-import ArrowLeft from 'shared/assets/icons/ArrowLeftSimpleLine.svg';
 import { useTranslation } from 'react-i18next';
-import { cn } from 'shared/lib/classNames/classNames';
+import Button, { ButtonShape, ButtonSize } from '@/shared/ui/Button/Button';
+import ArrowRight from '@/shared/assets/icons/ArrowRightSimpleLine.svg';
+import ArrowLeft from '@/shared/assets/icons/ArrowLeftSimpleLine.svg';
+import { cn } from '@/shared/lib/classNames/classNames';
 import s from './SidebarToggle.module.scss';
 
 interface SidebarToggleProps {

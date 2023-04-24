@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Text, TextMargin, TextSize } from 'shared/ui/Text/Text';
-import { HStack } from 'shared/ui/Stack';
 import { Link } from 'react-router-dom';
-import Icon from 'shared/ui/Icon/Icon';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { Text, TextMargin, TextSize } from '@/shared/ui/Text/Text';
+import { HStack } from '@/shared/ui/Stack';
+import Icon from '@/shared/ui/Icon/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Notification } from '../../model/types/notifications';
 import ArrowRight from '../../../../shared/assets/icons/ArrowRightSimpleLine.svg';
 import s from './NotificationsItem.module.scss';

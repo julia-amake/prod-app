@@ -1,11 +1,11 @@
 import React, { memo, useCallback } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import Input from 'shared/ui/Input/Input';
-import Button, { ButtonSize } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import { cn } from '@/shared/lib/classNames/classNames';
+import Input from '@/shared/ui/Input/Input';
+import Button, { ButtonSize } from '@/shared/ui/Button/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import s from './AddCommentForm.module.scss';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentsFormSelectors';

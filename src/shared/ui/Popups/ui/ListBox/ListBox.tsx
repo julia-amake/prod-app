@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { Float } from '@headlessui-float/react';
-import { ItemIcon } from 'shared/types';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { ItemIcon } from '@/shared/types';
 import sPopup from '../../styles/popup.module.scss';
 import s from './ListBox.module.scss';
 import { PopoverWidth } from '../../types/popover';

@@ -1,11 +1,11 @@
 import React, {
     ElementType, Fragment, memo, ReactNode,
 } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { Menu } from '@headlessui/react';
-import { ItemIcon } from 'shared/types';
 import { Link } from 'react-router-dom';
 import { Float } from '@headlessui-float/react';
+import { ItemIcon } from '@/shared/types';
+import { cn } from '@/shared/lib/classNames/classNames';
 import { PopoverWidth } from '../../types/popover';
 import Heading from '../../../Heading/Heading';
 import sPopup from '../../styles/popup.module.scss';

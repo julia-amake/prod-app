@@ -1,11 +1,11 @@
 import React, { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import AppLink, { AppLinkProps, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { cn } from 'shared/lib/classNames/classNames';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
-import { HStack, VStack } from 'shared/ui/Stack';
+import AppLink, { AppLinkProps, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { getUserAuthData } from '@/entities/User';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { SidebarItemType } from '../../model/types/sidebar';
 import s from './SidebarItem.module.scss';
 

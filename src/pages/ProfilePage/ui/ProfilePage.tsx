@@ -1,9 +1,9 @@
 import React from 'react';
-import { Page } from 'widgets/Page/Page';
-import { EditableProfileCard } from 'features/editableProfileCard';
 import { useParams } from 'react-router-dom';
-import Informer from 'shared/ui/Informer/Informer';
 import { useTranslation } from 'react-i18next';
+import { Page } from '@/widgets/Page/Page';
+import { EditableProfileCard } from '@/features/editableProfileCard';
+import Informer from '@/shared/ui/Informer/Informer';
 
 interface ProfilePageProps {}
 

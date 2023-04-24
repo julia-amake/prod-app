@@ -1,8 +1,8 @@
 import React, {
     ElementType, memo,
 } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
-import { getDangerouslySetInnerHTML } from 'shared/lib/utils/getDangerouslySetInnerHTML';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { getDangerouslySetInnerHTML } from '@/shared/lib/utils/getDangerouslySetInnerHTML';
 import s from './Heading.module.scss';
 
 export enum HeadingSize {

@@ -1,17 +1,17 @@
 import React, {
     memo, useCallback, useMemo, useState,
 } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { HStack } from 'shared/ui/Stack';
-import Icon from 'shared/ui/Icon/Icon';
-import Notes from 'shared/assets/icons/Notes.svg';
-import { NotificationsList } from 'entities/Notifications';
-import { Popover } from 'shared/ui/Popups/ui/Popover/Popover';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
-import useWindowDimensions from 'shared/lib/hooks/useWindowDimensions/useWindowDimensions';
-import { MOBILE_LARGE } from 'shared/consts/devices';
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { HStack } from '@/shared/ui/Stack';
+import Icon from '@/shared/ui/Icon/Icon';
+import Notes from '@/shared/assets/icons/Notes.svg';
+import { NotificationsList } from '@/entities/Notifications';
+import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
+import { MOBILE_LARGE } from '@/shared/consts/devices';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import s from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

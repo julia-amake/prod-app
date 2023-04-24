@@ -1,6 +1,6 @@
 import React, { memo, ReactNode } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
-import InfoLine from 'shared/assets/icons/InfoLine.svg';
+import { cn } from '@/shared/lib/classNames/classNames';
+import InfoLine from '@/shared/assets/icons/InfoLine.svg';
 import s from './Informer.module.scss';
 
 export enum InformerStatuses {

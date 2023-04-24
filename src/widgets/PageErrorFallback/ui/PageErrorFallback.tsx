@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'shared/ui/Button/Button';
-import { VStack } from 'shared/ui/Stack';
-import Heading, { HeadingPosition, HeadingSize } from 'shared/ui/Heading/Heading';
-import { Page } from 'widgets/Page/Page';
+import Button from '@/shared/ui/Button/Button';
+import { VStack } from '@/shared/ui/Stack';
+import Heading, { HeadingPosition, HeadingSize } from '@/shared/ui/Heading/Heading';
+import { Page } from '@/widgets/Page/Page';
 
 interface PageErrorFallbackProps {
     className?: string;

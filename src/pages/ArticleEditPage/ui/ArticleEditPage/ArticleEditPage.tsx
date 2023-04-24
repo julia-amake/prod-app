@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page/Page';
-import { PageContent } from 'shared/ui/Page/PageContent/PageContent';
+import { Page } from '@/widgets/Page/Page';
+import { PageContent } from '@/shared/ui/Page/PageContent/PageContent';
 
 interface ArticleEditPageProps {
     className?: string;

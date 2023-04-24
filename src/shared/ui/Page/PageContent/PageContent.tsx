@@ -1,5 +1,5 @@
 import React, { memo, ReactNode } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import s from './PageContent.module.scss';
 
 interface PageContentProps {

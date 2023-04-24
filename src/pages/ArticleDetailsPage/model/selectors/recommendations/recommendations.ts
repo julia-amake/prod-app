@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { initialState } from '../../slice/articleDetailsRecommendationsSlice';
 
 export const getArticleRecommendationsIsLoading = (state: StateSchema) => (

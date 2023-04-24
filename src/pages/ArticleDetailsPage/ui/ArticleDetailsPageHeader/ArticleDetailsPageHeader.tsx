@@ -1,14 +1,14 @@
 import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button, { ButtonSize, ButtonTheme, IconPosition } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
-import ArrowLeftLongLine from 'shared/assets/icons/ArrowLeftLongLine.svg';
-import EditLine from 'shared/assets/icons/EditLine.svg';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
-import { PageHeader } from 'shared/ui/Page';
-import { HStack } from 'shared/ui/Stack';
+import Button, { ButtonSize, ButtonTheme, IconPosition } from '@/shared/ui/Button/Button';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import ArrowLeftLongLine from '@/shared/assets/icons/ArrowLeftLongLine.svg';
+import EditLine from '@/shared/assets/icons/EditLine.svg';
+import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
+import { PageHeader } from '@/shared/ui/Page';
+import { HStack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article/article';
 
 interface ArticleDetailsPageHeaderProps {

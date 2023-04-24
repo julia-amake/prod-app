@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { articlesPageInitialState as initialState } from '../consts/consts';
 
 export const getArticlesPageIsLoading = (state: StateSchema) => state.articlesPage?.isLoading || initialState.isLoading;

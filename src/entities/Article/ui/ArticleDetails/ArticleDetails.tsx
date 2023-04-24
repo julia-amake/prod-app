@@ -1,19 +1,19 @@
 import React, {
     memo, useCallback, useMemo,
 } from 'react';
-import { cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import Informer from 'shared/ui/Informer/Informer';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import Heading, { HeadingSize } from 'shared/ui/Heading/Heading';
-import { Text, TextMargin, TextSize } from 'shared/ui/Text/Text';
-import EyeLine from 'shared/assets/icons/EyeLine.svg';
-import CalendarLine from 'shared/assets/icons/CalendarLine.svg';
-import { Image } from 'shared/ui/Image/Image';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import Informer from '@/shared/ui/Informer/Informer';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import Heading, { HeadingSize } from '@/shared/ui/Heading/Heading';
+import { Text, TextMargin, TextSize } from '@/shared/ui/Text/Text';
+import EyeLine from '@/shared/assets/icons/EyeLine.svg';
+import CalendarLine from '@/shared/assets/icons/CalendarLine.svg';
+import { Image } from '@/shared/ui/Image/Image';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import {

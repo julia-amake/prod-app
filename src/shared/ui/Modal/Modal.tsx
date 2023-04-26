@@ -3,9 +3,13 @@ import { cn, Mode } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import Portal from '../Portal/Portal';
+import Heading, { HeadingSize } from '@/shared/ui/Heading/Heading';
+import { Text } from '@/shared/ui/Text/Text';
 import s from './Modal.module.scss';
 
 interface ModalProps {
+    title?: string;
+    subtitle?: string;
     isOpen?: boolean;
     className?: string;
     children?: ReactNode;
@@ -15,6 +19,8 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = (props) => {
     const {
+        title,
+        subtitle,
         isOpen,
         onClose,
         className = '',
@@ -37,6 +43,8 @@ const Modal: React.FC<ModalProps> = (props) => {
             <div className={cn(s.modal, modalMods, [className])}>
                 <Overlay onClick={close} />
                 <div className={s.content}>
+                    {title && <Heading content={title} size={HeadingSize.S} className={s.title} />}
+                    {subtitle && <Text content={subtitle} className={s.subtitle} />}
                     {children}
                 </div>
             </div>

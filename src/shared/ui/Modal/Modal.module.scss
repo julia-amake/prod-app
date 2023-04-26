@@ -48,6 +48,17 @@
   }
 }
 
+.title {
+  margin-bottom: 32px;
+  padding-right: 48px;
+}
+
+.subtitle {
+  margin-bottom: 32px;
+  padding-right: 48px;
+  color: var(--secondary-color);
+}
+
 :global(.app_theme_light) {
   .content {
     color: var(--inverted-bg-color);

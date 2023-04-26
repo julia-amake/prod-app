@@ -1,0 +1,29 @@
+.star {
+  position: relative;
+  padding: 8px;
+
+  &_hovered {
+    cursor: pointer;
+  }
+}
+
+.icon {
+  fill: var(--primary-color);
+  transition: transform 0.3s ease-out;
+
+  .star_hovered:hover & {
+    transform: scale(1.3);
+  }
+}
+
+.text {
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  font-family: var(--font-family-secondary);
+  font-size: 9px;
+  text-transform: lowercase;
+  color: var(--secondary-color);
+  transform: translateX(-50%);
+  opacity: 0.5;
+}

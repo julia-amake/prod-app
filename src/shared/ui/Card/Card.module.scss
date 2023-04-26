@@ -3,9 +3,12 @@
   text-decoration: none;
   border-radius: 20px;
   background: var(--bg-color);
-  cursor: pointer;
   box-shadow:
     0 0 0 12px var(--bg-color),
     0 32px 32px rgba(#1f2f46, 0.12);
   transition: box-shadow 0.2s ease-in-out;
+
+  &_clickable {
+    cursor: pointer;
+  }
 }

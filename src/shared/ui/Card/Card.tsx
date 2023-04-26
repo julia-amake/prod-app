@@ -29,7 +29,7 @@ export const Card = memo((props: CardProps) => {
 
     return (
         <Tag
-            className={cn(s.outer, {}, [className])}
+            className={cn(s.outer, { [s.outer_clickable]: !!to }, [className])}
             {...to ? { to, target } : {}}
             {...otherProps}
             {...bindHover}

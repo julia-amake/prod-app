@@ -12,6 +12,7 @@ import { PageContent } from '@/shared/ui/Page/PageContent/PageContent';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducers } from '../../model/slice';
+import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -44,6 +45,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
             <ArticleDetailsPageHeader />
             <PageContent>
                 <ArticleDetails id={id} isLoading={isLoading} />
+                <ArticleRating articleId={id} />
                 <ArticleDetailsComments id={id} isLoading={isLoading} />
                 <ArticleRecommendationsList id={id} />
             </PageContent>

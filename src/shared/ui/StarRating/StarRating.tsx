@@ -4,8 +4,8 @@ import { cn } from '@/shared/lib/classNames/classNames';
 import Icon from '@/shared/ui/Icon/Icon';
 import StarFilled from '@/shared/assets/icons/StarFilled.svg';
 import StarLine from '@/shared/assets/icons/StarLine.svg';
-import s from './StarRating.module.scss';
 import { HStack } from '@/shared/ui/Stack';
+import s from './StarRating.module.scss';
 
 const stars = [1, 2, 3, 4, 5];
 

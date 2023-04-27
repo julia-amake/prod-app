@@ -3,9 +3,8 @@ import React, {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card/Card';
 import { VStack } from '@/shared/ui/Stack';
-import Heading, { HeadingSize } from '@/shared/ui/Heading/Heading';
+import Heading, { HeadingPosition, HeadingSize } from '@/shared/ui/Heading/Heading';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
 import Modal from '@/shared/ui/Modal/Modal';
 import Input from '@/shared/ui/Input/Input';
@@ -17,6 +16,7 @@ import { Text } from '@/shared/ui/Text/Text';
 import s from './RatingCard.module.scss';
 
 interface RatingProps {
+    rate?: number;
     title?: string;
     hasFeedback?: boolean;
     feedbackTitle?: string;
@@ -29,7 +29,8 @@ export const RatingCard = memo((props: RatingProps) => {
     const { t } = useTranslation();
 
     const {
-        title = t('Вам понравилось?'),
+        rate = 0,
+        title,
         hasFeedback = false,
         feedbackTitle = t('Оставьте отзыв'),
         onCancel,
@@ -38,7 +39,7 @@ export const RatingCard = memo((props: RatingProps) => {
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
     const { width } = useWindowDimensions();
     const [isMobile, setIsMobile] = useState(false);
@@ -78,10 +79,18 @@ export const RatingCard = memo((props: RatingProps) => {
     const Feedback = useMemo(() => (isMobile ? Drawer : Modal), [isMobile]);
 
     return (
-        <Card className={cn(s.outer, {}, [className])}>
-            <VStack>
-                <Heading content={title} />
-                <StarRating size={24} onSelect={onSelectStars} />
+        <div className={cn(s.outer, {}, [className])}>
+            <VStack
+                align="center"
+                gap="16"
+            >
+                <Heading
+                    content={starsCount
+                        ? t('Спасибо за оценку!')
+                        : (title || t('Вам понравилось?'))}
+                    position={HeadingPosition.CENTER}
+                />
+                <StarRating selectedStarsCount={rate} size={24} onSelect={onSelectStars} />
             </VStack>
 
             <Feedback
@@ -119,6 +128,6 @@ export const RatingCard = memo((props: RatingProps) => {
                 </VStack>
             </Feedback>
 
-        </Card>
+        </div>
     );
 });

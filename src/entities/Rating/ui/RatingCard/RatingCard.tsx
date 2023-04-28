@@ -39,7 +39,7 @@ export const RatingCard = memo((props: RatingProps) => {
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(rate);
+    const [starsCount, setStarsCount] = useState<number>(rate);
     const [feedback, setFeedback] = useState('');
     const { width } = useWindowDimensions();
     const [isMobile, setIsMobile] = useState(false);
@@ -47,6 +47,10 @@ export const RatingCard = memo((props: RatingProps) => {
     useEffect(() => {
         setIsMobile(width <= MOBILE_LARGE);
     }, [width]);
+
+    useEffect(() => {
+        setStarsCount(rate);
+    }, [rate]);
 
     const onSelectStars = useCallback(
         (selectedStarsCount: number) => {
@@ -90,7 +94,7 @@ export const RatingCard = memo((props: RatingProps) => {
                         : (title || t('Вам понравилось?'))}
                     position={HeadingPosition.CENTER}
                 />
-                <StarRating selectedStarsCount={rate} size={24} onSelect={onSelectStars} />
+                <StarRating selectedStarsCount={starsCount} size={24} onSelect={onSelectStars} />
             </VStack>
 
             <Feedback

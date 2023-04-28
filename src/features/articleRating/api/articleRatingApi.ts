@@ -11,7 +11,9 @@ interface RateArticleArgs extends ArticleRatingArgs {
     feedback?: string;
 }
 
-const articleRatingApi = rtkApi.injectEndpoints({
+const articleRatingApiWithTag = rtkApi.enhanceEndpoints({ addTagTypes: ['ArticleRating'] });
+
+const articleRatingApi = articleRatingApiWithTag.injectEndpoints({
     endpoints: (build) => ({
         getArticleRating: build.query<Rating[], ArticleRatingArgs>({
             query: ({ userId, articleId }) => ({
@@ -21,6 +23,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
                     articleId,
                 },
             }),
+            providesTags: ['ArticleRating'],
         }),
         rateArticle: build.mutation<void, RateArticleArgs>({
             query: (args) => ({
@@ -28,6 +31,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
                 method: 'POST',
                 body: args,
             }),
+            invalidatesTags: ['ArticleRating'],
         }),
     }),
 });

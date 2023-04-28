@@ -1,4 +1,6 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, {
+    memo, useEffect, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
 import Icon from '@/shared/ui/Icon/Icon';
@@ -25,9 +27,14 @@ export const StarRating = memo((props: StarRatingProps) => {
     } = props;
 
     const { t } = useTranslation();
-    const [isSelected, setIsSelected] = useState(!!selectedStarsCount);
-    const [currStarsCount, setCurrStarsCount] = useState(selectedStarsCount);
+    const [isSelected, setIsSelected] = useState<boolean>(false);
+    const [currStarsCount, setCurrStarsCount] = useState<number>(0);
     const [hoveredStarsCount, setHoveredStarsCount] = useState(0);
+
+    useEffect(() => {
+        setIsSelected(!!selectedStarsCount);
+        setCurrStarsCount(selectedStarsCount);
+    }, [selectedStarsCount]);
 
     const StarIcon = (isSelected: boolean) => (isSelected ? StarFilled : StarLine);
 
@@ -36,19 +43,17 @@ export const StarRating = memo((props: StarRatingProps) => {
         setHoveredStarsCount(starsCount);
     };
 
-    const onStarLeave = useCallback(
-        () => {
-            if (isSelected || !hoveredStarsCount) return;
-            setHoveredStarsCount(0);
-        },
-        [isSelected, hoveredStarsCount],
-    );
+    const onStarLeave = () => {
+        if (isSelected || !hoveredStarsCount) return;
+        setHoveredStarsCount(0);
+    };
 
     const onStarClick = (starsCount: number) => () => {
         if (isSelected) return;
         onSelect?.(starsCount);
         setIsSelected(true);
         setCurrStarsCount(starsCount);
+        setHoveredStarsCount(0);
     };
 
     return (

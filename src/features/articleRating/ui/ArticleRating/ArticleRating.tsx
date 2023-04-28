@@ -1,4 +1,6 @@
-import React, { memo, useCallback } from 'react';
+import React, {
+    memo, useCallback, useMemo,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entities/Rating';
@@ -22,7 +24,8 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     const { data, isLoading } = useGetArticleRating({ articleId, userId: userData?.id ?? '' });
     const [rateArticle] = useRateArticle();
 
-    const rating = data?.[0];
+    // eslint-disable-next-line
+    const rating = useMemo(() => data?.[0]?.rate ?? 0, [articleId, data]);
 
     const handleRateArticle = useCallback(
         (starsCount: number, feedback?: string) => {
@@ -60,7 +63,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
         <RatingCard
             onAccept={onAccept}
             onCancel={onCancel}
-            rate={rating?.rate}
+            rate={rating}
             className={className}
             title={t('Вам понравилась статья?')}
             hasFeedback

@@ -32,13 +32,12 @@ export default {
                 status: 200,
                 response: [
                     notification,
-                    notification,
-                    notification,
-                    notification,
-                    notification,
-                    notification,
+                    { ...notification, id: '2' },
+                    { ...notification, id: '3' },
+                    { ...notification, id: '4' },
+                    { ...notification, id: '5' },
+                    { ...notification, id: '6' },
                 ],
-                delay: 2000,
             },
         ],
     },
@@ -62,5 +61,12 @@ Empty.args = {
     isShort: true,
 };
 Empty.parameters = {
-    mockData: [],
+    mockData: [
+        {
+            url: `${__API__}/notifications`,
+            method: 'GET',
+            status: 200,
+            response: [],
+        },
+    ],
 };

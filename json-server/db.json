@@ -777,6 +777,32 @@
       "image": "https://mir-s3-cdn-cf.behance.net/project_modules/fs/46ada299039695.5ef206834abe6.jpg"
     }
   ],
-  "article-ratings": [],
+  "article-ratings": [
+    {
+      "userId": "1",
+      "articleId": "1",
+      "rate": 1,
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 5,
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 5,
+      "feedback": "Отзыв к 5 статье",
+      "id": 3
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 4,
+      "id": 4
+    }
+  ],
   "profile-ratings": []
 }

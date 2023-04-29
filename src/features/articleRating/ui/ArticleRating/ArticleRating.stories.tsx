@@ -1,14 +1,27 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleRating from './ArticleRating';
 
 export default {
-    title: 'shared/ArticleRating',
+    title: 'feature/ArticleRating',
     component: ArticleRating,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {},
+    args: {
+        articleId: '1',
+    },
+    decorators: [
+        StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                },
+            },
+        }),
+        withMock],
 } as ComponentMeta<typeof ArticleRating>;
 
 const Template: ComponentStory<typeof ArticleRating> = (args) => (
@@ -17,3 +30,28 @@ const Template: ComponentStory<typeof ArticleRating> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { rate: 4 },
+            ],
+        },
+    ],
+};
+
+export const NotSelected = Template.bind({});
+NotSelected.args = {};
+NotSelected.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: [],
+        },
+    ],
+};

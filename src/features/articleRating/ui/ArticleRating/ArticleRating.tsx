@@ -4,7 +4,7 @@ import React, {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entities/Rating';
-import { useGetArticleRating, useRateArticle } from '@/features/articleRating/api/articleRatingApi';
+import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 

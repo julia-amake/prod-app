@@ -3,8 +3,8 @@ import { cn, Mode } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import Portal from '../Portal/Portal';
-import Heading, { HeadingSize } from '@/shared/ui/Heading/Heading';
-import { Text } from '@/shared/ui/Text/Text';
+import Heading, { HeadingSize } from '../Heading/Heading';
+import { Text } from '../Text/Text';
 import s from './Modal.module.scss';
 
 interface ModalProps {

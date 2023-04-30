@@ -3,8 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
-import { article } from '@/entities/Article/mocks/data';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { article } from '@/entities/Article';
 
 export default {
     title: 'pages/ArticleDetailsPage',

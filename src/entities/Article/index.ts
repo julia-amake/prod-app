@@ -8,3 +8,5 @@ export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelecto
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 export { ArticleSortField, ArticleBlockType, ArticleView } from './model/consts/consts';
 export { ArticleType } from './model/consts/consts';
+export { getArticleDetailsData, getArticleDetailsIsLoading } from './model/selectors/articleDetails';
+export { article } from './mocks/data';

@@ -2,7 +2,6 @@ import React, { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, LinkProps } from 'react-router-dom';
 import { cn } from '@/shared/lib/classNames/classNames';
-import LangSwitcher from '@/widgets/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import LogoSmall from '@/shared/assets/icons/LogoSmall.svg';
 import LogoLarge from '@/shared/assets/icons/LogoLarge.svg';
@@ -11,6 +10,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarToggle from '../SidebarToggle/SidebarToggle';
 import SidebarItem from '../SidebarItem/SidebarItem';
+import { LangSwitcher } from '@/widgets/LangSwitcher';
 import s from './Sidebar.module.scss';
 
 interface SidebarProps {

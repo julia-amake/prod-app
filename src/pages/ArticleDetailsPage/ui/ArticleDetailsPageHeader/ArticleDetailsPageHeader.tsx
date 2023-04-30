@@ -6,10 +6,10 @@ import Button, { ButtonSize, ButtonTheme, IconPosition } from '@/shared/ui/Butto
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import ArrowLeftLongLine from '@/shared/assets/icons/ArrowLeftLongLine.svg';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
-import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
 import { PageHeader } from '@/shared/ui/Page';
 import { HStack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article/article';
+import { getArticleDetailsData } from '@/entities/Article';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;

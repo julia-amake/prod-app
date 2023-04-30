@@ -2,17 +2,16 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { ArticleDetails } from '@/entities/Article';
+import { ArticleDetails, getArticleDetailsIsLoading } from '@/entities/Article';
 import Informer from '@/shared/ui/Informer/Informer';
 import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
-import { getArticleDetailsIsLoading } from '@/entities/Article/model/selectors/articleDetails';
-import { Page } from '@/widgets/Page/Page';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { PageContent } from '@/shared/ui/Page/PageContent/PageContent';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducers } from '../../model/slice';
 import { ArticleRating } from '@/features/articleRating';
+import { Page } from '@/widgets/Page';
 
 interface ArticleDetailsPageProps {
     className?: string;

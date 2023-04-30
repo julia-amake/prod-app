@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '@/widgets/Page/Page';
 import Heading from '@/shared/ui/Heading/Heading';
 import { PageContent } from '@/shared/ui/Page/PageContent/PageContent';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
@@ -18,6 +17,7 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import s from './ArticlesPage.module.scss';
+import { Page } from '@/widgets/Page';
 
 const reducersList: ReducersList = {
     articlesPage: articlesPageReducer,

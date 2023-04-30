@@ -70,6 +70,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-autofocus': 'warn',
         'amake-plugin/path-checker': ['error', { alias: '@' }],
+        'amake-plugin/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

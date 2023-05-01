@@ -2,7 +2,6 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@/shared/ui/Avatar/Avatar';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Dropdown } from '@/shared/ui/Popups';
 import {
     getIsAdmin, getIsManager, getUserAuthData, userActions,
@@ -10,6 +9,7 @@ import {
 import Logout from '@/shared/assets/icons/Logout.svg';
 import Settings from '@/shared/assets/icons/Settings.svg';
 import ProfileLine from '@/shared/assets/icons/ProfileLine.svg';
+import { RoutePath } from '@/shared/consts/router';
 
 interface UserDropdownProps {
     className?: string;

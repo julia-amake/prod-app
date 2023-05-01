@@ -5,13 +5,13 @@ import { cn } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import LogoSmall from '@/shared/assets/icons/LogoSmall.svg';
 import LogoLarge from '@/shared/assets/icons/LogoLarge.svg';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarToggle from '../SidebarToggle/SidebarToggle';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import { LangSwitcher } from '@/widgets/LangSwitcher';
 import s from './Sidebar.module.scss';
+import { RoutePath } from '@/shared/consts/router';
 
 interface SidebarProps {
     className?: string;

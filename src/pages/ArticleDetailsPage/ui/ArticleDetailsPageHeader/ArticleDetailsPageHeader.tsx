@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Button, { ButtonSize, ButtonTheme, IconPosition } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import ArrowLeftLongLine from '@/shared/assets/icons/ArrowLeftLongLine.svg';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
 import { PageHeader } from '@/shared/ui/Page';
 import { HStack } from '@/shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article/article';
 import { getArticleDetailsData } from '@/entities/Article';
+import { RoutePath } from '@/shared/consts/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;

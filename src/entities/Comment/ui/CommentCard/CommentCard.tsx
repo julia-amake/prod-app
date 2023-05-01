@@ -4,9 +4,9 @@ import Avatar from '@/shared/ui/Avatar/Avatar';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text/Text';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import AppLink from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Comment } from '../../model/types/comment';
 import s from './CommentCard.module.scss';
+import { RoutePath } from '@/shared/consts/router';
 
 interface CommentCardProps {
     comment?: Comment;

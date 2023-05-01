@@ -6,11 +6,11 @@ import { cn } from '@/shared/lib/classNames/classNames';
 import Button, { ButtonSize } from '@/shared/ui/Button/Button';
 import { LoginModal } from '@/features/AuthByUserName';
 import { getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { UserDropdown } from '@/features/userDropdown';
 import s from './Navbar.module.scss';
+import { RoutePath } from '@/shared/consts/router';
 
 interface NavbarProps {
     className?: string;

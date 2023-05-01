@@ -6,7 +6,6 @@ import { Text, TextMargin, TextSize } from '@/shared/ui/Text/Text';
 import { Card } from '@/shared/ui/Card/Card';
 import Avatar from '@/shared/ui/Avatar/Avatar';
 import Button, { ButtonSize } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import AppLink from '@/shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -14,6 +13,7 @@ import {
     Article, ArticleTextBlock,
 } from '../../model/types/article';
 import s from './ArticleListItem.module.scss';
+import { RoutePath } from '@/shared/consts/router';
 
 interface ArticleListItemProps {
     article: Article;

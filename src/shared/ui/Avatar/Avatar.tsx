@@ -9,7 +9,7 @@ interface AvatarProps {
     size?: number;
 }
 
-const Avatar: FC<AvatarProps> = (props) => {
+export const Avatar: FC<AvatarProps> = (props) => {
     const {
         src = '',
         alt = '',
@@ -34,5 +34,3 @@ const Avatar: FC<AvatarProps> = (props) => {
         ) : <div style={styles} className={cn(s.avatar, {}, [className])} />
     );
 };
-
-export default Avatar;

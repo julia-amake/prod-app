@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { EditableProfileCard } from '@/features/editableProfileCard';
-import Informer from '@/shared/ui/Informer/Informer';
+import { Informer } from '@/shared/ui/Informer';
 import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {}

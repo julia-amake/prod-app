@@ -49,7 +49,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     onClick?: (value?: any) => void;
 }
 
-const Button = memo((props: ButtonProps) => {
+export const Button = memo((props: ButtonProps) => {
     const {
         theme = ButtonTheme.PRIMARY,
         shape = ButtonShape.ROUND,
@@ -116,5 +116,3 @@ const Button = memo((props: ButtonProps) => {
         </button>
     );
 });
-
-export default Button;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import Heading, { HeadingPosition, HeadingSize } from './Heading';
+import { Heading, HeadingPosition, HeadingSize } from './Heading';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'shared/Heading',

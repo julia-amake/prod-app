@@ -6,12 +6,12 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { IntegerValidation } from '@/shared/lib/utils/validations';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import Heading, { HeadingSize } from '@/shared/ui/Heading/Heading';
-import Informer from '@/shared/ui/Informer/Informer';
+import { Heading, HeadingSize } from '@/shared/ui/Heading';
+import { Informer } from '@/shared/ui/Informer';
 import { VStack } from '@/shared/ui/Stack';
 import { ProfileCard } from '@/entities/Profile';
 import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
-import { PageContent } from '@/shared/ui/Page/PageContent/PageContent';
+import { PageContent } from '@/shared/ui/Page';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
-import Heading, { HeadingSize } from '@/shared/ui/Heading/Heading';
+import { Text } from '@/shared/ui/Text';
+import { Heading, HeadingSize } from '@/shared/ui/Heading';
 import { ArticleTextBlock } from '../../model/types/article';
 import s from './ArticleTextBlockComponent.module.scss';
 

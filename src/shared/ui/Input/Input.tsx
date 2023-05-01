@@ -15,7 +15,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-const Input = memo((props: InputProps) => {
+export const Input = memo((props: InputProps) => {
     const {
         type = 'text',
         label,
@@ -85,5 +85,3 @@ const Input = memo((props: InputProps) => {
         </div>
     );
 });
-
-export default Input;

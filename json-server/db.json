@@ -802,6 +802,12 @@
       "articleId": "4",
       "rate": 4,
       "id": 4
+    },
+    {
+      "userId": "1",
+      "articleId": "14",
+      "rate": 5,
+      "id": 5
     }
   ],
   "profile-ratings": []

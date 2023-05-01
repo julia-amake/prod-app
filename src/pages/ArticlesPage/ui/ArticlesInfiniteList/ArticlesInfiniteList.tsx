@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { ArticleList } from '@/entities/Article';
-import Informer from '@/shared/ui/Informer/Informer';
+import { Informer } from '@/shared/ui/Informer';
 import { getArticles } from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageError,

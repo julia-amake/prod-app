@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import Button, { ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
 import DoneLine from '@/shared/assets/icons/DoneLine.svg';
 import EraserLine from '@/shared/assets/icons/EraserLine.svg';

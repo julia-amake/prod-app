@@ -6,7 +6,7 @@ interface PreloaderProps {
     className?: string;
 }
 
-const Preloader: React.FC<PreloaderProps> = (props) => {
+export const Preloader: React.FC<PreloaderProps> = (props) => {
     const { className = '' } = props;
 
     return (
@@ -18,5 +18,3 @@ const Preloader: React.FC<PreloaderProps> = (props) => {
         </div>
     );
 };
-
-export default Preloader;

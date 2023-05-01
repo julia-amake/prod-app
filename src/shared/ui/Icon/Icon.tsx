@@ -7,7 +7,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string;
 }
 
-const Icon = memo((props: IconProps) => {
+export const Icon = memo((props: IconProps) => {
     const {
         svg,
         className = '',
@@ -23,5 +23,3 @@ const Icon = memo((props: IconProps) => {
         />
     );
 });
-
-export default Icon;

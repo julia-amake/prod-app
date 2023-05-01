@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import AppLink, { AppLinkProps, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkProps, AppLinkTheme } from '@/shared/ui/AppLink';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { HStack, VStack } from '@/shared/ui/Stack';

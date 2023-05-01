@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react';
 import { cn, Mode } from '@/shared/lib/classNames/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
-import Portal from '../Portal/Portal';
-import Heading, { HeadingSize } from '../Heading/Heading';
+import { Portal } from '../Portal/Portal';
+import { Heading, HeadingSize } from '../Heading/Heading';
 import { Text } from '../Text/Text';
 import s from './Modal.module.scss';
 
@@ -17,7 +17,7 @@ interface ModalProps {
     lazy?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = (props) => {
+export const Modal: React.FC<ModalProps> = (props) => {
     const {
         title,
         subtitle,
@@ -51,5 +51,3 @@ const Modal: React.FC<ModalProps> = (props) => {
         </Portal>
     );
 };
-
-export default Modal;

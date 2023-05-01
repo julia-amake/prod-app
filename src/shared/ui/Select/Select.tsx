@@ -70,5 +70,3 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
         </div>
     );
 });
-
-export default Select;

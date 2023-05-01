@@ -2,11 +2,11 @@ import React, { memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/shared/lib/classNames/classNames';
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
-import { Text, TextMargin, TextSize } from '@/shared/ui/Text/Text';
-import { Card } from '@/shared/ui/Card/Card';
-import Avatar from '@/shared/ui/Avatar/Avatar';
-import Button, { ButtonSize } from '@/shared/ui/Button/Button';
-import AppLink from '@/shared/ui/AppLink/AppLink';
+import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
+import { Card } from '@/shared/ui/Card';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button, ButtonSize } from '@/shared/ui/Button';
+import { AppLink } from '@/shared/ui/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {

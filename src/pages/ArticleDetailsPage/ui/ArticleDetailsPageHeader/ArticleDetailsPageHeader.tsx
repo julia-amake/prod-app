@@ -2,7 +2,9 @@ import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Button, { ButtonSize, ButtonTheme, IconPosition } from '@/shared/ui/Button/Button';
+import {
+    Button, ButtonSize, ButtonTheme, IconPosition,
+} from '@/shared/ui/Button';
 import ArrowLeftLongLine from '@/shared/assets/icons/ArrowLeftLongLine.svg';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
 import { PageHeader } from '@/shared/ui/Page';

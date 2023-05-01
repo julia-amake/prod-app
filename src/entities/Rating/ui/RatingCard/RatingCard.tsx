@@ -4,15 +4,15 @@ import React, {
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
-import Heading, { HeadingPosition, HeadingSize } from '@/shared/ui/Heading/Heading';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
-import Modal from '@/shared/ui/Modal/Modal';
-import Input from '@/shared/ui/Input/Input';
-import Button, { ButtonTheme } from '@/shared/ui/Button/Button';
+import { Heading, HeadingPosition, HeadingSize } from '@/shared/ui/Heading';
+import { StarRating } from '@/shared/ui/StarRating';
+import { Modal } from '@/shared/ui/Modal';
+import { Input } from '@/shared/ui/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
 import { MOBILE_LARGE } from '@/shared/consts/devices';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { Text } from '@/shared/ui/Text/Text';
+import { Drawer } from '@/shared/ui/Drawer';
+import { Text } from '@/shared/ui/Text';
 import s from './RatingCard.module.scss';
 
 interface RatingProps {

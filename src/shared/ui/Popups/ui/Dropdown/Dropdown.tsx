@@ -7,7 +7,7 @@ import { Float } from '@headlessui-float/react';
 import { ItemIcon } from '@/shared/types';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { PopoverWidth } from '../../types/popover';
-import Heading from '../../../Heading/Heading';
+import { Heading } from '../../../Heading/Heading';
 import sPopup from '../../styles/popup.module.scss';
 import s from './Dropdown.module.scss';
 

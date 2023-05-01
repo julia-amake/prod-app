@@ -4,11 +4,11 @@ import React, {
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { HStack } from '@/shared/ui/Stack';
-import Icon from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/Icon';
 import Notes from '@/shared/assets/icons/Notes.svg';
 import { NotificationsList } from '@/entities/Notifications';
-import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Popover } from '@/shared/ui/Popups/ui';
+import { Drawer } from '@/shared/ui/Drawer';
 import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
 import { MOBILE_LARGE } from '@/shared/consts/devices';
 import s from './NotificationButton.module.scss';

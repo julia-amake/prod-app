@@ -19,7 +19,7 @@ interface InformerProps {
     'data-testid'?: string;
 }
 
-const Informer = memo((props: InformerProps) => {
+export const Informer = memo((props: InformerProps) => {
     const {
         status = InformerStatuses.ERROR,
         title,
@@ -55,5 +55,3 @@ const Informer = memo((props: InformerProps) => {
         </div>
     );
 });
-
-export default Informer;

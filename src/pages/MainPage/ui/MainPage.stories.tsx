@@ -4,6 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import MainPage from './MainPage';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'pages/MainPage',

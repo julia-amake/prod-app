@@ -7,6 +7,7 @@ import { Country } from '@/entities/Country';
 import { AVATAR } from '@/shared/consts/tests';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import ProfilePage from './ProfilePage';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'pages/ProfilePage',

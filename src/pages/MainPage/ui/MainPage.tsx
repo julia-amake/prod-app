@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageContent } from '@/shared/ui/Page/PageContent/PageContent';
+import { PageContent } from '@/shared/ui/Page';
 import { Page } from '@/widgets/Page';
 
 const MainPage = () => {

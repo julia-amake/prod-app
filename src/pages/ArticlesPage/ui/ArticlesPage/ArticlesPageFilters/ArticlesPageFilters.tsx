@@ -10,7 +10,7 @@ import {
     ArticleViewSelector,
 } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import Input from '@/shared/ui/Input/Input';
+import { Input } from '@/shared/ui/Input';
 import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fetchArticlesList';

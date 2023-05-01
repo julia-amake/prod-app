@@ -25,7 +25,7 @@ interface HeadingProps {
     className?: string;
 }
 
-const Heading = memo((props: HeadingProps) => {
+export const Heading = memo((props: HeadingProps) => {
     const {
         as: Tag = 'p',
         content,
@@ -41,5 +41,3 @@ const Heading = memo((props: HeadingProps) => {
         />
     );
 });
-
-export default Heading;

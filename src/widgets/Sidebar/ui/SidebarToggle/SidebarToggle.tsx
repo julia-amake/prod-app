@@ -2,7 +2,7 @@ import React, {
     Dispatch, memo, SetStateAction,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button, { ButtonShape, ButtonSize } from '@/shared/ui/Button/Button';
+import { Button, ButtonShape, ButtonSize } from '@/shared/ui/Button';
 import ArrowRight from '@/shared/assets/icons/ArrowRightSimpleLine.svg';
 import ArrowLeft from '@/shared/assets/icons/ArrowLeftSimpleLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';

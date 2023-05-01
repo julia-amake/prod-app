@@ -5,6 +5,7 @@ import { Country } from '@/entities/Country';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { AVATAR } from '@/shared/consts/tests';
 import { ProfileCard } from './ProfileCard';
+import { Theme } from '@/shared/consts/theme';
 
 export default {
     title: 'entities/ProfileCard',

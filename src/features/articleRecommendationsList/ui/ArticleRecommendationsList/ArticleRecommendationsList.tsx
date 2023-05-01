@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entities/Article';
-import Preloader from '@/shared/ui/Preloader/Preloader';
+import { Preloader } from '@/shared/ui/Preloader';
 import { PageSection } from '@/shared/ui/Page';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 

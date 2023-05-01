@@ -2,11 +2,8 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entities/Article';
 import Preloader from '@/shared/ui/Preloader/Preloader';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageSection } from '@/shared/ui/Page';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
-import { fetchArticleRecommendations } from '@/pages/ArticleDetailsPage';
 
 interface ArticleRecommendationsListProps {
     id: string;
@@ -20,11 +17,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     } = props;
     const { t } = useTranslation();
     const { data: articles, isLoading, error } = useArticleRecommendationsList({ limit: 3, excluded: id });
-    const dispatch = useAppDispatch();
-
-    useInitialEffect(() => {
-        dispatch(fetchArticleRecommendations(id));
-    }, [id]);
 
     if (isLoading) return <Preloader />;
     if (error || !articles?.length) return null;

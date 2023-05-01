@@ -1,11 +1,12 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Theme, useTheme } from '@/app/providers/ThemeProvider';
 import NightOn from '@/shared/assets/icons/NightOn.svg';
 import NightOff from '@/shared/assets/icons/NightOff.svg';
 import Button, { ButtonTheme } from '@/shared/ui/Button/Button';
 import s from './ThemeSwitcher.module.scss';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Theme } from '@/shared/consts/theme';
 
 interface ThemeSwitcherProps {
     className?: string;

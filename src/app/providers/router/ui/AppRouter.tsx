@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { memo, useCallback } from 'react';
-import { RequireAuth } from '@/app/providers/router/ui/RequireAuth';
-import { routeConfig } from '@/app/providers/router/config/routeConfig';
+import { RequireAuth } from './RequireAuth';
+import { routeConfig } from '../config/routeConfig';
 import { AppRoutesProps } from '@/shared/types/router';
 
 const AppRouter = memo(() => {

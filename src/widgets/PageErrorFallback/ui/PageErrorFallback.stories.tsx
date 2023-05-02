@@ -9,7 +9,7 @@ import { Theme } from '@/shared/consts/theme';
 import PageErrorFallback from './PageErrorFallback';
 
 export default {
-    title: 'widget/PageErrorFallback',
+    title: 'widgets/PageErrorFallback',
     component: PageErrorFallback,
     argTypes: {
         backgroundColor: { control: 'color' },

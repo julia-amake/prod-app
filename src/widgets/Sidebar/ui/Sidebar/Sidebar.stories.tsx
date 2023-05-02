@@ -9,7 +9,7 @@ import { Theme } from '@/shared/consts/theme';
 import Sidebar from './Sidebar';
 
 export default {
-    title: 'widget/Sidebar',
+    title: 'widgets/Sidebar',
     component: Sidebar,
     decorators: [
         StoreDecorator({ user: { authData: { id: '1', username: 'user' } } }),

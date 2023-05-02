@@ -1,7 +1,10 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
 import { AVATAR } from '@/shared/consts/tests';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
+
 import { getProfileData } from './getProfileData';
 
 describe('getProfileData.test', () => {

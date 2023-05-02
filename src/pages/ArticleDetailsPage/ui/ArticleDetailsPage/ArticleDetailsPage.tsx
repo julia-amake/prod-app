@@ -1,17 +1,22 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { ArticleDetails, getArticleDetailsIsLoading } from '@/entities/Article';
-import { Informer } from '@/shared/ui/Informer';
+import { useParams } from 'react-router-dom';
+
 import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
-import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+import { Informer } from '@/shared/ui/Informer';
 import { PageContent } from '@/shared/ui/Page';
+
+import { ArticleDetails, getArticleDetailsIsLoading } from '@/entities/Article';
+
+import { ArticleRating } from '@/features/articleRating';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+
+import { Page } from '@/widgets/Page';
+
+import { articleDetailsPageReducers } from '../../model/slice';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { articleDetailsPageReducers } from '../../model/slice';
-import { ArticleRating } from '@/features/articleRating';
-import { Page } from '@/widgets/Page';
 
 interface ArticleDetailsPageProps {
     className?: string;

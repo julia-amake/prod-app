@@ -1,14 +1,17 @@
+import { Menu } from '@headlessui/react';
+import { Float } from '@headlessui-float/react';
 import React, {
     ElementType, Fragment, memo, ReactNode,
 } from 'react';
-import { Menu } from '@headlessui/react';
 import { Link } from 'react-router-dom';
-import { Float } from '@headlessui-float/react';
-import { ItemIcon } from '@/shared/types';
+
 import { cn } from '@/shared/lib/classNames/classNames';
-import { PopoverWidth } from '../../types/popover';
+import { ItemIcon } from '@/shared/types';
+
 import { Heading } from '../../../Heading/Heading';
 import sPopup from '../../styles/popup.module.scss';
+import { PopoverWidth } from '../../types/popover';
+
 import s from './Dropdown.module.scss';
 
 interface DropdownItem {

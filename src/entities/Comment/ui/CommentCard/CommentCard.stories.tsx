@@ -1,6 +1,8 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+
 import { CommentCard } from './CommentCard';
 
 const user = {

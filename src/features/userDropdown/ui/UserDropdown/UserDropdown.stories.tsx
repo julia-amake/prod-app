@@ -1,7 +1,9 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { UserDropdown } from './UserDropdown';
+import React from 'react';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
+import { UserDropdown } from './UserDropdown';
 
 export default {
     title: 'features/UserDropdown',

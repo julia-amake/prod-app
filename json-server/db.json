@@ -671,6 +671,12 @@
       "userId": "1",
       "text": "fj",
       "id": "TC3rsJh"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "еуые",
+      "id": "IbDqnVs"
     }
   ],
   "users": [
@@ -808,6 +814,12 @@
       "articleId": "14",
       "rate": 5,
       "id": 5
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 4,
+      "id": 6
     }
   ],
   "profile-ratings": []

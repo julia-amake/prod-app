@@ -1,19 +1,22 @@
 import React, { memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { cn } from '@/shared/lib/classNames/classNames';
+
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
-import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
-import { Card } from '@/shared/ui/Card';
+import { RoutePath } from '@/shared/consts/router';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonSize } from '@/shared/ui/Button';
-import { AppLink } from '@/shared/ui/AppLink';
+import { Card } from '@/shared/ui/Card';
+import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
+
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     Article, ArticleTextBlock,
 } from '../../model/types/article';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
 import s from './ArticleListItem.module.scss';
-import { RoutePath } from '@/shared/consts/router';
 
 interface ArticleListItemProps {
     article: Article;

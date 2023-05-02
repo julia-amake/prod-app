@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
-import { Code } from '@/shared/ui/Code';
+
 import { cn } from '@/shared/lib/classNames/classNames';
+import { Code } from '@/shared/ui/Code';
+
 import { ArticleCodeBlock } from '../../model/types/article';
 
 interface ArticleCodeBlockComponentProps {

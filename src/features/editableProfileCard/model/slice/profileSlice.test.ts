@@ -1,10 +1,13 @@
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
 import { AVATAR } from '@/shared/consts/tests';
-import { ProfileSchema } from '../types/editableProfileCardSchema';
-import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import { profileActions, profileReducer } from './profileSlice';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+
 import { ValidateProfileError } from '../consts/consts';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
+
+import { profileActions, profileReducer } from './profileSlice';
 
 const profileData = {
     name: 'Name',

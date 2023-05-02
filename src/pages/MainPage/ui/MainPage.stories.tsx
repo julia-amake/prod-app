@@ -1,10 +1,12 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import React from 'react';
+
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
-import MainPage from './MainPage';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/consts/theme';
+
+import MainPage from './MainPage';
 
 export default {
     title: 'pages/MainPage',

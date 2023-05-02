@@ -2,10 +2,13 @@ import React, {
     memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { cn } from '@/shared/lib/classNames/classNames';
-import CopyLine from '@/shared/assets/icons/CopyLine.svg';
+
 import CopyDoneLine from '@/shared/assets/icons/CopyDoneLine.svg';
+import CopyLine from '@/shared/assets/icons/CopyLine.svg';
+import { cn } from '@/shared/lib/classNames/classNames';
+
 import { Button, ButtonTheme } from '../Button/Button';
+
 import s from './Code.module.scss';
 
 interface CodeProps {

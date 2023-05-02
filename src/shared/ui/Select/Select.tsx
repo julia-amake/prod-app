@@ -1,8 +1,10 @@
 import {
     ChangeEvent, SelectHTMLAttributes, useMemo,
 } from 'react';
+
 import { cn } from '@/shared/lib/classNames/classNames';
 import { typedMemo } from '@/shared/lib/utils/typedMemo';
+
 import s from './Select.module.scss';
 
 export interface SelectOption<T extends string> {

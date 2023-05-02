@@ -1,9 +1,12 @@
-import React, { Fragment, memo, ReactNode } from 'react';
-import { Float } from '@headlessui-float/react';
 import { Popover as HPopover } from '@headlessui/react';
+import { Float } from '@headlessui-float/react';
+import React, { Fragment, memo, ReactNode } from 'react';
+
 import { cn } from '@/shared/lib/classNames/classNames';
-import { PopoverWidth } from '../../types/popover';
+
 import sPopup from '../../styles/popup.module.scss';
+import { PopoverWidth } from '../../types/popover';
+
 import s from './Popover.module.scss';
 
 interface PopoverProps {

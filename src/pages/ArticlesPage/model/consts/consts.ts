@@ -1,4 +1,5 @@
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
 export const articlesPageInitialState: ArticlesPageSchema = {

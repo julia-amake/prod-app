@@ -1,8 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Informer, InformerStatuses } from './Informer';
 import { Theme } from '@/shared/consts/theme';
+
+import { Informer, InformerStatuses } from './Informer';
 
 export default {
     title: 'shared/Informer',

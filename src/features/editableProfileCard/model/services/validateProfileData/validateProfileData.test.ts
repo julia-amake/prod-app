@@ -1,8 +1,11 @@
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
 import { AVATAR } from '@/shared/consts/tests';
-import { validateProfileData } from './validateProfileData';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+
 import { ValidateProfileError } from '../../consts/consts';
+
+import { validateProfileData } from './validateProfileData';
 
 const profileData = {
     name: 'Name',

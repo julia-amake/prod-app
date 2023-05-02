@@ -3,31 +3,34 @@ import React, {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import CalendarLine from '@/shared/assets/icons/CalendarLine.svg';
+import EyeLine from '@/shared/assets/icons/EyeLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Heading, HeadingSize } from '@/shared/ui/Heading';
+import { Image } from '@/shared/ui/Image';
 import { Informer } from '@/shared/ui/Informer';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import { Heading, HeadingSize } from '@/shared/ui/Heading';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
-import EyeLine from '@/shared/assets/icons/EyeLine.svg';
-import CalendarLine from '@/shared/assets/icons/CalendarLine.svg';
-import { Image } from '@/shared/ui/Image';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+
 import { ArticleBlockType } from '../../model/consts/consts';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-    ArticleDividerBlockComponent,
-} from '../ArticleDividerBlockComponent/ArticleDividerBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleBlock } from '../../model/types/article';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import {
+    ArticleDividerBlockComponent,
+} from '../ArticleDividerBlockComponent/ArticleDividerBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
 import s from './ArticleDetails.module.scss';
 
 const reducers: ReducersList = {

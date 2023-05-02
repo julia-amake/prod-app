@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
+
 import { cn } from '@/shared/lib/classNames/classNames';
+
 import s from './ArticleDividerBlockComponent.module.scss';
 
 interface ArticleDividerBlockComponentProps {

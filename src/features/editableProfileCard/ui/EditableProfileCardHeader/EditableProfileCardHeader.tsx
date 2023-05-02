@@ -1,21 +1,24 @@
 import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
-import EditLine from '@/shared/assets/icons/EditLine.svg';
+
 import DoneLine from '@/shared/assets/icons/DoneLine.svg';
+import EditLine from '@/shared/assets/icons/EditLine.svg';
 import EraserLine from '@/shared/assets/icons/EraserLine.svg';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUserAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { PageHeader } from '@/shared/ui/Page';
-import { profileActions } from '../../model/slice/profileSlice';
-import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { HStack } from '@/shared/ui/Stack';
+
+import { getUserAuthData } from '@/entities/User';
+
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import {
     getProfileIsLoading,
 } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
 
 interface EditableProfileCardHeaderProps {
     className?: string;

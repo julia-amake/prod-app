@@ -1,8 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
 import withMock from 'storybook-addon-mock';
-import { NotificationsList } from './NotificationsList';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
+import { NotificationsList } from './NotificationsList';
 
 const notification = {
     id: '1',

@@ -1,5 +1,7 @@
 import React, { InputHTMLAttributes, memo } from 'react';
+
 import { cn } from '@/shared/lib/classNames/classNames';
+
 import s from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>, 'onChange'>

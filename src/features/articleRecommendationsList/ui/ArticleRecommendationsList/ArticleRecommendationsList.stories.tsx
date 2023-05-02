@@ -1,11 +1,13 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import withMock from 'storybook-addon-mock';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
-import { ArticleRecommendationsList } from './ArticleRecommendationsList';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import { article } from '@/entities/Article';
+
+import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {
     title: 'features/ArticleRecommendationsList',

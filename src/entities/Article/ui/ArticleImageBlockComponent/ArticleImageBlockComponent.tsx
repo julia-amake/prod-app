@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
+
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Image } from '@/shared/ui/Image';
+
 import { ArticleImageBlock } from '../../model/types/article';
+
 import s from './ArticleImageBlockComponent.module.scss';
 
 interface ArticleImageBlockComponentProps {

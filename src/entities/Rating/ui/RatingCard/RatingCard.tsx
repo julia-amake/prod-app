@@ -2,17 +2,19 @@ import React, {
     memo, useCallback, useEffect, useMemo, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { cn } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { Heading, HeadingPosition, HeadingSize } from '@/shared/ui/Heading';
-import { StarRating } from '@/shared/ui/StarRating';
-import { Modal } from '@/shared/ui/Modal';
-import { Input } from '@/shared/ui/Input';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
+
 import { MOBILE_LARGE } from '@/shared/consts/devices';
+import { cn } from '@/shared/lib/classNames/classNames';
+import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Drawer } from '@/shared/ui/Drawer';
+import { Heading, HeadingPosition, HeadingSize } from '@/shared/ui/Heading';
+import { Input } from '@/shared/ui/Input';
+import { Modal } from '@/shared/ui/Modal';
+import { VStack } from '@/shared/ui/Stack';
+import { StarRating } from '@/shared/ui/StarRating';
 import { Text } from '@/shared/ui/Text';
+
 import s from './RatingCard.module.scss';
 
 interface RatingProps {

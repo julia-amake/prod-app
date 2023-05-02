@@ -1,9 +1,11 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { AVATAR } from '@/shared/consts/tests';
-import { Avatar } from './Avatar';
 import { Theme } from '@/shared/consts/theme';
+
+import { Avatar } from './Avatar';
 
 export default {
     title: 'shared/Avatar',

@@ -1,13 +1,16 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
-import { AVATAR } from '@/shared/consts/tests';
+import React from 'react';
+
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
-import ProfilePage from './ProfilePage';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { AVATAR } from '@/shared/consts/tests';
 import { Theme } from '@/shared/consts/theme';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+
+import ProfilePage from './ProfilePage';
 
 export default {
     title: 'pages/ProfilePage',

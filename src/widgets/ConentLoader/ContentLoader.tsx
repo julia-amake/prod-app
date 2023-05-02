@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Preloader } from '@/shared/ui/Preloader';
 import { HStack } from '@/shared/ui/Stack';
+
 import s from './ContentLoader.module.scss';
 
 interface PageLoaderProps {

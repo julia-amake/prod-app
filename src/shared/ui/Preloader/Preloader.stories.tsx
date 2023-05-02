@@ -1,8 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Preloader } from './Preloader';
 import { Theme } from '@/shared/consts/theme';
+
+import { Preloader } from './Preloader';
 
 export default {
     title: 'shared/Preloader',

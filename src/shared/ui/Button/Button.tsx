@@ -1,7 +1,9 @@
 import React, {
     ButtonHTMLAttributes, memo, useEffect, useMemo, useState,
 } from 'react';
+
 import { cn } from '@/shared/lib/classNames/classNames';
+
 import s from './Button.module.scss';
 
 export enum ButtonTheme {

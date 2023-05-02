@@ -8,6 +8,8 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'plugin:import/recommended',
+        'plugin:import/typescript',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -23,6 +25,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'amake-plugin',
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -82,6 +85,66 @@ module.exports = {
                 alias: '@',
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             }],
+        'unused-imports/no-unused-imports': 'error',
+        'sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true }],
+        'import/order': [
+            'error',
+            {
+                pathGroups: [
+                    {
+                        pattern: '@/shared/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: '@/entities/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: '@/features/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: '@/widgets/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: '@/pages/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: '@/app/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: '@/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: '../+**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false,
+                },
+            },
+        ],
+        'import/no-cycle': 'warn',
     },
     globals: {
         __IS_DEV__: true,

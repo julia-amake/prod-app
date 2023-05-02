@@ -1,5 +1,7 @@
 import React, { ImgHTMLAttributes, memo } from 'react';
+
 import { cn } from '@/shared/lib/classNames/classNames';
+
 import s from './Image.module.scss';
 
 type HTMLImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>,

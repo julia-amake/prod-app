@@ -1,16 +1,21 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { AddCommentForm } from '@/features/AddCommentForm';
-import { CommentList } from '@/entities/Comment';
+
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { PageSection } from '@/shared/ui/Page';
-import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+
+import { CommentList } from '@/entities/Comment';
+
+import { AddCommentForm } from '@/features/AddCommentForm';
+
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import s from './ArticleDetailsComments.module.scss';
 import { fetchCommentsBrArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+
+import s from './ArticleDetailsComments.module.scss';
 
 interface ArticleDetailsCommentsProps {
     id: string;

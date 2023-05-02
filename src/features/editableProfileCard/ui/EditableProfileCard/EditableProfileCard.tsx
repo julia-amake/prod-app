@@ -1,30 +1,33 @@
 import React, { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { IntegerValidation } from '@/shared/lib/utils/validations';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
 import { Heading, HeadingSize } from '@/shared/ui/Heading';
 import { Informer } from '@/shared/ui/Informer';
-import { VStack } from '@/shared/ui/Stack';
-import { ProfileCard } from '@/entities/Profile';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { PageContent } from '@/shared/ui/Page';
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { VStack } from '@/shared/ui/Stack';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
+
+import { ValidateProfileError } from '../../model/consts/consts';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import {
     getProfileIsLoading,
 } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import {
     getProfileValidateErrors,
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { ValidateProfileError } from '../../model/consts/consts';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 const initialReducers: ReducersList = {
     profile: profileReducer,

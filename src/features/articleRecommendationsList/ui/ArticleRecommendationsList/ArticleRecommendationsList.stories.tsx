@@ -5,7 +5,7 @@ import withMock from 'storybook-addon-mock';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import { article } from '@/entities/Article';
+import { article } from '@/entities/Article/testing';
 
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 

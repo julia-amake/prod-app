@@ -133,7 +133,10 @@ npm run start:dev:vite
 
 Файл со story-кейсами создается рядом с компонентом с расширением **.stories.tsx**
 
-Storybook запускается командой `npm run storybook`
+Storybook запускается командой:
+```
+npm run storybook
+```
 
 Пример:
 

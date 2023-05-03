@@ -3,6 +3,8 @@ import React from 'react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
+import { UserRole } from '@/entities/User';
+
 import { UserDropdown } from './UserDropdown';
 
 export default {
@@ -12,10 +14,20 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {},
-    decorators: [StoreDecorator({})],
+    decorators: [
+        (Story) => <div style={{ marginLeft: 'auto', width: 'fit-content' }}><Story /></div>,
+        StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                    roles: [UserRole.ADMIN],
+                },
+            },
+        })],
 } as ComponentMeta<typeof UserDropdown>;
 
 const Template: ComponentStory<typeof UserDropdown> = (args) => (
+    // @ts-ignore
     <UserDropdown {...args} />
 );
 

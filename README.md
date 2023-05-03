@@ -172,8 +172,8 @@ Clear.args = {
 ## Конфигурация проекта
 
 Для режима разработки проект содержит 2 конфига:
-1. Webpack _ ./config/build
-2. Vite _ vite.config.ts
+1. Webpack – ./config/build
+2. Vite – vite.config.ts
 
 Оба сборщика адаптированы под основные фичи приложения.
 

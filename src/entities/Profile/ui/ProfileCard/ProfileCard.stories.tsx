@@ -1,9 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { AVATAR } from '@/shared/consts/tests';
-import { Theme } from '@/shared/consts/theme';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -36,13 +34,6 @@ Primary.args = {
     readOnly: true,
     isLoading: false,
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    readOnly: true,
-    isLoading: false,
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Editable = Template.bind({});
 Editable.args = {

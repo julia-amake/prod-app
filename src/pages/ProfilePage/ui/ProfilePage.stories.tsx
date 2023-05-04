@@ -3,9 +3,7 @@ import React from 'react';
 
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { AVATAR } from '@/shared/consts/tests';
-import { Theme } from '@/shared/consts/theme';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -40,7 +38,3 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
-
-export const DarkTheme = Template.bind({});
-DarkTheme.args = {};
-DarkTheme.decorators = [ThemeDecorator(Theme.DARK)];

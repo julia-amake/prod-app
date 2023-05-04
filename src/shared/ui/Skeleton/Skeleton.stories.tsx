@@ -1,9 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/consts/theme';
-
 import { Skeleton } from './Skeleton';
 
 export default {
@@ -24,20 +21,6 @@ Normal.args = {
     width: 200,
     height: 24,
 };
-
-export const Dark = Template.bind({});
-Dark.args = {
-    width: 200,
-    height: 24,
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Colored = Template.bind({});
-Colored.args = {
-    width: 200,
-    height: 24,
-};
-Colored.decorators = [ThemeDecorator(Theme.COLORED)];
 
 export const Circle = Template.bind({});
 Circle.args = {

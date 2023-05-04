@@ -1,9 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/consts/theme';
-
 import { Informer, InformerStatuses } from './Informer';
 
 export default {
@@ -60,12 +57,3 @@ Error.args = {
         + 'это относится к тому, какой объект отображается в файле.map.',
     status: InformerStatuses.ERROR,
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    title: 'Заголовок',
-    text: 'Этот текст показывает, как можно использовать файл.map '
-        + 'для отображения объектов в HTML. Это не относится к типу объекта, '
-        + 'это относится к тому, какой объект отображается в файле.map.',
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];

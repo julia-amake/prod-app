@@ -1,9 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/consts/theme';
-
 import {
     Button, ButtonShape, ButtonSize, ButtonTheme,
 } from './Button';
@@ -66,15 +63,6 @@ PrimarySquaredL.args = {
     size: ButtonSize.L,
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    label: 'Button',
-    theme: ButtonTheme.PRIMARY,
-    shape: ButtonShape.ROUND,
-    size: ButtonSize.M,
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
-
 export const OutlinedRoundedS = Template.bind({});
 OutlinedRoundedS.args = {
     label: 'Button',
@@ -123,15 +111,6 @@ OutlinedSquaredL.args = {
     size: ButtonSize.L,
 };
 
-export const OutlinedDark = Template.bind({});
-OutlinedDark.args = {
-    label: 'Button',
-    theme: ButtonTheme.OUTLINED,
-    shape: ButtonShape.ROUND,
-    size: ButtonSize.M,
-};
-OutlinedDark.decorators = [ThemeDecorator(Theme.DARK)];
-
 export const ClearRoundedS = Template.bind({});
 ClearRoundedS.args = {
     label: 'Button',
@@ -179,15 +158,6 @@ ClearSquaredL.args = {
     shape: ButtonShape.SQUARE,
     size: ButtonSize.L,
 };
-
-export const ClearDark = Template.bind({});
-ClearDark.args = {
-    label: 'Button',
-    theme: ButtonTheme.CLEAR,
-    shape: ButtonShape.SQUARE,
-    size: ButtonSize.L,
-};
-ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Disabled = Template.bind({});
 Disabled.args = {

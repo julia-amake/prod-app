@@ -2,8 +2,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/consts/theme';
 
 import { AppLink, AppLinkTheme } from './AppLink';
 
@@ -28,19 +26,8 @@ export const Primary = Template.bind({});
 Primary.args = {
     theme: AppLinkTheme.PRIMARY,
 };
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    theme: AppLinkTheme.PRIMARY,
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Secondary = Template.bind({});
 Secondary.args = {
     theme: AppLinkTheme.SECONDARY,
 };
-
-export const SecondaryDark = Template.bind({});
-SecondaryDark.args = {
-    theme: AppLinkTheme.SECONDARY,
-};
-SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];

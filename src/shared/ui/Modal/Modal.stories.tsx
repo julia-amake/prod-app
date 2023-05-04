@@ -1,9 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/consts/theme';
-
 import { Modal } from './Modal';
 
 export default {
@@ -31,8 +28,3 @@ export const Light = Template.bind({});
 Light.args = {
     isOpen: true,
 };
-export const Dark = Template.bind({});
-Dark.args = {
-    isOpen: true,
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -1,9 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/consts/theme';
-
 import { Text, TextMargin, TextSize } from './Text';
 
 export default {
@@ -50,6 +47,3 @@ export const MarginNone = Template.bind({});
 MarginNone.args = {
     margin: TextMargin.NONE,
 };
-
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];

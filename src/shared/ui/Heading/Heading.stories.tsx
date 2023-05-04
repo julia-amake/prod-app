@@ -1,9 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/consts/theme';
-
 import { Heading, HeadingPosition, HeadingSize } from './Heading';
 
 export default {
@@ -47,9 +44,3 @@ SizeMCentered.args = {
     size: HeadingSize.M,
     position: HeadingPosition.CENTER,
 };
-
-export const SizeMDark = Template.bind({});
-SizeMDark.args = {
-    size: HeadingSize.M,
-};
-SizeMDark.decorators = [ThemeDecorator(Theme.DARK)];

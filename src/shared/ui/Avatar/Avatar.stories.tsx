@@ -1,9 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { AVATAR } from '@/shared/consts/tests';
-import { Theme } from '@/shared/consts/theme';
 
 import { Avatar } from './Avatar';
 
@@ -28,9 +26,3 @@ export const CustomSize = Template.bind({});
 CustomSize.args = {
     size: 48,
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];

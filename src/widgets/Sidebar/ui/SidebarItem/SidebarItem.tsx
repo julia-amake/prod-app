@@ -2,7 +2,7 @@ import React, { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteMain } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkProps, AppLinkTheme } from '@/shared/ui/AppLink';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -46,7 +46,7 @@ const SidebarItem = memo((props: SidebarItemProps) => {
             align="center"
             fullWidth
         >
-            <Icon className={cn(s.linkIcon, { [s.linkIcon_home]: path === RoutePath.main }, [])} />
+            <Icon className={cn(s.linkIcon, { [s.linkIcon_home]: path === getRouteMain() }, [])} />
             <span className={s.linkTitle}>{t(title)}</span>
         </Item>
     );

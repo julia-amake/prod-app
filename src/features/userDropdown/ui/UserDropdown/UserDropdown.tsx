@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Logout from '@/shared/assets/icons/Logout.svg';
 import ProfileLine from '@/shared/assets/icons/ProfileLine.svg';
 import Settings from '@/shared/assets/icons/Settings.svg';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups/ui';
 
@@ -48,14 +48,14 @@ export const UserDropdown = memo((props: UserDropdownProps) => {
                     icon: {
                         element: Settings,
                     },
-                    to: RoutePath.admin_panel,
+                    to: getRouteAdminPanel(),
                 }] : [],
                 {
                     title: t('Мой профиль'),
                     icon: {
                         element: ProfileLine,
                     },
-                    to: RoutePath.profile + authData.id,
+                    to: getRouteProfile(authData.id),
                 },
                 {
                     title: t('Выйти'),

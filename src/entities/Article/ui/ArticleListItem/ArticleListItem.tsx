@@ -2,7 +2,7 @@ import React, { memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteArticleDetails } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -83,7 +83,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
             <Card
                 as={Link}
-                to={RoutePath.article_details + article.id}
+                to={getRouteArticleDetails(article.id)}
                 className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
             >
                 <div className={s.pic_outer}>
@@ -173,7 +173,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={s.actions}>
                         <AppLink
-                            to={RoutePath.article_details + article.id}
+                            to={getRouteArticleDetails(article.id)}
                         >
                             <Button
                                 size={ButtonSize.M}

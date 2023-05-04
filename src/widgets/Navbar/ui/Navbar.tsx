@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteArticleCreate } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -36,7 +36,7 @@ const Navbar = memo((props:NavbarProps) => {
     }, []);
 
     const onAddArticle = useCallback(() => {
-        navigate(RoutePath.article_create);
+        navigate(getRouteArticleCreate());
     }, [navigate]);
 
     if (authData) {

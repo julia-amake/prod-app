@@ -4,7 +4,7 @@ import { Link, LinkProps } from 'react-router-dom';
 
 import LogoLarge from '@/shared/assets/icons/LogoLarge.svg';
 import LogoSmall from '@/shared/assets/icons/LogoSmall.svg';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteMain } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { HStack, VStack } from '@/shared/ui/Stack';
 
@@ -21,7 +21,7 @@ interface SidebarProps {
     className?: string;
 }
 
-const customLogoProps:LinkProps = { to: RoutePath.main };
+const customLogoProps:LinkProps = { to: getRouteMain() };
 
 const Sidebar = memo((props: SidebarProps) => {
     const { className = '' } = props;

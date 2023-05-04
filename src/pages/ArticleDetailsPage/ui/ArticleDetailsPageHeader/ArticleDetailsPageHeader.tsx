@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import ArrowLeftLongLine from '@/shared/assets/icons/ArrowLeftLongLine.svg';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
-import { RoutePath } from '@/shared/consts/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/consts/router';
 import {
     Button, ButtonSize, ButtonTheme, IconPosition,
 } from '@/shared/ui/Button';
@@ -32,7 +32,7 @@ export const ArticleDetailsPageHeader:FC<ArticleDetailsPageHeaderProps> = memo((
 
     const onBackToList = useCallback(
         () => {
-            navigate(RoutePath.articles);
+            navigate(getRouteArticles());
         },
         [navigate],
     );
@@ -40,7 +40,7 @@ export const ArticleDetailsPageHeader:FC<ArticleDetailsPageHeaderProps> = memo((
     const onEditArticle = useCallback(
         () => {
             if (!article) return;
-            navigate(`${RoutePath.articles}/edit/${article.id}`);
+            navigate(getRouteArticleEdit(article.id));
         },
         [article, navigate],
     );

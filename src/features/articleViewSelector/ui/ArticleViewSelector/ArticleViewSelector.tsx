@@ -5,7 +5,7 @@ import ListLine from '@/shared/assets/icons/ListLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
-import { ArticleView } from '../../model/consts/consts';
+import { ArticleView } from '../../../../entities/Article/model/consts/consts';
 
 import s from './ArticleViewSelector.module.scss';
 

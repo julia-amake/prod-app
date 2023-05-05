@@ -9,12 +9,13 @@ import { SortOrder } from '@/shared/types';
 import { Input } from '@/shared/ui/Input';
 
 import {
-    ArticleSortField,
-    ArticleSortSelector, ArticleType,
-    ArticleTypeTabs,
+    ArticleSortField, ArticleType,
     ArticleView,
-    ArticleViewSelector,
 } from '@/entities/Article';
+
+import { ArticleSortSelector } from '@/features/articleSortSelector';
+import { ArticleTypeTabs } from '@/features/articleTypeTabs';
+import { ArticleViewSelector } from '@/features/articleViewSelector';
 
 import {
     getArticlesPageIsLoading,

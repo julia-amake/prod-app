@@ -21,3 +21,18 @@ export const getRouteArticleEdit = (id: string) => `/articles/edit/${id}`;
 export const getRouteAdminPanel = () => '/admin';
 export const getRouteForbidden = () => '/forbidden';
 export const getRouteNotFound = () => '*';
+
+export const getRoute = (pathName: AppRoutes, id?: string) => {
+    switch (pathName) {
+    case AppRoutes.MAIN:
+        return '/';
+    case AppRoutes.PROFILE:
+    case AppRoutes.ARTICLE_DETAILS:
+    case AppRoutes.ARTICLE_EDIT:
+        return `/${pathName}/${id}`;
+    case AppRoutes.NOT_FOUND:
+        return '*';
+    default:
+        return `/${pathName}`;
+    }
+};

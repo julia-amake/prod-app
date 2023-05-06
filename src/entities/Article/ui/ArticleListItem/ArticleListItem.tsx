@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonSize } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
 
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
@@ -78,6 +80,16 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         );
     }, [article.type, view]);
 
+    const image = useMemo(() => (
+        <AppImage
+            src={article.image}
+            alt={article.title}
+            className={s.pic}
+            fallback={<Skeleton className={s.pic} />}
+            errorFallback={<img src="/img/NoImageH.svg" alt="" className={s.pic} />}
+        />
+    ), [article.image, article.title]);
+
     if (view === ArticleView.GRID) {
         return (
 
@@ -87,11 +99,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
             >
                 <div className={s.pic_outer}>
-                    <img
-                        src={article.image}
-                        alt={article.title}
-                        className={s.pic}
-                    />
+                    {image}
                     <Text
                         className={s.date}
                         content={article.createdAt}
@@ -154,11 +162,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     {categories}
                 </div>
                 <div className={s.pic_outer}>
-                    <img
-                        src={article.image}
-                        alt={article.title}
-                        className={s.pic}
-                    />
+                    {image}
                 </div>
                 <div className={s.footer}>
                     {textBlock && (

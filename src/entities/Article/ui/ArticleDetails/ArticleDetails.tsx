@@ -11,7 +11,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Heading, HeadingSize } from '@/shared/ui/Heading';
-import { Image } from '@/shared/ui/Image';
+import { ContentImage } from '@/shared/ui/Image';
 import { Informer } from '@/shared/ui/Informer';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
@@ -189,7 +189,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         />
                     </div>
                 </div>
-                <Image src={data.image} alt="" />
+                <ContentImage
+                    src={data.image}
+                    alt=""
+                />
                 {data.blocks.map((block) => renderBlock(block))}
             </>
         );

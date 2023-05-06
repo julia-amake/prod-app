@@ -1,6 +1,9 @@
 import React, { CSSProperties, FC, useMemo } from 'react';
 
-import { cn } from '@/shared/lib/classNames/classNames';
+import ProfileDefault from '../../assets/icons/ProfileDefault.svg';
+import { cn } from '../../lib/classNames/classNames';
+import { AppImage } from '../AppImage';
+import { Skeleton } from '../Skeleton';
 
 import s from './Avatar.module.scss';
 
@@ -26,13 +29,13 @@ export const Avatar: FC<AvatarProps> = (props) => {
     }), [size]);
 
     return (
-        src ? (
-            <img
-                className={cn(s.avatar, {}, [className])}
-                src={src}
-                alt={alt}
-                style={styles}
-            />
-        ) : <div style={styles} className={cn(s.avatar, {}, [className])} />
+        <AppImage
+            className={cn(s.avatar, {}, [className])}
+            src={src}
+            alt={alt}
+            fallback={<Skeleton width={size} height={size} />}
+            errorFallback={<ProfileDefault style={styles} className={cn(s.avatar, {}, [className])} />}
+            style={styles}
+        />
     );
 };

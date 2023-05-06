@@ -1,26 +1,4 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": "2",
-      "title": "json-server 1",
-      "author": "typicode"
-    },
-    {
-      "id": "3",
-      "title": "json-server 2",
-      "author": "typicode"
-    },
-    {
-      "id": "4",
-      "title": "json-server 3",
-      "author": "typicode"
-    }
-  ],
   "articles": [
     {
       "id": "1",
@@ -287,7 +265,7 @@
       "id": "4",
       "title": "6 новых возможностей CSS, которые должен знать каждый front-end разработчик в 2023 году",
       "subtitle": "Мощные и стабильные CSS фичи, которые вы можете использовать уже сегодня",
-      "image": "https://habrastorage.org/r/w1560/getpro/habr/upload_files/8cf/408/4c3/8cf4084c3f49a1289a8389603e081363.png",
+      "image": "https://habrastorage.or/r/w1560/getpro/habr/upload_files/8cf/408/4c3/8cf4084c3f49a1289a8389603e081363.png",
       "views": 614,
       "createdAt": "31.03.2023",
       "userId": "1",

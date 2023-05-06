@@ -1,5 +1,4 @@
 import { RouteProps } from 'react-router-dom';
-
 // eslint-disable-next-line amake-plugin/layer-imports
 import { UserRole } from '@/entities/User';
 

@@ -1,12 +1,9 @@
 import React, { memo } from 'react';
-
 import GridList from '@/shared/assets/icons/GridLine.svg';
 import ListLine from '@/shared/assets/icons/ListLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-
 import { ArticleView } from '../../../../entities/Article/model/consts/consts';
-
 import s from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

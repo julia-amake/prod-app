@@ -8,9 +8,7 @@ import {
     getRouteProfile,
 } from '@/shared/consts/router';
 import { AppRoutesProps } from '@/shared/types/router';
-
 import { UserRole } from '@/entities/User';
-
 import { AboutPage } from '@/pages/AboutPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';

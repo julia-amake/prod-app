@@ -1,6 +1,5 @@
 import React, { memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
@@ -11,13 +10,11 @@ import { Button, ButtonSize } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
-
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import {
     Article, ArticleTextBlock,
 } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-
 import s from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {

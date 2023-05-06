@@ -1,11 +1,8 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { PageSection } from '@/shared/ui/Page';
 import { Preloader } from '@/shared/ui/Preloader';
-
 import { ArticleList } from '@/entities/Article';
-
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {

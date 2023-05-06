@@ -1,5 +1,4 @@
 import { FC, lazy } from 'react';
-
 import { AddCommentFormProps } from './AddCommentForm';
 
 // На боевом проекте так не делать!!!

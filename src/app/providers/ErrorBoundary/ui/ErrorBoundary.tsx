@@ -1,9 +1,7 @@
 import React, {
     Component, ErrorInfo, ReactNode, Suspense,
 } from 'react';
-
 import { ContentLoader } from '@/shared/ui';
-
 import { PageErrorFallback } from '@/widgets/PageErrorFallback';
 
 interface ErrorBoundaryProps {

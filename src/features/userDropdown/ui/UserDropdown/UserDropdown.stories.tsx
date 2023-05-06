@@ -1,10 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-
 import { UserRole } from '@/entities/User';
-
 import { UserDropdown } from './UserDropdown';
 
 export default {

@@ -1,12 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { AVATAR } from '@/shared/consts/tests';
-
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-
 import { EditableProfileCard } from './EditableProfileCard';
 
 export default {

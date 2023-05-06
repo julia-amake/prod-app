@@ -1,9 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-
 import { getRouteForbidden, getRouteMain } from '@/shared/consts/router';
-
 import { getUserAuthData, getUserRoles, UserRole } from '@/entities/User';
 
 interface RequireAuthProps {

@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 type Selector<T> = (state: StateSchema) => T;

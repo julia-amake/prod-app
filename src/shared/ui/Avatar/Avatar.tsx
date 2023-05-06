@@ -1,10 +1,8 @@
 import React, { CSSProperties, FC, useMemo } from 'react';
-
 import ProfileDefault from '../../assets/icons/ProfileDefault.svg';
 import { cn } from '../../lib/classNames/classNames';
 import { AppImage } from '../AppImage';
 import { Skeleton } from '../Skeleton';
-
 import s from './Avatar.module.scss';
 
 interface AvatarProps {

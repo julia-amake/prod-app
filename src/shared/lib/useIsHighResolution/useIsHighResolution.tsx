@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import isHighDensity from '../utils/isHightDensity';
 
 const useIsHighResolution = (): boolean => {

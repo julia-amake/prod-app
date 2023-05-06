@@ -4,14 +4,11 @@ import React, {
     ElementType, Fragment, memo, ReactNode,
 } from 'react';
 import { Link } from 'react-router-dom';
-
 import { cn } from '@/shared/lib/classNames/classNames';
 import { ItemIcon } from '@/shared/types';
-
 import { Heading } from '../../../Heading/Heading';
 import sPopup from '../../styles/popup.module.scss';
 import { PopoverWidth } from '../../types/popover';
-
 import s from './Dropdown.module.scss';
 
 interface DropdownItem {

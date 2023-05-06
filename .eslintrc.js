@@ -137,7 +137,7 @@ module.exports = {
                         position: 'after',
                     },
                 ],
-                'newlines-between': 'always',
+                'newlines-between': 'never',
                 alphabetize: {
                     order: 'asc',
                     caseInsensitive: false,

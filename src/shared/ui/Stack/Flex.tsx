@@ -1,7 +1,5 @@
 import React, { ElementType, ReactNode } from 'react';
-
 import { cn } from '@/shared/lib/classNames/classNames';
-
 import s from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';

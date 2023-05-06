@@ -1,11 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
-
 import { article } from '../../mocks/data';
 import { ArticleType, ArticleView } from '../../model/consts/consts';
-
 import { ArticleListItem } from './ArticleListItem';
 
 export default {

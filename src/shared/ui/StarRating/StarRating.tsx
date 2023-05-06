@@ -2,14 +2,11 @@ import React, {
     memo, useEffect, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import StarFilled from '@/shared/assets/icons/StarFilled.svg';
 import StarLine from '@/shared/assets/icons/StarLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
-
 import { Icon } from '../Icon/Icon';
 import { HStack } from '../Stack/HStack/HStack';
-
 import s from './StarRating.module.scss';
 
 const stars = [1, 2, 3, 4, 5];

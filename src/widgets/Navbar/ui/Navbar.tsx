@@ -2,18 +2,14 @@ import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { getRouteArticleCreate } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
-
 import { getUserAuthData } from '@/entities/User';
-
 import { LoginModal } from '@/features/AuthByUserName';
 import { NotificationButton } from '@/features/notificationButton';
 import { UserDropdown } from '@/features/userDropdown';
-
 import s from './Navbar.module.scss';
 
 interface NavbarProps {

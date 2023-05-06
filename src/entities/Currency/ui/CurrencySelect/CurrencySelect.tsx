@@ -1,8 +1,6 @@
 import React, { FC, memo, useCallback } from 'react';
-
 import { cn } from '@/shared/lib/classNames/classNames';
 import { ListBox, ListBoxOption } from '@/shared/ui/Popups/ui';
-
 import { Currency } from '../../model/consts/consts';
 
 interface CurrencySelectProps {

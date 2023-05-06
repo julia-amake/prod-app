@@ -1,7 +1,5 @@
 import React, { ReactNode } from 'react';
-
 import { cn } from '@/shared/lib/classNames/classNames';
-
 import s from './PageHeader.module.scss';
 
 interface PageHeaderProps {

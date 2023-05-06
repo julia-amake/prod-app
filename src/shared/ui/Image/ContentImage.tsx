@@ -1,10 +1,7 @@
 import React, { ImgHTMLAttributes, memo } from 'react';
-
 import { cn } from '@/shared/lib/classNames/classNames';
-
 import { AppImage } from '../AppImage';
 import { Skeleton } from '../Skeleton';
-
 import s from './Image.module.scss';
 
 interface ContentImageProps extends ImgHTMLAttributes<HTMLImageElement> {

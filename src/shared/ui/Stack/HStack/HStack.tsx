@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Flex, FlexProps } from '../Flex';
 
 type HStackProps = Omit<FlexProps, 'direction'>

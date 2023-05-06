@@ -1,8 +1,6 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { PageContent } from '@/shared/ui/Page';
-
 import { Page } from '@/widgets/Page';
 
 interface AdminPanelPageProps {

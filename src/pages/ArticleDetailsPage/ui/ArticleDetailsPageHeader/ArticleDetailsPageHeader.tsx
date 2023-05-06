@@ -2,7 +2,6 @@ import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import ArrowLeftLongLine from '@/shared/assets/icons/ArrowLeftLongLine.svg';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/consts/router';
@@ -11,9 +10,7 @@ import {
 } from '@/shared/ui/Button';
 import { PageHeader } from '@/shared/ui/Page';
 import { HStack } from '@/shared/ui/Stack';
-
 import { getArticleDetailsData } from '@/entities/Article';
-
 import { getCanEditArticle } from '../../model/selectors/article/article';
 
 interface ArticleDetailsPageHeaderProps {

@@ -1,16 +1,13 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack } from '@/shared/ui/Stack';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
-
 import ArrowRight from '../../../../shared/assets/icons/ArrowRightSimpleLine.svg';
 import { Notification } from '../../model/types/notifications';
-
 import s from './NotificationsItem.module.scss';
 
 interface NotificationsItemProps {

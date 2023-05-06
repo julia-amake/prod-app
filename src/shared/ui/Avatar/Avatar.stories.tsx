@@ -1,8 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-
 import { AVATAR } from '@/shared/consts/tests';
-
 import { Avatar } from './Avatar';
 
 export default {

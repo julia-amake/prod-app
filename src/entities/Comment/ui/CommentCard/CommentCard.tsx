@@ -1,14 +1,11 @@
 import React, { memo } from 'react';
-
 import { getRouteProfile } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
-
 import { Comment } from '../../model/types/comment';
-
 import s from './CommentCard.module.scss';
 
 interface CommentCardProps {

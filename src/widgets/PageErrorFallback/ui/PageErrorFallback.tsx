@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { Button } from '@/shared/ui/Button';
 import { Heading, HeadingPosition, HeadingSize } from '@/shared/ui/Heading';
 import { VStack } from '@/shared/ui/Stack';

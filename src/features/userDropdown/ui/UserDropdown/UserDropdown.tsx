@@ -1,14 +1,12 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-
 import Logout from '@/shared/assets/icons/Logout.svg';
 import ProfileLine from '@/shared/assets/icons/ProfileLine.svg';
 import Settings from '@/shared/assets/icons/Settings.svg';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups/ui';
-
 import {
     getIsAdmin, getIsManager, getUserAuthData, userActions,
 } from '@/entities/User';

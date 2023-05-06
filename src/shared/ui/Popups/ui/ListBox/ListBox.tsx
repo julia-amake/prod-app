@@ -1,13 +1,10 @@
 import { Listbox as HListBox } from '@headlessui/react';
 import { Float } from '@headlessui-float/react';
 import React, { Fragment } from 'react';
-
 import { cn } from '@/shared/lib/classNames/classNames';
 import { ItemIcon } from '@/shared/types';
-
 import sPopup from '../../styles/popup.module.scss';
 import { PopoverWidth } from '../../types/popover';
-
 import s from './ListBox.module.scss';
 
 export interface ListBoxOption {

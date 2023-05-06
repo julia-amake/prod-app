@@ -2,7 +2,6 @@ import React, {
     memo, useCallback, useMemo, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import Notes from '@/shared/assets/icons/Notes.svg';
 import { MOBILE_LARGE } from '@/shared/consts/devices';
 import { cn } from '@/shared/lib/classNames/classNames';
@@ -11,9 +10,7 @@ import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups/ui';
 import { HStack } from '@/shared/ui/Stack';
-
 import { NotificationsList } from '@/entities/Notifications';
-
 import s from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

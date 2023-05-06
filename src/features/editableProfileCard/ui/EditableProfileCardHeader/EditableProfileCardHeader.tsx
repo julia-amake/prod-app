@@ -1,7 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import DoneLine from '@/shared/assets/icons/DoneLine.svg';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
 import EraserLine from '@/shared/assets/icons/EraserLine.svg';
@@ -9,9 +8,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { PageHeader } from '@/shared/ui/Page';
 import { HStack } from '@/shared/ui/Stack';
-
 import { getUserAuthData } from '@/entities/User';
-
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import {
     getProfileIsLoading,

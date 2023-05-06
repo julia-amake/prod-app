@@ -1,16 +1,12 @@
 import React, { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import { getRouteMain } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkProps, AppLinkTheme } from '@/shared/ui/AppLink';
 import { HStack, VStack } from '@/shared/ui/Stack';
-
 import { getUserAuthData } from '@/entities/User';
-
 import { SidebarItemType } from '../../model/types/sidebar';
-
 import s from './SidebarItem.module.scss';
 
 interface SidebarItemProps {

@@ -1,20 +1,16 @@
 import React, { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, LinkProps } from 'react-router-dom';
-
 import LogoLarge from '@/shared/assets/icons/LogoLarge.svg';
 import LogoSmall from '@/shared/assets/icons/LogoSmall.svg';
 import { getRouteMain } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { HStack, VStack } from '@/shared/ui/Stack';
-
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import SidebarToggle from '../SidebarToggle/SidebarToggle';
-
 import s from './Sidebar.module.scss';
 
 interface SidebarProps {

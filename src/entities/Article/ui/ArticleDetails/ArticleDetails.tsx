@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import CalendarLine from '@/shared/assets/icons/CalendarLine.svg';
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
@@ -15,7 +14,6 @@ import { ContentImage } from '@/shared/ui/Image';
 import { Informer } from '@/shared/ui/Informer';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
-
 import { ArticleBlockType } from '../../model/consts/consts';
 import {
     getArticleDetailsData,
@@ -30,7 +28,6 @@ import {
 } from '../ArticleDividerBlockComponent/ArticleDividerBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-
 import s from './ArticleDetails.module.scss';
 
 const reducers: ReducersList = {

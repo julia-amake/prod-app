@@ -1,10 +1,8 @@
 import React, {
     FC, ReactNode, useEffect, useMemo, useState,
 } from 'react';
-
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localstorage';
 import { Theme } from '@/shared/consts/theme';
-
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
 
 const defaultTheme = localStorage

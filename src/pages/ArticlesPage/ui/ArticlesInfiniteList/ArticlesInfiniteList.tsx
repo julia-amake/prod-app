@@ -1,10 +1,7 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
-
 import { Informer } from '@/shared/ui/Informer';
-
 import { ArticleList } from '@/entities/Article';
-
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,

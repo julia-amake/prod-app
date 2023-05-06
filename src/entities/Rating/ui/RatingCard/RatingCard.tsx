@@ -2,7 +2,6 @@ import React, {
     memo, useCallback, useEffect, useMemo, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { MOBILE_LARGE } from '@/shared/consts/devices';
 import { cn } from '@/shared/lib/classNames/classNames';
 import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
@@ -14,7 +13,6 @@ import { Modal } from '@/shared/ui/Modal';
 import { VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRating';
 import { Text } from '@/shared/ui/Text';
-
 import s from './RatingCard.module.scss';
 
 interface RatingProps {

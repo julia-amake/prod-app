@@ -1,7 +1,5 @@
 import React, { CSSProperties } from 'react';
-
 import { cn } from '@/shared/lib/classNames/classNames';
-
 import s from './Skeleton.module.scss';
 
 interface SkeletonProps {

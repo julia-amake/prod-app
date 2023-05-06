@@ -2,16 +2,13 @@ import React, {
     memo, useEffect, useMemo, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Heading, HeadingSize } from '@/shared/ui/Heading';
 import { Text, TextSize } from '@/shared/ui/Text';
-
 import { useGetNotificationsList } from '../../api/notificationsApi';
 import { Notification } from '../../model/types/notifications';
 import { NotificationsItem } from '../NotificationsItem/NotificationsItem';
-
 import s from './NotificationsList.module.scss';
 
 interface NotificationsListProps {

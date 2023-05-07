@@ -6,9 +6,7 @@ import { useCounterActions } from '../model/slice/CounterSlice';
 
 const Counter: React.FC = () => {
     const { t } = useTranslation();
-
     const counterValue = useCounterValue();
-
     const { increment, decrement, add } = useCounterActions();
 
     const onIncrement = () => {
@@ -34,12 +32,12 @@ const Counter: React.FC = () => {
             />
             <Button
                 onClick={onIncrement}
-                data-testid="increment-btn"
                 label={t('Increment')}
+                data-testid="increment-btn"
             />
             <Button
-                onClick={onAddFive}
                 label={t('Add 5')}
+                onClick={onAddFive}
                 data-testid="five-button"
             />
         </div>

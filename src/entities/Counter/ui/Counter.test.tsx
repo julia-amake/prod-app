@@ -20,6 +20,7 @@ describe('Counter component', () => {
             },
         });
         userEvent.click(screen.getByTestId('increment-btn'));
+        screen.debug();
         expect(screen.getByTestId('value-title')).toHaveTextContent('11');
     });
 

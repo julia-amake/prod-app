@@ -40,6 +40,7 @@ const Counter: React.FC = () => {
             <Button
                 onClick={onAddFive}
                 label={t('Add 5')}
+                data-testid="five-button"
             />
         </div>
     );

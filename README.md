@@ -119,7 +119,7 @@ npm run start:dev:vite
 3) public-api-imports – разрешает импорт из других модулей только через public API. Имеет autofix.
 
 ##### Запуск линтеров
-- `npm run lint:ts` _ проверка ts-файлов линтером
+- `npm run lint:ts` – проверка ts-файлов линтером
 - `npm run lint:ts:fix` – исправление ts-файлов линтером
 - `npm run lint:scss` _ проверка scss-файлов style-линтером
 - `npm run lint:scss:fix` – исправление scss-файлов style-линтером

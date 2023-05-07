@@ -22,6 +22,6 @@ Normal.args = {};
 
 export const Broken = Template.bind({});
 Broken.args = {
-    src: '6eks1eobfe.png',
+    src: '',
     errorFallback: <img src="/img/NoImageH.svg" alt="" />,
 };

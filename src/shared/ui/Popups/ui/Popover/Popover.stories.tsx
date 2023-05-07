@@ -8,7 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {},
+    args: {
+        trigger: <div>Триггер</div>,
+    },
 } as ComponentMeta<typeof Popover>;
 
 const Template: ComponentStory<typeof Popover> = (args) => (

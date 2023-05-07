@@ -8,11 +8,12 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 import { getUIScrollByPath, uiActions } from '@/features/UI';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import s from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestProps {
     children: ReactNode;
     onScrollEnd?: () => void;
     className?: string;
@@ -23,6 +24,7 @@ export const Page = (props: PageProps) => {
         children,
         onScrollEnd,
         className = '',
+        dataTestid = 'Page',
     } = props;
 
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
@@ -52,6 +54,7 @@ export const Page = (props: PageProps) => {
 
     return (
         <main
+            data-testid={dataTestid}
             ref={wrapperRef}
             className={cn(s.outer, {}, [className])}
             {...onScrollEnd ? { onScroll: onScrollHandler } : {}}

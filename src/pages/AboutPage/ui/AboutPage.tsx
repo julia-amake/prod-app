@@ -7,7 +7,7 @@ const AboutPage = () => {
     const { t } = useTranslation('about');
 
     return (
-        <Page>
+        <Page dataTestid="AboutPage">
             <PageContent>
                 {t('О сайте')}
             </PageContent>

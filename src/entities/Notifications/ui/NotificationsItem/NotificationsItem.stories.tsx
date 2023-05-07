@@ -16,4 +16,29 @@ const Template: ComponentStory<typeof NotificationsItem> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    isLoading: false,
+    data: {
+        id: '1',
+        title: 'Заголовок',
+        description: 'Короткое описание',
+        userId: '1',
+        image: 'https://mir-cdn.behance.net/v1/rendition/project_modules/1400_opt_1/24ffbc128582189.615974e3d023b.jpg',
+    },
+};
+
+export const WithoutPic = Template.bind({});
+WithoutPic.args = {
+    isLoading: false,
+    data: {
+        id: '1',
+        title: 'Заголовок',
+        description: 'Короткое описание',
+        userId: '1',
+    },
+};
+
+export const IsLoading = Template.bind({});
+IsLoading.args = {
+    isLoading: true,
+};

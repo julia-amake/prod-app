@@ -28,3 +28,9 @@
     max-width: 1370px;
   }
 }
+
+@mixin loki() {
+  :global(*[loki-test]) & {
+    @content;
+  }
+}

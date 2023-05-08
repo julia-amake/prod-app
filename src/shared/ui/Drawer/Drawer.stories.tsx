@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { Drawer } from './Drawer';
@@ -8,7 +9,10 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {},
+    args: {
+        isOpen: true,
+        onClose: action('onClose'),
+    },
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => (

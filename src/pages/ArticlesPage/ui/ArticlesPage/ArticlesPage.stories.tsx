@@ -1,7 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
+import withMock from 'storybook-addon-mock';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { article } from '@/entities/Article/testing';
 import ArticlesPage from './ArticlesPage';
 
 export default {
@@ -12,9 +14,24 @@ export default {
     },
     args: {},
     decorators: [
+        withMock,
         StoreDecorator({}),
-        RouterDecorator('/articles?_expand=user&_page=2&_limit=6&_sort=createdAt&_order=desc&q=some'),
+        RouterDecorator('/articles'),
     ],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/articles?_expand=user&_page=2&_limit=6&_sort=createdAt&_order=desc&q=`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    article,
+                    { ...article, id: '2' },
+                    { ...article, id: '3' },
+                ],
+            },
+        ],
+    },
 } as ComponentMeta<typeof ArticlesPage>;
 
 const Template: ComponentStory<typeof ArticlesPage> = (args) => (

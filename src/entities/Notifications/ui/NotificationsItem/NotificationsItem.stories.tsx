@@ -23,7 +23,7 @@ Normal.args = {
         title: 'Заголовок',
         description: 'Короткое описание',
         userId: '1',
-        image: 'https://mir-cdn.behance.net/v1/rendition/project_modules/1400_opt_1/24ffbc128582189.615974e3d023b.jpg',
+        image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_316/24ffbc128582189.615974e3d023b.jpg',
     },
 };
 

@@ -6,6 +6,7 @@ import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
 import { loginReducer } from '@/features/AuthByUserName/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
 import { articleDetailsPageReducers } from '@/pages/ArticleDetailsPage/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
 const defaultAsyncReducers: ReducersList = {
@@ -14,6 +15,7 @@ const defaultAsyncReducers: ReducersList = {
     articleDetails: ArticleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailsPage: articleDetailsPageReducers,
+    articlesPage: articlesPageReducer,
 };
 
 export const StoreDecorator = (

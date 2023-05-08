@@ -12,7 +12,6 @@ export default {
     },
     args: {},
     decorators: [
-        (Story) => <div style={{ marginLeft: 'auto', width: 'fit-content' }}><Story /></div>,
         StoreDecorator({
             user: {
                 authData: {

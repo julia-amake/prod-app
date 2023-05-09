@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { NotificationsList } from './NotificationsList';
 
@@ -22,7 +21,6 @@ export default {
     args: {},
     decorators: [
         StoreDecorator({}),
-        withMock,
     ],
     parameters: {
         mockData: [

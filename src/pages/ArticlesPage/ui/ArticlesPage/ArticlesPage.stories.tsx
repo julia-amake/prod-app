@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import withMock from 'storybook-addon-mock';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { article } from '@/entities/Article/testing';
@@ -14,7 +13,6 @@ export default {
     },
     args: {},
     decorators: [
-        withMock,
         StoreDecorator({}),
         RouterDecorator('/articles'),
     ],

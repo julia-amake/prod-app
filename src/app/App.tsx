@@ -23,6 +23,7 @@ function App() {
                     <Sidebar />
                     <div className="main">
                         <Navbar />
+                        ...
                         <Suspense fallback={<ContentLoader />}>
                             {isUserInitialized ? <AppRouter /> : null}
                         </Suspense>

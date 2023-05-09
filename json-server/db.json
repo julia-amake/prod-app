@@ -683,6 +683,14 @@
       "roles": [
         "MANAGER"
       ]
+    },
+    {
+      "id": "4",
+      "username": "test",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ]
     }
   ],
   "profile": [

@@ -57,6 +57,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
         <Page
             onScrollEnd={!isLoading ? onLoadNextPart : undefined}
             className={className}
+            dataTestid="ArticlesPage"
         >
             <PageContent>
                 <Heading content={t('Статьи')} className={s.title} />

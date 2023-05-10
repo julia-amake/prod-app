@@ -40,7 +40,10 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     }
 
     return (
-        <Page className={className}>
+        <Page
+            className={className}
+            dataTestid="ArticleDetailsPage"
+        >
             <ArticleDetailsPageHeader />
             <PageContent>
                 <ArticleDetails id={id} isLoading={isLoading} />

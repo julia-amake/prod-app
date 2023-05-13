@@ -569,7 +569,7 @@
           ]
         }
       ]
-    }
+    },
   ],
   "comments": [
     {
@@ -690,7 +690,8 @@
       "password": "123",
       "roles": [
         "ADMIN"
-      ]
+      ],
+      "avatar": "https://static10.tgstat.ru/channels/_0/12/1207e9a8bc05cb00522bc45c6e57eaca.jpg"
     }
   ],
   "profile": [
@@ -714,6 +715,17 @@
       "country": "Belarus",
       "city": "Minsk",
       "username": "user",
+      "avatar": "https://static10.tgstat.ru/channels/_0/12/1207e9a8bc05cb00522bc45c6e57eaca.jpg"
+    },
+    {
+      "id": "4",
+      "name": "test",
+      "lastname": "test",
+      "age": 18,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Sochi",
+      "username": "test",
       "avatar": "https://static10.tgstat.ru/channels/_0/12/1207e9a8bc05cb00522bc45c6e57eaca.jpg"
     }
   ],
@@ -806,6 +818,13 @@
       "articleId": "3",
       "rate": 4,
       "id": 6
+    },
+    {
+      "userId": "2",
+      "articleId": "5",
+      "rate": 5,
+      "feedback": "feedback",
+      "id": 7
     }
   ],
   "profile-ratings": []

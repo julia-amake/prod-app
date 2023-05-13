@@ -783,48 +783,10 @@
   ],
   "article-ratings": [
     {
-      "userId": "1",
-      "articleId": "1",
-      "rate": 1,
-      "id": 1
-    },
-    {
-      "userId": "1",
-      "articleId": "2",
-      "rate": 5,
-      "id": 2
-    },
-    {
-      "userId": "1",
-      "articleId": "5",
-      "rate": 5,
-      "feedback": "Отзыв к 5 статье",
-      "id": 3
-    },
-    {
-      "userId": "1",
-      "articleId": "4",
-      "rate": 4,
-      "id": 4
-    },
-    {
-      "userId": "1",
-      "articleId": "14",
-      "rate": 5,
-      "id": 5
-    },
-    {
-      "userId": "1",
-      "articleId": "3",
-      "rate": 4,
-      "id": 6
-    },
-    {
       "userId": "2",
       "articleId": "5",
       "rate": 5,
-      "feedback": "feedback",
-      "id": 7
+      "id": 1
     }
   ],
   "profile-ratings": []

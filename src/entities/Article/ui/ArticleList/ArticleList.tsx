@@ -38,7 +38,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <div className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}>
+        <div
+            className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}
+            data-testid="ArticleList"
+        >
             {articles?.length
                 ? articles.map((article) => (
                     <ArticleListItem

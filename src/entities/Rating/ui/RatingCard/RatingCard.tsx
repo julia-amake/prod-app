@@ -83,7 +83,10 @@ export const RatingCard = memo((props: RatingProps) => {
     const Feedback = useMemo(() => (isMobile ? Drawer : Modal), [isMobile]);
 
     return (
-        <div className={cn(s.outer, {}, [className])}>
+        <div
+            className={cn(s.outer, {}, [className])}
+            data-testid="RatingCard"
+        >
             <VStack
                 align="center"
                 gap="16"
@@ -115,6 +118,7 @@ export const RatingCard = memo((props: RatingProps) => {
                         value={feedback}
                         onChange={setFeedback}
                         className={s.textarea}
+                        data-testid="RatingCard.Input"
                     />
                     <VStack
                         gap="8"
@@ -123,10 +127,12 @@ export const RatingCard = memo((props: RatingProps) => {
                             theme={ButtonTheme.OUTLINED}
                             label={t('Закрыть')}
                             onClick={cancelHandler}
+                            data-testid="RatingCard.Close"
                         />
                         <Button
                             label={t('Отправить')}
                             onClick={acceptHandler}
+                            data-testid="RatingCard.Send"
                         />
                     </VStack>
                 </VStack>

@@ -3,7 +3,7 @@ import {
     BrowserRouter, MemoryRouter, Route, Routes,
 } from 'react-router-dom';
 
-// '/articles/2', '/articles/:id'
+// '/article/2', '/article/:id'
 export const RouterDecorator = (path?: string, pathSchema?: string): DecoratorFn => (StoryComponent: Story) => {
     if (!path) {
         return (

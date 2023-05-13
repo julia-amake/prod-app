@@ -94,6 +94,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 as={Link}
                 to={getRouteArticleDetails(article.id)}
                 className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
+                data-testid="ArticleListItem"
             >
                 <div className={s.pic_outer}>
                     {image}
@@ -127,6 +128,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         return (
             <Card
                 className={cn(s.outer, {}, [className, s.outer_list, s.card])}
+                data-testid="ArticleListItem"
             >
                 <div className={s.header}>
                     <div className={s.additional}>

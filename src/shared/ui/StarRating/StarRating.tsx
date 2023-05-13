@@ -69,6 +69,8 @@ export const StarRating = memo((props: StarRatingProps) => {
                         onMouseEnter={onStarEnter(starNumber)}
                         onMouseLeave={onStarLeave}
                         onClick={onStarClick(starNumber)}
+                        data-testid={`StarRating.Star-${starNumber}`}
+                        data-selected={isSelected && currStarsCount >= starNumber}
                     >
                         <Icon
                             svg={StarIcon(hoveredStarsCount >= starNumber || currStarsCount >= starNumber)}

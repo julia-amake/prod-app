@@ -25,6 +25,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         <PageSection
             title={t('Рекомендуем')}
             className={className}
+            data-testid="ArticleRecommendationsList"
         >
             <ArticleList articles={articles} />
         </PageSection>

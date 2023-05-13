@@ -14,10 +14,14 @@ export const PageSection = (props: PageSectionProps) => {
         title,
         children,
         className = '',
+        ...otherProps
     } = props;
 
     return (
-        <div className={cn(s.outer, {}, [className])}>
+        <div
+            className={cn(s.outer, {}, [className])}
+            {...otherProps}
+        >
             {title && (
                 <Heading
                     content={title}

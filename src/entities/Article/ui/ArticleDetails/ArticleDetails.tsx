@@ -166,7 +166,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
         return (
             <>
-                <Heading className={s.title} size={HeadingSize.L} content={data?.title} />
+                <Heading
+                    className={s.title}
+                    size={HeadingSize.L}
+                    content={data?.title}
+                    data-testid="ArticleDetails.Header"
+                />
                 <Text content={data.subtitle} className={s.subtitle} />
                 <div className={s.stats}>
                     <div className={s.stat}>

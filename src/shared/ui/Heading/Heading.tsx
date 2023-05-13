@@ -32,12 +32,14 @@ export const Heading = memo((props: HeadingProps) => {
         size = HeadingSize.M,
         position = HeadingPosition.LEFT,
         className,
+        ...otherProps
     } = props;
 
     return (
         <Tag
             {...getDangerouslySetInnerHTML(content)}
             className={cn(s.heading, {}, [s[size], s[position], className])}
+            {...otherProps}
         />
     );
 });

@@ -10,12 +10,12 @@ describe('Routing', () => {
             cy.visit('/profile/1');
             cy.get(selectByTestId('MainPage')).should('exist');
         });
-        it('Go to the articles page', () => {
-            cy.visit('/articles');
+        it('Go to the article page', () => {
+            cy.visit('/article');
             cy.get(selectByTestId('MainPage')).should('exist');
         });
         it('Go to the article details page', () => {
-            cy.visit('/articles/1');
+            cy.visit('/article/1');
             cy.get(selectByTestId('MainPage')).should('exist');
         });
         it('Go to the admin panel page', () => {
@@ -37,12 +37,12 @@ describe('Routing', () => {
             cy.visit('/profile/1');
             cy.get(selectByTestId('ProfilePage')).should('exist');
         });
-        it('Go to the articles page', () => {
-            cy.visit('/articles');
+        it('Go to the article page', () => {
+            cy.visit('/article');
             cy.get(selectByTestId('ArticlesPage')).should('exist');
         });
         it('Go to the article details page', () => {
-            cy.visit('/articles/1');
+            cy.visit('/article/1');
             cy.get(selectByTestId('ArticleDetailsPage')).should('exist');
         });
         it('Go to the admin panel page', () => {

@@ -50,7 +50,10 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     );
 
     return (
-        <div className={cn(s.outer, {}, [className])}>
+        <div
+            className={cn(s.outer, {}, [className])}
+            data-testid="AddCommentForm"
+        >
             <Input
                 placeholder={t('Добавить комментарий')}
                 value={text}
@@ -58,12 +61,14 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                 inputClassName={s.field}
                 type="textarea"
                 disabled={isLoading}
+                data-testid="AddCommentForm.Input"
             />
             <Button
                 label={t('Отправить')}
                 size={ButtonSize.S}
                 onClick={onSendHandler}
                 disabled={isLoading || !text}
+                data-testid="AddCommentForm.Button"
             />
         </div>
     );

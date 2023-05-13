@@ -25,7 +25,7 @@ export const buildBabelLoader = (props: BuildBabelLoaderProps) => {
                     isTSX && isProd && [
                         babelRemovePropsPlugin,
                         {
-                            props: ['data-testid'],
+                            props: ['data-testid', 'data-selected'],
                         },
                     ],
                 ].filter(Boolean),

@@ -16,7 +16,7 @@ export default {
     },
     decorators: [
         StoreDecorator({}),
-        RouterDecorator('/articles/1', '/articles/:id')],
+        RouterDecorator('/article/1', '/article/:id')],
     parameters: {
         mockData: [
             {

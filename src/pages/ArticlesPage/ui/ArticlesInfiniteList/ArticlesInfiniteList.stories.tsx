@@ -32,7 +32,7 @@ export default {
                 search: '',
             },
         }),
-        RouterDecorator('/articles'),
+        RouterDecorator('/article'),
     ],
 } as ComponentMeta<typeof ArticlesInfiniteList>;
 

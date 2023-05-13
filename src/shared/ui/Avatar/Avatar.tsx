@@ -13,18 +13,16 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = (props) => {
-    const {
-        src = '',
-        alt = '',
-        className = '',
-        size = 96,
-    } = props;
+    const { src = '', alt = '', className = '', size = 96 } = props;
 
     // todo: сделать нормальные варианты размеров
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size,
-    }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    );
 
     return (
         <AppImage
@@ -32,7 +30,12 @@ export const Avatar: FC<AvatarProps> = (props) => {
             src={src}
             alt={alt}
             fallback={<Skeleton width={size} height={size} />}
-            errorFallback={<ProfileDefault style={styles} className={cn(s.avatar, {}, [className])} />}
+            errorFallback={
+                <ProfileDefault
+                    style={styles}
+                    className={cn(s.avatar, {}, [className])}
+                />
+            }
             style={styles}
         />
     );

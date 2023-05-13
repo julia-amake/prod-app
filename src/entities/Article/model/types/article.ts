@@ -6,37 +6,41 @@ export interface ArticleBaseBlock {
     type: ArticleBlockType;
 }
 
-export interface ArticleTextBlock extends ArticleBaseBlock{
+export interface ArticleTextBlock extends ArticleBaseBlock {
     type: ArticleBlockType.TEXT;
     title?: string;
-    paragraphs: string[]
+    paragraphs: string[];
 }
 
-export interface ArticleCodeBlock extends ArticleBaseBlock{
+export interface ArticleCodeBlock extends ArticleBaseBlock {
     type: ArticleBlockType.CODE;
     code: string;
 }
 
-export interface ArticleImageBlock extends ArticleBaseBlock{
+export interface ArticleImageBlock extends ArticleBaseBlock {
     type: ArticleBlockType.IMAGE;
     src: string;
     title?: string;
 }
 
-export interface ArticleDividerBlock extends ArticleBaseBlock{
+export interface ArticleDividerBlock extends ArticleBaseBlock {
     type: ArticleBlockType.DIVIDER;
 }
 
-export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock | ArticleDividerBlock;
+export type ArticleBlock =
+    | ArticleTextBlock
+    | ArticleCodeBlock
+    | ArticleImageBlock
+    | ArticleDividerBlock;
 
 export interface Article {
-    id: string,
-    title: string,
-    subtitle: string,
-    image: string,
-    views: number,
-    createdAt: string,
-    type: ArticleType[],
+    id: string;
+    title: string;
+    subtitle: string;
+    image: string;
+    views: number;
+    createdAt: string;
+    type: ArticleType[];
     blocks: ArticleBlock[];
     user: User;
 }

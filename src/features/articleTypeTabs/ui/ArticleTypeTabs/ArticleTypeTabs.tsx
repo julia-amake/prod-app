@@ -11,12 +11,7 @@ interface ArticleTypeTabsProps {
 }
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
-    const {
-        value,
-        onChangeType,
-        isLoading = false,
-        className = '',
-    } = props;
+    const { value, onChangeType, isLoading = false, className = '' } = props;
 
     const { t } = useTranslation();
 
@@ -46,9 +41,12 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
         [t],
     );
 
-    const onTabClick = useCallback((tab: TabItem) => {
-        onChangeType(tab.value as ArticleType);
-    }, [onChangeType]);
+    const onTabClick = useCallback(
+        (tab: TabItem) => {
+            onChangeType(tab.value as ArticleType);
+        },
+        [onChangeType],
+    );
 
     return (
         <Tabs

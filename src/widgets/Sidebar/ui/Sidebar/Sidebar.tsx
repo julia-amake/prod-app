@@ -17,7 +17,7 @@ interface SidebarProps {
     className?: string;
 }
 
-const customLogoProps:LinkProps = { to: getRouteMain() };
+const customLogoProps: LinkProps = { to: getRouteMain() };
 
 const Sidebar = memo((props: SidebarProps) => {
     const { className = '' } = props;
@@ -25,34 +25,35 @@ const Sidebar = memo((props: SidebarProps) => {
     const SidebarItemsList = useSelector(getSidebarItems);
 
     const itemsList = useMemo(
-        () => (
+        () =>
             SidebarItemsList.map((item) => (
                 <SidebarItem
                     item={item}
                     collapsed={collapsed}
                     key={item.path}
                 />
-            ))
-        ),
+            )),
         [SidebarItemsList, collapsed],
     );
 
-    const Logo = useMemo(() => (collapsed ? LogoSmall : LogoLarge), [collapsed]);
+    const Logo = useMemo(
+        () => (collapsed ? LogoSmall : LogoLarge),
+        [collapsed],
+    );
     const Actions = useMemo(() => (collapsed ? VStack : HStack), [collapsed]);
 
     return (
         <VStack
             as="aside"
-            className={cn(
-                s.sidebar,
-                { [s.collapsed]: collapsed },
-                [className],
-            )}
+            className={cn(s.sidebar, { [s.collapsed]: collapsed }, [className])}
             data-testid="sidebar"
         >
             <HStack
                 as={Link}
-                className={cn(s.logo, { [s.logo_size_s]: collapsed, [s.logo_size_l]: !collapsed })}
+                className={cn(s.logo, {
+                    [s.logo_size_s]: collapsed,
+                    [s.logo_size_l]: !collapsed,
+                })}
                 align="center"
                 customProps={customLogoProps}
             >

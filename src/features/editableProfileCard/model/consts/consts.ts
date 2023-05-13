@@ -6,7 +6,7 @@ export enum ValidateProfileError {
     INCORRECT_AGE,
     INCORRECT_COUNTRY,
     NO_DATA,
-    SERVER_ERROR
+    SERVER_ERROR,
 }
 
 export const profileInitialState: ProfileSchema = {

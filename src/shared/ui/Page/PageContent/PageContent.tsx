@@ -8,14 +8,7 @@ interface PageContentProps {
 }
 
 export const PageContent = memo((props: PageContentProps) => {
-    const {
-        children,
-        className = '',
-    } = props;
+    const { children, className = '' } = props;
 
-    return (
-        <div className={cn(s.outer, {}, [className])}>
-            {children}
-        </div>
-    );
+    return <div className={cn(s.outer, {}, [className])}>{children}</div>;
 });

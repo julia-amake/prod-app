@@ -16,7 +16,7 @@ interface NavbarProps {
     className?: string;
 }
 
-const Navbar = memo((props:NavbarProps) => {
+const Navbar = memo((props: NavbarProps) => {
     const { className = '' } = props;
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
@@ -50,10 +50,7 @@ const Navbar = memo((props:NavbarProps) => {
                         onClick={onAddArticle}
                         type="button"
                     />
-                    <HStack
-                        align="center"
-                        gap="24"
-                    >
+                    <HStack align="center" gap="24">
                         <NotificationButton />
                         <UserDropdown setIsAuthModal={setIsAuthModal} />
                     </HStack>
@@ -65,7 +62,10 @@ const Navbar = memo((props:NavbarProps) => {
     return (
         <header className={cn(s.navbar, {}, [className])}>
             <HStack
-                className={cn(s.container, {}, ['container', 'container_size_l'])}
+                className={cn(s.container, {}, [
+                    'container',
+                    'container_size_l',
+                ])}
                 justify="end"
                 align="center"
                 gap="16"
@@ -77,10 +77,7 @@ const Navbar = memo((props:NavbarProps) => {
                     type="button"
                 />
                 {isAuthModal && (
-                    <LoginModal
-                        isOpen={isAuthModal}
-                        onClose={onCloseModal}
-                    />
+                    <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
                 )}
             </HStack>
         </header>

@@ -1,36 +1,36 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    //module версия, на которой разрабатываем
-    "module": "ESNext",
-    //target версия es, в которую будет компилироваться код
-    "target": "es5",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "strict": true,
-    "moduleResolution": "node",
-    // baseUrl для импорта с абсолютными путями
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    // esModuleInterop позволяет работать с пакетами, которые используют common js как с обычными пакетами с помощью import require module.export – короче, делают импорты в конфигах привычными
-    "esModuleInterop": true,
-    // allowSyntheticDefaultImports позволяет использовать импорты без звездочки (* as что-то)
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "include": [
-    "./config/jest/setupTests.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
-  ],
-  // для подсветки пропсов в stories
-  "strictBindCallApply": true
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        //module версия, на которой разрабатываем
+        "module": "ESNext",
+        //target версия es, в которую будет компилироваться код
+        "target": "es5",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "strict": true,
+        "moduleResolution": "node",
+        // baseUrl для импорта с абсолютными путями
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        // esModuleInterop позволяет работать с пакетами, которые используют common js как с обычными пакетами с помощью import require module.export – короче, делают импорты в конфигах привычными
+        "esModuleInterop": true,
+        // allowSyntheticDefaultImports позволяет использовать импорты без звездочки (* as что-то)
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "./config/jest/setupTests.ts",
+        "./src/**/*.ts",
+        "./src/**/*.tsx"
+    ],
+    // для подсветки пропсов в stories
+    "strictBindCallApply": true
 }

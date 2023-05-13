@@ -15,32 +15,36 @@ export default {
     args: {
         id: '1',
     },
-    decorators: [StoreDecorator({
-        profile: {
-            formData: {
-                name: 'Имя',
-                lastname: 'Фамилия',
-                age: 30,
-                currency: Currency.EUR,
-                country: Country.UKRAINE,
-                city: 'Город',
-                username: 'admin',
-                avatar: AVATAR,
+    decorators: [
+        StoreDecorator({
+            profile: {
+                formData: {
+                    name: 'Имя',
+                    lastname: 'Фамилия',
+                    age: 30,
+                    currency: Currency.EUR,
+                    country: Country.UKRAINE,
+                    city: 'Город',
+                    username: 'admin',
+                    avatar: AVATAR,
+                },
+                data: {
+                    name: 'Имя',
+                    lastname: 'Фамилия',
+                    age: 30,
+                    currency: Currency.EUR,
+                    country: Country.UKRAINE,
+                    city: 'Город',
+                    username: 'admin',
+                    avatar: AVATAR,
+                },
             },
-            data: {
-                name: 'Имя',
-                lastname: 'Фамилия',
-                age: 30,
-                currency: Currency.EUR,
-                country: Country.UKRAINE,
-                city: 'Город',
-                username: 'admin',
-                avatar: AVATAR,
-            },
-        },
-    })],
+        }),
+    ],
 } as ComponentMeta<typeof EditableProfileCard>;
 
-const Template: ComponentStory<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
+const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
+    <EditableProfileCard {...args} />
+);
 
 export const Normal = Template.bind({});

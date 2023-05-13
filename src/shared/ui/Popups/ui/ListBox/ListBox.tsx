@@ -8,14 +8,14 @@ import { PopoverWidth } from '../../types/popover';
 import s from './ListBox.module.scss';
 
 export interface ListBoxOption {
-    value: string,
-    title: string,
-    icon?: ItemIcon,
-    disabled?: boolean
+    value: string;
+    title: string;
+    icon?: ItemIcon;
+    disabled?: boolean;
 }
 
 interface ListBoxProps {
-    label?: string,
+    label?: string;
     options?: ListBoxOption[];
     value?: string;
     defaultValue?: string;
@@ -38,12 +38,13 @@ export const ListBox = (props: ListBoxProps) => {
     } = props;
 
     return (
-        <div className={cn(sPopup.outer, {}, [className, sPopup[`outer_width_${width}`]])}>
-            {label && (
-                <div className={s.label}>
-                    {label}
-                </div>
-            )}
+        <div
+            className={cn(sPopup.outer, {}, [
+                className,
+                sPopup[`outer_width_${width}`],
+            ])}
+        >
+            {label && <div className={s.label}>{label}</div>}
             <HListBox
                 as="div"
                 value={value}
@@ -51,14 +52,13 @@ export const ListBox = (props: ListBoxProps) => {
                 className={s.select}
                 disabled={readonly || !options || !options.length}
             >
-                <Float
-                    as="div"
-                    floatingAs={Fragment}
-                    offset={12}
-                    flip={8}
-                >
+                <Float as="div" floatingAs={Fragment} offset={12} flip={8}>
                     <HListBox.Button
-                        className={cn(s.btn, { [sPopup.btn_disabled]: readonly }, [sPopup.btn])}
+                        className={cn(
+                            s.btn,
+                            { [sPopup.btn_disabled]: readonly },
+                            [sPopup.btn],
+                        )}
                     >
                         {value ?? defaultValue}
                     </HListBox.Button>
@@ -73,11 +73,12 @@ export const ListBox = (props: ListBoxProps) => {
                                 as={Fragment}
                             >
                                 {({ active, selected, disabled }) => (
-                                    <li className={cn(s.option, {
-                                        [s.option_active]: active,
-                                        [s.option_selected]: selected,
-                                        [s.option_disabled]: disabled,
-                                    })}
+                                    <li
+                                        className={cn(s.option, {
+                                            [s.option_active]: active,
+                                            [s.option_selected]: selected,
+                                            [s.option_disabled]: disabled,
+                                        })}
                                     >
                                         {item.title}
                                     </li>

@@ -6,7 +6,7 @@ import s from './AppLink.module.scss';
 export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
-    CLEAR = 'clear'
+    CLEAR = 'clear',
 }
 
 export interface AppLinkProps extends LinkProps {

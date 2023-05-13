@@ -8,8 +8,9 @@ const notification = {
     title: 'Заголовок уведомления',
     description: 'Описание к уведомлению',
     userId: '1',
-    image: 'https://mir-cdn.behance.net/v1/rendition/project_modules/'
-        + '1400_opt_1/24ffbc128582189.615974e3d023b.jpg',
+    image:
+        'https://mir-cdn.behance.net/v1/rendition/project_modules/' +
+        '1400_opt_1/24ffbc128582189.615974e3d023b.jpg',
 };
 
 export default {
@@ -19,9 +20,7 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {},
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
     parameters: {
         mockData: [
             {

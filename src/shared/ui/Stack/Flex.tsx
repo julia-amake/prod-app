@@ -2,7 +2,13 @@ import React, { ElementType, ReactNode } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Flex.module.scss';
 
-export type FlexJustify = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
+export type FlexJustify =
+    | 'start'
+    | 'end'
+    | 'center'
+    | 'between'
+    | 'around'
+    | 'evenly';
 export type FlexAlign = 'start' | 'end' | 'center' | 'stretch';
 export type FlexDirection = 'row' | 'col';
 export type FlexGap = '8' | '16' | '24' | '32' | '40' | 'none';
@@ -72,7 +78,13 @@ export const Flex = (props: FlexProps) => {
             className={cn(
                 s.flex,
                 { [s.fullWidth]: fullWidth, [s.wrap]: wrap, [s.nowrap]: !wrap },
-                [className, justifyClasses[justify], alignClasses[align], directionClasses[direction], gapClasses[gap]],
+                [
+                    className,
+                    justifyClasses[justify],
+                    alignClasses[align],
+                    directionClasses[direction],
+                    gapClasses[gap],
+                ],
             )}
             {...customProps}
             {...otherProps}

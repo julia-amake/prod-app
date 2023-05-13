@@ -1,6 +1,4 @@
-import React, {
-    memo, useCallback, useMemo, useState,
-} from 'react';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Notes from '@/shared/assets/icons/Notes.svg';
 import { MOBILE_LARGE } from '@/shared/consts/devices';
@@ -18,9 +16,7 @@ interface NotificationButtonProps {
 }
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
-    const {
-        className = '',
-    } = props;
+    const { className = '' } = props;
 
     const { t } = useTranslation();
     const { width } = useWindowDimensions();
@@ -36,22 +32,22 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         setIsOpen(false);
     }, []);
 
-    const trigger = useMemo(() => (
-        <HStack
-            className={s.trigger}
-            align="center"
-            justify="center"
-            customProps={{ onClick: onOpenDrawer }}
-        >
-            <Icon
-                svg={Notes}
-                className={s.trigger_icon}
-            />
-            <div className={cn(s.status, {}, [s.status_new])}>
-                {t('Есть новые уведомления')}
-            </div>
-        </HStack>
-    ), [onOpenDrawer, t]);
+    const trigger = useMemo(
+        () => (
+            <HStack
+                className={s.trigger}
+                align="center"
+                justify="center"
+                customProps={{ onClick: onOpenDrawer }}
+            >
+                <Icon svg={Notes} className={s.trigger_icon} />
+                <div className={cn(s.status, {}, [s.status_new])}>
+                    {t('Есть новые уведомления')}
+                </div>
+            </HStack>
+        ),
+        [onOpenDrawer, t],
+    );
 
     if (isMobile) {
         return (
@@ -65,11 +61,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     }
 
     return (
-
-        <Popover
-            className={cn(s.outer, {}, [className])}
-            trigger={trigger}
-        >
+        <Popover className={cn(s.outer, {}, [className])} trigger={trigger}>
             <NotificationsList className={s.list} />
         </Popover>
     );

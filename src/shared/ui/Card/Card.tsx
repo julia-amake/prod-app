@@ -1,6 +1,4 @@
-import React, {
-    ElementType, HTMLAttributes, memo, ReactNode,
-} from 'react';
+import React, { ElementType, HTMLAttributes, memo, ReactNode } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
 import s from './Card.module.scss';
@@ -30,7 +28,7 @@ export const Card = memo((props: CardProps) => {
     return (
         <Tag
             className={cn(s.outer, { [s.outer_clickable]: !!to }, [className])}
-            {...to ? { to, target } : {}}
+            {...(to ? { to, target } : {})}
             {...otherProps}
             {...bindHover}
         >

@@ -11,9 +11,7 @@ import { Card } from '@/shared/ui/Card';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
-import {
-    Article, ArticleTextBlock,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import s from './ArticleListItem.module.scss';
 
@@ -24,27 +22,25 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        article,
-        view = ArticleView.GRID,
-        className = '',
-    } = props;
+    const { article, view = ArticleView.GRID, className = '' } = props;
 
-    const views = useMemo(() => (
-        <div className={s.views}>
-            <EyeLine className={s.views_icon} />
-            <Text
-                size={TextSize.XS}
-                margin={TextMargin.NONE}
-                content={article.views.toString()}
-            />
-        </div>
-    ), [article.views]);
+    const views = useMemo(
+        () => (
+            <div className={s.views}>
+                <EyeLine className={s.views_icon} />
+                <Text
+                    size={TextSize.XS}
+                    margin={TextMargin.NONE}
+                    content={article.views.toString()}
+                />
+            </div>
+        ),
+        [article.views],
+    );
 
     const categories = useMemo(() => {
-        const list = view === ArticleView.GRID
-            ? article.type.slice(0, 2)
-            : article.type;
+        const list =
+            view === ArticleView.GRID ? article.type.slice(0, 2) : article.type;
 
         return (
             <ul className={s.categories}>
@@ -52,13 +48,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <Text
                         as="li"
                         key={type}
-                        className={cn(
-                            s.category,
-                            {
-                                [s.category_last]: article.type.length === arr.length
-                                    && idx === arr.length - 1,
-                            },
-                        )}
+                        className={cn(s.category, {
+                            [s.category_last]:
+                                article.type.length === arr.length &&
+                                idx === arr.length - 1,
+                        })}
                         content={type}
                         margin={TextMargin.NONE}
                         size={TextSize.XS}
@@ -77,19 +71,23 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         );
     }, [article.type, view]);
 
-    const image = useMemo(() => (
-        <AppImage
-            src={article.image}
-            alt={article.title}
-            className={s.pic}
-            fallback={<Skeleton className={s.pic} />}
-            errorFallback={<img src="/img/NoImageH.svg" alt="" className={s.pic} />}
-        />
-    ), [article.image, article.title]);
+    const image = useMemo(
+        () => (
+            <AppImage
+                src={article.image}
+                alt={article.title}
+                className={s.pic}
+                fallback={<Skeleton className={s.pic} />}
+                errorFallback={
+                    <img src="/img/NoImageH.svg" alt="" className={s.pic} />
+                }
+            />
+        ),
+        [article.image, article.title],
+    );
 
     if (view === ArticleView.GRID) {
         return (
-
             <Card
                 as={Link}
                 to={getRouteArticleDetails(article.id)}
@@ -123,7 +121,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
 
     if (view === ArticleView.LIST) {
-        const textBlock = article.blocks.find((a) => a.type === ArticleBlockType.TEXT);
+        const textBlock = article.blocks.find(
+            (a) => a.type === ArticleBlockType.TEXT,
+        );
 
         return (
             <Card
@@ -160,24 +160,18 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     />
                     {categories}
                 </div>
-                <div className={s.pic_outer}>
-                    {image}
-                </div>
+                <div className={s.pic_outer}>{image}</div>
                 <div className={s.footer}>
                     {textBlock && (
                         <div className={s.content}>
-
                             <ArticleTextBlockComponent
                                 block={textBlock as ArticleTextBlock}
                                 className={s.content}
                             />
-
                         </div>
                     )}
                     <div className={s.actions}>
-                        <AppLink
-                            to={getRouteArticleDetails(article.id)}
-                        >
+                        <AppLink to={getRouteArticleDetails(article.id)}>
                             <Button
                                 size={ButtonSize.M}
                                 label="Читать далее..."

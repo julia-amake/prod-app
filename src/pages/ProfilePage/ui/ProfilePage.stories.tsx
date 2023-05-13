@@ -11,21 +11,23 @@ export default {
     title: 'pages/ProfilePage',
     component: ProfilePage,
     args: {},
-    decorators: [StoreDecorator({
-        profile: {
-            formData: {
-                name: 'Имя',
-                lastname: 'Фамилия',
-                age: 30,
-                currency: Currency.EUR,
-                country: Country.UKRAINE,
-                city: 'Город',
-                username: 'admin',
-                avatar: AVATAR,
+    decorators: [
+        StoreDecorator({
+            profile: {
+                formData: {
+                    name: 'Имя',
+                    lastname: 'Фамилия',
+                    age: 30,
+                    currency: Currency.EUR,
+                    country: Country.UKRAINE,
+                    city: 'Город',
+                    username: 'admin',
+                    avatar: AVATAR,
+                },
             },
-        },
-    }),
-    RouterDecorator('/profile/1', '/profile/:id')],
+        }),
+        RouterDecorator('/profile/1', '/profile/:id'),
+    ],
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => (

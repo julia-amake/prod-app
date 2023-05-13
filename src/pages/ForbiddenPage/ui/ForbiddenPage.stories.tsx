@@ -13,9 +13,7 @@ export default {
     decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ForbiddenPage>;
 
-const Template: ComponentStory<typeof ForbiddenPage> = () => (
-    <ForbiddenPage />
-);
+const Template: ComponentStory<typeof ForbiddenPage> = () => <ForbiddenPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

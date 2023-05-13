@@ -1,11 +1,11 @@
 {
-  "Ваше имя": "Your name",
-  "Ваша фамилия": "Your lastname",
-  "Ваш город": "Your city",
-  "Ваш возраст": "Your age",
-  "Ссылка на аватар": "Avatar link",
-  "Имя пользователя": "Username",
-  "Ошибка_при_загрузке_пользователя": "An error has occurred while loading the profile",
-  "Профиль": "Profile",
-  "Валюта": "Currency"
+    "Ваше имя": "Your name",
+    "Ваша фамилия": "Your lastname",
+    "Ваш город": "Your city",
+    "Ваш возраст": "Your age",
+    "Ссылка на аватар": "Avatar link",
+    "Имя пользователя": "Username",
+    "Ошибка_при_загрузке_пользователя": "An error has occurred while loading the profile",
+    "Профиль": "Profile",
+    "Валюта": "Currency"
 }

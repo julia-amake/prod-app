@@ -10,10 +10,7 @@ interface LangSwitcherProps {
 }
 
 const LangSwitcher = memo((props: LangSwitcherProps) => {
-    const {
-        isShort,
-        className = '',
-    } = props;
+    const { isShort, className = '' } = props;
 
     const { t, i18n } = useTranslation();
 

@@ -13,25 +13,15 @@ interface CommentListProps {
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-    const {
-        comments,
-        isLoading,
-        className = '',
-    } = props;
+    const { comments, isLoading, className = '' } = props;
 
     const { t } = useTranslation();
 
     if (isLoading) {
         return (
             <div className={cn(s.outer, {}, [className])}>
-                <CommentCard
-                    className={cn(s.comment)}
-                    isLoading={isLoading}
-                />
-                <CommentCard
-                    className={cn(s.comment)}
-                    isLoading={isLoading}
-                />
+                <CommentCard className={cn(s.comment)} isLoading={isLoading} />
+                <CommentCard className={cn(s.comment)} isLoading={isLoading} />
                 <CommentCard
                     className={cn(s.comment, {}, [s.comment_last])}
                     isLoading={isLoading}
@@ -42,19 +32,20 @@ export const CommentList = memo((props: CommentListProps) => {
 
     return (
         <div className={cn(s.outer, {}, [className])}>
-            {comments.length
-                ? comments.map((comment, idx) => (
+            {comments.length ? (
+                comments.map((comment, idx) => (
                     <CommentCard
-                        className={cn(
-                            s.comment,
-                            { [s.comment_last]: idx === comments.length - 1 },
-                        )}
+                        className={cn(s.comment, {
+                            [s.comment_last]: idx === comments.length - 1,
+                        })}
                         isLoading={isLoading}
                         comment={comment}
                         key={comment.id}
                     />
                 ))
-                : <Text content={t('Пока нет комментариев')} />}
+            ) : (
+                <Text content={t('Пока нет комментариев')} />
+            )}
         </div>
     );
 });

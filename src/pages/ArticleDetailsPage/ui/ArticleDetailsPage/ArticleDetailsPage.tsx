@@ -2,7 +2,10 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import {
+    ReducersList,
+    useDynamicModuleLoader,
+} from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { Informer } from '@/shared/ui/Informer';
 import { PageContent } from '@/shared/ui/Page';
 import { ArticleDetails, getArticleDetailsIsLoading } from '@/entities/Article';
@@ -17,7 +20,7 @@ interface ArticleDetailsPageProps {
     className?: string;
 }
 
-const reducersList:ReducersList = {
+const reducersList: ReducersList = {
     articleDetailsPage: articleDetailsPageReducers,
 };
 
@@ -40,10 +43,7 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
     }
 
     return (
-        <Page
-            className={className}
-            dataTestid="ArticleDetailsPage"
-        >
+        <Page className={className} dataTestid="ArticleDetailsPage">
             <ArticleDetailsPageHeader />
             <PageContent>
                 <ArticleDetails id={id} isLoading={isLoading} />

@@ -1,6 +1,4 @@
-import {
-    ChangeEvent, SelectHTMLAttributes, useMemo,
-} from 'react';
+import { ChangeEvent, SelectHTMLAttributes, useMemo } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { typedMemo } from '@/shared/lib/utils/typedMemo';
 import s from './Select.module.scss';
@@ -12,7 +10,10 @@ export interface SelectOption<T extends string> {
 
 type SelectSize = 'M' | 'S';
 
-type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'size'>
+type HTMLSelectProps = Omit<
+    SelectHTMLAttributes<HTMLSelectElement>,
+    'onChange' | 'size'
+>;
 
 interface SelectProps<T extends string> extends HTMLSelectProps {
     label?: string;
@@ -35,16 +36,15 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
         size = 'M',
     } = props;
 
-    const optionsList = useMemo(() => (
-        options.map((opt: SelectOption<T>) => (
-            <option
-                value={opt.value}
-                key={opt.value}
-            >
-                {opt.content}
-            </option>
-        ))
-    ), [options]);
+    const optionsList = useMemo(
+        () =>
+            options.map((opt: SelectOption<T>) => (
+                <option value={opt.value} key={opt.value}>
+                    {opt.content}
+                </option>
+            )),
+        [options],
+    );
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value as T);
@@ -52,15 +52,11 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
 
     return (
         <div className={cn(s.outer, {}, [className])}>
-            {label && (
-                <div
-                    className={s.label}
-                >
-                    {label}
-                </div>
-            )}
+            {label && <div className={s.label}>{label}</div>}
             <select
-                className={cn(s.select, { [s.disabled]: readOnly }, [s[`select_size_${size}`]])}
+                className={cn(s.select, { [s.disabled]: readOnly }, [
+                    s[`select_size_${size}`],
+                ])}
                 {...(value ? { value } : {})}
                 onChange={onChangeHandler}
                 disabled={readOnly}

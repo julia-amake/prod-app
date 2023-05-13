@@ -11,8 +11,9 @@ interface CurrencySelectProps {
     readOnly?: boolean;
 }
 
-const options:ListBoxOption[] = Object.values(Currency).map((item) => ({
-    value: item, title: item,
+const options: ListBoxOption[] = Object.values(Currency).map((item) => ({
+    value: item,
+    title: item,
 }));
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo((props) => {
@@ -24,9 +25,12 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo((props) => {
         readOnly = false,
     } = props;
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Currency);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Currency);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

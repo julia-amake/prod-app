@@ -24,10 +24,7 @@ interface TestProviderProps {
 }
 
 export function TestProvider(props: TestProviderProps) {
-    const {
-        options = {},
-        children,
-    } = props;
+    const { options = {}, children } = props;
 
     const {
         initialState,
@@ -44,9 +41,7 @@ export function TestProvider(props: TestProviderProps) {
             >
                 <I18nextProvider i18n={i18nForTests}>
                     <ThemeProvider initialTheme={theme}>
-                        <div className={`app app_${theme}`}>
-                            {children}
-                        </div>
+                        <div className={`app app_${theme}`}>{children}</div>
                     </ThemeProvider>
                 </I18nextProvider>
             </StoreProvider>
@@ -54,10 +49,9 @@ export function TestProvider(props: TestProviderProps) {
     );
 }
 
-export function componentRender(component: ReactNode, options: componentRenderOptions = {}) {
-    return render(
-        <TestProvider options={options}>
-            {component}
-        </TestProvider>,
-    );
+export function componentRender(
+    component: ReactNode,
+    options: componentRenderOptions = {},
+) {
+    return render(<TestProvider options={options}>{component}</TestProvider>);
 }

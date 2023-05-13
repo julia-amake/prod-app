@@ -9,11 +9,10 @@ interface ArticleListItemSkeletonProps {
     className?: string;
 }
 
-export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => {
-    const {
-        view = ArticleView.GRID,
-        className = '',
-    } = props;
+export const ArticleListItemSkeleton = (
+    props: ArticleListItemSkeletonProps,
+) => {
+    const { view = ArticleView.GRID, className = '' } = props;
 
     if (view === ArticleView.GRID) {
         return (
@@ -43,22 +42,11 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
                             ))}
                         </ul>
                         <div className={s.views}>
-                            <Skeleton
-                                width={48}
-                                height={16}
-                                marginBottom={4}
-                            />
+                            <Skeleton width={48} height={16} marginBottom={4} />
                         </div>
                     </div>
-                    <Skeleton
-                        width="90%"
-                        height={22}
-                        marginBottom={10}
-                    />
-                    <Skeleton
-                        width="70%"
-                        height={20}
-                    />
+                    <Skeleton width="90%" height={22} marginBottom={10} />
+                    <Skeleton width="70%" height={20} />
                 </div>
             </Card>
         );
@@ -67,7 +55,7 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
     if (view === ArticleView.LIST) {
         return (
             <Card
-                className={cn(s.outer, { }, [className, s.outer_list, s.card])}
+                className={cn(s.outer, {}, [className, s.outer_list, s.card])}
             >
                 <div className={s.header}>
                     <div className={s.additional}>
@@ -79,27 +67,12 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
                                 className={s.avatar}
                                 marginRight={10}
                             />
-                            <Skeleton
-                                width={120}
-                                height={16}
-                            />
+                            <Skeleton width={120} height={16} />
                         </div>
-                        <Skeleton
-                            className={s.date}
-                            width={56}
-                            height={16}
-                        />
+                        <Skeleton className={s.date} width={56} height={16} />
                     </div>
-                    <Skeleton
-                        width="80%"
-                        height={22}
-                        marginBottom={10}
-                    />
-                    <Skeleton
-                        width="60%"
-                        height={20}
-                        marginBottom={24}
-                    />
+                    <Skeleton width="80%" height={22} marginBottom={10} />
+                    <Skeleton width="60%" height={20} marginBottom={24} />
                     <ul className={s.categories}>
                         {[1, 2, 3].map((item) => (
                             <Skeleton
@@ -123,33 +96,14 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
                 </div>
                 <div className={s.footer}>
                     <div className={s.content}>
-                        <Skeleton
-                            width="100%"
-                            height={14}
-                            marginBottom={12}
-                        />
-                        <Skeleton
-                            width="100%"
-                            height={14}
-                            marginBottom={12}
-                        />
-                        <Skeleton
-                            width="80%"
-                            height={14}
-                        />
-
+                        <Skeleton width="100%" height={14} marginBottom={12} />
+                        <Skeleton width="100%" height={14} marginBottom={12} />
+                        <Skeleton width="80%" height={14} />
                     </div>
                     <div className={s.actions}>
-                        <Skeleton
-                            width={130}
-                            height={40}
-                            borderRadius={90}
-                        />
+                        <Skeleton width={130} height={40} borderRadius={90} />
                         <div className={s.views}>
-                            <Skeleton
-                                width={80}
-                                height={16}
-                            />
+                            <Skeleton width={80} height={16} />
                         </div>
                     </div>
                 </div>

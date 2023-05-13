@@ -19,7 +19,8 @@ export default {
                     id: '1',
                 },
             },
-        })],
+        }),
+    ],
 } as ComponentMeta<typeof ArticleRating>;
 
 const Template: ComponentStory<typeof ArticleRating> = (args) => (
@@ -34,9 +35,7 @@ Normal.parameters = {
             url: `${__API__}/article-ratings?userId=1&articleId=1`,
             method: 'GET',
             status: 200,
-            response: [
-                { rate: 4 },
-            ],
+            response: [{ rate: 4 }],
         },
     ],
 };

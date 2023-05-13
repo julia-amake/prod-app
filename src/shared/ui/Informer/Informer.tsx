@@ -5,12 +5,12 @@ import s from './Informer.module.scss';
 
 export enum InformerStatuses {
     INFO = 'status_info',
-    ERROR = 'status_error'
+    ERROR = 'status_error',
 }
 
 interface InformerProps {
     status?: InformerStatuses;
-    title? : string;
+    title?: string;
     text?: string | ReactNode;
     className?: string;
     showIcon?: boolean;
@@ -31,9 +31,14 @@ export const Informer = memo((props: InformerProps) => {
     } = props;
 
     return (
-        <div className={cn(s.informer, {
-            [s.informer_centered]: isCentered,
-        }, [s[status], className])}
+        <div
+            className={cn(
+                s.informer,
+                {
+                    [s.informer_centered]: isCentered,
+                },
+                [s[status], className],
+            )}
         >
             {showIcon && (
                 <InfoLine
@@ -43,14 +48,15 @@ export const Informer = memo((props: InformerProps) => {
             )}
             <div className={s.info}>
                 {title && (
-                    <h3
-                        className={s.title}
-                        data-testid={`${dataTestId}.Title`}
-                    >
+                    <h3 className={s.title} data-testid={`${dataTestId}.Title`}>
                         {title}
                     </h3>
                 )}
-                {text && <p className={s.text} data-testid={`${dataTestId}.Text`}>{text}</p>}
+                {text && (
+                    <p className={s.text} data-testid={`${dataTestId}.Text`}>
+                        {text}
+                    </p>
+                )}
             </div>
         </div>
     );

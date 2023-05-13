@@ -15,7 +15,15 @@ const sharedUiDirectory = project.getDirectory(uiPath);
 const componentDirs = sharedUiDirectory?.getDirectories();
 
 function isAbsolutePath(value: string) {
-    const layers = ['app', 'pages', 'layouts', 'widgets', 'features', 'entities', 'shared'];
+    const layers = [
+        'app',
+        'pages',
+        'layouts',
+        'widgets',
+        'features',
+        'entities',
+        'shared',
+    ];
 
     return layers.some((layer) => value.startsWith(layer));
 }
@@ -31,7 +39,9 @@ componentDirs?.forEach((dir) => {
     // если нет index-файла, создаем
     if (!indexFile) {
         const sourceCode = `export { ${moduleNamePath} } from './${moduleNamePath}';\n`;
-        const file = dir.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+        const file = dir.createSourceFile(indexFilePath, sourceCode, {
+            overwrite: true,
+        });
 
         file.save();
     }

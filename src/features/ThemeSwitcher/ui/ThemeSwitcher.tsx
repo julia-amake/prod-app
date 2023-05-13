@@ -14,10 +14,7 @@ interface ThemeSwitcherProps {
 }
 
 const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
-    const {
-        className = '',
-        isInvertedColor = false,
-    } = props;
+    const { className = '', isInvertedColor = false } = props;
 
     const { theme, toggleTheme } = useTheme();
     const { t } = useTranslation();

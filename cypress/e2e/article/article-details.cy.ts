@@ -18,9 +18,14 @@ describe('The user opened the article details page', () => {
     });
 
     it('Recommendations section loaded successfully', () => {
-        cy.getByTestId('ArticleRecommendationsList').should('exist').within(() => {
-            cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 1);
-        });
+        cy.getByTestId('ArticleRecommendationsList')
+            .should('exist')
+            .within(() => {
+                cy.getByTestId('ArticleListItem').should(
+                    'have.length.greaterThan',
+                    1,
+                );
+            });
     });
 
     it('The user leaves a comment', () => {

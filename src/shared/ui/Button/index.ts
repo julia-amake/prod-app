@@ -1,3 +1,7 @@
 export {
-    Button, ButtonSize, ButtonTheme, IconPosition, ButtonShape,
+    Button,
+    ButtonSize,
+    ButtonTheme,
+    IconPosition,
+    ButtonShape,
 } from './Button';

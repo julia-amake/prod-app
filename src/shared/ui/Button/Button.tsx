@@ -1,5 +1,9 @@
 import React, {
-    ButtonHTMLAttributes, memo, useEffect, useMemo, useState,
+    ButtonHTMLAttributes,
+    memo,
+    useEffect,
+    useMemo,
+    useState,
 } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Button.module.scss';
@@ -14,18 +18,18 @@ export enum ButtonTheme {
 export enum ButtonShape {
     ROUND = 'shape_rounded',
     SQUARE = 'shape_square',
-    CIRCLE = 'shape_circle'
+    CIRCLE = 'shape_circle',
 }
 
 export enum IconPosition {
     LEFT = 'position_left',
-    RIGHT = 'position_right'
+    RIGHT = 'position_right',
 }
 
 export enum ButtonSize {
     S = 'size_s',
     M = 'size_m',
-    L = 'size_l'
+    L = 'size_l',
 }
 
 interface ButtonIcon {
@@ -71,7 +75,8 @@ export const Button = memo((props: ButtonProps) => {
         setCurrIcon({
             element: icon.element,
             size: icon.size || size,
-            position: (!icon.position && label) ? IconPosition.RIGHT : icon.position,
+            position:
+                !icon.position && label ? IconPosition.RIGHT : icon.position,
             className: icon.className || '',
         });
     }, [label, icon, size]);
@@ -89,28 +94,38 @@ export const Button = memo((props: ButtonProps) => {
             [s.button_reverse]: icon?.position === IconPosition.LEFT,
             [s.hover_underlined]: hoverUnderlined,
         };
-    }, [Icon, label, shape, theme, isLoading, disabled, icon?.position, hoverUnderlined]);
+    }, [
+        Icon,
+        label,
+        shape,
+        theme,
+        isLoading,
+        disabled,
+        icon?.position,
+        hoverUnderlined,
+    ]);
 
     return (
         <button
-            className={cn(
-                s.button,
-                mods,
-                [className, s[theme], s[size]],
-            )}
+            className={cn(s.button, mods, [className, s[theme], s[size]])}
             type="button"
             disabled={disabled || isLoading}
             {...otherProps}
         >
             {label && (Icon ? <span>{label}</span> : label)}
             {Icon && (
-                <Icon className={cn(
-                    s.icon,
-                    {
-                        [s[`icon_${currIcon?.position}`]]: label,
-                    },
-                    [s[`icon_${theme}`], s[`icon_${currIcon?.size}`], currIcon?.className],
-                )}
+                <Icon
+                    className={cn(
+                        s.icon,
+                        {
+                            [s[`icon_${currIcon?.position}`]]: label,
+                        },
+                        [
+                            s[`icon_${theme}`],
+                            s[`icon_${currIcon?.size}`],
+                            currIcon?.className,
+                        ],
+                    )}
                 />
             )}
         </button>

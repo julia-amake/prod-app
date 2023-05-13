@@ -4,44 +4,44 @@ import HomeLine from '@/shared/assets/icons/HomeLine.svg';
 import InfoLine from '@/shared/assets/icons/InfoLine.svg';
 import ProfileLine from '@/shared/assets/icons/ProfileLine.svg';
 import {
-    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/consts/router';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../types/sidebar';
 
-export const getSidebarItems = createSelector(
-    getUserAuthData,
-    (userData) => {
-        const sidebarItemsList: SidebarItemType[] = [
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+    const sidebarItemsList: SidebarItemType[] = [
+        {
+            path: getRouteMain(),
+            title: 'Главная',
+            Icon: HomeLine,
+        },
+        {
+            path: getRouteAbout(),
+            title: 'О сайте',
+            Icon: InfoLine,
+        },
+    ];
+
+    if (userData) {
+        sidebarItemsList.push(
             {
-                path: getRouteMain(),
-                title: 'Главная',
-                Icon: HomeLine,
+                path: getRouteProfile(userData.id),
+                title: 'Профиль',
+                Icon: ProfileLine,
+                authOnly: true,
             },
             {
-                path: getRouteAbout(),
-                title: 'О сайте',
-                Icon: InfoLine,
+                path: getRouteArticles(),
+                title: 'Статьи',
+                Icon: ArticleLine,
+                authOnly: true,
             },
-        ];
+        );
+    }
 
-        if (userData) {
-            sidebarItemsList.push(
-                {
-                    path: getRouteProfile(userData.id),
-                    title: 'Профиль',
-                    Icon: ProfileLine,
-                    authOnly: true,
-                },
-                {
-                    path: getRouteArticles(),
-                    title: 'Статьи',
-                    Icon: ArticleLine,
-                    authOnly: true,
-                },
-            );
-        }
-
-        return sidebarItemsList;
-    },
-);
+    return sidebarItemsList;
+});

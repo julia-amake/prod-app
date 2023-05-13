@@ -11,8 +11,9 @@ interface CountrySelectProps {
     readOnly?: boolean;
 }
 
-const options:ListBoxOption[] = Object.values(Country).map((item) => ({
-    value: item, title: item,
+const options: ListBoxOption[] = Object.values(Country).map((item) => ({
+    value: item,
+    title: item,
 }));
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
@@ -24,9 +25,12 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
         readOnly = false,
     } = props;
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

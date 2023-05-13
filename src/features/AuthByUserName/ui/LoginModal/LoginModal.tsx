@@ -11,11 +11,7 @@ interface LoginModalProps {
 }
 
 const LoginModal: React.FC<LoginModalProps> = (props) => {
-    const {
-        isOpen,
-        onClose,
-        className = '',
-    } = props;
+    const { isOpen, onClose, className = '' } = props;
 
     return (
         <Modal

@@ -24,7 +24,10 @@ export const Popover = memo((props: PopoverProps) => {
     } = props;
 
     return (
-        <HPopover as="div" className={cn(sPopup.outer, {}, [sPopup[`outer_width_${width}`]])}>
+        <HPopover
+            as="div"
+            className={cn(sPopup.outer, {}, [sPopup[`outer_width_${width}`]])}
+        >
             <Float
                 as="div"
                 floatingAs={Fragment}
@@ -33,11 +36,15 @@ export const Popover = memo((props: PopoverProps) => {
                 className={s.float}
             >
                 <HPopover.Button
-                    className={cn(s.btn, { [sPopup.btn_disabled]: disabled }, [sPopup.btn])}
+                    className={cn(s.btn, { [sPopup.btn_disabled]: disabled }, [
+                        sPopup.btn,
+                    ])}
                 >
                     {trigger}
                 </HPopover.Button>
-                <HPopover.Panel className={cn(s.panel, {}, [sPopup.items, className])}>
+                <HPopover.Panel
+                    className={cn(s.panel, {}, [sPopup.items, className])}
+                >
                     {children}
                 </HPopover.Panel>
             </Float>

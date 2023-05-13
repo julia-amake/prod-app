@@ -52,16 +52,10 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                 <div className={cn(s.data, {})}>
                     {data.avatar && (
                         <div className={s.avatar}>
-                            <Avatar
-                                src={data.avatar}
-                            />
+                            <Avatar src={data.avatar} />
                         </div>
                     )}
-                    <HStack
-                        justify="between"
-                        wrap
-                        className={s.form}
-                    >
+                    <HStack justify="between" wrap className={s.form}>
                         <Input
                             label={t('Ваше имя')}
                             value={data?.name}

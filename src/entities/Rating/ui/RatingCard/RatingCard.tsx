@@ -1,6 +1,4 @@
-import React, {
-    memo, useCallback, useEffect, useMemo, useState,
-} from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MOBILE_LARGE } from '@/shared/consts/devices';
 import { cn } from '@/shared/lib/classNames/classNames';
@@ -20,8 +18,8 @@ interface RatingProps {
     title?: string;
     hasFeedback?: boolean;
     feedbackTitle?: string;
-    onCancel?: ((starsCount: number) => void);
-    onAccept?: ((starsCount: number, feedback?: string) => void);
+    onCancel?: (starsCount: number) => void;
+    onAccept?: (starsCount: number, feedback?: string) => void;
     className?: string;
 }
 
@@ -64,52 +62,48 @@ export const RatingCard = memo((props: RatingProps) => {
         [hasFeedback, onAccept],
     );
 
-    const cancelHandler = useCallback(
-        () => {
-            onCancel?.(starsCount);
-            setIsModalOpen(false);
-        },
-        [onCancel, starsCount],
-    );
+    const cancelHandler = useCallback(() => {
+        onCancel?.(starsCount);
+        setIsModalOpen(false);
+    }, [onCancel, starsCount]);
 
-    const acceptHandler = useCallback(
-        () => {
-            onAccept?.(starsCount, feedback);
-            setIsModalOpen(false);
-        },
-        [feedback, onAccept, starsCount],
-    );
+    const acceptHandler = useCallback(() => {
+        onAccept?.(starsCount, feedback);
+        setIsModalOpen(false);
+    }, [feedback, onAccept, starsCount]);
 
     const Feedback = useMemo(() => (isMobile ? Drawer : Modal), [isMobile]);
 
     return (
-        <div
-            className={cn(s.outer, {}, [className])}
-            data-testid="RatingCard"
-        >
-            <VStack
-                align="center"
-                gap="16"
-            >
+        <div className={cn(s.outer, {}, [className])} data-testid="RatingCard">
+            <VStack align="center" gap="16">
                 <Heading
-                    content={starsCount
-                        ? t('Спасибо за оценку!')
-                        : (title || t('Вам понравилось?'))}
+                    content={
+                        starsCount
+                            ? t('Спасибо за оценку!')
+                            : title || t('Вам понравилось?')
+                    }
                     position={HeadingPosition.CENTER}
                 />
-                <StarRating selectedStarsCount={starsCount} size={24} onSelect={onSelectStars} />
+                <StarRating
+                    selectedStarsCount={starsCount}
+                    size={24}
+                    onSelect={onSelectStars}
+                />
             </VStack>
 
-            <Feedback
-                isOpen={isModalOpen}
-                onClose={cancelHandler}
-                lazy
-            >
+            <Feedback isOpen={isModalOpen} onClose={cancelHandler} lazy>
                 <VStack fullWidth gap="32">
-                    <Heading content={feedbackTitle} size={HeadingSize.S} className={s.modalTitle} />
+                    <Heading
+                        content={feedbackTitle}
+                        size={HeadingSize.S}
+                        className={s.modalTitle}
+                    />
                     <Text
-                        content={t('Ваше мнение очень важно, '
-                                + 'именно ваша обратная связь помогает становиться лучше!')}
+                        content={t(
+                            'Ваше мнение очень важно, ' +
+                                'именно ваша обратная связь помогает становиться лучше!',
+                        )}
                         className={s.modalSubTitle}
                     />
                     <Input
@@ -120,9 +114,7 @@ export const RatingCard = memo((props: RatingProps) => {
                         className={s.textarea}
                         data-testid="RatingCard.Input"
                     />
-                    <VStack
-                        gap="8"
-                    >
+                    <VStack gap="8">
                         <Button
                             theme={ButtonTheme.OUTLINED}
                             label={t('Закрыть')}
@@ -137,7 +129,6 @@ export const RatingCard = memo((props: RatingProps) => {
                     </VStack>
                 </VStack>
             </Feedback>
-
         </div>
     );
 });

@@ -14,9 +14,7 @@ export default {
     decorators: [StoreDecorator({}), RouterDecorator()],
 } as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = (args) => (
-    <Page>Content</Page>
-);
+const Template: ComponentStory<typeof Page> = (args) => <Page>Content</Page>;
 
 export const Normal = Template.bind({});
 Normal.args = {};

@@ -17,13 +17,7 @@ interface TabsProps {
 }
 
 export const Tabs = memo((props: TabsProps) => {
-    const {
-        tabs,
-        value,
-        disabled = false,
-        onTabClick,
-        className = '',
-    } = props;
+    const { tabs, value, disabled = false, onTabClick, className = '' } = props;
 
     const btnMods = (tabValue: string) => ({
         [s.btn_active]: value === tabValue,
@@ -39,18 +33,16 @@ export const Tabs = memo((props: TabsProps) => {
 
     return (
         <div className={cn(s.outer, {}, [className])}>
-            {
-                tabs.map((tab) => (
-                    <Button
-                        label={tab.content}
-                        onClick={clickHandler(tab)}
-                        size={ButtonSize.S}
-                        key={tab.value}
-                        className={cn(s.btn, btnMods(tab.value))}
-                        disabled={disabled}
-                    />
-                ))
-            }
+            {tabs.map((tab) => (
+                <Button
+                    label={tab.content}
+                    onClick={clickHandler(tab)}
+                    size={ButtonSize.S}
+                    key={tab.value}
+                    className={cn(s.btn, btnMods(tab.value))}
+                    disabled={disabled}
+                />
+            ))}
         </div>
     );
 });

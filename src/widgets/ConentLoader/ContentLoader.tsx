@@ -9,9 +9,7 @@ interface PageLoaderProps {
 }
 
 const ContentLoader: React.FC<PageLoaderProps> = (props) => {
-    const {
-        className = '',
-    } = props;
+    const { className = '' } = props;
 
     return (
         <HStack

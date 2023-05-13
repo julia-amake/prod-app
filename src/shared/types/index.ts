@@ -10,5 +10,5 @@ export interface ItemIcon {
 type ItemIconHPosition = 'left' | 'right' | 'center';
 
 export interface ItemIconWithHPosition extends ItemIcon {
-    position: ItemIconHPosition
+    position: ItemIconHPosition;
 }

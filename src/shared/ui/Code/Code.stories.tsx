@@ -9,20 +9,19 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {
-        content: 'export default {\n'
-            + '    title: \'shared/Code\',\n'
-            + '    component: Code,\n'
-            + '    argTypes: {\n'
-            + '        backgroundColor: { control: \'color\' },\n'
-            + '    },\n'
-            + '    args: {},\n'
-            + '} as ComponentMeta<typeof Code>;',
+        content:
+            'export default {\n' +
+            "    title: 'shared/Code',\n" +
+            '    component: Code,\n' +
+            '    argTypes: {\n' +
+            "        backgroundColor: { control: 'color' },\n" +
+            '    },\n' +
+            '    args: {},\n' +
+            '} as ComponentMeta<typeof Code>;',
     },
 } as ComponentMeta<typeof Code>;
 
-const Template: ComponentStory<typeof Code> = (args) => (
-    <Code {...args} />
-);
+const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

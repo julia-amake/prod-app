@@ -8,13 +8,8 @@ const NotFoundPage: React.FC = () => {
     const { t } = useTranslation();
 
     return (
-        <Page
-            className={s.page}
-            dataTestid="NotFoundPage"
-        >
-            <PageContent>
-                {t('Страница не найдена')}
-            </PageContent>
+        <Page className={s.page} dataTestid="NotFoundPage">
+            <PageContent>{t('Страница не найдена')}</PageContent>
         </Page>
     );
 };

@@ -6,17 +6,16 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types';
 import { Input } from '@/shared/ui/Input';
-import {
-    ArticleSortField, ArticleType,
-    ArticleView,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/articleSortSelector';
 import { ArticleTypeTabs } from '@/features/articleTypeTabs';
 import { ArticleViewSelector } from '@/features/articleViewSelector';
 import {
     getArticlesPageIsLoading,
-    getArticlesPageOrder, getArticlesPageSearch,
-    getArticlesPageSort, getArticlesPageType,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
     getArticlesPageView,
 } from '../../../model/selectors/articlesPageSelectors';
 import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fetchArticlesList';
@@ -28,9 +27,7 @@ interface ArticlesPageFiltersProps {
 }
 
 export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
-    const {
-        className = '',
-    } = props;
+    const { className = '' } = props;
 
     const { t } = useTranslation();
 
@@ -42,12 +39,9 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const dispatch = useAppDispatch();
 
-    const fetchData = useCallback(
-        () => {
-            dispatch(fetchArticlesList({ replace: true }));
-        },
-        [dispatch],
-    );
+    const fetchData = useCallback(() => {
+        dispatch(fetchArticlesList({ replace: true }));
+    }, [dispatch]);
 
     const debouncedFetchData = useDebounce(fetchData, 500);
 

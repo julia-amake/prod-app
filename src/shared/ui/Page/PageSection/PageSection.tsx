@@ -10,18 +10,10 @@ interface PageSectionProps {
 }
 
 export const PageSection = (props: PageSectionProps) => {
-    const {
-        title,
-        children,
-        className = '',
-        ...otherProps
-    } = props;
+    const { title, children, className = '', ...otherProps } = props;
 
     return (
-        <div
-            className={cn(s.outer, {}, [className])}
-            {...otherProps}
-        >
+        <div className={cn(s.outer, {}, [className])} {...otherProps}>
             {title && (
                 <Heading
                     content={title}

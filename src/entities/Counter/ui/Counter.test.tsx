@@ -24,29 +24,23 @@ describe('Counter component', () => {
         expect(screen.getByTestId('value-title')).toHaveTextContent('11');
     });
 
-    test(
-        'decrement',
-        async () => {
-            componentRender(<Counter />, {
-                initialState: {
-                    counter: { value: 10 },
-                },
-            });
-            await userEvent.click(screen.getByTestId('decrement-btn'));
-            expect(screen.getByTestId('value-title')).toHaveTextContent('9');
-        },
-    );
+    test('decrement', async () => {
+        componentRender(<Counter />, {
+            initialState: {
+                counter: { value: 10 },
+            },
+        });
+        await userEvent.click(screen.getByTestId('decrement-btn'));
+        expect(screen.getByTestId('value-title')).toHaveTextContent('9');
+    });
 
-    test(
-        'add 5',
-        async () => {
-            componentRender(<Counter />, {
-                initialState: {
-                    counter: { value: 10 },
-                },
-            });
-            await userEvent.click(screen.getByTestId('five-button'));
-            expect(screen.getByTestId('value-title')).toHaveTextContent('15');
-        },
-    );
+    test('add 5', async () => {
+        componentRender(<Counter />, {
+            initialState: {
+                counter: { value: 10 },
+            },
+        });
+        await userEvent.click(screen.getByTestId('five-button'));
+        expect(screen.getByTestId('value-title')).toHaveTextContent('15');
+    });
 });

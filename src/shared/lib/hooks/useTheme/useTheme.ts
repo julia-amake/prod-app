@@ -14,14 +14,14 @@ export function useTheme(): useThemeResult {
     const toggleTheme = () => {
         const getTheme = () => {
             switch (theme) {
-            case Theme.DARK:
-                return Theme.LIGHT;
-            case Theme.LIGHT:
-                return Theme.COLORED;
-            case Theme.COLORED:
-                return Theme.DARK;
-            default:
-                return Theme.LIGHT;
+                case Theme.DARK:
+                    return Theme.LIGHT;
+                case Theme.LIGHT:
+                    return Theme.COLORED;
+                case Theme.COLORED:
+                    return Theme.DARK;
+                default:
+                    return Theme.LIGHT;
             }
         };
 

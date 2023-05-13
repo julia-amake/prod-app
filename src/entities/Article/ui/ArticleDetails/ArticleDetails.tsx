@@ -1,13 +1,14 @@
-import React, {
-    memo, useCallback, useMemo,
-} from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import CalendarLine from '@/shared/assets/icons/CalendarLine.svg';
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import {
+    ReducersList,
+    useDynamicModuleLoader,
+} from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Heading, HeadingSize } from '@/shared/ui/Heading';
 import { ContentImage } from '@/shared/ui/Image';
@@ -23,9 +24,7 @@ import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArt
 import { ArticleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-    ArticleDividerBlockComponent,
-} from '../ArticleDividerBlockComponent/ArticleDividerBlockComponent';
+import { ArticleDividerBlockComponent } from '../ArticleDividerBlockComponent/ArticleDividerBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import s from './ArticleDetails.module.scss';
@@ -41,11 +40,7 @@ interface ArticleDetailsProps {
 }
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-    const {
-        id,
-        isLoading,
-        className = '',
-    } = props;
+    const { id, isLoading, className = '' } = props;
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -56,42 +51,44 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const renderBlock = useCallback(
         (block: ArticleBlock) => {
-            const mods = { [s.block_last]: data?.blocks[data.blocks.length - 1] === block };
+            const mods = {
+                [s.block_last]: data?.blocks[data.blocks.length - 1] === block,
+            };
 
             switch (block.type) {
-            case ArticleBlockType.TEXT:
-                return (
-                    <ArticleTextBlockComponent
-                        block={block}
-                        key={block.id}
-                        className={cn(s.block, mods)}
-                    />
-                );
-            case ArticleBlockType.CODE:
-                return (
-                    <ArticleCodeBlockComponent
-                        block={block}
-                        key={block.id}
-                        className={cn(s.block, mods)}
-                    />
-                );
-            case ArticleBlockType.IMAGE:
-                return (
-                    <ArticleImageBlockComponent
-                        block={block}
-                        key={block.id}
-                        className={cn(s.block, mods)}
-                    />
-                );
-            case ArticleBlockType.DIVIDER:
-                return (
-                    <ArticleDividerBlockComponent
-                        key={block.id}
-                        className={cn(s.block, mods)}
-                    />
-                );
-            default:
-                return null;
+                case ArticleBlockType.TEXT:
+                    return (
+                        <ArticleTextBlockComponent
+                            block={block}
+                            key={block.id}
+                            className={cn(s.block, mods)}
+                        />
+                    );
+                case ArticleBlockType.CODE:
+                    return (
+                        <ArticleCodeBlockComponent
+                            block={block}
+                            key={block.id}
+                            className={cn(s.block, mods)}
+                        />
+                    );
+                case ArticleBlockType.IMAGE:
+                    return (
+                        <ArticleImageBlockComponent
+                            block={block}
+                            key={block.id}
+                            className={cn(s.block, mods)}
+                        />
+                    );
+                case ArticleBlockType.DIVIDER:
+                    return (
+                        <ArticleDividerBlockComponent
+                            key={block.id}
+                            className={cn(s.block, mods)}
+                        />
+                    );
+                default:
+                    return null;
             }
         },
         [data],
@@ -111,16 +108,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         marginBottom={20}
                         borderRadius={16}
                     />
-                    <Skeleton
-                        width="50%"
-                        height={18}
-                        marginBottom={10}
-                    />
-                    <Skeleton
-                        width="40%"
-                        height={18}
-                        marginBottom={16}
-                    />
+                    <Skeleton width="50%" height={18} marginBottom={10} />
+                    <Skeleton width="40%" height={18} marginBottom={16} />
                     <Skeleton
                         width={86}
                         height={16}
@@ -128,31 +117,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         marginRight={10}
                         inline
                     />
-                    <Skeleton
-                        width={86}
-                        height={16}
-                        marginBottom={24}
-                        inline
-                    />
-                    <Skeleton
-                        width="100%"
-                        height={360}
-                        marginBottom={24}
-                    />
-                    <Skeleton
-                        width="90%"
-                        height={18}
-                        marginBottom={10}
-                    />
-                    <Skeleton
-                        width="90%"
-                        height={18}
-                        marginBottom={10}
-                    />
-                    <Skeleton
-                        width="70%"
-                        height={18}
-                    />
+                    <Skeleton width={86} height={16} marginBottom={24} inline />
+                    <Skeleton width="100%" height={360} marginBottom={24} />
+                    <Skeleton width="90%" height={18} marginBottom={10} />
+                    <Skeleton width="90%" height={18} marginBottom={10} />
+                    <Skeleton width="70%" height={18} />
                 </>
             );
         }
@@ -191,18 +160,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         />
                     </div>
                 </div>
-                <ContentImage
-                    src={data.image}
-                    alt=""
-                />
+                <ContentImage src={data.image} alt="" />
                 {data.blocks.map((block) => renderBlock(block))}
             </>
         );
     }, [renderBlock, isLoading, error, data, t]);
 
-    return (
-        <div className={cn(s.outer, {}, [className])}>
-            {content}
-        </div>
-    );
+    return <div className={cn(s.outer, {}, [className])}>{content}</div>;
 });

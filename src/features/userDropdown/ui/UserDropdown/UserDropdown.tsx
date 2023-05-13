@@ -8,19 +8,19 @@ import { getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups/ui';
 import {
-    getIsAdmin, getIsManager, getUserAuthData, userActions,
+    getIsAdmin,
+    getIsManager,
+    getUserAuthData,
+    userActions,
 } from '@/entities/User';
 
 interface UserDropdownProps {
     className?: string;
-    setIsAuthModal: (value: boolean) => void
+    setIsAuthModal: (value: boolean) => void;
 }
 
 export const UserDropdown = memo((props: UserDropdownProps) => {
-    const {
-        setIsAuthModal,
-        className = '',
-    } = props;
+    const { setIsAuthModal, className = '' } = props;
 
     const { t } = useTranslation();
     const isAdmin = useSelector(getIsAdmin);
@@ -41,13 +41,17 @@ export const UserDropdown = memo((props: UserDropdownProps) => {
             width="auto"
             trigger={<Avatar size={40} src={authData.avatar} />}
             items={[
-                ...showAdminPanel ? [{
-                    title: t('Панель управления'),
-                    icon: {
-                        element: Settings,
-                    },
-                    to: getRouteAdminPanel(),
-                }] : [],
+                ...(showAdminPanel
+                    ? [
+                          {
+                              title: t('Панель управления'),
+                              icon: {
+                                  element: Settings,
+                              },
+                              to: getRouteAdminPanel(),
+                          },
+                      ]
+                    : []),
                 {
                     title: t('Мой профиль'),
                     icon: {

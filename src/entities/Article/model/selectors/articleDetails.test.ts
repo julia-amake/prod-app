@@ -21,18 +21,19 @@ describe('getArticleDetailsData.test', () => {
                     id: '1',
                     type: ArticleBlockType.TEXT,
                     paragraphs: [
-                        'Когда я начал изучать JavaScript, то первым делом составил список приемов, '
-                        + 'которые помогали мне экономить время. Я подсмотрел их у&nbsp;других программистов, '
-                        + 'на&nbsp;разных сайтах и&nbsp;в&nbsp;мануалах.',
-                        'В&nbsp;этой статье я покажу 12&nbsp;отличных способов улучшить и&nbsp;ускорить '
-                        + 'свой JavaScript-код. В&nbsp;большинстве случаев они универсальны.',
+                        'Когда я начал изучать JavaScript, то первым делом составил список приемов, ' +
+                            'которые помогали мне экономить время. Я подсмотрел их у&nbsp;других программистов, ' +
+                            'на&nbsp;разных сайтах и&nbsp;в&nbsp;мануалах.',
+                        'В&nbsp;этой статье я покажу 12&nbsp;отличных способов улучшить и&nbsp;ускорить ' +
+                            'свой JavaScript-код. В&nbsp;большинстве случаев они универсальны.',
                     ],
                 },
                 {
                     id: '4',
                     type: ArticleBlockType.CODE,
-                    code: 'const array = [1, 1, 2, 3, 5, 5, 1]\nconst uniqueArray = '
-                        + '[...new Set(array)];\n \nconsole.log(uniqueArray); // Result: [1, 2, 3, 5]',
+                    code:
+                        'const array = [1, 1, 2, 3, 5, 5, 1]\nconst uniqueArray = ' +
+                        '[...new Set(array)];\n \nconsole.log(uniqueArray); // Result: [1, 2, 3, 5]',
                 },
             ],
         };
@@ -43,8 +44,7 @@ describe('getArticleDetailsData.test', () => {
             },
         };
 
-        expect(getArticleDetailsData(state as StateSchema))
-            .toEqual(data);
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(data);
     });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};

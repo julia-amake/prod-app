@@ -10,33 +10,32 @@ export const initArticlesPage = createAsyncThunk<
     void,
     URLSearchParams,
     ThunkConfig<string>
-    >(
-        'article/initArticlesPage',
-        async (searchParams, thunkAPI) => {
-            const { getState, dispatch } = thunkAPI;
-            const inited = getArticlesPageIsInitialized(getState());
+>('article/initArticlesPage', async (searchParams, thunkAPI) => {
+    const { getState, dispatch } = thunkAPI;
+    const inited = getArticlesPageIsInitialized(getState());
 
-            if (inited) return;
+    if (inited) return;
 
-            searchParams.forEach((value, key) => {
-                // eslint-disable-next-line default-case
-                switch (key) {
-                case 'order':
-                    dispatch(articlesPageActions.setOrder(value as SortOrder));
-                    break;
-                case 'sort':
-                    dispatch(articlesPageActions.setSort(value as ArticleSortField));
-                    break;
-                case 'search':
-                    dispatch(articlesPageActions.setSearch(value));
-                    break;
-                case 'type':
-                    dispatch(articlesPageActions.setType(value as ArticleType));
-                    break;
-                }
-            });
+    searchParams.forEach((value, key) => {
+        // eslint-disable-next-line default-case
+        switch (key) {
+            case 'order':
+                dispatch(articlesPageActions.setOrder(value as SortOrder));
+                break;
+            case 'sort':
+                dispatch(
+                    articlesPageActions.setSort(value as ArticleSortField),
+                );
+                break;
+            case 'search':
+                dispatch(articlesPageActions.setSearch(value));
+                break;
+            case 'type':
+                dispatch(articlesPageActions.setType(value as ArticleType));
+                break;
+        }
+    });
 
-            dispatch(articlesPageActions.initState());
-            dispatch(fetchArticlesList({}));
-        },
-    );
+    dispatch(articlesPageActions.initState());
+    dispatch(fetchArticlesList({}));
+});

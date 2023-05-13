@@ -3,7 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import {
+    ReducersList,
+    useDynamicModuleLoader,
+} from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { Button } from '@/shared/ui/Button';
 import { Heading, HeadingSize } from '@/shared/ui/Heading';
 import { Informer } from '@/shared/ui/Informer';
@@ -26,10 +29,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
-    const {
-        onSuccess,
-        className = '',
-    } = props;
+    const { onSuccess, className = '' } = props;
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -40,13 +40,19 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     useDynamicModuleLoader(initialReducers, true);
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));

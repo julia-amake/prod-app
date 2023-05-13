@@ -16,7 +16,8 @@ export default {
     },
     decorators: [
         StoreDecorator({}),
-        RouterDecorator('/article/1', '/article/:id')],
+        RouterDecorator('/article/1', '/article/:id'),
+    ],
     parameters: {
         mockData: [
             {
@@ -33,6 +34,8 @@ export default {
     },
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
+);
 
 export const Normal = Template.bind({});

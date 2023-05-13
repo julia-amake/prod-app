@@ -14,7 +14,10 @@ export default {
 } as ComponentMeta<typeof AppImage>;
 
 const Template: ComponentStory<typeof AppImage> = (args) => (
-    <AppImage {...args} style={{ width: '100%', height: 300, objectFit: 'cover' }} />
+    <AppImage
+        {...args}
+        style={{ width: '100%', height: 300, objectFit: 'cover' }}
+    />
 );
 
 export const Normal = Template.bind({});

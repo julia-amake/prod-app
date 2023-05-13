@@ -8,9 +8,7 @@ const AboutPage = () => {
 
     return (
         <Page dataTestid="AboutPage">
-            <PageContent>
-                {t('О сайте')}
-            </PageContent>
+            <PageContent>{t('О сайте')}</PageContent>
         </Page>
     );
 };

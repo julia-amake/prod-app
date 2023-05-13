@@ -21,11 +21,13 @@ const Template: ComponentStory<typeof AddCommentForm> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    addCommentForm: {
-        text: 'Some',
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        addCommentForm: {
+            text: 'Some',
+        },
+    }),
+];
 
 export const Disabled = Template.bind({});
 Disabled.decorators = [StoreDecorator({})];

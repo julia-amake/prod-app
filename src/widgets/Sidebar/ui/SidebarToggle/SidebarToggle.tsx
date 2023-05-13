@@ -1,6 +1,4 @@
-import React, {
-    Dispatch, memo, SetStateAction,
-} from 'react';
+import React, { Dispatch, memo, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
 import ArrowLeft from '@/shared/assets/icons/ArrowLeftSimpleLine.svg';
 import ArrowRight from '@/shared/assets/icons/ArrowRightSimpleLine.svg';
@@ -14,10 +12,7 @@ interface SidebarToggleProps {
 }
 
 const SidebarToggle = memo((props: SidebarToggleProps) => {
-    const {
-        collapsed,
-        setCollapsed,
-    } = props;
+    const { collapsed, setCollapsed } = props;
 
     const { t } = useTranslation();
 

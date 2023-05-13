@@ -1,12 +1,13 @@
-import React, {
-    memo, useCallback, useMemo,
-} from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
-import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi';
+import {
+    useGetArticleRating,
+    useRateArticle,
+} from '../../api/articleRatingApi';
 
 export interface ArticleRatingProps {
     articleId: string;
@@ -14,14 +15,14 @@ export interface ArticleRatingProps {
 }
 
 const ArticleRating = memo((props: ArticleRatingProps) => {
-    const {
-        articleId,
-        className = '',
-    } = props;
+    const { articleId, className = '' } = props;
 
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
-    const { data, isLoading } = useGetArticleRating({ articleId, userId: userData?.id ?? '' });
+    const { data, isLoading } = useGetArticleRating({
+        articleId,
+        userId: userData?.id ?? '',
+    });
     const [rateArticle] = useRateArticle();
 
     // eslint-disable-next-line

@@ -1,6 +1,4 @@
-import React, {
-    memo, useEffect, useState,
-} from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import StarFilled from '@/shared/assets/icons/StarFilled.svg';
 import StarLine from '@/shared/assets/icons/StarLine.svg';
@@ -36,7 +34,8 @@ export const StarRating = memo((props: StarRatingProps) => {
         setCurrStarsCount(selectedStarsCount);
     }, [selectedStarsCount]);
 
-    const StarIcon = (isSelected: boolean) => (isSelected ? StarFilled : StarLine);
+    const StarIcon = (isSelected: boolean) =>
+        isSelected ? StarFilled : StarLine;
 
     const onStarEnter = (starsCount: number) => () => {
         if (isSelected) return;
@@ -57,34 +56,40 @@ export const StarRating = memo((props: StarRatingProps) => {
     };
 
     return (
-        <HStack
-            align="center"
-            className={cn(s.outer, {}, [className])}
-        >
-            {
-                stars.map((starNumber) => (
-                    <div
-                        className={cn(s.star, { [s.star_hovered]: !isSelected && hoveredStarsCount >= starNumber })}
-                        key={starNumber}
-                        onMouseEnter={onStarEnter(starNumber)}
-                        onMouseLeave={onStarLeave}
-                        onClick={onStarClick(starNumber)}
-                        data-testid={`StarRating.Star-${starNumber}`}
-                        data-selected={isSelected && currStarsCount >= starNumber}
-                    >
-                        <Icon
-                            svg={StarIcon(hoveredStarsCount >= starNumber || currStarsCount >= starNumber)}
-                            width={size}
-                            height={size}
-                            className={cn(s.icon, {
-                                [s.icon_hovered]: !isSelected && hoveredStarsCount >= starNumber,
-                            })}
-                        />
-                        {starNumber === 1 && <div className={s.text}>{t('Плохо')}</div>}
-                        {starNumber === 5 && <div className={s.text}>{t('Отлично')}</div>}
-                    </div>
-                ))
-            }
+        <HStack align="center" className={cn(s.outer, {}, [className])}>
+            {stars.map((starNumber) => (
+                <div
+                    className={cn(s.star, {
+                        [s.star_hovered]:
+                            !isSelected && hoveredStarsCount >= starNumber,
+                    })}
+                    key={starNumber}
+                    onMouseEnter={onStarEnter(starNumber)}
+                    onMouseLeave={onStarLeave}
+                    onClick={onStarClick(starNumber)}
+                    data-testid={`StarRating.Star-${starNumber}`}
+                    data-selected={isSelected && currStarsCount >= starNumber}
+                >
+                    <Icon
+                        svg={StarIcon(
+                            hoveredStarsCount >= starNumber ||
+                                currStarsCount >= starNumber,
+                        )}
+                        width={size}
+                        height={size}
+                        className={cn(s.icon, {
+                            [s.icon_hovered]:
+                                !isSelected && hoveredStarsCount >= starNumber,
+                        })}
+                    />
+                    {starNumber === 1 && (
+                        <div className={s.text}>{t('Плохо')}</div>
+                    )}
+                    {starNumber === 5 && (
+                        <div className={s.text}>{t('Отлично')}</div>
+                    )}
+                </div>
+            ))}
         </HStack>
     );
 });

@@ -8,7 +8,7 @@ export enum AppRoutes {
     ARTICLE_EDIT = 'article_edit',
     ADMIN_PANEL = 'admin_panel',
     FORBIDDEN = 'forbidden',
-    NOT_FOUND = 'not_found'
+    NOT_FOUND = 'not_found',
 }
 
 export const getRouteMain = () => '/';
@@ -24,15 +24,15 @@ export const getRouteNotFound = () => '*';
 
 export const getRoute = (pathName: AppRoutes, id?: string) => {
     switch (pathName) {
-    case AppRoutes.MAIN:
-        return '/';
-    case AppRoutes.PROFILE:
-    case AppRoutes.ARTICLE_DETAILS:
-    case AppRoutes.ARTICLE_EDIT:
-        return `/${pathName}/${id}`;
-    case AppRoutes.NOT_FOUND:
-        return '*';
-    default:
-        return `/${pathName}`;
+        case AppRoutes.MAIN:
+            return '/';
+        case AppRoutes.PROFILE:
+        case AppRoutes.ARTICLE_DETAILS:
+        case AppRoutes.ARTICLE_EDIT:
+            return `/${pathName}/${id}`;
+        case AppRoutes.NOT_FOUND:
+            return '*';
+        default:
+            return `/${pathName}`;
     }
 };

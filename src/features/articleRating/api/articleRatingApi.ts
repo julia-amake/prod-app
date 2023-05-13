@@ -11,7 +11,9 @@ interface RateArticleArgs extends ArticleRatingArgs {
     feedback?: string;
 }
 
-const articleRatingApiWithTag = rtkApi.enhanceEndpoints({ addTagTypes: ['ArticleRating'] });
+const articleRatingApiWithTag = rtkApi.enhanceEndpoints({
+    addTagTypes: ['ArticleRating'],
+});
 
 const articleRatingApi = articleRatingApiWithTag.injectEndpoints({
     endpoints: (build) => ({

@@ -39,11 +39,11 @@ export const Text = memo((props: ParagraphProps) => {
     return (
         <Tag
             {...getDangerouslySetInnerHTML(content)}
-            className={cn(
-                s.outer,
-                { [s.bold]: isBold },
-                [s[size], s[margin], className],
-            )}
+            className={cn(s.outer, { [s.bold]: isBold }, [
+                s[size],
+                s[margin],
+                className,
+            ])}
         />
     );
 });

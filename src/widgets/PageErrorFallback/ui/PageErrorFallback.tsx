@@ -22,11 +22,12 @@ const PageErrorFallback: React.FC<PageErrorFallbackProps> = (props) => {
             gap="24"
             fullWidth
         >
-            <Heading position={HeadingPosition.CENTER} content={t('Что-то пошло не так')} size={HeadingSize.M} />
-            <Button
-                label={t('Обновить страницу')}
-                onClick={onReloadPage}
+            <Heading
+                position={HeadingPosition.CENTER}
+                content={t('Что-то пошло не так')}
+                size={HeadingSize.M}
             />
+            <Button label={t('Обновить страницу')} onClick={onReloadPage} />
         </VStack>
     );
 };

@@ -8,9 +8,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-
-    },
+    args: {},
 } as ComponentMeta<typeof Preloader>;
 
 const Template: ComponentStory<typeof Preloader> = (args) => (
@@ -18,6 +16,4 @@ const Template: ComponentStory<typeof Preloader> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
+Normal.args = {};

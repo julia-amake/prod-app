@@ -19,9 +19,5 @@ const Template: ComponentStory<typeof LoginModal> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {
-
-};
-Primary.decorators = [
-    StoreDecorator({}),
-];
+Primary.args = {};
+Primary.decorators = [StoreDecorator({})];

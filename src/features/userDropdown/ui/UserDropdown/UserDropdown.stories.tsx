@@ -19,7 +19,8 @@ export default {
                     roles: [UserRole.ADMIN],
                 },
             },
-        })],
+        }),
+    ],
 } as ComponentMeta<typeof UserDropdown>;
 
 const Template: ComponentStory<typeof UserDropdown> = (args) => (

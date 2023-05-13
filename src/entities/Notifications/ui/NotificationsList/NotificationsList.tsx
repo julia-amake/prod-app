@@ -1,6 +1,4 @@
-import React, {
-    memo, useEffect, useMemo, useState,
-} from 'react';
+import React, { memo, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
@@ -17,16 +15,15 @@ interface NotificationsListProps {
 }
 
 export const NotificationsList = memo((props: NotificationsListProps) => {
-    const {
-        isShort = true,
-        className = '',
-    } = props;
+    const { isShort = true, className = '' } = props;
 
     const { t } = useTranslation();
     const { data, isLoading, error } = useGetNotificationsList(null, {
         pollingInterval: 5000,
     });
-    const [notifications, setNotifications] = useState<Notification[] | null>(null);
+    const [notifications, setNotifications] = useState<Notification[] | null>(
+        null,
+    );
     const [shownAll, setShownAll] = useState(false);
 
     useEffect(() => {
@@ -83,7 +80,7 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
                 content={t('Уведомления')}
             />
             {content}
-            {isShort && !shownAll && (data && data?.length > 5) && (
+            {isShort && !shownAll && data && data?.length > 5 && (
                 <Button
                     className={s.more}
                     label={t('Показать все')}

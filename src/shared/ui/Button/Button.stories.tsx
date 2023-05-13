@@ -1,8 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import {
-    Button, ButtonShape, ButtonSize, ButtonTheme,
-} from './Button';
+import { Button, ButtonShape, ButtonSize, ButtonTheme } from './Button';
 
 export default {
     title: 'shared/Button',

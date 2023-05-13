@@ -8,7 +8,7 @@ export enum ArticleBlockType {
     'TEXT' = 'TEXT',
     'CODE' = 'CODE',
     'IMAGE' = 'IMAGE',
-    'DIVIDER' = 'DIVIDER'
+    'DIVIDER' = 'DIVIDER',
 }
 
 export enum ArticleType {
@@ -16,10 +16,10 @@ export enum ArticleType {
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMIC = 'ECONOMIC',
-    PEOPLE = 'PEOPLE'
+    PEOPLE = 'PEOPLE',
 }
 
 export enum ArticleView {
     LIST = 'LIST',
-    GRID = 'GRID'
+    GRID = 'GRID',
 }

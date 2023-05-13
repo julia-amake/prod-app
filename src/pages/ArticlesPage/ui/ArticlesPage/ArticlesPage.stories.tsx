@@ -12,10 +12,7 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {},
-    decorators: [
-        StoreDecorator({}),
-        RouterDecorator('/article'),
-    ],
+    decorators: [StoreDecorator({}), RouterDecorator('/article')],
     parameters: {
         mockData: [
             {

@@ -10,6 +10,8 @@ module.exports = {
         'plugin:i18next/recommended',
         'plugin:import/recommended',
         'plugin:import/typescript',
+        'prettier',
+        'plugin:storybook/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -28,9 +30,6 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', 'tsx'] },
@@ -44,6 +43,10 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/jsx-no-useless-fragment': 'warn',
+        'react/jsx-max-props-per-line': [
+            'error',
+            { maximum: 3, when: 'multiline' },
+        ],
         'react/function-component-definition': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
@@ -63,7 +66,8 @@ module.exports = {
         'no-console': 'warn',
         'no-undef': 'off',
         'i18next/no-literal-string': [
-            2, {
+            2,
+            {
                 markupOnly: true,
                 ignoreComponent: ['ButtonThrow'],
                 onlyAttribute: [''],
@@ -77,16 +81,25 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
-            }],
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.stories.*',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
         'amake-plugin/layer-imports': [
             'error',
             {
                 alias: '@',
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-            }],
+            },
+        ],
         'unused-imports/no-unused-imports': 'error',
-        'sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true }],
+        'sort-imports': [
+            'error',
+            { ignoreCase: true, ignoreDeclarationSort: true },
+        ],
         'import/order': [
             'error',
             {

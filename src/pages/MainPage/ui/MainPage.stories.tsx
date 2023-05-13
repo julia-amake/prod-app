@@ -13,9 +13,7 @@ export default {
     decorators: [RouterDecorator()],
 } as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = () => (
-    <MainPage />
-);
+const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

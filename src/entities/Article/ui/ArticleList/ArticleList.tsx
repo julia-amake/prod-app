@@ -16,12 +16,7 @@ interface ArticleListProps {
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-    const {
-        articles,
-        view,
-        isLoading,
-        className = '',
-    } = props;
+    const { articles, view, isLoading, className = '' } = props;
 
     const { t } = useTranslation();
 
@@ -39,28 +34,34 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     return (
         <div
-            className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}
+            className={cn(
+                s.outer,
+                { [s.outer_list]: view === ArticleView.LIST },
+                [className],
+            )}
             data-testid="ArticleList"
         >
             {articles?.length
                 ? articles.map((article) => (
-                    <ArticleListItem
-                        article={article}
-                        view={view}
-                        key={article.id}
-                        className={cn(s.item)}
-                    />
-                ))
+                      <ArticleListItem
+                          article={article}
+                          view={view}
+                          key={article.id}
+                          className={cn(s.item)}
+                      />
+                  ))
                 : null}
-            {isLoading && (
-                Array.from(Array(view === ArticleView.GRID ? 6 : 3), (_, idx) => (
-                    <ArticleListItemSkeleton
-                        view={view}
-                        className={cn(s.item)}
-                        key={idx}
-                    />
-                ))
-            )}
+            {isLoading &&
+                Array.from(
+                    Array(view === ArticleView.GRID ? 6 : 3),
+                    (_, idx) => (
+                        <ArticleListItemSkeleton
+                            view={view}
+                            className={cn(s.item)}
+                            key={idx}
+                        />
+                    ),
+                )}
         </div>
     );
 });

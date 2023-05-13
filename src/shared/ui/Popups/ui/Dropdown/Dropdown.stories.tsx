@@ -22,22 +22,14 @@ const Template: ComponentStory<typeof Dropdown> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {
     trigger: <Button label="Открыть" size={ButtonSize.M} />,
-    items: [
-        { title: 'Первый' },
-        { title: 'Второй' },
-        { title: 'Третий' },
-    ],
+    items: [{ title: 'Первый' }, { title: 'Второй' }, { title: 'Третий' }],
 };
 
 export const WithTitle = Template.bind({});
 WithTitle.args = {
     title: 'Заголовок',
     trigger: <Button label="Открыть" size={ButtonSize.M} />,
-    items: [
-        { title: 'Первый' },
-        { title: 'Второй' },
-        { title: 'Третий' },
-    ],
+    items: [{ title: 'Первый' }, { title: 'Второй' }, { title: 'Третий' }],
 };
 
 export const WithIcons = Template.bind({});

@@ -8,16 +8,11 @@ interface PageHeaderProps {
 }
 
 export const PageHeader = (props: PageHeaderProps) => {
-    const {
-        children,
-        className = '',
-    } = props;
+    const { children, className = '' } = props;
 
     return (
         <div className={cn(s.outer, {}, [className])}>
-            <div className={s.container}>
-                {children}
-            </div>
+            <div className={s.container}>{children}</div>
         </div>
     );
 };

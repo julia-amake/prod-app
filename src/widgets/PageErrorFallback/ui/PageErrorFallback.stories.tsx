@@ -18,7 +18,5 @@ const Template: ComponentStory<typeof PageErrorFallback> = (args) => (
 );
 
 export const Light = Template.bind({});
-Light.args = {
-
-};
+Light.args = {};
 Light.decorators = [StoreDecorator({})];

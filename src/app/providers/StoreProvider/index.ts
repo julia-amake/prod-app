@@ -12,6 +12,4 @@ export type {
     ThunkConfig,
 } from './config/StateSchema';
 
-export {
-    StoreProvider,
-};
+export { StoreProvider };

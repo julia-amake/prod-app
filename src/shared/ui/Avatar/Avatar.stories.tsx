@@ -11,14 +11,10 @@ export default {
     },
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => (
-    <Avatar {...args} />
-);
+const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-
-};
+Primary.args = {};
 
 export const CustomSize = Template.bind({});
 CustomSize.args = {

@@ -20,24 +20,42 @@ const profileData = {
 describe('profileSlice.test', () => {
     test('set readonly from false to true', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: false };
-        expect(profileReducer(state as ProfileSchema, profileActions.setReadOnly(true)))
-            .toEqual({ readonly: true });
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.setReadOnly(true),
+            ),
+        ).toEqual({ readonly: true });
     });
     test('set readonly from true to false', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: true };
-        expect(profileReducer(state as ProfileSchema, profileActions.setReadOnly(false)))
-            .toEqual({ readonly: false });
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.setReadOnly(false),
+            ),
+        ).toEqual({ readonly: false });
     });
     test('set readonly from true to true', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: true };
-        expect(profileReducer(state as ProfileSchema, profileActions.setReadOnly(true)))
-            .toEqual({ readonly: true });
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.setReadOnly(true),
+            ),
+        ).toEqual({ readonly: true });
     });
 
     test('update profile', () => {
-        const state: DeepPartial<ProfileSchema> = { formData: { name: 'Prev', age: 40 } };
-        expect(profileReducer(state as ProfileSchema, profileActions.updateProfile({ name: 'New', age: 30 })))
-            .toEqual({ formData: { name: 'New', age: 30 } });
+        const state: DeepPartial<ProfileSchema> = {
+            formData: { name: 'Prev', age: 40 },
+        };
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.updateProfile({ name: 'New', age: 30 }),
+            ),
+        ).toEqual({ formData: { name: 'New', age: 30 } });
     });
 
     test('reset form data', () => {
@@ -47,13 +65,17 @@ describe('profileSlice.test', () => {
             formData: { name: 'new name', age: 40 },
             validateErrors: [ValidateProfileError.INCORRECT_USER_DATA],
         };
-        expect(profileReducer(state as ProfileSchema, profileActions.resetFormData()))
-            .toEqual({
-                readonly: true,
-                data: { name: 'name', age: 30 },
-                formData: { name: 'name', age: 30 },
-                validateErrors: [],
-            });
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.resetFormData(),
+            ),
+        ).toEqual({
+            readonly: true,
+            data: { name: 'name', age: 30 },
+            formData: { name: 'name', age: 30 },
+            validateErrors: [],
+        });
     });
 
     test('update profile service pending', () => {
@@ -64,14 +86,12 @@ describe('profileSlice.test', () => {
                 ValidateProfileError.INCORRECT_AGE,
             ],
         };
-        expect(profileReducer(
-            state as ProfileSchema,
-            updateProfileData.pending,
-        ))
-            .toEqual({
-                isLoading: true,
-                validateErrors: [],
-            });
+        expect(
+            profileReducer(state as ProfileSchema, updateProfileData.pending),
+        ).toEqual({
+            isLoading: true,
+            validateErrors: [],
+        });
     });
 
     test('update profile service fulfilled', () => {
@@ -85,16 +105,17 @@ describe('profileSlice.test', () => {
             ],
             readonly: false,
         };
-        expect(profileReducer(
-            state as ProfileSchema,
-            updateProfileData.fulfilled(profileData, ''),
-        ))
-            .toEqual({
-                isLoading: false,
-                data: profileData,
-                formData: profileData,
-                validateErrors: [],
-                readonly: true,
-            });
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                updateProfileData.fulfilled(profileData, ''),
+            ),
+        ).toEqual({
+            isLoading: false,
+            data: profileData,
+            formData: profileData,
+            validateErrors: [],
+            readonly: true,
+        });
     });
 });

@@ -23,8 +23,7 @@ describe('getProfileFormData.test', () => {
             },
         };
 
-        expect(getProfileFormData(state as StateSchema))
-            .toEqual(data);
+        expect(getProfileFormData(state as StateSchema)).toEqual(data);
     });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};

@@ -1,8 +1,6 @@
 import { Menu } from '@headlessui/react';
 import { Float } from '@headlessui-float/react';
-import React, {
-    ElementType, Fragment, memo, ReactNode,
-} from 'react';
+import React, { ElementType, Fragment, memo, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { ItemIcon } from '@/shared/types';
@@ -12,7 +10,7 @@ import { PopoverWidth } from '../../types/popover';
 import s from './Dropdown.module.scss';
 
 interface DropdownItem {
-    title: string,
+    title: string;
     icon?: ItemIcon;
     onClick?: () => void;
     to?: string;
@@ -39,7 +37,13 @@ export const Dropdown = memo((props: DropdownProps) => {
     } = props;
 
     return (
-        <Menu as="div" className={cn(sPopup.outer, {}, [sPopup[`outer_width_${width}`], className])}>
+        <Menu
+            as="div"
+            className={cn(sPopup.outer, {}, [
+                sPopup[`outer_width_${width}`],
+                className,
+            ])}
+        >
             <Float
                 as="div"
                 floatingAs={Fragment}
@@ -47,9 +51,17 @@ export const Dropdown = memo((props: DropdownProps) => {
                 flip={8}
                 className={s.float}
             >
-                <Menu.Button className={cn(s.btn, { [sPopup.btn_disabled]: disabled }, [sPopup.btn])}>{trigger}</Menu.Button>
+                <Menu.Button
+                    className={cn(s.btn, { [sPopup.btn_disabled]: disabled }, [
+                        sPopup.btn,
+                    ])}
+                >
+                    {trigger}
+                </Menu.Button>
                 <Menu.Items className={cn(s.items, {}, [sPopup.items])}>
-                    {title && <Heading content={title} className={sPopup.title} />}
+                    {title && (
+                        <Heading content={title} className={sPopup.title} />
+                    )}
                     {items.map((item, idx, arr) => {
                         const ItemTag: ElementType = item.to ? Link : 'button';
                         const Icon = item.icon?.element;
@@ -57,18 +69,20 @@ export const Dropdown = memo((props: DropdownProps) => {
                             <Menu.Item as={Fragment} key={item.title}>
                                 {({ active, disabled }) => (
                                     <ItemTag
-                                        {...item.to ? { to: item.to } : { onClick: item.onClick }}
-                                        className={cn(
-                                            s.item,
-                                            {
-                                                [s.item_active]: active,
-                                                [s.item_disabled]: disabled,
-                                                [s.item_last]: idx === arr.length - 1,
-                                            },
-                                        )}
+                                        {...(item.to
+                                            ? { to: item.to }
+                                            : { onClick: item.onClick })}
+                                        className={cn(s.item, {
+                                            [s.item_active]: active,
+                                            [s.item_disabled]: disabled,
+                                            [s.item_last]:
+                                                idx === arr.length - 1,
+                                        })}
                                     >
                                         {Icon && <Icon className={s.icon} />}
-                                        <span className={s.link}>{item.title}</span>
+                                        <span className={s.link}>
+                                            {item.title}
+                                        </span>
                                     </ItemTag>
                                 )}
                             </Menu.Item>

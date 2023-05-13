@@ -9,7 +9,7 @@ interface SkeletonProps {
     borderRadius?: string | number;
     marginBottom?: string | number;
     marginRight?: string | number;
-    inline?: boolean
+    inline?: boolean;
 }
 
 export const Skeleton = (props: SkeletonProps) => {
@@ -32,10 +32,5 @@ export const Skeleton = (props: SkeletonProps) => {
         display: inline ? 'inline-block' : 'block',
     };
 
-    return (
-        <div
-            className={cn(s.outer, {}, [className])}
-            style={styles}
-        />
-    );
+    return <div className={cn(s.outer, {}, [className])} style={styles} />;
 };

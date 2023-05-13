@@ -1,10 +1,14 @@
 import {
     AppRoutes,
-    getRouteAbout, getRouteAdminPanel,
+    getRouteAbout,
+    getRouteAdminPanel,
     getRouteArticleCreate,
-    getRouteArticleDetails, getRouteArticleEdit,
-    getRouteArticles, getRouteForbidden,
-    getRouteMain, getRouteNotFound,
+    getRouteArticleDetails,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteForbidden,
+    getRouteMain,
+    getRouteNotFound,
     getRouteProfile,
 } from '@/shared/consts/router';
 import { AppRoutesProps } from '@/shared/types/router';

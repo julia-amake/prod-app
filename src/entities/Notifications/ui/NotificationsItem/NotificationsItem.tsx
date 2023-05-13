@@ -17,11 +17,7 @@ interface NotificationsItemProps {
 }
 
 export const NotificationsItem = memo((props: NotificationsItemProps) => {
-    const {
-        data,
-        isLoading = false,
-        className = '',
-    } = props;
+    const { data, isLoading = false, className = '' } = props;
 
     const { t } = useTranslation();
 
@@ -41,20 +37,10 @@ export const NotificationsItem = memo((props: NotificationsItemProps) => {
                     className={s.pic}
                 />
                 <div className={s.info}>
-                    <Skeleton
-                        width="80%"
-                        height={20}
-                        marginBottom={10}
-                    />
-                    <Skeleton
-                        width="100%"
-                        height={12}
-                    />
+                    <Skeleton width="80%" height={20} marginBottom={10} />
+                    <Skeleton width="100%" height={12} />
                 </div>
-                <Skeleton
-                    width={14}
-                    height={14}
-                />
+                <Skeleton width={14} height={14} />
             </HStack>
         );
     }
@@ -66,15 +52,11 @@ export const NotificationsItem = memo((props: NotificationsItemProps) => {
             gap="24"
             className={cn(s.outer, {}, [className])}
             fullWidth
-            {...data.href ? { as: Link, to: data.href } : {}}
+            {...(data.href ? { as: Link, to: data.href } : {})}
         >
             <div className={cn(s.pic, { [s.pic_default]: !data.image })}>
                 {data.image && (
-                    <img
-                        src={data.image}
-                        className={s.image}
-                        alt=""
-                    />
+                    <img src={data.image} className={s.image} alt="" />
                 )}
             </div>
             <div className={s.info}>

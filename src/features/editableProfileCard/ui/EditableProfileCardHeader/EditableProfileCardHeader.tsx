@@ -10,9 +10,7 @@ import { PageHeader } from '@/shared/ui/Page';
 import { HStack } from '@/shared/ui/Stack';
 import { getUserAuthData } from '@/entities/User';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import {
-    getProfileIsLoading,
-} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
@@ -21,10 +19,10 @@ interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) => {
-    const {
-        className = '',
-    } = props;
+export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (
+    props,
+) => {
+    const { className = '' } = props;
 
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
@@ -34,26 +32,17 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (pr
     const isLoading = useSelector(getProfileIsLoading);
     const dispatch = useAppDispatch();
 
-    const onEdit = useCallback(
-        () => {
-            dispatch(profileActions.setReadOnly(false));
-        },
-        [dispatch],
-    );
+    const onEdit = useCallback(() => {
+        dispatch(profileActions.setReadOnly(false));
+    }, [dispatch]);
 
-    const onCancelEdit = useCallback(
-        () => {
-            dispatch(profileActions.resetFormData());
-        },
-        [dispatch],
-    );
+    const onCancelEdit = useCallback(() => {
+        dispatch(profileActions.resetFormData());
+    }, [dispatch]);
 
-    const onSaveEdit = useCallback(
-        () => {
-            dispatch(updateProfileData());
-        },
-        [dispatch],
-    );
+    const onSaveEdit = useCallback(() => {
+        dispatch(updateProfileData());
+    }, [dispatch]);
 
     return (
         <PageHeader>
@@ -65,46 +54,40 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (pr
                 gap="24"
             >
                 <div />
-                <HStack
-                    align="center"
-                    gap="16"
-                >
-                    {canEdit && (
-                        readonly
-                            ? (
+                <HStack align="center" gap="16">
+                    {canEdit &&
+                        (readonly ? (
+                            <Button
+                                label={t('Редактировать')}
+                                theme={ButtonTheme.OUTLINED}
+                                size={ButtonSize.M}
+                                icon={{ element: EditLine }}
+                                onClick={onEdit}
+                                disabled={isLoading}
+                                data-testid="EditableProfileCardHeader.EditButton"
+                            />
+                        ) : (
+                            <>
                                 <Button
-                                    label={t('Редактировать')}
+                                    label={t('Отменить')}
                                     theme={ButtonTheme.OUTLINED}
                                     size={ButtonSize.M}
-                                    icon={{ element: EditLine }}
-                                    onClick={onEdit}
+                                    icon={{ element: EraserLine }}
+                                    onClick={onCancelEdit}
                                     disabled={isLoading}
-                                    data-testid="EditableProfileCardHeader.EditButton"
+                                    data-testid="EditableProfileCardHeader.CancelButton"
                                 />
-                            )
-                            : (
-                                <>
-                                    <Button
-                                        label={t('Отменить')}
-                                        theme={ButtonTheme.OUTLINED}
-                                        size={ButtonSize.M}
-                                        icon={{ element: EraserLine }}
-                                        onClick={onCancelEdit}
-                                        disabled={isLoading}
-                                        data-testid="EditableProfileCardHeader.CancelButton"
-                                    />
-                                    <Button
-                                        label={t('Сохранить')}
-                                        theme={ButtonTheme.PRIMARY}
-                                        size={ButtonSize.M}
-                                        icon={{ element: DoneLine }}
-                                        onClick={onSaveEdit}
-                                        disabled={isLoading}
-                                        data-testid="EditableProfileCardHeader.SaveButton"
-                                    />
-                                </>
-                            )
-                    )}
+                                <Button
+                                    label={t('Сохранить')}
+                                    theme={ButtonTheme.PRIMARY}
+                                    size={ButtonSize.M}
+                                    icon={{ element: DoneLine }}
+                                    onClick={onSaveEdit}
+                                    disabled={isLoading}
+                                    data-testid="EditableProfileCardHeader.SaveButton"
+                                />
+                            </>
+                        ))}
                 </HStack>
             </HStack>
         </PageHeader>

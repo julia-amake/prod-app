@@ -1,5 +1,5 @@
 // Record здесь создает тип с ключом string и значением boolean | string
-export type Mode = Record<string, boolean | string>
+export type Mode = Record<string, boolean | string>;
 
 export function cn(
     cls: string,

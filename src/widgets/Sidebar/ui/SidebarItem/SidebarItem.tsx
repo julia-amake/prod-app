@@ -11,24 +11,25 @@ import s from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
     item: SidebarItemType;
-    collapsed: boolean
+    collapsed: boolean;
 }
 
 const SidebarItem = memo((props: SidebarItemProps) => {
     const {
-        item: {
-            path, title, Icon, authOnly,
-        },
+        item: { path, title, Icon, authOnly },
         collapsed,
     } = props;
 
     const isAuth = useSelector(getUserAuthData);
     const { t } = useTranslation();
 
-    const linkCustomProps: Omit<AppLinkProps, 'children'> = useMemo(() => ({
-        to: path,
-        theme: AppLinkTheme.SECONDARY,
-    }), [path]);
+    const linkCustomProps: Omit<AppLinkProps, 'children'> = useMemo(
+        () => ({
+            to: path,
+            theme: AppLinkTheme.SECONDARY,
+        }),
+        [path],
+    );
 
     const Item = useMemo(() => (collapsed ? VStack : HStack), [collapsed]);
 
@@ -42,7 +43,13 @@ const SidebarItem = memo((props: SidebarItemProps) => {
             align="center"
             fullWidth
         >
-            <Icon className={cn(s.linkIcon, { [s.linkIcon_home]: path === getRouteMain() }, [])} />
+            <Icon
+                className={cn(
+                    s.linkIcon,
+                    { [s.linkIcon_home]: path === getRouteMain() },
+                    [],
+                )}
+            />
             <span className={s.linkTitle}>{t(title)}</span>
         </Item>
     );

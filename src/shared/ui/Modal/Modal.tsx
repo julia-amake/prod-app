@@ -28,9 +28,11 @@ export const Modal: React.FC<ModalProps> = (props) => {
         lazy = false,
     } = props;
 
-    const {
-        isShown, isMounted, isClosing, close,
-    } = useModal({ isOpen, onClose, animationDelay: 300 });
+    const { isShown, isMounted, isClosing, close } = useModal({
+        isOpen,
+        onClose,
+        animationDelay: 300,
+    });
 
     const modalMods: Mode = {
         [s.opened]: isShown,
@@ -43,8 +45,16 @@ export const Modal: React.FC<ModalProps> = (props) => {
             <div className={cn(s.modal, modalMods, [className])}>
                 <Overlay onClick={close} />
                 <div className={s.content}>
-                    {title && <Heading content={title} size={HeadingSize.S} className={s.title} />}
-                    {subtitle && <Text content={subtitle} className={s.subtitle} />}
+                    {title && (
+                        <Heading
+                            content={title}
+                            size={HeadingSize.S}
+                            className={s.title}
+                        />
+                    )}
+                    {subtitle && (
+                        <Text content={subtitle} className={s.subtitle} />
+                    )}
                     {children}
                 </div>
             </div>

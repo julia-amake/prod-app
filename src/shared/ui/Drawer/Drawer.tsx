@@ -1,8 +1,9 @@
-import React, {
-    memo, ReactNode, useCallback, useEffect,
-} from 'react';
+import React, { memo, ReactNode, useCallback, useEffect } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
@@ -13,31 +14,22 @@ interface DrawerProps {
     onClose: () => void;
     children: ReactNode;
     className?: string;
-    lazy?: boolean,
+    lazy?: boolean;
 }
 
 const height = window.innerHeight - 100;
 
 const DrawerContent = memo((props: DrawerProps) => {
-    const {
-        isOpen,
-        onClose,
-        children,
-        lazy = false,
-        className = '',
-    } = props;
+    const { isOpen, onClose, children, lazy = false, className = '' } = props;
 
     const { Spring, Gesture } = useAnimationLibs();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
     const { theme } = useTheme();
 
-    const openDrawer = useCallback(
-        () => {
-            api.start({ y: 0, immediate: false });
-        },
-        [api],
-    );
+    const openDrawer = useCallback(() => {
+        api.start({ y: 0, immediate: false });
+    }, [api]);
 
     const close = (velocity = 0, duration = 300) => {
         api.start({
@@ -71,7 +63,10 @@ const DrawerContent = memo((props: DrawerProps) => {
             } else api.start({ y: my, immediate: true });
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
         },
     );
 
@@ -100,17 +95,11 @@ const DrawerAsync = (props: DrawerProps) => {
 
     const { isLoaded } = useAnimationLibs();
     if (!isLoaded) return null;
-    return (
-        <DrawerContent {...other}>
-            {children}
-        </DrawerContent>
-    );
+    return <DrawerContent {...other}>{children}</DrawerContent>;
 };
 
 export const Drawer = ({ children, ...other }: DrawerProps) => (
     <AnimationProvider>
-        <DrawerAsync {...other}>
-            {children}
-        </DrawerAsync>
+        <DrawerAsync {...other}>{children}</DrawerAsync>
     </AnimationProvider>
 );

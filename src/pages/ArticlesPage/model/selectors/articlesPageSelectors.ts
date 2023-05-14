@@ -1,3 +1,4 @@
+import { buildSelector } from '@/shared/lib/store';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { articlesPageInitialState as initialState } from '../consts/consts';
 
@@ -23,3 +24,8 @@ export const getArticlesPageSearch = (state: StateSchema) =>
     state.articlesPage?.search || initialState.search;
 export const getArticlesPageType = (state: StateSchema) =>
     state.articlesPage?.type || initialState.type;
+
+// Sample: selector with arguments
+export const [useArticleItemById] = buildSelector(
+    (state, id: string) => state.articlesPage?.entities[id],
+);

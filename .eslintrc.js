@@ -48,6 +48,7 @@ module.exports = {
             { maximum: 3, when: 'multiline' },
         ],
         'react/function-component-definition': 'off',
+        'react/no-unstable-nested-components': 'warn',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'react/prop-types': 'off',

@@ -1,20 +1,25 @@
 import React, { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { cn } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ContentLoader } from '@/shared/ui';
-import { getUserIsInitialized, userActions } from '@/entities/User';
+import { Preloader } from '@/shared/ui/Preloader';
+import { getUserIsInitialized, initAuthData } from '@/entities/User';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
 
 function App() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isUserInitialized = useSelector(getUserIsInitialized);
 
     // берем юзера из local storage
     useEffect(() => {
-        dispatch(userActions.initAuthData());
+        dispatch(initAuthData());
     }, [dispatch]);
+
+    // TODO: сделать нормальный прелоадер
+    if (!isUserInitialized) return <Preloader />;
 
     return (
         <div className={cn('app', {}, [])}>
@@ -23,9 +28,7 @@ function App() {
                     <Sidebar />
                     <div className="main">
                         <Navbar />
-                        <Suspense fallback={<ContentLoader />}>
-                            {isUserInitialized ? <AppRouter /> : null}
-                        </Suspense>
+                        <Suspense fallback={<ContentLoader />}>{isUserInitialized ? <AppRouter /> : null}</Suspense>
                     </div>
                 </div>
             </Suspense>

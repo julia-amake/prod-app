@@ -29,6 +29,7 @@ export const useModal = (props: useModalProps) => {
 
     useEffect(() => {
         if (isOpen) {
+            setIsClosing(false);
             setIsMounted(true);
             timerRef.current = setTimeout(() => {
                 setIsShown(true);

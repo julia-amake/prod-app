@@ -51,3 +51,39 @@
   font-weight: 600;
   font-style: normal;
 }
+
+@font-face {
+  font-family: Roboto;
+  src:
+    url("../../../public/fonts/Roboto.woff2") format("woff2"),
+    url("../../../public/fonts/Roboto.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Roboto;
+  src:
+    url("../../../public/fonts/Robotoblack.woff2") format("woff2"),
+    url("../../../public/fonts/Robotoblack.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src:
+    url("../../../public/fonts/NunitoSans-Regular.woff2") format("woff2"),
+    url("../../../public/fonts/NunitoSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src:
+    url("../../../public/fonts/NunitoSans-Bold.woff2") format("woff2"),
+    url("../../../public/fonts/NunitoSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}

@@ -10,6 +10,17 @@
   --devider-color-rgb: #{hex-to-rgb(#e6e8ec)};
   --sidebar-bg: var(--inverted-bg-color);
 
+  // redesigned
+  --dark-bg-redesigned: #fff;
+  --bg-redesigned: #eff5f6;
+  --light-bg-redesigned: #e2eef1;
+  --text-redesigned: #141c1f;
+  --hint-redesigned: #adbcc0;
+  --cancel-redesigned: #f77;
+  --save-redesigned: #62de85;
+  --icon-redesigned: #5ed3f3;
+  --accent-redesigned: #00c8ff;
+
   // skeleton
   --skeleton-bg: #eaedf5;
   --skeleton-bg-rgb: #{hex-to-rgb(#eaedf5)};

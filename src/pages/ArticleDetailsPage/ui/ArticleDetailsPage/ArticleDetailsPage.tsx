@@ -2,11 +2,8 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { toggleFeatures } from '@/shared/lib/features';
-import {
-    ReducersList,
-    useDynamicModuleLoader,
-} from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { Informer } from '@/shared/ui/Informer';
 import { PageContent } from '@/shared/ui/Page';
 import { ArticleDetails, getArticleDetailsIsLoading } from '@/entities/Article';
@@ -43,18 +40,16 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
         );
     }
 
-    const articleRating = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <div>{t('Рейтинг скоро появится')}</div>,
-    });
-
     return (
         <Page className={className} dataTestid="ArticleDetailsPage">
             <ArticleDetailsPageHeader />
             <PageContent>
                 <ArticleDetails id={id} isLoading={isLoading} />
-                {articleRating}
+                <ToggleFeatures
+                    feature="isArticleRatingEnabled"
+                    on={<ArticleRating articleId={id} />}
+                    off={<div>{t('Рейтинг скоро появится')}</div>}
+                />
                 <ArticleDetailsComments id={id} isLoading={isLoading} />
                 <ArticleRecommendationsList id={id} />
             </PageContent>

@@ -671,9 +671,8 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_theme_dark",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "theme": "app_theme_light",
+        "isFirstVisit": true
       }
     },
     {

@@ -5,17 +5,22 @@
 @import "./themes/dark";
 @import "./themes/colored";
 
-body,
-.app {
-  font: var(--font-m);
+body {
   letter-spacing: 0.03em;
-  color: var(--inverted-bg-color);
   -webkit-font-smoothing: antialiased;
 }
 
 .app {
   height: 100vh;
+  font: var(--font-m);
+  color: var(--inverted-bg-color);
   background: var(--bg-color);
+}
+
+.app_redesigned {
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
+  background: var(--bg-redesigned);
 }
 
 .wrapper {

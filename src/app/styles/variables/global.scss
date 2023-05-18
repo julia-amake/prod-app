@@ -43,6 +43,31 @@
   --error-color-rgb: #{hex-to-rgb(#ef466f)};
   --success-color: #45b26b;
 
+  // redesigned
+  --font-family-main-redesigned:
+    "Nunito Sans",
+    system-ui,
+    -apple-system,
+    segoe ui,
+    roboto,
+    ubuntu,
+    cantarell,
+    noto sans,
+    sans-serif;
+  --font-family-secondary-redesigned:
+    "Roboto",
+    system-ui,
+    -apple-system,
+    segoe ui,
+    roboto,
+    ubuntu,
+    cantarell,
+    noto sans,
+    sans-serif;
+  --font-s-redesigned: var(--font-size-s) / var(--font-line-s) var(--font-family-main-redesigned);
+  --font-m-redesigned: var(--font-size-m) / var(--font-line-m) var(--font-family-main-redesigned);
+  --font-l-redesigned: var(--font-size-l) / var(--font-line-l) var(--font-family-main-redesigned);
+
   // skeleton
   --skeleton-bg: #eaedf5;
   --skeleton-bg-rgb: #{hex-to-rgb(#eaedf5)};

@@ -10,6 +10,17 @@
   transition: transform 0.3s, margin-right 0.3s, width 0.3s;
 }
 
+.sidebarRedesigned {
+  position: relative;
+  height: 100%;
+  padding: 32px 0;
+  box-sizing: border-box;
+  background: var(--light-bg-redesigned);
+  border-radius: 32px;
+  transition: transform 0.3s, margin-right 0.3s, width 0.3s;
+  overflow: hidden;
+}
+
 .collapsed {
   width: 64px;
 }

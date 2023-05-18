@@ -5,6 +5,8 @@ import LogoLarge from '@/shared/assets/icons/LogoLarge.svg';
 import LogoSmall from '@/shared/assets/icons/LogoSmall.svg';
 import { getRouteMain } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLogo } from '@/shared/ui/AppLogo';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
@@ -26,57 +28,58 @@ const Sidebar = memo((props: SidebarProps) => {
 
     const itemsList = useMemo(
         () =>
-            SidebarItemsList.map((item) => (
-                <SidebarItem
-                    item={item}
-                    collapsed={collapsed}
-                    key={item.path}
-                />
-            )),
+            SidebarItemsList.map((item) => <SidebarItem item={item} collapsed={collapsed} key={item.path} />),
         [SidebarItemsList, collapsed],
     );
 
-    const Logo = useMemo(
-        () => (collapsed ? LogoSmall : LogoLarge),
-        [collapsed],
-    );
+    const Logo = useMemo(() => (collapsed ? LogoSmall : LogoLarge), [collapsed]);
     const Actions = useMemo(() => (collapsed ? VStack : HStack), [collapsed]);
 
     return (
-        <VStack
-            as="aside"
-            className={cn(s.sidebar, { [s.collapsed]: collapsed }, [className])}
-            data-testid="sidebar"
-        >
-            <HStack
-                as={Link}
-                className={cn(s.logo, {
-                    [s.logo_size_s]: collapsed,
-                    [s.logo_size_l]: !collapsed,
-                })}
-                align="center"
-                customProps={customLogoProps}
-            >
-                <Logo className={s.logo_pic} />
-            </HStack>
-            <VStack
-                as="nav"
-                align={collapsed ? 'center' : 'start'}
-                className={s.menu}
-            >
-                {itemsList}
-            </VStack>
-            <Actions
-                className={s.actions}
-                justify="center"
-                align="center"
-                gap={collapsed ? 'none' : '16'}
-            >
-                <ThemeSwitcher className={s.themeSwitcher} isInvertedColor />
-                <LangSwitcher isShort={collapsed} />
-            </Actions>
-            <SidebarToggle collapsed={collapsed} setCollapsed={setCollapsed} />
-        </VStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <VStack
+                    as="aside"
+                    className={cn(s.sidebarRedesigned, { [s.collapsed]: collapsed }, [className])}
+                    data-testid="sidebar"
+                >
+                    <AppLogo />
+                </VStack>
+            }
+            off={
+                <VStack
+                    as="aside"
+                    className={cn(s.sidebar, { [s.collapsed]: collapsed }, [className])}
+                    data-testid="sidebar"
+                >
+                    <HStack
+                        as={Link}
+                        className={cn(s.logo, {
+                            [s.logo_size_s]: collapsed,
+                            [s.logo_size_l]: !collapsed,
+                        })}
+                        align="center"
+                        customProps={customLogoProps}
+                    >
+                        <Logo className={s.logo_pic} />
+                    </HStack>
+                    <VStack as="nav" align={collapsed ? 'center' : 'start'} className={s.menu}>
+                        {itemsList}
+                    </VStack>
+                    <Actions
+                        className={s.actions}
+                        justify="center"
+                        align="center"
+                        gap={collapsed ? 'none' : '16'}
+                    >
+                        <ThemeSwitcher className={s.themeSwitcher} isInvertedColor />
+                        <LangSwitcher isShort={collapsed} />
+                    </Actions>
+                    <SidebarToggle collapsed={collapsed} setCollapsed={setCollapsed} />
+                </VStack>
+            }
+        />
     );
 });
 

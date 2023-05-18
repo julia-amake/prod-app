@@ -668,12 +668,13 @@
       "avatar": "https://avatars.githubusercontent.com/u/11091224",
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_theme_light",
+        "theme": "app_theme_dark",
         "isFirstVisit": true,
-        "isAppRedesigned": true
+        "wasArticlesPageOpen": true
       }
     },
     {
@@ -720,9 +721,10 @@
       ],
       "avatar": "https://static10.tgstat.ru/channels/_0/12/1207e9a8bc05cb00522bc45c6e57eaca.jpg",
       "jsonSettings": {
-        "theme": "app_theme_dark",
+        "theme": "app_theme_light",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "wasArticlesPageOpen": true
       }
     }
   ],

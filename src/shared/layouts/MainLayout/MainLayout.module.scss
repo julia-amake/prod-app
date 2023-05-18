@@ -1,0 +1,51 @@
+.outer {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "left middle right";
+  grid-template-columns: 284px 1fr auto;
+  box-sizing: border-box;
+}
+
+.left,
+.right,
+.middle {
+  box-sizing: border-box;
+}
+
+.left,
+.right {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.left {
+  grid-area: left;
+  padding: 32px;
+}
+
+.middle {
+  grid-area: middle;
+  max-width: 1324px;
+  padding-top: 32px;
+  justify-self: center;
+}
+
+.right {
+  grid-area: right;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 32px;
+  padding-left: 32px;
+}
+
+.header {
+  flex-shrink: 0;
+  padding-right: 32px;
+}
+
+.toolbar {
+  flex-grow: 1;
+}

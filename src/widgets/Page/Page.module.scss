@@ -8,3 +8,8 @@
 
   @include scrollbar;
 }
+
+.outerRedesigned {
+  overflow-y: auto;
+  overflow-x: hidden;
+}

@@ -2,6 +2,7 @@ import React, { MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { cn } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -18,20 +19,13 @@ interface PageProps extends TestProps {
 }
 
 export const Page = (props: PageProps) => {
-    const {
-        children,
-        onScrollEnd,
-        className = '',
-        dataTestid = 'Page',
-    } = props;
+    const { children, onScrollEnd, className = '', dataTestid = 'Page' } = props;
 
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) =>
-        getUIScrollByPath(state, pathname),
-    );
+    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
 
     useInfiniteScroll({
         wrapperRef,
@@ -53,14 +47,30 @@ export const Page = (props: PageProps) => {
     }, 500);
 
     return (
-        <main
-            data-testid={dataTestid}
-            ref={wrapperRef}
-            className={cn(s.outer, {}, [className])}
-            {...(onScrollEnd ? { onScroll: onScrollHandler } : {})}
-        >
-            {children}
-            {onScrollEnd && <div ref={triggerRef} />}
-        </main>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <main
+                    data-testid={dataTestid}
+                    ref={wrapperRef}
+                    className={cn(s.outerRedesigned, {}, [className])}
+                    {...(onScrollEnd ? { onScroll: onScrollHandler } : {})}
+                >
+                    {children}
+                    {onScrollEnd && <div ref={triggerRef} />}
+                </main>
+            }
+            off={
+                <main
+                    data-testid={dataTestid}
+                    ref={wrapperRef}
+                    className={cn(s.outer, {}, [className])}
+                    {...(onScrollEnd ? { onScroll: onScrollHandler } : {})}
+                >
+                    {children}
+                    {onScrollEnd && <div ref={triggerRef} />}
+                </main>
+            }
+        />
     );
 };

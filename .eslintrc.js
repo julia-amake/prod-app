@@ -21,19 +21,9 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'i18next',
-        'react-hooks',
-        'amake-plugin',
-        'unused-imports',
-    ],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'amake-plugin', 'unused-imports'],
     rules: {
-        'react/jsx-filename-extension': [
-            2,
-            { extensions: ['.js', '.jsx', 'tsx'] },
-        ],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', 'tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',
@@ -43,10 +33,7 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/jsx-no-useless-fragment': 'warn',
-        'react/jsx-max-props-per-line': [
-            'error',
-            { maximum: 3, when: 'multiline' },
-        ],
+        'react/jsx-max-props-per-line': ['error', { maximum: 3, when: 'multiline' }],
         'react/function-component-definition': 'off',
         'react/no-unstable-nested-components': 'warn',
         'react-hooks/rules-of-hooks': 'error',
@@ -82,11 +69,7 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                testFilesPatterns: [
-                    '**/*.test.*',
-                    '**/*.stories.*',
-                    '**/StoreDecorator.tsx',
-                ],
+                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
             },
         ],
         'amake-plugin/layer-imports': [
@@ -97,10 +80,7 @@ module.exports = {
             },
         ],
         'unused-imports/no-unused-imports': 'error',
-        'sort-imports': [
-            'error',
-            { ignoreCase: true, ignoreDeclarationSort: true },
-        ],
+        'sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true }],
         'import/order': [
             'error',
             {
@@ -168,10 +148,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: [
-                '**/src/**/*.test.{ts,tsx}',
-                '**/src/**/*.stories.{ts,tsx}',
-            ],
+            files: ['**/src/**/*.test.{ts,tsx}', '**/src/**/*.stories.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
             },

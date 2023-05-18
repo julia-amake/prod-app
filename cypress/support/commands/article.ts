@@ -2,8 +2,7 @@ import { Article } from '../../../src/entities/Article';
 
 const defaultArticle = {
     title: '12 приемов работы с&nbsp;JavaScript, которых нет в&nbsp;большинстве туториалов',
-    subtitle:
-        'В этой статье я покажу 12 отличных способов улучшить и&nbsp;ускорить свой JavaScript-код.',
+    subtitle: 'В этой статье я покажу 12 отличных способов улучшить и&nbsp;ускорить свой JavaScript-код.',
     image: 'https://habrastorage.org/r/w1560/getpro/habr/upload_files/727/f54/666/727f54666075840f2c6a6d521f39e8f1.jpeg',
     views: 1052,
     createdAt: '16.03.2023',

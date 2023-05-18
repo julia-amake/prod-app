@@ -2,10 +2,10 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Icon } from '@/shared/ui/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { HStack } from '@/shared/ui/Stack';
-import { Text, TextMargin, TextSize } from '@/shared/ui/Text';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { HStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextMargin, TextSize } from '@/shared/ui/deprecated/Text';
 import ArrowRight from '../../../../shared/assets/icons/ArrowRightSimpleLine.svg';
 import { Notification } from '../../model/types/notifications';
 import s from './NotificationsItem.module.scss';
@@ -30,12 +30,7 @@ export const NotificationsItem = memo((props: NotificationsItemProps) => {
                 className={cn(s.outer, {}, [className])}
                 fullWidth
             >
-                <Skeleton
-                    width={56}
-                    height={56}
-                    borderRadius={14}
-                    className={s.pic}
-                />
+                <Skeleton width={56} height={56} borderRadius={14} className={s.pic} />
                 <div className={s.info}>
                     <Skeleton width="80%" height={20} marginBottom={10} />
                     <Skeleton width="100%" height={12} />
@@ -55,17 +50,10 @@ export const NotificationsItem = memo((props: NotificationsItemProps) => {
             {...(data.href ? { as: Link, to: data.href } : {})}
         >
             <div className={cn(s.pic, { [s.pic_default]: !data.image })}>
-                {data.image && (
-                    <img src={data.image} className={s.image} alt="" />
-                )}
+                {data.image && <img src={data.image} className={s.image} alt="" />}
             </div>
             <div className={s.info}>
-                <Text
-                    isBold
-                    margin={TextMargin.NONE}
-                    content={data.title}
-                    className={s.title}
-                />
+                <Text isBold margin={TextMargin.NONE} content={data.title} className={s.title} />
                 <Text
                     className={s.desc}
                     size={TextSize.XS}

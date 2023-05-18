@@ -5,7 +5,7 @@ import { cn } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types';
-import { Input } from '@/shared/ui/Input';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/articleSortSelector';
 import { ArticleTypeTabs } from '@/features/articleTypeTabs';
@@ -99,11 +99,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                 onChange={onChangeSearch}
             />
             <div className={s.filters}>
-                <ArticleTypeTabs
-                    onChangeType={onChangeType}
-                    value={type}
-                    isLoading={isLoading}
-                />
+                <ArticleTypeTabs onChangeType={onChangeType} value={type} isLoading={isLoading} />
                 <div className={s.sorts}>
                     <ArticleSortSelector
                         order={order}
@@ -111,10 +107,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                         onChangeOrder={onChangeOrder}
                         onChangeSort={onChangeSort}
                     />
-                    <ArticleViewSelector
-                        view={view}
-                        onViewClick={onChangeView}
-                    />
+                    <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 </div>
             </div>
         </div>

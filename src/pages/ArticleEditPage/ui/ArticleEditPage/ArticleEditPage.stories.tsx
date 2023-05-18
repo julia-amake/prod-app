@@ -14,9 +14,7 @@ export default {
     decorators: [StoreDecorator({}), RouterDecorator()],
 } as ComponentMeta<typeof ArticleEditPage>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
-    <ArticleEditPage {...args} />
-);
+const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
 
 export const Edit = Template.bind({});
 Edit.args = {};

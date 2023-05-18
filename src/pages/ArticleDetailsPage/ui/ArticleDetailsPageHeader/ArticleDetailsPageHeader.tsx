@@ -5,14 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import ArrowLeftLongLine from '@/shared/assets/icons/ArrowLeftLongLine.svg';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/consts/router';
-import {
-    Button,
-    ButtonSize,
-    ButtonTheme,
-    IconPosition,
-} from '@/shared/ui/Button';
-import { PageHeader } from '@/shared/ui/Page';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ButtonSize, ButtonTheme, IconPosition } from '@/shared/ui/deprecated/Button';
+import { PageHeader } from '@/shared/ui/deprecated/Page';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEditArticle } from '../../model/selectors/article/article';
 

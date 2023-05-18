@@ -14,21 +14,14 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [
-        StoreDecorator({}),
-        RouterDecorator('/article/1', '/article/:id'),
-    ],
+    decorators: [StoreDecorator({}), RouterDecorator('/article/1', '/article/:id')],
     parameters: {
         mockData: [
             {
                 url: `${__API__}/articles?_limit=3&id_ne=1`,
                 method: 'GET',
                 status: 200,
-                response: [
-                    article,
-                    { ...article, id: '2' },
-                    { ...article, id: '3' },
-                ],
+                response: [article, { ...article, id: '2' }, { ...article, id: '3' }],
             },
         ],
     },

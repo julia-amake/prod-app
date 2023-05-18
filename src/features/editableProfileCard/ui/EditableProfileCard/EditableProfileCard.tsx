@@ -8,10 +8,10 @@ import {
 } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { IntegerValidation } from '@/shared/lib/utils/validations';
-import { Heading, HeadingSize } from '@/shared/ui/Heading';
-import { Informer } from '@/shared/ui/Informer';
-import { PageContent } from '@/shared/ui/Page';
-import { VStack } from '@/shared/ui/Stack';
+import { Heading, HeadingSize } from '@/shared/ui/deprecated/Heading';
+import { Informer } from '@/shared/ui/deprecated/Informer';
+import { PageContent } from '@/shared/ui/deprecated/Page';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
@@ -45,27 +45,18 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const validateErrors = useSelector(getProfileValidateErrors);
 
-    const validateErrorTranslations: Record<ValidateProfileError, string> =
-        useMemo(
-            () => ({
-                [ValidateProfileError.SERVER_ERROR]: t(
-                    'Серверная ошибка при сохранении',
-                ),
-                [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
-                [ValidateProfileError.INCORRECT_USER_DATA]: t(
-                    'Имя и фамилия обязательны',
-                ),
-                [ValidateProfileError.INCORRECT_USERNAME]: t(
-                    'Имя пользователя обязательно',
-                ),
-                [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
-                [ValidateProfileError.INCORRECT_COUNTRY]: t(
-                    'Некорректный регион',
-                ),
-            }),
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            [],
-        );
+    const validateErrorTranslations: Record<ValidateProfileError, string> = useMemo(
+        () => ({
+            [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+            [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+            [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+            [ValidateProfileError.INCORRECT_USERNAME]: t('Имя пользователя обязательно'),
+            [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+            [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+        }),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [],
+    );
 
     const errorsList = useMemo(
         () => (
@@ -177,11 +168,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         <>
             <EditableProfileCardHeader />
             <PageContent>
-                <VStack
-                    gap="32"
-                    className={className}
-                    data-testid="EditableProfileCard"
-                >
+                <VStack gap="32" className={className} data-testid="EditableProfileCard">
                     <Heading size={HeadingSize.L} content={t('Профиль')} />
                     {validateErrors?.length ? (
                         <Informer

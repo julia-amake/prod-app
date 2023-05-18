@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { MOBILE_LARGE } from '@/shared/consts/devices';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Heading } from '@/shared/ui/Heading';
-import { Modal } from '@/shared/ui/Modal';
-import { Text } from '@/shared/ui/Text';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Heading } from '@/shared/ui/deprecated/Heading';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 
 export const ArticlePageGreeting = memo(() => {

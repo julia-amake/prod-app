@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getRouteMain } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkProps, AppLinkTheme } from '@/shared/ui/AppLink';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { AppLink, AppLinkProps, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
 import s from './SidebarItem.module.scss';
@@ -43,13 +43,7 @@ const SidebarItem = memo((props: SidebarItemProps) => {
             align="center"
             fullWidth
         >
-            <Icon
-                className={cn(
-                    s.linkIcon,
-                    { [s.linkIcon_home]: path === getRouteMain() },
-                    [],
-                )}
-            />
+            <Icon className={cn(s.linkIcon, { [s.linkIcon_home]: path === getRouteMain() }, [])} />
             <span className={s.linkTitle}>{t(title)}</span>
         </Item>
     );

@@ -5,7 +5,7 @@ import { cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ContentLoader } from '@/shared/ui';
-import { Preloader } from '@/shared/ui/Preloader';
+import { Preloader } from '@/shared/ui/deprecated/Preloader';
 import { getUserIsInitialized, initAuthData } from '@/entities/User';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
@@ -21,7 +21,6 @@ function App() {
         dispatch(initAuthData());
     }, [dispatch]);
 
-    // TODO: сделать нормальный прелоадер
     if (!isUserInitialized) return <Preloader />;
 
     return (

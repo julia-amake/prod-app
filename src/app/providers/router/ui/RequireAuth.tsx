@@ -20,19 +20,11 @@ export function RequireAuth(props: RequireAuthProps) {
     }, [roles, userRoles]);
 
     if (!auth) {
-        return (
-            <Navigate to={getRouteMain()} state={{ from: location }} replace />
-        );
+        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
     }
 
     if (!hasRequiredRoles) {
-        return (
-            <Navigate
-                to={getRouteForbidden()}
-                state={{ from: location }}
-                replace
-            />
-        );
+        return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
     }
 
     return children;

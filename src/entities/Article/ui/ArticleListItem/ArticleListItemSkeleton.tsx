@@ -1,6 +1,6 @@
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { ArticleView } from '../../model/consts/consts';
 import s from './ArticleListItem.module.scss';
 
@@ -9,23 +9,14 @@ interface ArticleListItemSkeletonProps {
     className?: string;
 }
 
-export const ArticleListItemSkeleton = (
-    props: ArticleListItemSkeletonProps,
-) => {
+export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => {
     const { view = ArticleView.GRID, className = '' } = props;
 
     if (view === ArticleView.GRID) {
         return (
-            <Card
-                className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
-            >
+            <Card className={cn(s.outer, {}, [className, s.outer_grid, s.card])}>
                 <div className={cn(s.pic_outer, {}, [s.pic_outer_skeleton])}>
-                    <Skeleton
-                        width="100%"
-                        height="100%"
-                        borderRadius={16}
-                        className={s.pic}
-                    />
+                    <Skeleton width="100%" height="100%" borderRadius={16} className={s.pic} />
                 </div>
                 <div className={s.info}>
                     <div className={s.additional}>
@@ -54,9 +45,7 @@ export const ArticleListItemSkeleton = (
 
     if (view === ArticleView.LIST) {
         return (
-            <Card
-                className={cn(s.outer, {}, [className, s.outer_list, s.card])}
-            >
+            <Card className={cn(s.outer, {}, [className, s.outer_list, s.card])}>
                 <div className={s.header}>
                     <div className={s.additional}>
                         <div className={s.user}>
@@ -87,12 +76,7 @@ export const ArticleListItemSkeleton = (
                     </ul>
                 </div>
                 <div className={cn(s.pic_outer, {}, [s.pic_outer_skeleton])}>
-                    <Skeleton
-                        width="100%"
-                        height="100%"
-                        borderRadius={16}
-                        className={s.pic}
-                    />
+                    <Skeleton width="100%" height="100%" borderRadius={16} className={s.pic} />
                 </div>
                 <div className={s.footer}>
                     <div className={s.content}>

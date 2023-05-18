@@ -44,12 +44,7 @@ describe('articleDetailsSlice.test', () => {
             isLoading: false,
             error: '',
         };
-        expect(
-            ArticleDetailsReducer(
-                state as ArticleDetailsSchema,
-                fetchArticleById.pending,
-            ),
-        ).toEqual({
+        expect(ArticleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.pending)).toEqual({
             isLoading: true,
             error: '',
         });

@@ -4,10 +4,7 @@ import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 describe('getProfileValidateErrors.test', () => {
     test('should return profile validate errors', () => {
-        const errors = [
-            ValidateProfileError.INCORRECT_USER_DATA,
-            ValidateProfileError.INCORRECT_AGE,
-        ];
+        const errors = [ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.INCORRECT_AGE];
 
         // eslint-disable-next-line no-debugger
         debugger;

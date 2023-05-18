@@ -6,7 +6,7 @@ import { Theme } from '@/shared/consts/theme';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { saveJsonSettings } from '@/entities/User';
 import s from './ThemeSwitcher.module.scss';
 

@@ -3,9 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
-import { Informer } from '@/shared/ui/Informer';
-import { PageContent } from '@/shared/ui/Page';
+import {
+    ReducersList,
+    useDynamicModuleLoader,
+} from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import { Informer } from '@/shared/ui/deprecated/Informer';
+import { PageContent } from '@/shared/ui/deprecated/Page';
 import { ArticleDetails, getArticleDetailsIsLoading } from '@/entities/Article';
 import { ArticleRating } from '@/features/articleRating';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';

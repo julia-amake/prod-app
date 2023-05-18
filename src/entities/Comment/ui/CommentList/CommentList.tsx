@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 import s from './CommentList.module.scss';
@@ -22,10 +22,7 @@ export const CommentList = memo((props: CommentListProps) => {
             <div className={cn(s.outer, {}, [className])}>
                 <CommentCard className={cn(s.comment)} isLoading={isLoading} />
                 <CommentCard className={cn(s.comment)} isLoading={isLoading} />
-                <CommentCard
-                    className={cn(s.comment, {}, [s.comment_last])}
-                    isLoading={isLoading}
-                />
+                <CommentCard className={cn(s.comment, {}, [s.comment_last])} isLoading={isLoading} />
             </div>
         );
     }

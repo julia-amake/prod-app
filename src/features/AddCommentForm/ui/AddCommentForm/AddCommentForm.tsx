@@ -7,16 +7,13 @@ import {
     ReducersList,
     useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
-import { Button, ButtonSize } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
+import { Button, ButtonSize } from '@/shared/ui/deprecated/Button';
+import { Input } from '@/shared/ui/deprecated/Input';
 import {
     getAddCommentFormError,
     getAddCommentFormText,
 } from '../../model/selectors/addCommentsFormSelectors';
-import {
-    addCommentFormActions,
-    addCommentFormReducer,
-} from '../../model/slice/addCommentFormSlice';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import s from './AddCommentForm.module.scss';
 
 const reducers: ReducersList = {
@@ -52,10 +49,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     }, [text, onCommentTextChange, onSendComment]);
 
     return (
-        <div
-            className={cn(s.outer, {}, [className])}
-            data-testid="AddCommentForm"
-        >
+        <div className={cn(s.outer, {}, [className])} data-testid="AddCommentForm">
             <Input
                 placeholder={t('Добавить комментарий')}
                 value={text}

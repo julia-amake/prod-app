@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { ListBox, ListBoxOption } from '@/shared/ui/Popups/ui';
+import { ListBox, ListBoxOption } from '@/shared/ui/deprecated/Popups/ui';
 import { Country } from '../../model/consts/country';
 
 interface CountrySelectProps {
@@ -17,13 +17,7 @@ const options: ListBoxOption[] = Object.values(Country).map((item) => ({
 }));
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-    const {
-        className = '',
-        value = Country.RUSSIA,
-        label = '',
-        onChange,
-        readOnly = false,
-    } = props;
+    const { className = '', value = Country.RUSSIA, label = '', onChange, readOnly = false } = props;
 
     const onChangeHandler = useCallback(
         (value: string) => {

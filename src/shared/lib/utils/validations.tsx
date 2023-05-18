@@ -1,2 +1,1 @@
-export const IntegerValidation = (value: string) =>
-    Number(value.replace(/\D/g, ''));
+export const IntegerValidation = (value: string) => Number(value.replace(/\D/g, ''));

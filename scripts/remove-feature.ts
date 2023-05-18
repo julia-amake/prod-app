@@ -74,7 +74,9 @@ const replaceToggleFunction = (node: Node) => {
     const offFuncProperty = objOptions.getProperty('off');
 
     // Получаем название фичи и обрезаем кавычки
-    const featureName = featureNameProperty?.getFirstDescendantByKind(SyntaxKind.StringLiteral)?.getLiteralValue();
+    const featureName = featureNameProperty
+        ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
+        ?.getLiteralValue();
 
     // Получаем сами функции () => <Component />
     const onFunction = onFuncProperty?.getFirstDescendantByKind(SyntaxKind.ArrowFunction);
@@ -100,7 +102,10 @@ const replaceToggleComponent = (node: Node) => {
     const offAttribute = getAttributeNodeByName(attributes, 'off');
 
     const featureNameAttribute = getAttributeNodeByName(attributes, 'feature');
-    const featureName = featureNameAttribute?.getFirstDescendantByKind(SyntaxKind.StringLiteral)?.getText()?.slice(1, -1);
+    const featureName = featureNameAttribute
+        ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
+        ?.getText()
+        ?.slice(1, -1);
 
     if (featureName !== removedFeatureName) return;
 

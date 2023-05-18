@@ -27,11 +27,7 @@ export interface ArticleDividerBlock extends ArticleBaseBlock {
     type: ArticleBlockType.DIVIDER;
 }
 
-export type ArticleBlock =
-    | ArticleTextBlock
-    | ArticleCodeBlock
-    | ArticleImageBlock
-    | ArticleDividerBlock;
+export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock | ArticleDividerBlock;
 
 export interface Article {
     id: string;

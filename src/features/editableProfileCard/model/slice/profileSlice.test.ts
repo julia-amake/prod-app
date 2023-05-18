@@ -20,30 +20,21 @@ const profileData = {
 describe('profileSlice.test', () => {
     test('set readonly from false to true', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: false };
-        expect(
-            profileReducer(
-                state as ProfileSchema,
-                profileActions.setReadOnly(true),
-            ),
-        ).toEqual({ readonly: true });
+        expect(profileReducer(state as ProfileSchema, profileActions.setReadOnly(true))).toEqual({
+            readonly: true,
+        });
     });
     test('set readonly from true to false', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: true };
-        expect(
-            profileReducer(
-                state as ProfileSchema,
-                profileActions.setReadOnly(false),
-            ),
-        ).toEqual({ readonly: false });
+        expect(profileReducer(state as ProfileSchema, profileActions.setReadOnly(false))).toEqual({
+            readonly: false,
+        });
     });
     test('set readonly from true to true', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: true };
-        expect(
-            profileReducer(
-                state as ProfileSchema,
-                profileActions.setReadOnly(true),
-            ),
-        ).toEqual({ readonly: true });
+        expect(profileReducer(state as ProfileSchema, profileActions.setReadOnly(true))).toEqual({
+            readonly: true,
+        });
     });
 
     test('update profile', () => {
@@ -51,10 +42,7 @@ describe('profileSlice.test', () => {
             formData: { name: 'Prev', age: 40 },
         };
         expect(
-            profileReducer(
-                state as ProfileSchema,
-                profileActions.updateProfile({ name: 'New', age: 30 }),
-            ),
+            profileReducer(state as ProfileSchema, profileActions.updateProfile({ name: 'New', age: 30 })),
         ).toEqual({ formData: { name: 'New', age: 30 } });
     });
 
@@ -65,12 +53,7 @@ describe('profileSlice.test', () => {
             formData: { name: 'new name', age: 40 },
             validateErrors: [ValidateProfileError.INCORRECT_USER_DATA],
         };
-        expect(
-            profileReducer(
-                state as ProfileSchema,
-                profileActions.resetFormData(),
-            ),
-        ).toEqual({
+        expect(profileReducer(state as ProfileSchema, profileActions.resetFormData())).toEqual({
             readonly: true,
             data: { name: 'name', age: 30 },
             formData: { name: 'name', age: 30 },
@@ -81,14 +64,9 @@ describe('profileSlice.test', () => {
     test('update profile service pending', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
-            validateErrors: [
-                ValidateProfileError.INCORRECT_USER_DATA,
-                ValidateProfileError.INCORRECT_AGE,
-            ],
+            validateErrors: [ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.INCORRECT_AGE],
         };
-        expect(
-            profileReducer(state as ProfileSchema, updateProfileData.pending),
-        ).toEqual({
+        expect(profileReducer(state as ProfileSchema, updateProfileData.pending)).toEqual({
             isLoading: true,
             validateErrors: [],
         });
@@ -99,18 +77,10 @@ describe('profileSlice.test', () => {
             isLoading: true,
             data: { name: 'name', age: 40 },
             formData: { name: 'name form', age: 50 },
-            validateErrors: [
-                ValidateProfileError.INCORRECT_USER_DATA,
-                ValidateProfileError.INCORRECT_AGE,
-            ],
+            validateErrors: [ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.INCORRECT_AGE],
             readonly: false,
         };
-        expect(
-            profileReducer(
-                state as ProfileSchema,
-                updateProfileData.fulfilled(profileData, ''),
-            ),
-        ).toEqual({
+        expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(profileData, ''))).toEqual({
             isLoading: false,
             data: profileData,
             formData: profileData,

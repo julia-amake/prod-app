@@ -3,12 +3,7 @@ import ArticleLine from '@/shared/assets/icons/ArticleLine.svg';
 import HomeLine from '@/shared/assets/icons/HomeLine.svg';
 import InfoLine from '@/shared/assets/icons/InfoLine.svg';
 import ProfileLine from '@/shared/assets/icons/ProfileLine.svg';
-import {
-    getRouteAbout,
-    getRouteArticles,
-    getRouteMain,
-    getRouteProfile,
-} from '@/shared/consts/router';
+import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/consts/router';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../types/sidebar';
 

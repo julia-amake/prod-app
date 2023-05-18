@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { MOBILE_LARGE } from '@/shared/consts/devices';
 import { cn } from '@/shared/lib/classNames/classNames';
 import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Heading, HeadingPosition, HeadingSize } from '@/shared/ui/Heading';
-import { Input } from '@/shared/ui/Input';
-import { Modal } from '@/shared/ui/Modal';
-import { VStack } from '@/shared/ui/Stack';
-import { StarRating } from '@/shared/ui/StarRating';
-import { Text } from '@/shared/ui/Text';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Heading, HeadingPosition, HeadingSize } from '@/shared/ui/deprecated/Heading';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { StarRating } from '@/shared/ui/deprecated/StarRating';
+import { Text } from '@/shared/ui/deprecated/Text';
 import s from './RatingCard.module.scss';
 
 interface RatingProps {
@@ -78,27 +78,15 @@ export const RatingCard = memo((props: RatingProps) => {
         <div className={cn(s.outer, {}, [className])} data-testid="RatingCard">
             <VStack align="center" gap="16">
                 <Heading
-                    content={
-                        starsCount
-                            ? t('Спасибо за оценку!')
-                            : title || t('Вам понравилось?')
-                    }
+                    content={starsCount ? t('Спасибо за оценку!') : title || t('Вам понравилось?')}
                     position={HeadingPosition.CENTER}
                 />
-                <StarRating
-                    selectedStarsCount={starsCount}
-                    size={24}
-                    onSelect={onSelectStars}
-                />
+                <StarRating selectedStarsCount={starsCount} size={24} onSelect={onSelectStars} />
             </VStack>
 
             <Feedback isOpen={isModalOpen} onClose={cancelHandler} lazy>
                 <VStack fullWidth gap="32">
-                    <Heading
-                        content={feedbackTitle}
-                        size={HeadingSize.S}
-                        className={s.modalTitle}
-                    />
+                    <Heading content={feedbackTitle} size={HeadingSize.S} className={s.modalTitle} />
                     <Text
                         content={t(
                             'Ваше мнение очень важно, ' +

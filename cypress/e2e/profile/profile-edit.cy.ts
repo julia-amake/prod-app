@@ -21,9 +21,6 @@ describe('The user opened the profile page', () => {
         const newLastname = 'lastname';
         cy.updateProfile(newName, newLastname);
         cy.getByTestId('ProfileCard.Firstname').should('have.value', newName);
-        cy.getByTestId('ProfileCard.Lastname').should(
-            'have.value',
-            newLastname,
-        );
+        cy.getByTestId('ProfileCard.Lastname').should('have.value', newLastname);
     });
 });

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import ArrowLeft from '@/shared/assets/icons/ArrowLeftSimpleLine.svg';
 import ArrowRight from '@/shared/assets/icons/ArrowRightSimpleLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonShape, ButtonSize } from '@/shared/ui/Button';
+import { Button, ButtonShape, ButtonSize } from '@/shared/ui/deprecated/Button';
 import s from './SidebarToggle.module.scss';
 
 interface SidebarToggleProps {

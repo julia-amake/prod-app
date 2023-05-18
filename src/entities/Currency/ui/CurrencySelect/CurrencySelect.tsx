@@ -1,6 +1,6 @@
 import React, { FC, memo, useCallback } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { ListBox, ListBoxOption } from '@/shared/ui/Popups/ui';
+import { ListBox, ListBoxOption } from '@/shared/ui/deprecated/Popups/ui';
 import { Currency } from '../../model/consts/consts';
 
 interface CurrencySelectProps {
@@ -17,13 +17,7 @@ const options: ListBoxOption[] = Object.values(Currency).map((item) => ({
 }));
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo((props) => {
-    const {
-        className = '',
-        value = Currency.RUB,
-        label = '',
-        onChange,
-        readOnly = false,
-    } = props;
+    const { className = '', value = Currency.RUB, label = '', onChange, readOnly = false } = props;
 
     const onChangeHandler = useCallback(
         (value: string) => {

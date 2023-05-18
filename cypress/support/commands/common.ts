@@ -13,10 +13,7 @@ export const login = (username: string = 'test', password: string = '123') =>
             },
         })
         .then(({ body }) => {
-            window.localStorage.setItem(
-                USER_LOCALSTORAGE_KEY,
-                JSON.stringify(body),
-            );
+            window.localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body));
             return body;
         });
 

@@ -212,20 +212,34 @@ Clear.args = {
 
 ### Работа с feature-flags
 
-Разрешено использование feature-флагов только при помощи хелпера `toggleFeatures`, в который передается объект с опциями:
--  название feature-флага
-- функция, которая отработает после включения фичи
-- функция, которая отработает после выключения фичи
+Feature-флаги можно применять только при помощи хелперов:
 
-Пример:
+- #### ToggleFeatures для работы с компонентами,
+  в который нужно передать:
+    - название feature-флага
+    - ReactElement, который применится для включения фичи
+    - ReactElement, который применится для выключения фичи
 
-````
-const articleRating = toggleFeatures({
-   name: 'isArticleRatingEnabled',
-   on: () => <ArticleRatingFeature articleId={id} />,
-   off: () => <ArticleRatin articleId={id} />,
- });
-````
+   ````
+    <ToggleFeatures
+      feature="isSomeFeatureEnabled"
+      on={ <FeatureCompoent /> }
+      off={ <LegacyComponent /> }
+   ````
+
+- #### toggleFeatures для работы с функциями,
+   в который нужно передать объект с опциями:
+  - название feature-флага
+  - функция, которая отработает для включения фичи
+  - функция, которая отработает для выключения фичи
+
+   ````
+   const someFunction = toggleFeatures({
+      name: 'isSomeFeatureEnabled',
+      on: () => {...}, // feature
+      off: () => {...} />, // legacy
+    });
+   ````
 
 Для автоматического удаления фичи использовать скрипт [remove-feature.ts](/src/scripts/remove-feature.ts), который принимает 2 аргумента:
 1. Название удаляемого фича-флага

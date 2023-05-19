@@ -225,7 +225,7 @@ Feature-флаги можно применять только при помощ�
   feature="isSomeFeatureEnabled"
   on={ <FeatureCompoent /> }
   off={ <LegacyComponent /> }
-/ >
+/>
 ````
 
 - #### toggleFeatures для работы с функциями,

@@ -1,7 +1,12 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { ToggleFeatures } from '@/shared/lib/features';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
+import { Button } from '@/shared/ui/redesigned/Button';
 import s from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
@@ -19,11 +24,24 @@ const LangSwitcher = memo((props: LangSwitcherProps) => {
     };
 
     return (
-        <Button
-            label={t(isShort ? 'Короткий язык' : 'Язык')}
-            theme={ButtonTheme.CLEAR}
-            className={cn(s.langSwitcher, {}, [className])}
-            onClick={toggleLang}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Button
+                    label={t('Короткий язык на английском')}
+                    variant="clear"
+                    className={cn(s.langSwitcherRedesigned, {}, [className])}
+                    onClick={toggleLang}
+                />
+            }
+            off={
+                <ButtonDeprecated
+                    label={t(isShort ? 'Короткий язык' : 'Язык')}
+                    theme={ButtonTheme.CLEAR}
+                    className={cn(s.langSwitcher, {}, [className])}
+                    onClick={toggleLang}
+                />
+            }
         />
     );
 });

@@ -11,7 +11,9 @@ export default {
     args: {},
 } as ComponentMeta<typeof AppLogo>;
 
-const Template: ComponentStory<typeof AppLogo> = (args) => <AppLogo {...args} />;
+const Template: ComponentStory<typeof AppLogo> = (args) => (
+    <AppLogo {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

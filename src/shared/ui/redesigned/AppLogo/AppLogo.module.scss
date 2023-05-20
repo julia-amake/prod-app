@@ -1,7 +1,7 @@
 .outer {
   position: relative;
-  width: 140px;
   margin: 0 auto;
+  width: 140px;
 
   &::before,
   &::after {
@@ -10,6 +10,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    pointer-events: none;
   }
 
   &::before {
@@ -52,7 +53,21 @@
 
 .logo {
   position: relative;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
-  display: block;
+}
+
+.pic {
+  width: 60%;
+  margin: 0 auto;
+
+  &Full {
+    width: 100%;
+  }
+}
+
+.text {
   width: 100%;
+  margin-top: 7%;
 }

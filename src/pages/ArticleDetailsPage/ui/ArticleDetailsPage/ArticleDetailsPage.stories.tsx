@@ -22,7 +22,11 @@ export default {
                 url: `${__API__}/articles?_limit=3&id_ne=1`,
                 method: 'GET',
                 status: 200,
-                response: [article, { ...article, id: '2' }, { ...article, id: '3' }],
+                response: [
+                    article,
+                    { ...article, id: '2' },
+                    { ...article, id: '3' },
+                ],
             },
             {
                 url: `${__API__}/article-ratings?userId=1&articleId=1`,
@@ -34,7 +38,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <ArticleDetailsPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

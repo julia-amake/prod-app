@@ -18,8 +18,11 @@ describe('classNames', () => {
     });
 
     test('with true/false mods and adds', () => {
-        expect(cn('main1 main2', { mod1: true, mod2: false, mod3: true }, ['add1', 'add2 add3'])).toBe(
-            'main1 main2 add1 add2 add3 mod1 mod3',
-        );
+        expect(
+            cn('main1 main2', { mod1: true, mod2: false, mod3: true }, [
+                'add1',
+                'add2 add3',
+            ]),
+        ).toBe('main1 main2 add1 add2 add3 mod1 mod3');
     });
 });

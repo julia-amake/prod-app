@@ -21,7 +21,9 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
     const { data, isLoading, error } = useGetNotificationsList(null, {
         pollingInterval: 5000,
     });
-    const [notifications, setNotifications] = useState<Notification[] | null>(null);
+    const [notifications, setNotifications] = useState<Notification[] | null>(
+        null,
+    );
     const [shownAll, setShownAll] = useState(false);
 
     useEffect(() => {
@@ -52,20 +54,38 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
             return (
                 <div className={cn(s.list, { [s.list_withScroll]: shownAll })}>
                     {notifications.map((n) => (
-                        <NotificationsItem key={n.id} data={n} isLoading={isLoading} />
+                        <NotificationsItem
+                            key={n.id}
+                            data={n}
+                            isLoading={isLoading}
+                        />
                     ))}
                 </div>
             );
         }
-        return <Text className={s.empty} content={t('Нет новых уведомлений')} size={TextSize.S} />;
+        return (
+            <Text
+                className={s.empty}
+                content={t('Нет новых уведомлений')}
+                size={TextSize.S}
+            />
+        );
     }, [isLoading, notifications, shownAll, t]);
 
     return (
         <div className={cn(s.outer, {}, [className])}>
-            <Heading className={s.title} size={HeadingSize.S} content={t('Уведомления')} />
+            <Heading
+                className={s.title}
+                size={HeadingSize.S}
+                content={t('Уведомления')}
+            />
             {content}
             {isShort && !shownAll && data && data?.length > 5 && (
-                <Button className={s.more} label={t('Показать все')} onClick={moreClickHandler} />
+                <Button
+                    className={s.more}
+                    label={t('Показать все')}
+                    onClick={moreClickHandler}
+                />
             )}
         </div>
     );

@@ -11,7 +11,9 @@ export default {
     args: {},
 } as ComponentMeta<typeof PageHeader>;
 
-const Template: ComponentStory<typeof PageHeader> = (args) => <PageHeader {...args}>Header</PageHeader>;
+const Template: ComponentStory<typeof PageHeader> = (args) => (
+    <PageHeader {...args}>Header</PageHeader>
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

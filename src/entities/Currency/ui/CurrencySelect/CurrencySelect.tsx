@@ -17,7 +17,13 @@ const options: ListBoxOption[] = Object.values(Currency).map((item) => ({
 }));
 
 export const CurrencySelect: FC<CurrencySelectProps> = memo((props) => {
-    const { className = '', value = Currency.RUB, label = '', onChange, readOnly = false } = props;
+    const {
+        className = '',
+        value = Currency.RUB,
+        label = '',
+        onChange,
+        readOnly = false,
+    } = props;
 
     const onChangeHandler = useCallback(
         (value: string) => {

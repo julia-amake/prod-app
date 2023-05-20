@@ -23,8 +23,16 @@ export const ContentImage = memo((props: ContentImageProps) => {
             src={src}
             className={cn(s.outer, {}, [className])}
             alt={alt}
-            fallback={<Skeleton width="100%" height={360} className={className} />}
-            errorFallback={<img src="/img/NoImageH.svg" className={cn(s.outer, {}, [className])} alt={alt} />}
+            fallback={
+                <Skeleton width="100%" height={360} className={className} />
+            }
+            errorFallback={
+                <img
+                    src="/img/NoImageH.svg"
+                    className={cn(s.outer, {}, [className])}
+                    alt={alt}
+                />
+            }
         />
     );
 });

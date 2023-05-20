@@ -2,7 +2,10 @@ import React, { InputHTMLAttributes, memo } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>, 'onChange'>;
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+    'onChange'
+>;
 interface InputProps extends HTMLInputProps {
     className?: string;
     inputClassName?: string;
@@ -35,7 +38,9 @@ export const Input = memo((props: InputProps) => {
         ...otherProps
     } = props;
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const onChangeHandler = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    ) => {
         onChange?.(e.target.value);
     };
 
@@ -48,7 +53,10 @@ export const Input = memo((props: InputProps) => {
                         value={value}
                         placeholder={placeholder}
                         onChange={onChangeHandler}
-                        className={cn(s.field, { [s.readonly]: readOnly }, [inputClassName, s.block])}
+                        className={cn(s.field, { [s.readonly]: readOnly }, [
+                            inputClassName,
+                            s.block,
+                        ])}
                         readOnly={readOnly}
                         {...(autoFocus ? { autoFocus: true } : {})}
                         {...otherProps}
@@ -62,7 +70,9 @@ export const Input = memo((props: InputProps) => {
                         value={value}
                         placeholder={placeholder}
                         onChange={onChangeHandler}
-                        className={cn(s.field, { [s.readonly]: readOnly }, [inputClassName])}
+                        className={cn(s.field, { [s.readonly]: readOnly }, [
+                            inputClassName,
+                        ])}
                         readOnly={readOnly}
                         {...(autoFocus ? { autoFocus: true } : {})}
                         {...otherProps}

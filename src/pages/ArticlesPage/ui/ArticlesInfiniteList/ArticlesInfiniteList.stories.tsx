@@ -36,7 +36,9 @@ export default {
     ],
 } as ComponentMeta<typeof ArticlesInfiniteList>;
 
-const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => <ArticlesInfiniteList {...args} />;
+const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => (
+    <ArticlesInfiniteList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

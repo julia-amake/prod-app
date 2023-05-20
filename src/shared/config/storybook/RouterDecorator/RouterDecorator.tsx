@@ -16,7 +16,10 @@ export const RouterDecorator =
         return (
             <MemoryRouter initialEntries={[path]}>
                 <Routes>
-                    <Route path={pathSchema || path} element={<StoryComponent />} />
+                    <Route
+                        path={pathSchema || path}
+                        element={<StoryComponent />}
+                    />
                 </Routes>
             </MemoryRouter>
         );

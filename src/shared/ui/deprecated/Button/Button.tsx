@@ -1,6 +1,17 @@
-import React, { ButtonHTMLAttributes, memo, useEffect, useMemo, useState } from 'react';
+import React, {
+    ButtonHTMLAttributes,
+    memo,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Button.module.scss';
+
+/**
+ * Deprecated – use components from the Redesigned folder
+ * @deprecated
+ */
 
 export enum ButtonTheme {
     CLEAR = 'clear',
@@ -9,16 +20,31 @@ export enum ButtonTheme {
     RED_OUTLINED = 'red_outlined',
 }
 
+/**
+ * Deprecated – use components from the Redesigned folder
+ * @deprecated
+ */
+
 export enum ButtonShape {
     ROUND = 'shape_rounded',
     SQUARE = 'shape_square',
     CIRCLE = 'shape_circle',
 }
 
+/**
+ * Deprecated – use components from the Redesigned folder
+ * @deprecated
+ */
+
 export enum IconPosition {
     LEFT = 'position_left',
     RIGHT = 'position_right',
 }
+
+/**
+ * Deprecated – use components from the Redesigned folder
+ * @deprecated
+ */
 
 export enum ButtonSize {
     S = 'size_s',
@@ -32,6 +58,11 @@ interface ButtonIcon {
     size?: ButtonSize;
     className?: string;
 }
+
+/**
+ * Deprecated – use components from the Redesigned folder
+ * @deprecated
+ */
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
@@ -74,7 +105,8 @@ export const Button = memo((props: ButtonProps) => {
         setCurrIcon({
             element: icon.element,
             size: icon.size || size,
-            position: !icon.position && label ? IconPosition.RIGHT : icon.position,
+            position:
+                !icon.position && label ? IconPosition.RIGHT : icon.position,
             className: icon.className || '',
         });
     }, [label, icon, size]);
@@ -92,7 +124,16 @@ export const Button = memo((props: ButtonProps) => {
             [s.button_reverse]: icon?.position === IconPosition.LEFT,
             [s.hover_underlined]: hoverUnderlined,
         };
-    }, [Icon, label, shape, theme, isLoading, disabled, icon?.position, hoverUnderlined]);
+    }, [
+        Icon,
+        label,
+        shape,
+        theme,
+        isLoading,
+        disabled,
+        icon?.position,
+        hoverUnderlined,
+    ]);
 
     return (
         <button
@@ -109,7 +150,11 @@ export const Button = memo((props: ButtonProps) => {
                         {
                             [s[`icon_${currIcon?.position}`]]: label,
                         },
-                        [s[`icon_${theme}`], s[`icon_${currIcon?.size}`], currIcon?.className],
+                        [
+                            s[`icon_${theme}`],
+                            s[`icon_${currIcon?.size}`],
+                            currIcon?.className,
+                        ],
                     )}
                 />
             )}

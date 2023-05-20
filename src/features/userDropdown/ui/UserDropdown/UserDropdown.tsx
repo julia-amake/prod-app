@@ -7,7 +7,12 @@ import Settings from '@/shared/assets/icons/Settings.svg';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Dropdown } from '@/shared/ui/deprecated/Popups/ui';
-import { getIsAdmin, getIsManager, getUserAuthData, userActions } from '@/entities/User';
+import {
+    getIsAdmin,
+    getIsManager,
+    getUserAuthData,
+    userActions,
+} from '@/entities/User';
 
 interface UserDropdownProps {
     className?: string;

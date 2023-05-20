@@ -19,7 +19,9 @@ interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) => {
+export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (
+    props,
+) => {
     const { className = '' } = props;
 
     const { t } = useTranslation();
@@ -44,7 +46,13 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (pr
 
     return (
         <PageHeader>
-            <HStack as="header" className={className} align="center" justify="between" gap="24">
+            <HStack
+                as="header"
+                className={className}
+                align="center"
+                justify="between"
+                gap="24"
+            >
                 <div />
                 <HStack align="center" gap="16">
                     {canEdit &&

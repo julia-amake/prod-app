@@ -15,7 +15,9 @@ export default {
     decorators: [RouterDecorator()],
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+    <ArticleList {...args} />
+);
 
 export const Grid = Template.bind({});
 Grid.args = {

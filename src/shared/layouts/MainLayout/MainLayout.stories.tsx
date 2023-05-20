@@ -11,7 +11,9 @@ export default {
     args: {},
 } as ComponentMeta<typeof MainLayout>;
 
-const Template: ComponentStory<typeof MainLayout> = (args) => <MainLayout {...args} />;
+const Template: ComponentStory<typeof MainLayout> = (args) => (
+    <MainLayout {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

@@ -21,7 +21,10 @@ describe('The user opened the article details page', () => {
         cy.getByTestId('ArticleRecommendationsList')
             .should('exist')
             .within(() => {
-                cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 1);
+                cy.getByTestId('ArticleListItem').should(
+                    'have.length.greaterThan',
+                    1,
+                );
             });
     });
 

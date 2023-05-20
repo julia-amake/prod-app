@@ -41,7 +41,9 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                 customProps={{ onClick: onOpenDrawer }}
             >
                 <Icon svg={Notes} className={s.trigger_icon} />
-                <div className={cn(s.status, {}, [s.status_new])}>{t('Есть новые уведомления')}</div>
+                <div className={cn(s.status, {}, [s.status_new])}>
+                    {t('Есть новые уведомления')}
+                </div>
             </HStack>
         ),
         [onOpenDrawer, t],

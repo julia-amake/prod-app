@@ -12,7 +12,10 @@ interface PortalProps {
  */
 
 export const Portal: React.FC<PortalProps> = (props) => {
-    const { children, element = document.getElementById('root') ?? document.body } = props;
+    const {
+        children,
+        element = document.getElementById('root') ?? document.body,
+    } = props;
 
     return createPortal(children, element);
 };

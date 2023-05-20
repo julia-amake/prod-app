@@ -11,7 +11,9 @@ export default {
     args: {},
 } as ComponentMeta<typeof Preloader>;
 
-const Template: ComponentStory<typeof Preloader> = (args) => <Preloader {...args} />;
+const Template: ComponentStory<typeof Preloader> = (args) => (
+    <Preloader {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

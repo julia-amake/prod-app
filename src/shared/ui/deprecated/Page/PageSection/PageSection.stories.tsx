@@ -11,7 +11,9 @@ export default {
     args: {},
 } as ComponentMeta<typeof PageSection>;
 
-const Template: ComponentStory<typeof PageSection> = (args) => <PageSection {...args}>Контент</PageSection>;
+const Template: ComponentStory<typeof PageSection> = (args) => (
+    <PageSection {...args}>Контент</PageSection>
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

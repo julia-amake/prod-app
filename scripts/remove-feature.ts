@@ -32,7 +32,10 @@ function isToggleFunction(node: Node) {
     node.forEachChild((child) => {
         // проверяем, что тип ребенка - это js-идентификатор
         // c названием === toggleFeatures
-        if (child.isKind(SyntaxKind.Identifier) && child.getText() === toggleFuncName) {
+        if (
+            child.isKind(SyntaxKind.Identifier) &&
+            child.getText() === toggleFuncName
+        ) {
             isToggle = true;
         }
     });
@@ -50,7 +53,10 @@ const getAttributeNodeByName = (jsxAttributes: JsxAttribute[], name: string) =>
     jsxAttributes.find((node) => node.getName() === name);
 
 const getReplacedComponent = (attribute?: JsxAttribute) => {
-    const value = attribute?.getFirstDescendantByKind(SyntaxKind.JsxExpression)?.getExpression()?.getText();
+    const value = attribute
+        ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
+        ?.getExpression()
+        ?.getText();
 
     if (value?.startsWith('(')) {
         return value.slice(1, -1);
@@ -61,7 +67,9 @@ const getReplacedComponent = (attribute?: JsxAttribute) => {
 
 const replaceToggleFunction = (node: Node) => {
     // выбираем объект с опциями name, on, off
-    const objOptions = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+    const objOptions = node.getFirstDescendantByKind(
+        SyntaxKind.ObjectLiteralExpression,
+    );
 
     if (!objOptions) return;
 
@@ -79,8 +87,12 @@ const replaceToggleFunction = (node: Node) => {
         ?.getLiteralValue();
 
     // Получаем сами функции () => <Component />
-    const onFunction = onFuncProperty?.getFirstDescendantByKind(SyntaxKind.ArrowFunction);
-    const offFunction = offFuncProperty?.getFirstDescendantByKind(SyntaxKind.ArrowFunction);
+    const onFunction = onFuncProperty?.getFirstDescendantByKind(
+        SyntaxKind.ArrowFunction,
+    );
+    const offFunction = offFuncProperty?.getFirstDescendantByKind(
+        SyntaxKind.ArrowFunction,
+    );
 
     if (featureName !== removedFeatureName) return;
 
@@ -130,7 +142,10 @@ files.forEach((sourceFile) => {
             replaceToggleFunction(node);
         }
 
-        if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
+        if (
+            node.isKind(SyntaxKind.JsxSelfClosingElement) &&
+            isToggleComponent(node)
+        ) {
             replaceToggleComponent(node);
         }
     });

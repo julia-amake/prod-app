@@ -19,13 +19,19 @@ export default {
                 url: `${__API__}/articles?_expand=user&_page=2&_limit=6&_sort=createdAt&_order=desc&q=`,
                 method: 'GET',
                 status: 200,
-                response: [article, { ...article, id: '2' }, { ...article, id: '3' }],
+                response: [
+                    article,
+                    { ...article, id: '2' },
+                    { ...article, id: '3' },
+                ],
             },
         ],
     },
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+    <ArticlesPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

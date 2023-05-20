@@ -13,7 +13,10 @@ import {
     getAddCommentFormError,
     getAddCommentFormText,
 } from '../../model/selectors/addCommentsFormSelectors';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
 import s from './AddCommentForm.module.scss';
 
 const reducers: ReducersList = {
@@ -49,7 +52,10 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     }, [text, onCommentTextChange, onSendComment]);
 
     return (
-        <div className={cn(s.outer, {}, [className])} data-testid="AddCommentForm">
+        <div
+            className={cn(s.outer, {}, [className])}
+            data-testid="AddCommentForm"
+        >
             <Input
                 placeholder={t('Добавить комментарий')}
                 value={text}

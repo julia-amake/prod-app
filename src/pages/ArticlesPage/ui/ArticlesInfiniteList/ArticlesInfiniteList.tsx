@@ -22,5 +22,12 @@ export const ArticlesInfiniteList = memo((props: ArticlesInfiniteListProps) => {
     const error = useSelector(getArticlesPageError);
 
     if (error) return <Informer title={error} isCentered />;
-    return <ArticleList articles={articles} isLoading={isLoading} view={view} className={className} />;
+    return (
+        <ArticleList
+            articles={articles}
+            isLoading={isLoading}
+            view={view}
+            className={className}
+        />
+    );
 });

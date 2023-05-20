@@ -17,7 +17,13 @@ const options: ListBoxOption[] = Object.values(Country).map((item) => ({
 }));
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-    const { className = '', value = Country.RUSSIA, label = '', onChange, readOnly = false } = props;
+    const {
+        className = '',
+        value = Country.RUSSIA,
+        label = '',
+        onChange,
+        readOnly = false,
+    } = props;
 
     const onChangeHandler = useCallback(
         (value: string) => {

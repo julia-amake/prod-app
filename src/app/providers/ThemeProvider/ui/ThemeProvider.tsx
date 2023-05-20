@@ -12,7 +12,9 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     const { children, initialTheme } = props;
     const { theme: defaultTheme } = useJsonSettings();
     const [isThemeInited, setIsThemeInited] = useState(false);
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || Theme.LIGHT);
+    const [theme, setTheme] = useState<Theme>(
+        initialTheme || defaultTheme || Theme.LIGHT,
+    );
 
     useEffect(() => {
         if (!isThemeInited && defaultTheme) {
@@ -45,7 +47,11 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
         classNames.add(theme);
     }, [theme]);
 
-    return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
+    return (
+        <ThemeContext.Provider value={defaultProps}>
+            {children}
+        </ThemeContext.Provider>
+    );
 };
 
 export default ThemeProvider;

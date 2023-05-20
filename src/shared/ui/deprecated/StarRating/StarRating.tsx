@@ -22,7 +22,12 @@ interface StarRatingProps {
  */
 
 export const StarRating = memo((props: StarRatingProps) => {
-    const { selectedStarsCount = 0, size = 24, onSelect, className = '' } = props;
+    const {
+        selectedStarsCount = 0,
+        size = 24,
+        onSelect,
+        className = '',
+    } = props;
 
     const { t } = useTranslation();
     const [isSelected, setIsSelected] = useState<boolean>(false);
@@ -34,7 +39,8 @@ export const StarRating = memo((props: StarRatingProps) => {
         setCurrStarsCount(selectedStarsCount);
     }, [selectedStarsCount]);
 
-    const StarIcon = (isSelected: boolean) => (isSelected ? StarFilled : StarLine);
+    const StarIcon = (isSelected: boolean) =>
+        isSelected ? StarFilled : StarLine;
 
     const onStarEnter = (starsCount: number) => () => {
         if (isSelected) return;
@@ -59,7 +65,8 @@ export const StarRating = memo((props: StarRatingProps) => {
             {stars.map((starNumber) => (
                 <div
                     className={cn(s.star, {
-                        [s.star_hovered]: !isSelected && hoveredStarsCount >= starNumber,
+                        [s.star_hovered]:
+                            !isSelected && hoveredStarsCount >= starNumber,
                     })}
                     key={starNumber}
                     onMouseEnter={onStarEnter(starNumber)}
@@ -69,15 +76,23 @@ export const StarRating = memo((props: StarRatingProps) => {
                     data-selected={isSelected && currStarsCount >= starNumber}
                 >
                     <Icon
-                        svg={StarIcon(hoveredStarsCount >= starNumber || currStarsCount >= starNumber)}
+                        svg={StarIcon(
+                            hoveredStarsCount >= starNumber ||
+                                currStarsCount >= starNumber,
+                        )}
                         width={size}
                         height={size}
                         className={cn(s.icon, {
-                            [s.icon_hovered]: !isSelected && hoveredStarsCount >= starNumber,
+                            [s.icon_hovered]:
+                                !isSelected && hoveredStarsCount >= starNumber,
                         })}
                     />
-                    {starNumber === 1 && <div className={s.text}>{t('Плохо')}</div>}
-                    {starNumber === 5 && <div className={s.text}>{t('Отлично')}</div>}
+                    {starNumber === 1 && (
+                        <div className={s.text}>{t('Плохо')}</div>
+                    )}
+                    {starNumber === 5 && (
+                        <div className={s.text}>{t('Отлично')}</div>
+                    )}
                 </div>
             ))}
         </HStack>

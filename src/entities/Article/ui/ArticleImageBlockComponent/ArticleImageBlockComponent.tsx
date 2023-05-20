@@ -9,13 +9,17 @@ interface ArticleImageBlockComponentProps {
     className?: string;
 }
 
-export const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = (props) => {
+export const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = (
+    props,
+) => {
     const { block, className = '' } = props;
 
     return (
         <figure className={cn(s.outer, {}, [className])}>
             <ContentImage src={block.src} alt={block.title || ''} />
-            {block.title && <figcaption className={s.title}>{block.title}</figcaption>}
+            {block.title && (
+                <figcaption className={s.title}>{block.title}</figcaption>
+            )}
         </figure>
     );
 };

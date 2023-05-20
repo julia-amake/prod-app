@@ -26,5 +26,6 @@ const userApi = rtkApi.injectEndpoints({
 });
 
 // для использования не в компоненте, а в обычном коде
-export const setJsonSettingsMutation = userApi.endpoints.setJsonSettings.initiate;
+export const setJsonSettingsMutation =
+    userApi.endpoints.setJsonSettings.initiate;
 export const getUserDataByIdQuery = userApi.endpoints.getUserDataById.initiate;

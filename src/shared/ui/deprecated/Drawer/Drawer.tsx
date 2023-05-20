@@ -1,6 +1,9 @@
 import React, { memo, ReactNode, useCallback, useEffect } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
@@ -44,7 +47,13 @@ const DrawerContent = memo((props: DrawerProps) => {
     }, [isOpen, openDrawer]);
 
     const bind = Gesture.useDrag(
-        ({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
+        ({
+            last,
+            velocity: [, vy],
+            direction: [, dy],
+            movement: [, my],
+            cancel,
+        }) => {
             if (my < -70) cancel();
 
             if (last) {
@@ -69,7 +78,11 @@ const DrawerContent = memo((props: DrawerProps) => {
         <Portal>
             <div className={cn(s.outer, {}, [className, theme])}>
                 <Overlay onClick={() => close()} className={s.overlay} />
-                <Spring.a.div className={s.content} style={{ display, y }} {...bind()}>
+                <Spring.a.div
+                    className={s.content}
+                    style={{ display, y }}
+                    {...bind()}
+                >
                     {children}
                 </Spring.a.div>
             </div>

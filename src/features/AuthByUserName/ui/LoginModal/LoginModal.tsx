@@ -14,7 +14,12 @@ const LoginModal: React.FC<LoginModalProps> = (props) => {
     const { isOpen, onClose, className = '' } = props;
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose} lazy className={cn('', {}, [className])}>
+        <Modal
+            isOpen={isOpen}
+            onClose={onClose}
+            lazy
+            className={cn('', {}, [className])}
+        >
             <Suspense fallback={<Preloader />}>
                 <LoginForm onSuccess={onClose} />
             </Suspense>

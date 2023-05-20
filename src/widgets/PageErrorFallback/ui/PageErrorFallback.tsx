@@ -1,7 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/deprecated/Button';
-import { Heading, HeadingPosition, HeadingSize } from '@/shared/ui/deprecated/Heading';
+import {
+    Heading,
+    HeadingPosition,
+    HeadingSize,
+} from '@/shared/ui/deprecated/Heading';
 import { VStack } from '@/shared/ui/deprecated/Stack';
 
 interface PageErrorFallbackProps {
@@ -15,7 +19,13 @@ const PageErrorFallback: React.FC<PageErrorFallbackProps> = (props) => {
     const onReloadPage = () => window.location.reload();
 
     return (
-        <VStack className={className} align="center" justify="center" gap="24" fullWidth>
+        <VStack
+            className={className}
+            align="center"
+            justify="center"
+            gap="24"
+            fullWidth
+        >
             <Heading
                 position={HeadingPosition.CENTER}
                 content={t('Что-то пошло не так')}

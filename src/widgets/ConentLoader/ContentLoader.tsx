@@ -12,7 +12,11 @@ const ContentLoader: React.FC<PageLoaderProps> = (props) => {
     const { className = '' } = props;
 
     return (
-        <HStack className={cn(s.wrapper, {}, [className])} align="center" justify="center">
+        <HStack
+            className={cn(s.wrapper, {}, [className])}
+            align="center"
+            justify="center"
+        >
             <Preloader />
         </HStack>
     );

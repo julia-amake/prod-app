@@ -33,7 +33,11 @@ export const ArticlePageGreeting = memo(() => {
     return (
         <Element isOpen={isOpen} onClose={onClose}>
             <Heading content={t('Добро пожаловать на страницу статей')} />
-            <Text content={t('Здесь вы можете найти и прочитать статьи на разные темы')} />
+            <Text
+                content={t(
+                    'Здесь вы можете найти и прочитать статьи на разные темы',
+                )}
+            />
         </Element>
     );
 });

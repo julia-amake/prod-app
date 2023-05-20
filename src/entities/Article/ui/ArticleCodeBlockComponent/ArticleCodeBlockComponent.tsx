@@ -8,7 +8,9 @@ interface ArticleCodeBlockComponentProps {
     className?: string;
 }
 
-export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = (props) => {
+export const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = (
+    props,
+) => {
     const { block, className = '' } = props;
 
     return <Code content={block.code} className={cn(className)} />;

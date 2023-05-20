@@ -63,7 +63,11 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     return (
         <div className={cn(s.loginForm, {}, [className])}>
-            <Heading size={HeadingSize.S} className={s.title} content={t('Войти')} />
+            <Heading
+                size={HeadingSize.S}
+                className={s.title}
+                content={t('Войти')}
+            />
             <Input
                 type="text"
                 label={t('Имя пользователя')}
@@ -82,9 +86,18 @@ const LoginForm = memo((props: LoginFormProps) => {
                 value={password}
             />
             {error && (
-                <Informer title={t('Вы ввели неверный логин или пароль')} isCentered className={s.error} />
+                <Informer
+                    title={t('Вы ввели неверный логин или пароль')}
+                    isCentered
+                    className={s.error}
+                />
             )}
-            <Button label={t('Войти')} onClick={onLoginClick} className={s.loginBtn} disabled={isLoading} />
+            <Button
+                label={t('Войти')}
+                onClick={onLoginClick}
+                className={s.loginBtn}
+                disabled={isLoading}
+            />
         </div>
     );
 });

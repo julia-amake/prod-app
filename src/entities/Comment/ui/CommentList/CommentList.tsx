@@ -22,7 +22,10 @@ export const CommentList = memo((props: CommentListProps) => {
             <div className={cn(s.outer, {}, [className])}>
                 <CommentCard className={cn(s.comment)} isLoading={isLoading} />
                 <CommentCard className={cn(s.comment)} isLoading={isLoading} />
-                <CommentCard className={cn(s.comment, {}, [s.comment_last])} isLoading={isLoading} />
+                <CommentCard
+                    className={cn(s.comment, {}, [s.comment_last])}
+                    isLoading={isLoading}
+                />
             </div>
         );
     }

@@ -99,7 +99,11 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                 onChange={onChangeSearch}
             />
             <div className={s.filters}>
-                <ArticleTypeTabs onChangeType={onChangeType} value={type} isLoading={isLoading} />
+                <ArticleTypeTabs
+                    onChangeType={onChangeType}
+                    value={type}
+                    isLoading={isLoading}
+                />
                 <div className={s.sorts}>
                     <ArticleSortSelector
                         order={order}
@@ -107,7 +111,10 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                         onChangeOrder={onChangeOrder}
                         onChangeSort={onChangeSort}
                     />
-                    <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                    <ArticleViewSelector
+                        view={view}
+                        onViewClick={onChangeView}
+                    />
                 </div>
             </div>
         </div>

@@ -28,14 +28,19 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         () => (
             <div className={s.views}>
                 <EyeLine className={s.views_icon} />
-                <Text size={TextSize.XS} margin={TextMargin.NONE} content={article.views.toString()} />
+                <Text
+                    size={TextSize.XS}
+                    margin={TextMargin.NONE}
+                    content={article.views.toString()}
+                />
             </div>
         ),
         [article.views],
     );
 
     const categories = useMemo(() => {
-        const list = view === ArticleView.GRID ? article.type.slice(0, 2) : article.type;
+        const list =
+            view === ArticleView.GRID ? article.type.slice(0, 2) : article.type;
 
         return (
             <ul className={s.categories}>
@@ -44,7 +49,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         as="li"
                         key={type}
                         className={cn(s.category, {
-                            [s.category_last]: article.type.length === arr.length && idx === arr.length - 1,
+                            [s.category_last]:
+                                article.type.length === arr.length &&
+                                idx === arr.length - 1,
                         })}
                         content={type}
                         margin={TextMargin.NONE}
@@ -71,7 +78,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 alt={article.title}
                 className={s.pic}
                 fallback={<Skeleton className={s.pic} />}
-                errorFallback={<img src="/img/NoImageH.svg" alt="" className={s.pic} />}
+                errorFallback={
+                    <img src="/img/NoImageH.svg" alt="" className={s.pic} />
+                }
             />
         ),
         [article.image, article.title],
@@ -100,14 +109,21 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         {categories}
                         {views}
                     </div>
-                    <Text as="h3" content={article.title} className={s.title} margin={TextMargin.NONE} />
+                    <Text
+                        as="h3"
+                        content={article.title}
+                        className={s.title}
+                        margin={TextMargin.NONE}
+                    />
                 </div>
             </Card>
         );
     }
 
     if (view === ArticleView.LIST) {
-        const textBlock = article.blocks.find((a) => a.type === ArticleBlockType.TEXT);
+        const textBlock = article.blocks.find(
+            (a) => a.type === ArticleBlockType.TEXT,
+        );
 
         return (
             <Card
@@ -117,7 +133,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <div className={s.header}>
                     <div className={s.additional}>
                         <div className={s.user}>
-                            <Avatar size={30} src={article.user.avatar} className={s.avatar} />
+                            <Avatar
+                                size={30}
+                                src={article.user.avatar}
+                                className={s.avatar}
+                            />
                             <Text
                                 content={article.user.username}
                                 margin={TextMargin.NONE}
@@ -132,7 +152,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             size={TextSize.XS}
                         />
                     </div>
-                    <Text as="h3" content={article.title} className={s.title} margin={TextMargin.NONE} />
+                    <Text
+                        as="h3"
+                        content={article.title}
+                        className={s.title}
+                        margin={TextMargin.NONE}
+                    />
                     {categories}
                 </div>
                 <div className={s.pic_outer}>{image}</div>
@@ -147,7 +172,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={s.actions}>
                         <AppLink to={getRouteArticleDetails(article.id)}>
-                            <Button size={ButtonSize.M} label="Читать далее..." />
+                            <Button
+                                size={ButtonSize.M}
+                                label="Читать далее..."
+                            />
                         </AppLink>
                         {views}
                     </div>

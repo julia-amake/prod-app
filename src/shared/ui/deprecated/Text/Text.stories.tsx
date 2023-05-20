@@ -9,7 +9,8 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {
-        content: 'Здесь тестовый текст для параграфов больших и маленьких, жирных и худых, c отступами и без',
+        content:
+            'Здесь тестовый текст для параграфов больших и маленьких, жирных и худых, c отступами и без',
     },
 } as ComponentMeta<typeof Text>;
 

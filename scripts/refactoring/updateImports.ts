@@ -5,7 +5,15 @@ project.addSourceFilesAtPaths('src/**/*.ts');
 project.addSourceFilesAtPaths('src/**/*.tsx');
 
 function isAbsolutePath(value: string) {
-    const layers = ['app', 'pages', 'layouts', 'widgets', 'features', 'entities', 'shared'];
+    const layers = [
+        'app',
+        'pages',
+        'layouts',
+        'widgets',
+        'features',
+        'entities',
+        'shared',
+    ];
 
     return layers.some((layer) => value.startsWith(layer));
 }

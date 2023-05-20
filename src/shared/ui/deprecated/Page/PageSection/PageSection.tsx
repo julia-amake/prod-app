@@ -19,7 +19,13 @@ export const PageSection = (props: PageSectionProps) => {
 
     return (
         <div className={cn(s.outer, {}, [className])} {...otherProps}>
-            {title && <Heading content={title} className={s.title} size={HeadingSize.S} />}
+            {title && (
+                <Heading
+                    content={title}
+                    className={s.title}
+                    size={HeadingSize.S}
+                />
+            )}
             {children}
         </div>
     );

@@ -48,7 +48,12 @@ export const ListBox = (props: ListBoxProps) => {
     } = props;
 
     return (
-        <div className={cn(sPopup.outer, {}, [className, sPopup[`outer_width_${width}`]])}>
+        <div
+            className={cn(sPopup.outer, {}, [
+                className,
+                sPopup[`outer_width_${width}`],
+            ])}
+        >
             {label && <div className={s.label}>{label}</div>}
             <HListBox
                 as="div"
@@ -58,10 +63,18 @@ export const ListBox = (props: ListBoxProps) => {
                 disabled={readonly || !options || !options.length}
             >
                 <Float as="div" floatingAs={Fragment} offset={12} flip={8}>
-                    <HListBox.Button className={cn(s.btn, { [sPopup.btn_disabled]: readonly }, [sPopup.btn])}>
+                    <HListBox.Button
+                        className={cn(
+                            s.btn,
+                            { [sPopup.btn_disabled]: readonly },
+                            [sPopup.btn],
+                        )}
+                    >
                         {value ?? defaultValue}
                     </HListBox.Button>
-                    <HListBox.Options className={cn(s.options, {}, [sPopup.items])}>
+                    <HListBox.Options
+                        className={cn(s.options, {}, [sPopup.items])}
+                    >
                         {options?.map((item) => (
                             <HListBox.Option
                                 key={item.value}

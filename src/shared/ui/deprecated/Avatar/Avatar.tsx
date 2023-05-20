@@ -35,7 +35,12 @@ export const Avatar: FC<AvatarProps> = (props) => {
             src={src}
             alt={alt}
             fallback={<Skeleton width={size} height={size} />}
-            errorFallback={<ProfileDefault style={styles} className={cn(s.avatar, {}, [className])} />}
+            errorFallback={
+                <ProfileDefault
+                    style={styles}
+                    className={cn(s.avatar, {}, [className])}
+                />
+            }
             style={styles}
         />
     );

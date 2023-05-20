@@ -13,7 +13,9 @@ export default {
     decorators: [RouterDecorator()],
 } as ComponentMeta<typeof PageErrorFallback>;
 
-const Template: ComponentStory<typeof PageErrorFallback> = (args) => <PageErrorFallback {...args} />;
+const Template: ComponentStory<typeof PageErrorFallback> = (args) => (
+    <PageErrorFallback {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};

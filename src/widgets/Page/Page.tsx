@@ -19,13 +19,20 @@ interface PageProps extends TestProps {
 }
 
 export const Page = (props: PageProps) => {
-    const { children, onScrollEnd, className = '', dataTestid = 'Page' } = props;
+    const {
+        children,
+        onScrollEnd,
+        className = '',
+        dataTestid = 'Page',
+    } = props;
 
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getUIScrollByPath(state, pathname),
+    );
 
     useInfiniteScroll({
         wrapperRef,

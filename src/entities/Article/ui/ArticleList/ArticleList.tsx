@@ -34,7 +34,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     return (
         <div
-            className={cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [className])}
+            className={cn(
+                s.outer,
+                { [s.outer_list]: view === ArticleView.LIST },
+                [className],
+            )}
             data-testid="ArticleList"
         >
             {articles?.length
@@ -48,9 +52,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
                   ))
                 : null}
             {isLoading &&
-                Array.from(Array(view === ArticleView.GRID ? 6 : 3), (_, idx) => (
-                    <ArticleListItemSkeleton view={view} className={cn(s.item)} key={idx} />
-                ))}
+                Array.from(
+                    Array(view === ArticleView.GRID ? 6 : 3),
+                    (_, idx) => (
+                        <ArticleListItemSkeleton
+                            view={view}
+                            className={cn(s.item)}
+                            key={idx}
+                        />
+                    ),
+                )}
         </div>
     );
 });

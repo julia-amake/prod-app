@@ -10,7 +10,10 @@ export interface SelectOption<T extends string> {
 
 type SelectSize = 'M' | 'S';
 
-type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'size'>;
+type HTMLSelectProps = Omit<
+    SelectHTMLAttributes<HTMLSelectElement>,
+    'onChange' | 'size'
+>;
 
 interface SelectProps<T extends string> extends HTMLSelectProps {
     label?: string;
@@ -28,7 +31,15 @@ interface SelectProps<T extends string> extends HTMLSelectProps {
  */
 
 export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
-    const { label = '', options, value, onChange, className = '', readOnly = false, size = 'M' } = props;
+    const {
+        label = '',
+        options,
+        value,
+        onChange,
+        className = '',
+        readOnly = false,
+        size = 'M',
+    } = props;
 
     const optionsList = useMemo(
         () =>
@@ -48,7 +59,9 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
         <div className={cn(s.outer, {}, [className])}>
             {label && <div className={s.label}>{label}</div>}
             <select
-                className={cn(s.select, { [s.disabled]: readOnly }, [s[`select_size_${size}`]])}
+                className={cn(s.select, { [s.disabled]: readOnly }, [
+                    s[`select_size_${size}`],
+                ])}
                 {...(value ? { value } : {})}
                 onChange={onChangeHandler}
                 disabled={readOnly}

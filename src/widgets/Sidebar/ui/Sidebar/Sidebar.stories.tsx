@@ -7,13 +7,18 @@ import Sidebar from './Sidebar';
 export default {
     title: 'widgets/Sidebar',
     component: Sidebar,
-    decorators: [StoreDecorator({ user: { authData: { id: '1', username: 'user' } } }), RouterDecorator()],
+    decorators: [
+        StoreDecorator({ user: { authData: { id: '1', username: 'user' } } }),
+        RouterDecorator(),
+    ],
     argTypes: {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof Sidebar> = (args) => (
+    <Sidebar {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};

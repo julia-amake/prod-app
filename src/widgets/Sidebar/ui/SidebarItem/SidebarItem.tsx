@@ -3,8 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getRouteMain } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkProps, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
+import { ToggleFeatures } from '@/shared/lib/features';
+import {
+    AppLink as AppLinkDeprecated,
+    AppLinkProps,
+    AppLinkTheme,
+} from '@/shared/ui/deprecated/AppLink';
 import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
 import s from './SidebarItem.module.scss';
@@ -36,16 +42,53 @@ const SidebarItem = memo((props: SidebarItemProps) => {
     if (authOnly && !isAuth) return null;
 
     return (
-        <Item
-            as={AppLink}
-            customProps={linkCustomProps}
-            className={cn(s.link, { [s.link_collapsed]: collapsed }, [])}
-            align="center"
-            fullWidth
-        >
-            <Icon className={cn(s.linkIcon, { [s.linkIcon_home]: path === getRouteMain() }, [])} />
-            <span className={s.linkTitle}>{t(title)}</span>
-        </Item>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <HStack
+                    as={AppLink}
+                    className={cn(
+                        s.linkRedesigned,
+                        { [s.link_collapsed]: collapsed },
+                        [],
+                    )}
+                    align="center"
+                    fullWidth
+                    customProps={{
+                        to: path,
+                        variant: 'clear',
+                        ...(!collapsed
+                            ? { activeClassName: s.linkRedesignedActive }
+                            : {}),
+                    }}
+                >
+                    <Icon className={s.linkIconRedesigned} />
+                    <span className={s.linkTitleRedesigned}>{t(title)}</span>
+                </HStack>
+            }
+            off={
+                <Item
+                    as={AppLinkDeprecated}
+                    customProps={linkCustomProps}
+                    className={cn(
+                        s.link,
+                        { [s.link_collapsed]: collapsed },
+                        [],
+                    )}
+                    align="center"
+                    fullWidth
+                >
+                    <Icon
+                        className={cn(
+                            s.linkIcon,
+                            { [s.linkIcon_home]: path === getRouteMain() },
+                            [],
+                        )}
+                    />
+                    <span className={s.linkTitle}>{t(title)}</span>
+                </Item>
+            }
+        />
     );
 });
 

@@ -10,17 +10,6 @@
   transition: transform 0.3s, margin-right 0.3s, width 0.3s;
 }
 
-.sidebarRedesigned {
-  position: relative;
-  height: 100%;
-  padding: 32px 0;
-  box-sizing: border-box;
-  background: var(--light-bg-redesigned);
-  border-radius: 32px;
-  transition: transform 0.3s, margin-right 0.3s, width 0.3s;
-  overflow: hidden;
-}
-
 .collapsed {
   width: 64px;
 }
@@ -70,5 +59,59 @@
 .themeSwitcher {
   .collapsed & {
     margin-bottom: 8px;
+  }
+}
+
+// redesigned
+
+.sidebarRedesigned {
+  position: relative;
+  width: 220px;
+  height: 100%;
+  padding-top: 24px;
+  box-sizing: border-box;
+  background: var(--light-bg-redesigned);
+  border-radius: 32px;
+  transition: margin-left 0.3s, width 0.3s;
+  overflow: hidden;
+  color: var();
+  isolation: isolate;
+}
+
+.collapsedRedesigned {
+  width: 52px;
+  padding-top: 10px;
+}
+
+.logoWrapper {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 40px;
+
+  .collapsedRedesigned & {
+    padding-bottom: 113px;
+  }
+}
+
+.menu {
+  position: relative;
+  z-index: 2;
+}
+
+.actionsRedesigned {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding-top: 16px;
+  padding-bottom: 40px;
+
+  .collapsedRedesigned & {
+    padding-bottom: 16px;
+  }
+}
+
+.themeSwitcherRedesigned {
+  .collapsedRedesigned & {
+    margin-bottom: 10px;
   }
 }

@@ -48,3 +48,50 @@
     color: var(--primary-color-font);
   }
 }
+
+.linkRedesigned {
+  position: relative;
+  padding: 6px 16px;
+
+  &Active {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: var(--accent-redesigned);
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+    background:
+      linear-gradient(
+        to right,
+        rgba(var(--accent-redesigned-rgb), 0.3),
+        rgba(var(--accent-redesigned-rgb), 0)
+      );
+  }
+}
+
+.linkTitleRedesigned {
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 14px;
+  white-space: nowrap;
+
+  .link_collapsed & {
+    display: none;
+  }
+}
+
+.linkIconRedesigned {
+  flex-shrink: 0;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  fill: var(--icon-redesigned);
+}

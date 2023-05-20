@@ -17,9 +17,11 @@
   --text-redesigned: #141c1f;
   --hint-redesigned: #adbcc0;
   --cancel-redesigned: #f77;
+  --cancel-redesigned-rgb: #{hex-to-rgb(#f77)};
   --save-redesigned: #62de85;
   --icon-redesigned: #5ed3f3;
   --accent-redesigned: #00c8ff;
+  --accent-redesigned-rgb: #{hex-to-rgb(#00c8ff)};
 
   // skeleton
   --skeleton-bg: #eaedf5;

@@ -25,9 +25,11 @@
   --text-redesigned: #1b1311;
   --hint-redesigned: #b8b2a2;
   --cancel-redesigned: #ff5e5e;
+  --cancel-redesigned-rgb: #{hex-to-rgb(#ff5e5e)};
   --save-redesigned: #52fa81;
   --icon-redesigned: #4875f0;
   --accent-redesigned: #1d59ff;
+  --accent-redesigned-rgb: #{hex-to-rgb(#1d59ff)};
 
   // skeleton
   --skeleton-bg: #eaedf5;

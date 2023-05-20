@@ -1,0 +1,29 @@
+@use "sass:color";
+
+.link {
+  text-decoration: none;
+  transition: background-color 0.1s ease, border-color 0.1s ease, box-shadow 0.1s ease, color 0.1s ease, fill 0.1s ease;
+}
+
+.primary {
+  color: var(--accent-redesigned);
+}
+
+.clear {
+  color: inherit;
+
+  &:hover {
+    color: var(--accent-redesigned);
+  }
+}
+
+.danger {
+  color: var(--cancel-redesigned);
+}
+
+.primary,
+.danger {
+  &:hover {
+    text-decoration: underline;
+  }
+}

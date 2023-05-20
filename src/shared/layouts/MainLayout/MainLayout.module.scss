@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   grid-template-areas: "left middle right";
-  grid-template-columns: 284px 1fr auto;
+  grid-template-columns: auto auto auto;
   box-sizing: border-box;
 }
 
@@ -21,7 +21,9 @@
 
 .left {
   grid-area: left;
+  max-width: 284px;
   padding: 32px;
+  box-sizing: border-box;
 }
 
 .middle {
@@ -39,6 +41,7 @@
   align-items: flex-end;
   padding-top: 32px;
   padding-left: 32px;
+  max-width: 252px;
 }
 
 .header {

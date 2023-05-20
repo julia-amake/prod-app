@@ -1,0 +1,180 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  &_disabled {
+    opacity: 0.5;
+    cursor: auto;
+  }
+
+  &_reverse {
+    flex-direction: row-reverse;
+  }
+
+  --font-size-s: 14px;
+  --font-line-s: 32px;
+  --font-size-m: 14px;
+  --font-line-m: 40px;
+  --font-size-l: 16px;
+  --font-line-l: 48px;
+}
+
+.primary {
+  background: var(--primary-color);
+  color: var(--primary-color-font);
+
+  &:hover {
+    &:not(.button_disabled) {
+      background: var(--primary-color-hover);
+    }
+  }
+}
+
+.iconOnly {
+  padding: 8px;
+
+  &_clear {
+    padding: 0;
+  }
+}
+
+.size {
+  &_s {
+    padding: 0 12px;
+    font-size: 14px;
+    line-height: 32px;
+  }
+
+  &_m {
+    padding: 0 16px;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-m);
+  }
+
+  &_l {
+    padding: 0 24px;
+    font-size: var(--font-size-l);
+    line-height: var(--font-line-l);
+  }
+}
+
+.outlined {
+  color: var(--inverted-bg-color);
+  box-shadow: inset 0 0 0 2px var(--devider-color);
+
+  &:hover {
+    &:not(.button_disabled) {
+      color: var(--bg-color);
+      box-shadow: inset 0 0 0 2px var(--neutral-color-2);
+      background: var(--neutral-color-2);
+    }
+  }
+}
+
+.red_outlined {
+  color: var(--error-color);
+  box-shadow: inset 0 0 0 2px var(--error-color);
+
+  &:hover {
+    color: var(--primary-color-font);
+    background: var(--error-color);
+  }
+}
+
+.shape {
+  &_rounded {
+    border-radius: 90px;
+  }
+
+  &_square {
+    border-radius: 0;
+  }
+
+  &_circle {
+    border-radius: 50%;
+  }
+}
+
+.clear {
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+  background: none;
+  border-radius: 0;
+}
+
+.icon {
+  &_primary {
+    fill: var(--primary-color-font);
+  }
+
+  &_clear {
+    fill: var(--inverted-bg-color);
+  }
+
+  &_outlined {
+    fill: var(--inverted-bg-color);
+
+    .outlined:not(.button_disabled):hover & {
+      fill: var(--bg-color);
+    }
+  }
+
+  &_red_outlined {
+    fill: var(--error-color);
+
+    .red_outlined:not(.button_disabled):hover & {
+      fill: var(--primary-color-font);
+    }
+  }
+
+  &_size {
+    &_s {
+      width: 16px;
+      height: 16px;
+
+      &.icon_position_left {
+        margin-right: 4px;
+      }
+
+      &.icon_position_right {
+        margin-left: 4px;
+      }
+    }
+
+    &_m {
+      width: 16px;
+      height: 16px;
+
+      &.icon_position {
+        &_left {
+          margin-right: 8px;
+        }
+
+        &_right {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    &_l {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.hover {
+  &_underlined {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

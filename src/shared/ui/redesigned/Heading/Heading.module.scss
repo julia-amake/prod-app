@@ -1,0 +1,27 @@
+.heading {
+  display: block;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-secondary-redesigned);
+}
+
+.size {
+  &_s {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  &_m {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+.position {
+  &_center {
+    text-align: center;
+  }
+}

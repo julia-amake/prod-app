@@ -18,6 +18,22 @@
   }
 }
 
+@mixin scrollbar-redesigned($color: var(--light-bg-redesigned)) {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--icon-redesigned); /* цвет плашки */
+    border-radius: 38px; /* закругления плашки */
+    border: 0; /* padding вокруг плашки */
+  }
+}
+
 @mixin container($size: m) {
   width: calc(100% - 56px);
   margin: 0 auto;

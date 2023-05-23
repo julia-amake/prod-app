@@ -1,0 +1,21 @@
+.icon {
+  fill: var(--icon-redesigned);
+  object-fit: contain;
+
+  &_size {
+    &_s {
+      width: 16px;
+      height: 16px;
+    }
+
+    &_m {
+      width: 20px;
+      height: 20px;
+    }
+
+    &_l {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

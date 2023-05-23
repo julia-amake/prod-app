@@ -9,17 +9,8 @@ import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Button.module.scss';
 
 type ButtonVariant = 'clear' | 'primary' | 'outlined' | 'red_outlined';
-
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
-
-export enum ButtonShape {
-    ROUND = 'shape_rounded',
-    SQUARE = 'shape_square',
-    CIRCLE = 'shape_circle',
-}
+type ButtonShape = 'rounded' | 'square' | 'circle';
+type ButtonSize = 's' | 'm' | 'l';
 
 /**
  * Deprecated – use components from the Redesigned folder
@@ -29,17 +20,6 @@ export enum ButtonShape {
 export enum IconPosition {
     LEFT = 'position_left',
     RIGHT = 'position_right',
-}
-
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
-
-export enum ButtonSize {
-    S = 'size_s',
-    M = 'size_m',
-    L = 'size_l',
 }
 
 interface ButtonIcon {
@@ -68,16 +48,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     onClick?: (value?: any) => void;
 }
 
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
-
 export const Button = memo((props: ButtonProps) => {
     const {
         variant = 'primary',
-        shape = ButtonShape.ROUND,
-        size = ButtonSize.L,
+        shape = 'rounded',
+        size = 'm',
         className = '',
         label = '',
         icon,
@@ -107,7 +82,8 @@ export const Button = memo((props: ButtonProps) => {
         const iconOnly = !!(Icon && !label);
 
         return {
-            [s[shape]]: iconOnly ? ButtonShape.CIRCLE : shape,
+            [s[`shape_${shape}`]]: !iconOnly,
+            [s.shape_circle]: iconOnly,
             [s.iconOnly]: iconOnly,
             [s.iconOnly_clear]: iconOnly && variant === 'clear',
             [s.button_disabled]: isLoading || disabled,
@@ -127,7 +103,11 @@ export const Button = memo((props: ButtonProps) => {
 
     return (
         <button
-            className={cn(s.button, mods, [className, s[variant], s[size]])}
+            className={cn(s.button, mods, [
+                className,
+                s[variant],
+                s[`size_${size}`],
+            ])}
             type="button"
             disabled={disabled || isLoading}
             {...otherProps}
@@ -142,7 +122,7 @@ export const Button = memo((props: ButtonProps) => {
                         },
                         [
                             s[`icon_${variant}`],
-                            s[`icon_${currIcon?.size}`],
+                            s[`icon_size_${currIcon?.size}`],
                             currIcon?.className,
                         ],
                     )}

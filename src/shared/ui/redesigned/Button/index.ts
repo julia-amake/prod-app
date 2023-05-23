@@ -1,1 +1,1 @@
-export { Button, ButtonSize, IconPosition, ButtonShape } from './Button';
+export { Button, IconPosition } from './Button';

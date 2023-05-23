@@ -39,6 +39,7 @@
 
 .iconOnly {
   padding: 8px;
+  line-height: 0;
 
   &_clear {
     padding: 0;
@@ -141,25 +142,25 @@
       height: 16px;
 
       &.icon_position_left {
-        margin-right: 4px;
+        margin-right: 8px;
       }
 
       &.icon_position_right {
-        margin-left: 4px;
+        margin-left: 8px;
       }
     }
 
     &_m {
-      width: 16px;
-      height: 16px;
+      width: 20px;
+      height: 20px;
 
       &.icon_position {
         &_left {
-          margin-right: 8px;
+          margin-right: 16px;
         }
 
         &_right {
-          margin-left: 8px;
+          margin-left: 16px;
         }
       }
     }

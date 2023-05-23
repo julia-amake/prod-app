@@ -68,7 +68,6 @@
   position: relative;
   width: 220px;
   height: 100%;
-  padding-top: 24px;
   box-sizing: border-box;
   background: var(--light-bg-redesigned);
   border-radius: 32px;
@@ -80,15 +79,16 @@
 
 .collapsedRedesigned {
   width: 52px;
-  padding-top: 10px;
 }
 
 .logoWrapper {
   position: relative;
   z-index: 1;
+  padding-top: 24px;
   padding-bottom: 40px;
 
   .collapsedRedesigned & {
+    padding-top: 10px;
     padding-bottom: 113px;
   }
 }

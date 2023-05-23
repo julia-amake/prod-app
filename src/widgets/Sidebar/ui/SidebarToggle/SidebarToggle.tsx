@@ -37,7 +37,7 @@ const SidebarToggle = memo((props: SidebarToggleProps) => {
                         [s.collapsedRedesigned]: collapsed,
                     })}
                     variant="clear"
-                    size={ButtonSize.L}
+                    size="l"
                     icon={{
                         element: collapsed
                             ? ArrowRightRedesigned

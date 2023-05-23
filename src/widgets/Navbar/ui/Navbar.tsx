@@ -2,11 +2,16 @@ import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import EditIcon from '@/shared/assets/icons/redesigned/Edit.svg';
 import { getRouteArticleCreate } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Button, ButtonSize } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonSize,
+} from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/deprecated/Stack';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUserName';
 import { NotificationButton } from '@/features/notificationButton';
@@ -44,10 +49,24 @@ const Navbar = memo((props: NavbarProps) => {
                     <HStack
                         className={cn(s.navbarRedesigned, {}, [className])}
                         as="header"
-                        gap="16"
+                        align="center"
                     >
+                        <Button
+                            variant="clear"
+                            title={t('Добавить статью')}
+                            onClick={onAddArticle}
+                            icon={{
+                                element: EditIcon,
+                                className: s.addPostIcon,
+                                size: 'm',
+                            }}
+                            className={s.iconButton}
+                        />
                         <NotificationButton />
-                        <UserDropdown setIsAuthModal={setIsAuthModal} />
+                        <UserDropdown
+                            setIsAuthModal={setIsAuthModal}
+                            className={s.user}
+                        />
                     </HStack>
                 }
                 off={
@@ -58,7 +77,7 @@ const Navbar = memo((props: NavbarProps) => {
                             align="center"
                             gap="16"
                         >
-                            <Button
+                            <ButtonDeprecated
                                 label={t('Добавить статью')}
                                 size={ButtonSize.M}
                                 onClick={onAddArticle}
@@ -86,11 +105,10 @@ const Navbar = memo((props: NavbarProps) => {
                 align="center"
                 gap="16"
             >
-                <Button
+                <ButtonDeprecated
                     label={t('Войти')}
                     size={ButtonSize.M}
                     onClick={onOpenModal}
-                    type="button"
                 />
                 {isAuthModal && (
                     <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

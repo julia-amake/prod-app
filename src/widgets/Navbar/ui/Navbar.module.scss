@@ -10,3 +10,21 @@
 
   @include container(l);
 }
+
+// redesigned
+
+.navbarRedesigned {
+  gap: 10px;
+}
+
+.iconButton {
+  padding: 6px;
+}
+
+.addPostIcon {
+  fill: var(--icon-redesigned);
+}
+
+.user {
+  margin-left: 6px;
+}

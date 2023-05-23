@@ -5,8 +5,10 @@ import Logout from '@/shared/assets/icons/Logout.svg';
 import ProfileLine from '@/shared/assets/icons/ProfileLine.svg';
 import Settings from '@/shared/assets/icons/Settings.svg';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown } from '@/shared/ui/deprecated/Popups/ui';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups/ui';
+import { Dropdown } from '@/shared/ui/redesigned/Popups/ui';
 import {
     getIsAdmin,
     getIsManager,
@@ -36,37 +38,76 @@ export const UserDropdown = memo((props: UserDropdownProps) => {
 
     if (!authData) return null;
     return (
-        <Dropdown
-            className={className}
-            width="auto"
-            trigger={<Avatar size={40} src={authData.avatar} />}
-            items={[
-                ...(showAdminPanel
-                    ? [
-                          {
-                              title: t('Панель управления'),
-                              icon: {
-                                  element: Settings,
-                              },
-                              to: getRouteAdminPanel(),
-                          },
-                      ]
-                    : []),
-                {
-                    title: t('Мой профиль'),
-                    icon: {
-                        element: ProfileLine,
-                    },
-                    to: getRouteProfile(authData.id),
-                },
-                {
-                    title: t('Выйти'),
-                    icon: {
-                        element: Logout,
-                    },
-                    onClick: onLogout,
-                },
-            ]}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Dropdown
+                    className={className}
+                    width="auto"
+                    trigger={<Avatar size={48} src={authData.avatar} />}
+                    items={[
+                        ...(showAdminPanel
+                            ? [
+                                  {
+                                      title: t('Панель управления'),
+                                      icon: {
+                                          element: Settings,
+                                      },
+                                      to: getRouteAdminPanel(),
+                                  },
+                              ]
+                            : []),
+                        {
+                            title: t('Мой профиль'),
+                            icon: {
+                                element: ProfileLine,
+                            },
+                            to: getRouteProfile(authData.id),
+                        },
+                        {
+                            title: t('Выйти'),
+                            icon: {
+                                element: Logout,
+                            },
+                            onClick: onLogout,
+                        },
+                    ]}
+                />
+            }
+            off={
+                <DropdownDeprecated
+                    className={className}
+                    width="auto"
+                    trigger={<Avatar size={40} src={authData.avatar} />}
+                    items={[
+                        ...(showAdminPanel
+                            ? [
+                                  {
+                                      title: t('Панель управления'),
+                                      icon: {
+                                          element: Settings,
+                                      },
+                                      to: getRouteAdminPanel(),
+                                  },
+                              ]
+                            : []),
+                        {
+                            title: t('Мой профиль'),
+                            icon: {
+                                element: ProfileLine,
+                            },
+                            to: getRouteProfile(authData.id),
+                        },
+                        {
+                            title: t('Выйти'),
+                            icon: {
+                                element: Logout,
+                            },
+                            onClick: onLogout,
+                        },
+                    ]}
+                />
+            }
         />
     );
 });

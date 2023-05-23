@@ -1,7 +1,8 @@
 import React, { memo, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/deprecated/Button';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Heading, HeadingSize } from '@/shared/ui/deprecated/Heading';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { useGetNotificationsList } from '../../api/notificationsApi';
@@ -26,14 +27,26 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
     );
     const [shownAll, setShownAll] = useState(false);
 
-    useEffect(() => {
-        if (!data || !data.length) return;
-        if (shownAll || !isShort) {
+    const setNotificationsItems = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => () => {
+            if (!data || !data.length) return;
             setNotifications(data);
-            return;
-        }
-        setNotifications(data.slice(0, 4));
-    }, [isShort, shownAll, data]);
+        },
+        off: () => () => {
+            if (!data || !data.length) return;
+            if (shownAll || !isShort) {
+                setNotifications(data);
+                return;
+            }
+            setNotifications(data.slice(0, 4));
+        },
+    });
+
+    useEffect(
+        () => setNotificationsItems(),
+        [isShort, shownAll, data, setNotificationsItems],
+    );
 
     const moreClickHandler = () => {
         setShownAll(true);
@@ -52,15 +65,35 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
         }
         if (notifications && notifications.length) {
             return (
-                <div className={cn(s.list, { [s.list_withScroll]: shownAll })}>
-                    {notifications.map((n) => (
-                        <NotificationsItem
-                            key={n.id}
-                            data={n}
-                            isLoading={isLoading}
-                        />
-                    ))}
-                </div>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={
+                        <div className={s.listRedesigned}>
+                            {notifications.map((n) => (
+                                <NotificationsItem
+                                    key={n.id}
+                                    data={n}
+                                    isLoading={isLoading}
+                                />
+                            ))}
+                        </div>
+                    }
+                    off={
+                        <div
+                            className={cn(s.list, {
+                                [s.list_withScroll]: shownAll,
+                            })}
+                        >
+                            {notifications.map((n) => (
+                                <NotificationsItem
+                                    key={n.id}
+                                    data={n}
+                                    isLoading={isLoading}
+                                />
+                            ))}
+                        </div>
+                    }
+                />
             );
         }
         return (
@@ -73,20 +106,26 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
     }, [isLoading, notifications, shownAll, t]);
 
     return (
-        <div className={cn(s.outer, {}, [className])}>
-            <Heading
-                className={s.title}
-                size={HeadingSize.S}
-                content={t('Уведомления')}
-            />
-            {content}
-            {isShort && !shownAll && data && data?.length > 5 && (
-                <Button
-                    className={s.more}
-                    label={t('Показать все')}
-                    onClick={moreClickHandler}
-                />
-            )}
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={<div className={cn(s.outer, {}, [className])}>{content}</div>}
+            off={
+                <div className={cn(s.outer, {}, [className])}>
+                    <Heading
+                        className={s.title}
+                        size={HeadingSize.S}
+                        content={t('Уведомления')}
+                    />
+                    {content}
+                    {isShort && !shownAll && data && data?.length > 5 && (
+                        <ButtonDeprecated
+                            className={s.more}
+                            label={t('Показать все')}
+                            onClick={moreClickHandler}
+                        />
+                    )}
+                </div>
+            }
+        />
     );
 });

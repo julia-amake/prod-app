@@ -29,3 +29,15 @@
 .empty {
   padding-left: 16px;
 }
+
+// redesigned
+
+.listRedesigned {
+  width: 100%;
+  padding-right: 16px;
+  box-sizing: border-box;
+  max-height: 370px;
+  overflow-y: auto;
+
+  @include scrollbar-redesigned;
+}

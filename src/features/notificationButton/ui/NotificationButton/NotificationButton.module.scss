@@ -38,3 +38,41 @@
 .list {
   width: 344px;
 }
+
+// redesigned
+
+.trigger_iconRedesigned {
+  position: relative;
+  fill: var(--secondary-color);
+  transition: fill 0.25s ease-in-out;
+
+  .notes_trigger:hover & {
+    fill: var(--inverted-bg-color);
+  }
+}
+
+.statusRedesigned {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  font-size: 0;
+  border-radius: 50%;
+
+  &_primary {
+    background: var(--primary-color);
+  }
+
+  &_new {
+    background: var(--success-color);
+  }
+}
+
+// redesigned
+
+.triggerRedesigned {
+  width: 20px;
+  height: 20px;
+  padding: 6px;
+}

@@ -64,3 +64,24 @@
   fill: var(--bg-color);
   transform: translate(-50%, -50%);
 }
+
+// redesigned
+
+.outerRedesigned {
+  padding: 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    background: var(--light-bg-redesigned);
+  }
+}
+
+.titleRedesigned {
+  max-width: 270px;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

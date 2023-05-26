@@ -43,6 +43,7 @@ img {
 
 button {
   outline: none;
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .sr-only {

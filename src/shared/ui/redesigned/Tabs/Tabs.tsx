@@ -1,38 +1,33 @@
 import React, { memo, useCallback } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize } from '../Button/Button';
+import { Button } from '../Button';
 import s from './Tabs.module.scss';
-
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
 
 export interface TabItem {
     value: string;
     content: string;
 }
 
+type TabsDirection = 'row' | 'column';
+
 interface TabsProps {
     tabs: TabItem[];
     value: string;
+    direction?: TabsDirection;
     disabled?: boolean;
     onTabClick: (tab: TabItem) => void;
     className?: string;
 }
 
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
-
 export const Tabs = memo((props: TabsProps) => {
-    const { tabs, value, disabled = false, onTabClick, className = '' } = props;
-
-    const btnMods = (tabValue: string) => ({
-        [s.btn_active]: value === tabValue,
-        [s.btn_notActive]: value !== tabValue,
-    });
+    const {
+        tabs,
+        value,
+        direction = 'row',
+        disabled = false,
+        onTabClick,
+        className = '',
+    } = props;
 
     const clickHandler = useCallback(
         (tab: TabItem) => () => {
@@ -42,15 +37,24 @@ export const Tabs = memo((props: TabsProps) => {
     );
 
     return (
-        <div className={cn(s.outer, {}, [className])}>
+        <div
+            className={cn(s.outer, {}, [
+                s[`outer_direction_${direction}`],
+                className,
+            ])}
+        >
             {tabs.map((tab) => (
                 <Button
                     label={tab.content}
-                    onClick={clickHandler(tab)}
-                    size={ButtonSize.S}
+                    {...(value !== tab.value
+                        ? { onClick: clickHandler(tab) }
+                        : {})}
+                    size="m"
                     key={tab.value}
-                    className={cn(s.btn, btnMods(tab.value))}
                     disabled={disabled}
+                    variant={
+                        value === tab.value ? 'primary' : 'clearWithPaddings'
+                    }
                 />
             ))}
         </div>

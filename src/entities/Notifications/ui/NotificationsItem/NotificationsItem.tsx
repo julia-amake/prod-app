@@ -5,13 +5,13 @@ import { cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import {
     Text as TextDeprecated,
     TextMargin as TextMarginDeprecated,
     TextSize,
 } from '@/shared/ui/deprecated/Text';
 import { Heading } from '@/shared/ui/redesigned/Heading';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import ArrowRight from '../../../../shared/assets/icons/ArrowRightSimpleLine.svg';
 import { Notification } from '../../model/types/notifications';

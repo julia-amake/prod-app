@@ -11,7 +11,7 @@ import { IntegerValidation } from '@/shared/lib/utils/validations';
 import { Heading, HeadingSize } from '@/shared/ui/deprecated/Heading';
 import { Informer } from '@/shared/ui/deprecated/Informer';
 import { PageContent } from '@/shared/ui/deprecated/Page';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';

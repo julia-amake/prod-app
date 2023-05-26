@@ -6,7 +6,7 @@ import {
     HeadingPosition,
     HeadingSize,
 } from '@/shared/ui/deprecated/Heading';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface PageErrorFallbackProps {
     className?: string;

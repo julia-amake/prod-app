@@ -10,8 +10,8 @@ import {
     Button as ButtonDeprecated,
     ButtonSize,
 } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Button } from '@/shared/ui/redesigned/Button';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUserName';
 import { NotificationButton } from '@/features/notificationButton';

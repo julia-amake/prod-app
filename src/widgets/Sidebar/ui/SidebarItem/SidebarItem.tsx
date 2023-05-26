@@ -9,8 +9,8 @@ import {
     AppLinkProps,
     AppLinkTheme,
 } from '@/shared/ui/deprecated/AppLink';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
 import s from './SidebarItem.module.scss';

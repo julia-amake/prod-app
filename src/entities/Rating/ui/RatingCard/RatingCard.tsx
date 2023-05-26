@@ -12,9 +12,9 @@ import {
 } from '@/shared/ui/deprecated/Heading';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Modal } from '@/shared/ui/deprecated/Modal';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import s from './RatingCard.module.scss';
 
 interface RatingProps {

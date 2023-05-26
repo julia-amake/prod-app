@@ -9,9 +9,9 @@ import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindo
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups/ui';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover } from '@/shared/ui/redesigned/Popups/ui';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { NotificationsList } from '@/entities/Notifications';
 import s from './NotificationButton.module.scss';
 

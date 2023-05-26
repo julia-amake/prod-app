@@ -5,7 +5,7 @@ import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Informer } from '@/shared/ui/deprecated/Informer';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Preloader } from '@/shared/ui/deprecated/Preloader';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Profile } from '../../model/types/profile';

@@ -12,7 +12,7 @@ import {
     IconPosition,
 } from '@/shared/ui/deprecated/Button';
 import { PageHeader } from '@/shared/ui/deprecated/Page';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEditArticle } from '../../model/selectors/article/article';
 

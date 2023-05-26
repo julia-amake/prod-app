@@ -1,25 +1,11 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { SortOrder } from '@/shared/types';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/articleSortSelector';
 import { ArticleTypeTabs } from '@/features/articleTypeTabs';
-import { ArticleViewSelector } from '@/features/articleViewSelector';
-import {
-    getArticlesPageIsLoading,
-    getArticlesPageOrder,
-    getArticlesPageSearch,
-    getArticlesPageSort,
-    getArticlesPageType,
-    getArticlesPageView,
-} from '../../../model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageActions } from '../../../model/slice/articlesPageSlice';
+import useArticlesFilters from '../../../lib/hooks/useArticlesFilters/useArticlesFilters';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import s from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
@@ -28,67 +14,18 @@ interface ArticlesPageFiltersProps {
 
 export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const { className = '' } = props;
-
     const { t } = useTranslation();
-
-    const view = useSelector(getArticlesPageView);
-    const order = useSelector(getArticlesPageOrder);
-    const sort = useSelector(getArticlesPageSort);
-    const search = useSelector(getArticlesPageSearch);
-    const type = useSelector(getArticlesPageType);
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const dispatch = useAppDispatch();
-
-    const fetchData = useCallback(() => {
-        dispatch(fetchArticlesList({ replace: true }));
-    }, [dispatch]);
-
-    const debouncedFetchData = useDebounce(fetchData, 500);
-
-    const onChangeView = useCallback(
-        (view: ArticleView) => {
-            dispatch(articlesPageActions.setView(view));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [fetchData, dispatch],
-    );
-
-    const onChangeOrder = useCallback(
-        (order: SortOrder) => {
-            dispatch(articlesPageActions.setOrder(order));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
-
-    const onChangeSort = useCallback(
-        (sort: ArticleSortField) => {
-            dispatch(articlesPageActions.setSort(sort));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [dispatch, fetchData],
-    );
-
-    const onChangeSearch = useCallback(
-        (search: string) => {
-            dispatch(articlesPageActions.setSearch(search));
-            dispatch(articlesPageActions.setPage(1));
-            debouncedFetchData();
-        },
-        [debouncedFetchData, dispatch],
-    );
-
-    const onChangeType = useCallback(
-        (type: ArticleType) => {
-            dispatch(articlesPageActions.setType(type));
-            dispatch(articlesPageActions.setPage(1));
-            fetchData();
-        },
-        [fetchData, dispatch],
-    );
+    const {
+        type,
+        onChangeType,
+        onChangeSearch,
+        onChangeOrder,
+        onChangeSort,
+        search,
+        order,
+        sort,
+        isLoading,
+    } = useArticlesFilters();
 
     return (
         <div className={cn(s.outer, {}, [className])}>
@@ -111,10 +48,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                         onChangeOrder={onChangeOrder}
                         onChangeSort={onChangeSort}
                     />
-                    <ArticleViewSelector
-                        view={view}
-                        onViewClick={onChangeView}
-                    />
+                    <ViewSelectorContainer />
                 </div>
             </div>
         </div>

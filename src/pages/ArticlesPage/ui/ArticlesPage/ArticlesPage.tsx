@@ -2,6 +2,8 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+import { StickyContentLayout } from '@/shared/layouts';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
@@ -21,6 +23,8 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 import { ArticlesPageFilters } from './ArticlesPageFilters/ArticlesPageFilters';
+import { FiltersContainer } from './FiltersContainer/FiltersContainer';
+import { ViewSelectorContainer } from './ViewSelectorContainer/ViewSelectorContainer';
 import s from './ArticlesPage.module.scss';
 
 const reducersList: ReducersList = {
@@ -33,9 +37,7 @@ interface ArticlesPageProps {
 
 const ArticlesPage = memo((props: ArticlesPageProps) => {
     const { className = '' } = props;
-
     const { t } = useTranslation();
-
     const dispatch = useAppDispatch();
     const isLoading = useSelector(getArticlesPageIsLoading);
     const hasMore = useSelector(getArticlesPageHasMore);
@@ -53,18 +55,41 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     });
 
     return (
-        <Page
-            onScrollEnd={!isLoading ? onLoadNextPart : undefined}
-            className={className}
-            dataTestid="ArticlesPage"
-        >
-            <PageContent>
-                <Heading content={t('Статьи')} className={s.title} />
-                <ArticlesPageFilters className={s.filters} />
-                <ArticlesInfiniteList />
-                <ArticlePageGreeting />
-            </PageContent>
-        </Page>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Page
+                    onScrollEnd={!isLoading ? onLoadNextPart : undefined}
+                    className={className}
+                    dataTestid="ArticlesPage"
+                >
+                    <StickyContentLayout
+                        content={
+                            <>
+                                <ArticlesInfiniteList />
+                                <ArticlePageGreeting />
+                            </>
+                        }
+                        left={<ViewSelectorContainer />}
+                        right={<FiltersContainer />}
+                    />
+                </Page>
+            }
+            off={
+                <Page
+                    onScrollEnd={!isLoading ? onLoadNextPart : undefined}
+                    className={className}
+                    dataTestid="ArticlesPage"
+                >
+                    <PageContent>
+                        <Heading content={t('Статьи')} className={s.title} />
+                        <ArticlesPageFilters className={s.filters} />
+                        <ArticlesInfiniteList />
+                        <ArticlePageGreeting />
+                    </PageContent>
+                </Page>
+            }
+        />
     );
 });
 

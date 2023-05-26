@@ -11,7 +11,8 @@
             {
                 "ignorePseudoClasses": ["global", "local"]
             }
-        ]
+        ],
+        "scss/no-global-function-names": null
     },
     "ignoreFiles": ["build/css/**.css"]
 }

@@ -8,14 +8,14 @@ import React, {
 import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Button.module.scss';
 
-type ButtonVariant = 'clear' | 'primary' | 'outlined' | 'red_outlined';
+type ButtonVariant =
+    | 'clear'
+    | 'clearWithPaddings'
+    | 'primary'
+    | 'outlined'
+    | 'red_outlined';
 type ButtonShape = 'rounded' | 'square' | 'circle';
 type ButtonSize = 's' | 'm' | 'l';
-
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
 
 export enum IconPosition {
     LEFT = 'position_left',
@@ -28,11 +28,6 @@ interface ButtonIcon {
     size?: ButtonSize;
     className?: string;
 }
-
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;

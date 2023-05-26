@@ -27,12 +27,11 @@
 }
 
 .primary {
-  background: var(--primary-color);
-  color: var(--primary-color-font);
+  background: var(--light-bg-redesigned);
 
   &:hover {
     &:not(.button_disabled) {
-      background: var(--primary-color-hover);
+      background: darken($light-bg-redesigned-light, 10%);
     }
   }
 }
@@ -54,9 +53,9 @@
   }
 
   &_m {
-    padding: 0 16px;
-    font-size: var(--font-size-m);
-    line-height: var(--font-line-m);
+    padding: 8px 16px;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   &_l {
@@ -103,12 +102,26 @@
   }
 }
 
-.clear {
-  padding: 0;
+.clear,
+.clearWithPaddings {
   line-height: inherit;
   color: inherit;
   background: none;
+}
+
+.clear {
+  padding: 0;
   border-radius: 0;
+
+  &:hover {
+    color: var(--accent-redesigned);
+  }
+}
+
+.clearWithPaddings {
+  &:hover {
+    box-shadow: inset 0 0 0 2px var(--light-bg-redesigned);
+  }
 }
 
 .icon {

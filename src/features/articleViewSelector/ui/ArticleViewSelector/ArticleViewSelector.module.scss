@@ -19,3 +19,36 @@
     fill: var(--primary-color);
   }
 }
+
+// redesigned
+
+.outerRedesigned {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 43px;
+  border: 2px solid var(--dark-bg-redesigned);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btnRedesigned {
+  padding: 14px;
+  background: var(--dark-bg-redesigned);
+
+  &_active {
+    background: var(--bg-redesigned);
+  }
+}
+
+.iconRedesigned {
+  width: 20px;
+  height: 20px;
+  will-change: fill;
+  transition: fill 0.2s ease-in-out;
+  fill: var(--hint-redesigned);
+
+  &_active {
+    fill: var(--icon-redesigned);
+  }
+}

@@ -1,0 +1,16 @@
+.outer {
+  display: flex;
+
+  &_direction {
+    &_row {
+      align-items: center;
+      gap: 12px;
+    }
+
+    &_column {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+}

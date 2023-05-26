@@ -28,8 +28,10 @@
 
 .middle {
   grid-area: middle;
+  width: 100%;
   max-width: 1324px;
   padding-top: 32px;
+  padding-bottom: 32px;
   justify-self: center;
 }
 

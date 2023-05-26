@@ -1,41 +1,32 @@
 import { Listbox as HListBox } from '@headlessui/react';
 import { Float } from '@headlessui-float/react';
-import React, { Fragment } from 'react';
+import React, { Fragment, useMemo } from 'react';
+import ArrowIcon from '@/shared/assets/icons/redesigned/ArrowDown.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { ItemIcon } from '@/shared/types';
 import sPopup from '../../styles/popup.module.scss';
 import { PopoverWidth } from '../../types/popover';
 import s from './ListBox.module.scss';
 
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
-
-export interface ListBoxOption {
-    value: string;
+export interface ListBoxOption<T extends string> {
+    value: T;
     title: string;
     icon?: ItemIcon;
     disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
     label?: string;
-    options?: ListBoxOption[];
-    value?: string;
+    options?: ListBoxOption<T>[];
+    value?: T;
     defaultValue?: string;
     className?: string;
     width?: PopoverWidth;
     readonly?: boolean;
-    onChange: (value: string) => void;
+    onChange: (value: T) => void;
 }
 
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
-
-export const ListBox = (props: ListBoxProps) => {
+export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     const {
         label,
         options,
@@ -46,6 +37,16 @@ export const ListBox = (props: ListBoxProps) => {
         className = '',
         onChange,
     } = props;
+
+    const selectedOption = useMemo(
+        () => options?.find((opt) => opt.value === value),
+        [options, value],
+    );
+
+    const onChangeHandler = (selectedValue: T) => {
+        if (selectedValue === value) return;
+        onChange(selectedValue);
+    };
 
     return (
         <div
@@ -58,11 +59,11 @@ export const ListBox = (props: ListBoxProps) => {
             <HListBox
                 as="div"
                 value={value}
-                onChange={onChange}
+                onChange={onChangeHandler}
                 className={s.select}
                 disabled={readonly || !options || !options.length}
             >
-                <Float as="div" floatingAs={Fragment} offset={12} flip={8}>
+                <Float as="div" floatingAs={Fragment} offset={8} flip={8}>
                     <HListBox.Button
                         className={cn(
                             s.btn,
@@ -70,7 +71,8 @@ export const ListBox = (props: ListBoxProps) => {
                             [sPopup.btn],
                         )}
                     >
-                        {value ?? defaultValue}
+                        <span>{selectedOption?.title ?? defaultValue}</span>
+                        <ArrowIcon className={s.arrow} />
                     </HListBox.Button>
                     <HListBox.Options
                         className={cn(s.options, {}, [sPopup.items])}

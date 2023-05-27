@@ -99,6 +99,7 @@ const replaceToggleFunction = (node: Node) => {
     // заменяем всю функцию toggleFeatures на компонент из on-свойства
     if (featureState === 'on') {
         node.replaceWithText(onFunction?.getBody().getText() ?? '');
+        return;
     }
 
     // заменяем всю функцию toggleFeatures на компонент из off-свойства
@@ -126,6 +127,7 @@ const replaceToggleComponent = (node: Node) => {
 
     if (featureState === 'on' && onValue) {
         node.replaceWithText(onValue);
+        return;
     }
 
     if (featureState === 'off' && offValue) {
@@ -135,18 +137,19 @@ const replaceToggleComponent = (node: Node) => {
 
 files.forEach((sourceFile) => {
     // обходим все ноды, включая потомков
+    // eslint-disable-next-line consistent-return
     sourceFile.forEachDescendant((node) => {
         // находим ноду с типом CallExpression
         // и проверяем, что это в ней есть ребенок toggleFeatures
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            replaceToggleFunction(node);
+            return replaceToggleFunction(node);
         }
 
         if (
             node.isKind(SyntaxKind.JsxSelfClosingElement) &&
             isToggleComponent(node)
         ) {
-            replaceToggleComponent(node);
+            return replaceToggleComponent(node);
         }
     });
 });

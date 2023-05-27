@@ -1,9 +1,10 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import SearchIcon from '@/shared/assets/icons/redesigned/Search.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types';
-import { Input } from '@/shared/ui/deprecated/Input';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Input } from '@/shared/ui/redesigned/Input';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/articleSortSelector';
@@ -41,10 +42,14 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
     return (
         <VStack as={Card} className={cn(s.outer, {}, [className])} gap="32">
             <Input
-                placeholder={t('Искать статью')}
+                placeholder={t('Найти')}
                 value={searchValue}
                 className={s.search}
                 onChange={searchOnChange}
+                icon={{
+                    element: SearchIcon,
+                    position: 'left',
+                }}
             />
             <ArticleTypeTabs
                 onChangeType={onChangeType}

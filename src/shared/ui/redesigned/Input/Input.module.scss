@@ -1,11 +1,11 @@
 .label {
+  white-space: nowrap;
   text-align: left;
   line-height: 1.375;
 }
 
 .inner {
   width: 100%;
-  padding: 0 16px;
   box-sizing: border-box;
   color: inherit;
   background: none;
@@ -14,6 +14,16 @@
   border-style: solid;
   border-color: var(--icon-redesigned);
   border-radius: 48px;
+
+  &_size {
+    &_s {
+      padding: 0 16px;
+    }
+
+    &_m {
+      padding: 3px 16px;
+    }
+  }
 
   &_focused {
     box-shadow: 0 3px 10px rgba(#1037a3, 0.3);
@@ -38,6 +48,8 @@
   outline: none;
   border: 0;
   resize: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &::placeholder {
     color: var(--hint-redesigned);

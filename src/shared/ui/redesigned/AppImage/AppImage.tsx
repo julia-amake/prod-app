@@ -14,11 +14,6 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     className?: string;
 }
 
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
-
 export const AppImage = memo((props: AppImageProps) => {
     const {
         src,

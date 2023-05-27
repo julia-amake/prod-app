@@ -13,13 +13,14 @@ type InputLabelPosition = 'top' | 'left';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
-    'onChange'
+    'onChange' | 'size'
 >;
 interface InputProps extends HTMLInputProps {
     className?: string;
     inputClassName?: string;
     type?: string;
     value?: string | number;
+    size?: 's' | 'm';
     label?: string;
     labelPosition?: InputLabelPosition;
     placeholder?: string;
@@ -32,6 +33,7 @@ interface InputProps extends HTMLInputProps {
 export const Input = memo((props: InputProps) => {
     const {
         type = 'text',
+        size = 'm',
         label,
         labelPosition = 'left',
         placeholder = '',
@@ -107,11 +109,15 @@ export const Input = memo((props: InputProps) => {
             <InnerStack
                 align="center"
                 justify={isIconLeft ? 'between' : 'start'}
-                className={cn(s.inner, {
-                    [s.inner_icon_left]: !!icon?.position && isIconLeft,
-                    [s.inner_icon_right]: !!icon?.position && !isIconLeft,
-                    [s.inner_focused]: isFocused,
-                })}
+                className={cn(
+                    s.inner,
+                    {
+                        [s.inner_icon_left]: !!icon?.position && isIconLeft,
+                        [s.inner_icon_right]: !!icon?.position && !isIconLeft,
+                        [s.inner_focused]: isFocused && !readOnly,
+                    },
+                    [s[`inner_size_${size}`]],
+                )}
             >
                 {icon && (
                     <Icon svg={icon.element} size="s" className={s.icon} />

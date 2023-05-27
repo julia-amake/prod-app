@@ -19,6 +19,7 @@ body {
 
 .app_redesigned {
   font: var(--font-m-redesigned);
+  letter-spacing: 0;
   color: var(--text-redesigned);
   background: var(--bg-redesigned);
 }
@@ -42,6 +43,7 @@ img {
 }
 
 button {
+  color: inherit;
   outline: none;
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }

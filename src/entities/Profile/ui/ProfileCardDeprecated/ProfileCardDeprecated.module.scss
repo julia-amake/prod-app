@@ -1,0 +1,15 @@
+.avatar {
+  margin-bottom: 32px;
+}
+
+.form {
+  gap: 32px 0;
+}
+
+.input {
+  width: calc(50% - 12px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

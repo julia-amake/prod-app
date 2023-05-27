@@ -50,6 +50,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
                     element: SearchIcon,
                     position: 'left',
                 }}
+                size="s"
             />
             <ArticleTypeTabs
                 onChangeType={onChangeType}

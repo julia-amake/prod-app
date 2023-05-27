@@ -1,127 +1,53 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Informer } from '@/shared/ui/deprecated/Informer';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { Preloader } from '@/shared/ui/deprecated/Preloader';
-import { HStack } from '@/shared/ui/redesigned/Stack';
-import { Country, CountrySelect } from '@/entities/Country';
-import { Currency, CurrencySelect } from '@/entities/Currency';
-import { Profile } from '../../model/types/profile';
-import s from './ProfileCard.module.scss';
-
-interface ProfileCardProps {
-    className?: string;
-    data?: Profile | null;
-    readOnly: boolean;
-    isLoading: boolean;
-    error?: string;
-    onChangeFirstname?: (value: string) => void;
-    onChangeLastname?: (value: string) => void;
-    onChangeAge?: (value: string) => void;
-    onChangeCity?: (value: string) => void;
-    onChangeAvatar?: (value: string) => void;
-    onChangeUsername?: (value: string) => void;
-    onChangeCurrency?: (value: Currency) => void;
-    onChangeCountry?: (value: Country) => void;
-}
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Informer as InformerDeprecated } from '@/shared/ui/deprecated/Informer';
+import { Preloader as PreloaderDeprecated } from '@/shared/ui/deprecated/Preloader';
+import { Informer } from '@/shared/ui/redesigned/Informer';
+import { ProfileCardProps } from '../../model/types/profileCard';
+import { ProfileCardDeprecated } from '../ProfileCardDeprecated/ProfileCardDeprecated';
+import {
+    ProfileCardRedesigned,
+    ProfileCardRedesignedSkeleton,
+} from '../ProfileCardRedesigned/ProfileCardRedesigned';
+import s from '../ProfileCardRedesigned/ProfileCardRedesigned.module.scss';
 
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
-    const {
-        data = null,
-        readOnly,
-        isLoading,
-        className = '',
-        error = '',
-        onChangeFirstname,
-        onChangeLastname,
-        onChangeAge,
-        onChangeCity,
-        onChangeAvatar,
-        onChangeUsername,
-        onChangeCurrency,
-        onChangeCountry,
-    } = props;
-
+    const { isLoading, data, error, className = '' } = props;
     const { t } = useTranslation(['profile', 'translation']);
 
     return (
         <div className={cn(s.outer, {}, [className])}>
-            {!isLoading && !error && data && (
-                <div className={cn(s.data, {})}>
-                    {data.avatar && (
-                        <div className={s.avatar}>
-                            <Avatar src={data.avatar} />
-                        </div>
-                    )}
-                    <HStack justify="between" wrap className={s.form}>
-                        <Input
-                            label={t('Ваше имя')}
-                            value={data?.name}
-                            readOnly={readOnly}
-                            className={s.input}
-                            onChange={onChangeFirstname}
-                            data-testid="ProfileCard.Firstname"
-                        />
-                        <Input
-                            label={t('Ваша фамилия')}
-                            value={data?.lastname || ''}
-                            readOnly={readOnly}
-                            className={s.input}
-                            onChange={onChangeLastname}
-                            data-testid="ProfileCard.Lastname"
-                        />
-                        <Input
-                            label={t('Ваш возраст')}
-                            value={data?.age || ''}
-                            readOnly={readOnly}
-                            className={s.input}
-                            onChange={onChangeAge}
-                        />
-                        <Input
-                            label={t('Ваш город')}
-                            value={data?.city || ''}
-                            readOnly={readOnly}
-                            className={s.input}
-                            onChange={onChangeCity}
-                        />
-                        <Input
-                            label={t('Имя пользователя')}
-                            value={data?.username || ''}
-                            readOnly={readOnly}
-                            className={s.input}
-                            onChange={onChangeUsername}
-                        />
-                        <Input
-                            label={t('Ссылка на аватар')}
-                            value={data?.avatar || ''}
-                            readOnly={readOnly}
-                            className={s.input}
-                            onChange={onChangeAvatar}
-                        />
-                        <CurrencySelect
-                            label={t('Валюта')}
-                            value={data.currency}
-                            onChange={onChangeCurrency}
-                            readOnly={readOnly}
-                            className={s.input}
-                        />
-                        <CountrySelect
-                            label={t('translation:Страна')}
-                            value={data.country}
-                            onChange={onChangeCountry}
-                            readOnly={readOnly}
-                            className={s.input}
-                        />
-                    </HStack>
-                </div>
+            {isLoading && (
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<ProfileCardRedesignedSkeleton />}
+                    off={<PreloaderDeprecated />}
+                />
             )}
-            {isLoading && <Preloader />}
-            {error && (
-                <Informer
-                    title={t('Ошибка_при_загрузке_пользователя')}
-                    text={t('translation:Попробуйте_обновить_страницу')}
+            {!isLoading && data && !error && (
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<ProfileCardRedesigned {...props} />}
+                    off={<ProfileCardDeprecated {...props} />}
+                />
+            )}
+            {(error || !data) && (
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={
+                        <Informer
+                            title={t('Ошибка_при_загрузке_пользователя')}
+                            text={t('translation:Попробуйте_обновить_страницу')}
+                        />
+                    }
+                    off={
+                        <InformerDeprecated
+                            title={t('Ошибка_при_загрузке_пользователя')}
+                            text={t('translation:Попробуйте_обновить_страницу')}
+                        />
+                    }
                 />
             )}
         </div>

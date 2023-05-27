@@ -1,0 +1,58 @@
+.label {
+  text-align: left;
+  line-height: 1.375;
+}
+
+.inner {
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  color: inherit;
+  background: none;
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--icon-redesigned);
+  border-radius: 48px;
+
+  &_focused {
+    box-shadow: 0 3px 10px rgba(#1037a3, 0.3);
+  }
+
+  &_icon {
+    &_left {
+      padding-left: 10px;
+    }
+
+    &_right {
+      padding-right: 10px;
+    }
+  }
+}
+
+.field {
+  width: 100%;
+  line-height: 28px;
+  color: inherit;
+  background: none;
+  outline: none;
+  border: 0;
+  resize: none;
+
+  &::placeholder {
+    color: var(--hint-redesigned);
+  }
+}
+
+.icon {
+  padding: 6px;
+}
+
+.block {
+  display: block;
+}
+
+.readonly {
+  opacity: 0.5;
+  cursor: auto;
+}

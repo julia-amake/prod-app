@@ -10,7 +10,7 @@ export type FlexJustify =
     | 'around'
     | 'evenly';
 export type FlexAlign = 'start' | 'end' | 'center' | 'stretch';
-export type FlexDirection = 'row' | 'col';
+export type FlexDirection = 'row' | 'col' | 'rowReverse' | 'colReverse';
 export type FlexGap = '8' | '16' | '24' | '32' | '40' | 'none';
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -32,6 +32,8 @@ const alignClasses: Record<FlexAlign, string> = {
 const directionClasses: Record<FlexDirection, string> = {
     row: s.direction_row,
     col: s.direction_col,
+    rowReverse: s.direction_rowReverse,
+    colReverse: s.direction_colReverse,
 };
 
 const gapClasses: Record<FlexGap, string> = {
@@ -55,11 +57,6 @@ export interface FlexProps {
     fullWidth?: boolean;
     customProps?: object;
 }
-
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
 
 export const Flex = (props: FlexProps) => {
     const {

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Flex, FlexProps } from '../Flex';
 
-type VStackProps = Omit<FlexProps, 'direction'>;
+type HStackProps = Omit<FlexProps, 'direction'>;
 
-export const VStack = (props: VStackProps) => {
+export const HStackReverse = (props: HStackProps) => {
     const { children, ...other } = props;
 
     return (
-        <Flex direction="col" {...other}>
+        <Flex direction="rowReverse" {...other}>
             {children}
         </Flex>
     );

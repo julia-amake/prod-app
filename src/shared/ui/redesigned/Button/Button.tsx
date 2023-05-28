@@ -1,5 +1,6 @@
 import React, {
     ButtonHTMLAttributes,
+    ElementType,
     memo,
     useEffect,
     useMemo,
@@ -13,7 +14,8 @@ type ButtonVariant =
     | 'clearWithPaddings'
     | 'primary'
     | 'outlined'
-    | 'red_outlined';
+    | 'red_outlined'
+    | 'green_outlined';
 type ButtonShape = 'rounded' | 'square' | 'circle';
 type ButtonSize = 's' | 'm' | 'l';
 
@@ -30,6 +32,7 @@ interface ButtonIcon {
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    as?: ElementType;
     className?: string;
     variant?: ButtonVariant;
     shape?: ButtonShape;
@@ -41,10 +44,12 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     hoverUnderlined?: boolean;
     children?: never;
     onClick?: (value?: any) => void;
+    to?: string;
 }
 
 export const Button = memo((props: ButtonProps) => {
     const {
+        as = 'button',
         variant = 'primary',
         shape = 'rounded',
         size = 'm',
@@ -71,6 +76,7 @@ export const Button = memo((props: ButtonProps) => {
         });
     }, [label, icon, size]);
 
+    const ButtonElement = as;
     const Icon = useMemo(() => currIcon?.element, [currIcon]);
 
     const mods = useMemo(() => {
@@ -97,7 +103,7 @@ export const Button = memo((props: ButtonProps) => {
     ]);
 
     return (
-        <button
+        <ButtonElement
             className={cn(s.button, mods, [
                 className,
                 s[variant],
@@ -123,6 +129,6 @@ export const Button = memo((props: ButtonProps) => {
                     )}
                 />
             )}
-        </button>
+        </ButtonElement>
     );
 });

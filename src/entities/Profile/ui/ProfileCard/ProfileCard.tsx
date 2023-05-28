@@ -33,7 +33,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                     off={<ProfileCardDeprecated {...props} />}
                 />
             )}
-            {(error || !data) && (
+            {(error || !data) && !isLoading && (
                 <ToggleFeatures
                     feature="isAppRedesigned"
                     on={

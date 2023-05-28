@@ -1,6 +1,8 @@
 .outer {
   font-family: var(--font-family-main-redesigned);
   letter-spacing: 0;
+
+  --text-margin-size: 1em;
 }
 
 .size {
@@ -16,12 +18,14 @@
 
   &_m {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 22px;
   }
 
   &_l {
     font-size: 24px;
-    line-height: 32px;
+    line-height: 28px;
+
+    --text-margin-size: 16px;
   }
 }
 
@@ -35,15 +39,15 @@
   }
 
   &_all {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: var(--text-margin-size);
+    margin-bottom: var(--text-margin-size);
   }
 
   &_top_only {
-    margin-top: 1em;
+    margin-top: var(--text-margin-size);
   }
 
   &_bottom_only {
-    margin-bottom: 1em;
+    margin-bottom: var(--text-margin-size);
   }
 }

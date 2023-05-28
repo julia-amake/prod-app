@@ -1,6 +1,7 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
 import { Informer, InformerStatuses } from '@/shared/ui/deprecated/Informer';
 import { ArticleView } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
@@ -17,8 +18,28 @@ interface ArticleListProps {
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { articles, view, isLoading, className = '' } = props;
-
     const { t } = useTranslation();
+
+    const outerClassNames = useMemo(
+        () =>
+            toggleFeatures({
+                name: 'isAppRedesigned',
+                on: () =>
+                    cn(
+                        s.redesigned_outer,
+                        {
+                            [s.redesigned_outer_list]:
+                                view === ArticleView.LIST,
+                        },
+                        [className],
+                    ),
+                off: () =>
+                    cn(s.outer, { [s.outer_list]: view === ArticleView.LIST }, [
+                        className,
+                    ]),
+            }),
+        [className, view],
+    );
 
     if (!isLoading && !articles.length) {
         return (
@@ -33,14 +54,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <div
-            className={cn(
-                s.outer,
-                { [s.outer_list]: view === ArticleView.LIST },
-                [className],
-            )}
-            data-testid="ArticleList"
-        >
+        <div className={outerClassNames} data-testid="ArticleList">
             {articles?.length
                 ? articles.map((article) => (
                       <ArticleListItem

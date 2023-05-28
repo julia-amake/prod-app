@@ -14,3 +14,18 @@
 .informer {
   padding-bottom: 0;
 }
+
+.redesigned {
+  &_outer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px 3.57%;
+    padding-bottom: 16px;
+
+    &_list {
+      gap: 16px 0;
+    }
+  }
+}

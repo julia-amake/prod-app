@@ -17,7 +17,12 @@ interface ArticleListProps {
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-    const { articles, view, isLoading, className = '' } = props;
+    const {
+        articles,
+        view = ArticleView.GRID,
+        isLoading,
+        className = '',
+    } = props;
     const { t } = useTranslation();
 
     const outerClassNames = useMemo(
@@ -30,6 +35,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         {
                             [s.redesigned_outer_list]:
                                 view === ArticleView.LIST,
+                            [s.redesigned_outer_grid]:
+                                view === ArticleView.GRID,
                         },
                         [className],
                     ),

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { cn } from '@/shared/lib/classNames/classNames';
+import { truncateString } from '@/shared/lib/utils/truncateString';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Button } from '@/shared/ui/redesigned/Button';
@@ -10,7 +11,7 @@ import { Card } from '@/shared/ui/redesigned/Card';
 import { Heading } from '@/shared/ui/redesigned/Heading';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleBlockType, ArticleView } from '../../../model/consts/consts';
 import { ArticleTextBlock } from '../../../model/types/article';
@@ -21,14 +22,31 @@ import s from './ArticleListItemRedesigned.module.scss';
 const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     const { article, view = ArticleView.GRID, className = '' } = props;
 
+    const user = useMemo(
+        () => (
+            <HStack className={s.user} align="center" gap="8">
+                <Avatar
+                    size={view === ArticleView.LIST ? 32 : 28}
+                    src={article.user.avatar}
+                />
+                <Text content={article.user.username} margin="none" isBold />
+            </HStack>
+        ),
+        [article.user.avatar, article.user.username, view],
+    );
+
     const views = useMemo(
         () => (
             <div className={s.views}>
                 <Icon className={s.views_icon} svg={EyeLine} />
-                <Text margin="none" content={article.views.toString()} />
+                <Text
+                    margin="none"
+                    content={article.views.toString()}
+                    size={view === ArticleView.GRID ? 's' : 'm'}
+                />
             </div>
         ),
-        [article.views],
+        [article.views, view],
     );
 
     const image = useMemo(
@@ -51,28 +69,30 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             <Card
                 as={Link}
                 to={getRouteArticleDetails(article.id)}
+                withPaddings={false}
                 className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
                 data-testid="ArticleListItem"
             >
-                <div className={s.pic_outer}>
-                    {image}
-                    <Text
-                        className={s.date}
-                        content={article.createdAt}
-                        margin="none"
-                        size="xs"
-                        isBold
-                    />
-                </div>
-                <div className={s.info}>
-                    <div className={s.additional}>{views}</div>
-                    <Text
-                        as="h3"
-                        content={article.title}
+                <div className={s.pic_outer}>{image}</div>
+                <VStack className={s.info}>
+                    <Heading
                         className={s.title}
-                        margin="none"
+                        as="h3"
+                        content={truncateString(article.title, 57)}
+                        size="xs"
                     />
-                </div>
+                    <div className={s.additional}>
+                        <HStack justify="between" fullWidth>
+                            <Text
+                                content={article.createdAt}
+                                margin="none"
+                                size="s"
+                            />
+                            {views}
+                        </HStack>
+                        {user}
+                    </div>
+                </VStack>
             </Card>
         );
     }
@@ -88,19 +108,15 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                 data-testid="ArticleListItem"
             >
                 <HStack className={s.header} align="center" gap="8">
-                    <Avatar size={32} src={article.user.avatar} />
-                    <Text
-                        content={article.user.username}
-                        margin="none"
-                        isBold
-                    />
+                    {user}
                     <Text
                         className={s.date}
                         content={article.createdAt}
                         margin="none"
+                        size="s"
                     />
                 </HStack>
-                <Heading as="h3" content={article.title} />
+                <Heading as="h3" content={article.title} isBold />
                 <Text content={article.subtitle} size="l" />
                 <div className={s.pic_outer}>{image}</div>
                 {textBlock && (

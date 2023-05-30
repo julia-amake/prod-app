@@ -11,7 +11,7 @@ export type FlexJustify =
     | 'evenly';
 export type FlexAlign = 'start' | 'end' | 'center' | 'stretch';
 export type FlexDirection = 'row' | 'col' | 'rowReverse' | 'colReverse';
-export type FlexGap = '8' | '16' | '24' | '32' | '40' | 'none';
+export type FlexGap = '4' | '8' | '16' | '24' | '32' | '40' | 'none';
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: s.justify_start,
@@ -37,6 +37,7 @@ const directionClasses: Record<FlexDirection, string> = {
 };
 
 const gapClasses: Record<FlexGap, string> = {
+    4: s.gap_4,
     8: s.gap_8,
     16: s.gap_16,
     24: s.gap_24,

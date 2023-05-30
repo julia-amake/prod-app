@@ -4,17 +4,26 @@
   margin: 0;
   box-sizing: border-box;
   font-family: var(--font-family-secondary-redesigned);
+
+  &_bold {
+    font-weight: bold;
+  }
 }
 
 .size {
+  font-weight: normal;
+
+  &_xs {
+    font-size: 17px;
+    line-height: 20px;
+  }
+
   &_s {
-    font-weight: normal;
     font-size: 24px;
     line-height: 28px;
   }
 
   &_m {
-    font-weight: bold;
     font-size: 32px;
     line-height: 38px;
   }

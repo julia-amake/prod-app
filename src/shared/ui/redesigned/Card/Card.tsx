@@ -9,10 +9,12 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     target?: string;
     children: ReactNode;
     className?: string;
+    withPaddings?: boolean;
 }
 
 export const Card = memo((props: CardProps) => {
     const {
+        withPaddings = true,
         children,
         className = '',
         as = 'div',
@@ -27,7 +29,14 @@ export const Card = memo((props: CardProps) => {
 
     return (
         <Tag
-            className={cn(s.outer, { [s.outer_clickable]: !!to }, [className])}
+            className={cn(
+                s.outer,
+                {
+                    [s.outer_clickable]: !!to,
+                    [s.outer_withPaddings]: withPaddings,
+                },
+                [className],
+            )}
             {...(to ? { to, target } : {})}
             {...otherProps}
             {...bindHover}

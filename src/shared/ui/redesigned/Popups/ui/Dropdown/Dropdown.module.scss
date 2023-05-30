@@ -50,8 +50,4 @@
   height: 20px;
   object-fit: contain;
   fill: var(--icon-redesigned);
-
-  .item_active & {
-    fill: var(--accent-redesigned);
-  }
 }

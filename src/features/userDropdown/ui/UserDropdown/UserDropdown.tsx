@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Logout from '@/shared/assets/icons/Logout.svg';
 import ProfileLine from '@/shared/assets/icons/ProfileLine.svg';
 import Settings from '@/shared/assets/icons/Settings.svg';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/consts/router';
+import SettingsCog from '@/shared/assets/icons/SettingsCog.svg';
+import {
+    getRouteAdminPanel,
+    getRouteProfile,
+    getRouteSettings,
+} from '@/shared/consts/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups/ui';
@@ -37,6 +42,43 @@ export const UserDropdown = memo((props: UserDropdownProps) => {
     }, [dispatch, setIsAuthModal]);
 
     if (!authData) return null;
+
+    const items = [
+        ...(showAdminPanel
+            ? [
+                  {
+                      title: t('Панель управления'),
+                      icon: {
+                          element: Settings,
+                      },
+                      to: getRouteAdminPanel(),
+                  },
+              ]
+            : []),
+
+        {
+            title: t('Мой профиль'),
+            icon: {
+                element: ProfileLine,
+            },
+            to: getRouteProfile(authData.id),
+        },
+        {
+            title: t('Настройки'),
+            icon: {
+                element: SettingsCog,
+            },
+            to: getRouteSettings(),
+        },
+        {
+            title: t('Выйти'),
+            icon: {
+                element: Logout,
+            },
+            onClick: onLogout,
+        },
+    ];
+
     return (
         <ToggleFeatures
             feature="isAppRedesigned"
@@ -45,33 +87,7 @@ export const UserDropdown = memo((props: UserDropdownProps) => {
                     className={className}
                     width="auto"
                     trigger={<Avatar size={48} src={authData.avatar} />}
-                    items={[
-                        ...(showAdminPanel
-                            ? [
-                                  {
-                                      title: t('Панель управления'),
-                                      icon: {
-                                          element: Settings,
-                                      },
-                                      to: getRouteAdminPanel(),
-                                  },
-                              ]
-                            : []),
-                        {
-                            title: t('Мой профиль'),
-                            icon: {
-                                element: ProfileLine,
-                            },
-                            to: getRouteProfile(authData.id),
-                        },
-                        {
-                            title: t('Выйти'),
-                            icon: {
-                                element: Logout,
-                            },
-                            onClick: onLogout,
-                        },
-                    ]}
+                    items={items}
                 />
             }
             off={
@@ -79,33 +95,7 @@ export const UserDropdown = memo((props: UserDropdownProps) => {
                     className={className}
                     width="auto"
                     trigger={<Avatar size={40} src={authData.avatar} />}
-                    items={[
-                        ...(showAdminPanel
-                            ? [
-                                  {
-                                      title: t('Панель управления'),
-                                      icon: {
-                                          element: Settings,
-                                      },
-                                      to: getRouteAdminPanel(),
-                                  },
-                              ]
-                            : []),
-                        {
-                            title: t('Мой профиль'),
-                            icon: {
-                                element: ProfileLine,
-                            },
-                            to: getRouteProfile(authData.id),
-                        },
-                        {
-                            title: t('Выйти'),
-                            icon: {
-                                element: Logout,
-                            },
-                            onClick: onLogout,
-                        },
-                    ]}
+                    items={items}
                 />
             }
         />

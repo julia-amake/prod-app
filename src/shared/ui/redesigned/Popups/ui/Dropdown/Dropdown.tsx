@@ -32,7 +32,7 @@ export const Dropdown = memo((props: DropdownProps) => {
         items,
         title,
         width = 'minFix',
-        disabled = true,
+        disabled = false,
         className = '',
     } = props;
 

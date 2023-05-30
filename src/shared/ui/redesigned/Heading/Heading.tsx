@@ -20,7 +20,7 @@ export const Heading = memo((props: HeadingProps) => {
         as: Tag = 'p',
         content,
         size = 'm',
-        isBold = false,
+        isBold = true,
         position = 'left',
         className,
         ...otherProps

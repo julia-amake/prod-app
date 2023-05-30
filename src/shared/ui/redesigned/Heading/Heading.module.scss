@@ -3,16 +3,15 @@
   width: 100%;
   margin: 0;
   box-sizing: border-box;
+  font-weight: normal;
   font-family: var(--font-family-secondary-redesigned);
+}
 
-  &_bold {
-    font-weight: bold;
-  }
+.bold {
+  font-weight: bold;
 }
 
 .size {
-  font-weight: normal;
-
   &_xs {
     font-size: 17px;
     line-height: 20px;

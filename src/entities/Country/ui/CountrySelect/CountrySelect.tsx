@@ -27,7 +27,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
         value = Country.RUSSIA,
         label = '',
         onChange,
-        readOnly = false,
+        readOnly = true,
     } = props;
 
     const onChangeHandler = useCallback(

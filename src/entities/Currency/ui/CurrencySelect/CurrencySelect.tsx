@@ -27,7 +27,7 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo((props) => {
         value = Currency.RUB,
         label = '',
         onChange,
-        readOnly = false,
+        readOnly = true,
     } = props;
 
     const onChangeHandler = useCallback(

@@ -80,6 +80,7 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                         as="h3"
                         content={truncateString(article.title, 60)}
                         size="xs"
+                        isBold
                     />
                     <div className={s.additional}>
                         <HStack justify="between" fullWidth>

@@ -78,7 +78,7 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                     <Heading
                         className={s.title}
                         as="h3"
-                        content={truncateString(article.title, 57)}
+                        content={truncateString(article.title, 60)}
                         size="xs"
                     />
                     <div className={s.additional}>

@@ -95,26 +95,51 @@ const Navbar = memo((props: NavbarProps) => {
     }
 
     return (
-        <header className={cn(s.navbar, {}, [className])}>
-            <HStack
-                className={cn(s.container, {}, [
-                    'container',
-                    'container_size_l',
-                ])}
-                justify="end"
-                align="center"
-                gap="16"
-            >
-                <ButtonDeprecated
-                    label={t('Войти')}
-                    size={ButtonSize.M}
-                    onClick={onOpenModal}
-                />
-                {isAuthModal && (
-                    <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-                )}
-            </HStack>
-        </header>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <HStack
+                    as="header"
+                    className={cn(s.navbarRedesigned, {}, [className])}
+                    justify="end"
+                    align="center"
+                    gap="16"
+                >
+                    <Button label={t('Войти')} size="m" onClick={onOpenModal} />
+                    {isAuthModal && (
+                        <LoginModal
+                            isOpen={isAuthModal}
+                            onClose={onCloseModal}
+                        />
+                    )}
+                </HStack>
+            }
+            off={
+                <header className={cn(s.navbar, {}, [className])}>
+                    <HStack
+                        className={cn(s.container, {}, [
+                            'container',
+                            'container_size_l',
+                        ])}
+                        justify="end"
+                        align="center"
+                        gap="16"
+                    >
+                        <ButtonDeprecated
+                            label={t('Войти')}
+                            size={ButtonSize.M}
+                            onClick={onOpenModal}
+                        />
+                        {isAuthModal && (
+                            <LoginModal
+                                isOpen={isAuthModal}
+                                onClose={onCloseModal}
+                            />
+                        )}
+                    </HStack>
+                </header>
+            }
+        />
     );
 });
 

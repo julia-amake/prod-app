@@ -11,7 +11,17 @@
     cursor: pointer;
   }
 
-  &_withPaddings {
-    padding: 24px;
+  &_paddings {
+    &_none {
+      padding: 0;
+    }
+
+    &_m {
+      padding: 24px;
+    }
+
+    &_l {
+      padding: 32px;
+    }
   }
 }

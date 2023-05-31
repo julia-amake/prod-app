@@ -6,12 +6,12 @@ import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = buildSvgLoader();
-    const { isDev, paths } = options;
+    const { isDev } = options;
 
     const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false });
     const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 
-    const scssLoader = buildCssLoader(isDev, paths);
+    const scssLoader = buildCssLoader(isDev);
 
     const fontsLoader = {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

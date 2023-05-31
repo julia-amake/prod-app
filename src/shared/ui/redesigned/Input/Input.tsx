@@ -10,6 +10,7 @@ export interface InputIcon {
 }
 
 type InputLabelPosition = 'top' | 'left';
+type InputSize = 's' | 'm' | 'l';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
@@ -20,7 +21,7 @@ interface InputProps extends HTMLInputProps {
     inputClassName?: string;
     type?: string;
     value?: string | number;
-    size?: 's' | 'm';
+    size?: InputSize;
     label?: string;
     labelPosition?: InputLabelPosition;
     placeholder?: string;

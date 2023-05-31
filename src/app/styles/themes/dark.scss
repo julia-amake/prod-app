@@ -13,8 +13,11 @@
   // redesigned
   --dark-bg-redesigned: #090f11;
   --bg-redesigned: #0c1214;
+  --bg-redesigned-rgb: #{hex-to-rgb(#0c1214)};
   --light-bg-redesigned: #{$light-bg-redesigned-dark};
+  --light-bg-redesigned-rgb: #{hex-to-rgb(#151c1f)};
   --text-redesigned: #dbdbdb;
+  --text-redesigned-rgb: #{hex-to-rgb(#dbdbdb)};
   --hint-redesigned: #555;
   --cancel-redesigned: #d95757;
   --cancel-redesigned-rgba: #{hex-to-rgb(#d95757)};

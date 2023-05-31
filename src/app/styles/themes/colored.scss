@@ -21,8 +21,11 @@
   // redesigned
   --dark-bg-redesigned: #fff3d6;
   --bg-redesigned: #f0c048;
+  --bg-redesigned-rgb: #{hex-to-rgb(#f0c048)};
   --light-bg-redesigned: #{$light-bg-redesigned-color};
+  --light-bg-redesigned-rgb: #{hex-to-rgb(#f2d791)};
   --text-redesigned: #1b1311;
+  --text-redesigned-rgb: #{hex-to-rgb(#1b1311)};
   --hint-redesigned: #b8b2a2;
   --cancel-redesigned: #ff5e5e;
   --cancel-redesigned-rgb: #{hex-to-rgb(#ff5e5e)};

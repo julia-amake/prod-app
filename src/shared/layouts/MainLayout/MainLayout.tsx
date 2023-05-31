@@ -8,13 +8,14 @@ interface MainLayoutProps {
     sidebar: ReactElement;
     toolbar?: ReactElement;
     className?: string;
+    id?: string;
 }
 
 export const MainLayout = (props: MainLayoutProps) => {
-    const { header, content, sidebar, toolbar, className = '' } = props;
+    const { header, content, sidebar, toolbar, className = '', id } = props;
 
     return (
-        <div className={cn(s.outer, {}, [className])}>
+        <div className={cn(s.outer, {}, [className])} {...(id ? { id } : {})}>
             <div className={s.left}>{sidebar}</div>
             <div className={s.middle}>{content}</div>
             <div className={s.right}>

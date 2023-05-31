@@ -33,10 +33,11 @@ function App() {
                     sidebar={<Sidebar />}
                     toolbar={<div>...</div>}
                     className="app_redesigned"
+                    id="app"
                 />
             }
             off={
-                <div className={cn('app', {}, [])}>
+                <div className={cn('app', {}, [])} id="app">
                     <Suspense fallback={<ContentLoader />}>
                         <div className="wrapper">
                             <Sidebar />

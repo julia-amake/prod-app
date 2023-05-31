@@ -65,7 +65,10 @@ export const Button = memo((props: ButtonProps) => {
     const [currIcon, setCurrIcon] = useState<ButtonIcon | null>(null);
 
     useEffect(() => {
-        if (!icon) return;
+        if (!icon) {
+            setCurrIcon(null);
+            return;
+        }
 
         setCurrIcon({
             element: icon.element,

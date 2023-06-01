@@ -4,16 +4,16 @@ import { MOBILE_LARGE } from '@/shared/consts/devices';
 import { cn } from '@/shared/lib/classNames/classNames';
 import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import {
     Heading,
     HeadingPosition,
     HeadingSize,
 } from '@/shared/ui/deprecated/Heading';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { Modal } from '@/shared/ui/deprecated/Modal';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import s from './RatingCard.module.scss';
 

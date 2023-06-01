@@ -18,7 +18,7 @@ export const ArticleListItemRedesignedSkeleton = (
         return (
             <Card
                 className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
-                withPaddings={false}
+                paddings="none"
             >
                 <div className={cn(s.pic_outer, {}, [s.pic_outer_skeleton])}>
                     <Skeleton

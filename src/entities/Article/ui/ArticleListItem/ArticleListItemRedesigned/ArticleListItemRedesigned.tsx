@@ -69,7 +69,7 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             <Card
                 as={Link}
                 to={getRouteArticleDetails(article.id)}
-                withPaddings={false}
+                paddings="none"
                 className={cn(s.outer, {}, [className, s.outer_grid, s.card])}
                 data-testid="ArticleListItem"
             >

@@ -6,10 +6,10 @@ import { MOBILE_LARGE } from '@/shared/consts/devices';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions/useWindowDimensions';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups/ui';
-import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { Popover } from '@/shared/ui/redesigned/Popups/ui';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { NotificationsList } from '@/entities/Notifications';
@@ -39,7 +39,14 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     const trigger = (
         <ToggleFeatures
             feature="isAppRedesigned"
-            on={<Icon svg={NotesRedesigned} className={s.triggerRedesigned} />}
+            on={
+                <Button
+                    icon={{ element: NotesRedesigned }}
+                    className={s.triggerRedesigned}
+                    onClick={onOpenDrawer}
+                    variant="clear"
+                />
+            }
             off={
                 <HStack
                     className={s.trigger}

@@ -4,7 +4,8 @@ import { cn } from '@/shared/lib/classNames/classNames';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Heading, HeadingSize } from '@/shared/ui/deprecated/Heading';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { useGetNotificationsList } from '../../api/notificationsApi';
 import { Notification } from '../../model/types/notifications';
 import { NotificationsItem } from '../NotificationsItem/NotificationsItem';
@@ -48,6 +49,12 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
         [isShort, shownAll, data, setNotificationsItems],
     );
 
+    const listClassName = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => s.listRedesigned,
+        off: () => s.list,
+    });
+
     const moreClickHandler = () => {
         setShownAll(true);
     };
@@ -55,7 +62,7 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
     const content = useMemo(() => {
         if (isLoading) {
             return (
-                <div className={cn(s.list)}>
+                <div className={listClassName}>
                     <NotificationsItem isLoading={isLoading} />
                     <NotificationsItem isLoading={isLoading} />
                     <NotificationsItem isLoading={isLoading} />
@@ -68,7 +75,7 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
                 <ToggleFeatures
                     feature="isAppRedesigned"
                     on={
-                        <div className={s.listRedesigned}>
+                        <div className={listClassName}>
                             {notifications.map((n) => (
                                 <NotificationsItem
                                     key={n.id}
@@ -80,7 +87,7 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
                     }
                     off={
                         <div
-                            className={cn(s.list, {
+                            className={cn(listClassName, {
                                 [s.list_withScroll]: shownAll,
                             })}
                         >
@@ -97,13 +104,25 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
             );
         }
         return (
-            <Text
-                className={s.empty}
-                content={t('Нет новых уведомлений')}
-                size={TextSize.S}
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <Text
+                        className={s.empty}
+                        content={t('Нет новых уведомлений')}
+                        size="s"
+                    />
+                }
+                off={
+                    <TextDeprecated
+                        className={s.empty}
+                        content={t('Нет новых уведомлений')}
+                        size={TextSize.S}
+                    />
+                }
             />
         );
-    }, [isLoading, notifications, shownAll, t]);
+    }, [isLoading, listClassName, notifications, shownAll, t]);
 
     return (
         <ToggleFeatures

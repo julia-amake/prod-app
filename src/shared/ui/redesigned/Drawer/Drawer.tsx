@@ -4,6 +4,7 @@ import {
     AnimationProvider,
     useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
@@ -73,13 +74,18 @@ const DrawerContent = memo((props: DrawerProps) => {
     if (!isOpen) return null;
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
+    const contentClassName = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => s.redesigned_content,
+        off: () => s.content,
+    });
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app')}>
             <div className={cn(s.outer, {}, [className, theme])}>
                 <Overlay onClick={() => close()} className={s.overlay} />
                 <Spring.a.div
-                    className={s.content}
+                    className={contentClassName}
                     style={{ display, y }}
                     {...bind()}
                 >
@@ -97,11 +103,6 @@ const DrawerAsync = (props: DrawerProps) => {
     if (!isLoaded) return null;
     return <DrawerContent {...other}>{children}</DrawerContent>;
 };
-
-/**
- * Deprecated – use components from the Redesigned folder
- * @deprecated
- */
 
 export const Drawer = ({ children, ...other }: DrawerProps) => (
     <AnimationProvider>

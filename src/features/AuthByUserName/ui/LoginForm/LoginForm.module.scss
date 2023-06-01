@@ -10,7 +10,6 @@
 }
 
 .input {
-  width: 100%;
   margin-bottom: 32px;
 }
 
@@ -20,4 +19,11 @@
 
 .error {
   margin-bottom: 32px;
+}
+
+.redesigned {
+  &_input {
+    width: 100%;
+    margin-bottom: 16px;
+  }
 }

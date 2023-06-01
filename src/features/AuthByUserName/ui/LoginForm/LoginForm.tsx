@@ -2,15 +2,22 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { cn } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
     useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
-import { Button } from '@/shared/ui/deprecated/Button';
-import { Heading, HeadingSize } from '@/shared/ui/deprecated/Heading';
-import { Informer } from '@/shared/ui/deprecated/Informer';
-import { Input } from '@/shared/ui/deprecated/Input';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import {
+    Heading as HeadingDeprecated,
+    HeadingSize,
+} from '@/shared/ui/deprecated/Heading';
+import { Informer as InformerDeprecated } from '@/shared/ui/deprecated/Informer';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Informer } from '@/shared/ui/redesigned/Informer';
+import { Input } from '@/shared/ui/redesigned/Input';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -62,43 +69,83 @@ const LoginForm = memo((props: LoginFormProps) => {
     }, [username, password, dispatch, onSuccess]);
 
     return (
-        <div className={cn(s.loginForm, {}, [className])}>
-            <Heading
-                size={HeadingSize.S}
-                className={s.title}
-                content={t('Войти')}
-            />
-            <Input
-                type="text"
-                label={t('Имя пользователя')}
-                placeholder={t('Введите имя пользователя')}
-                className={s.input}
-                onChange={onChangeUsername}
-                value={username}
-                autoFocus
-            />
-            <Input
-                type="text"
-                label={t('Пароль')}
-                placeholder={t('Введите пароль')}
-                className={s.input}
-                onChange={onChangePassword}
-                value={password}
-            />
-            {error && (
-                <Informer
-                    title={t('Вы ввели неверный логин или пароль')}
-                    isCentered
-                    className={s.error}
-                />
-            )}
-            <Button
-                label={t('Войти')}
-                onClick={onLoginClick}
-                className={s.loginBtn}
-                disabled={isLoading}
-            />
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <div className={cn(s.loginForm, {}, [className])}>
+                    <Input
+                        className={s.redesigned_input}
+                        type="text"
+                        size="l"
+                        placeholder={t('Введите имя пользователя')}
+                        onChange={onChangeUsername}
+                        value={username}
+                        autoFocus
+                    />
+                    <Input
+                        className={s.redesigned_input}
+                        type="text"
+                        size="l"
+                        placeholder={t('Введите пароль')}
+                        onChange={onChangePassword}
+                        value={password}
+                    />
+                    {error && (
+                        <Informer
+                            title={t('Вы ввели неверный логин или пароль')}
+                            isCentered
+                            className={s.error}
+                        />
+                    )}
+                    <Button
+                        className={s.loginBtn}
+                        size="l"
+                        disabled={isLoading}
+                        label={t('Войти')}
+                        onClick={onLoginClick}
+                    />
+                </div>
+            }
+            off={
+                <div className={cn(s.loginForm, {}, [className])}>
+                    <HeadingDeprecated
+                        size={HeadingSize.S}
+                        className={s.title}
+                        content={t('Войти')}
+                    />
+                    <InputDeprecated
+                        type="text"
+                        label={t('Имя пользователя')}
+                        placeholder={t('Введите имя пользователя')}
+                        className={s.input}
+                        onChange={onChangeUsername}
+                        value={username}
+                        autoFocus
+                    />
+                    <InputDeprecated
+                        type="text"
+                        label={t('Пароль')}
+                        placeholder={t('Введите пароль')}
+                        className={s.input}
+                        onChange={onChangePassword}
+                        value={password}
+                    />
+                    {error && (
+                        <InformerDeprecated
+                            title={t('Вы ввели неверный логин или пароль')}
+                            isCentered
+                            className={s.error}
+                        />
+                    )}
+                    <ButtonDeprecated
+                        label={t('Войти')}
+                        onClick={onLoginClick}
+                        className={s.loginBtn}
+                        disabled={isLoading}
+                    />
+                </div>
+            }
+        />
     );
 });
 

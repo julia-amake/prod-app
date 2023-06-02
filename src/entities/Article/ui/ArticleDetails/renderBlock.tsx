@@ -8,7 +8,7 @@ import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/Articl
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import s from './renderBlock.module.scss';
 
-const renderBlock = (block: ArticleBlock, blocks: ArticleBlock[]) => {
+const renderArticleBlock = (block: ArticleBlock, blocks: ArticleBlock[]) => {
     const mods = {
         [s.block_last]: blocks[blocks.length - 1] === block,
     };
@@ -50,4 +50,4 @@ const renderBlock = (block: ArticleBlock, blocks: ArticleBlock[]) => {
     }
 };
 
-export default renderBlock;
+export default renderArticleBlock;

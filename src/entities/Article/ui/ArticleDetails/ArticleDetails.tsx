@@ -21,7 +21,7 @@ import {
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import renderBlock from './renderBlock';
+import renderArticleBlock from './renderBlock';
 import s from './ArticleDetails.module.scss';
 
 const reducers: ReducersList = {
@@ -111,7 +111,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     </div>
                 </div>
                 <ContentImage src={data.image} alt="" />
-                {data.blocks.map((block) => renderBlock(block, data?.blocks))}
+                {data.blocks.map((block) =>
+                    renderArticleBlock(block, data?.blocks),
+                )}
             </>
         );
     }, [isLoading, error, data, t]);

@@ -45,7 +45,12 @@ export const Page = (props: PageProps) => {
     });
 
     useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
+        if (wrapperRef.current) {
+            wrapperRef.current.scrollTop = scrollPosition;
+            return;
+        }
+
+        document.body.scrollIntoView({ behavior: 'smooth' });
     }, [pathname]);
 
     const onScrollHandler = useThrottle((e: UIEvent<HTMLDivElement>) => {
@@ -63,7 +68,6 @@ export const Page = (props: PageProps) => {
             on={
                 <main
                     data-testid={dataTestid}
-                    ref={wrapperRef}
                     className={cn(s.outerRedesigned, {}, [className])}
                     {...(onScrollEnd ? { onScroll: onScrollHandler } : {})}
                 >

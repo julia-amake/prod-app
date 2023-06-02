@@ -1,4 +1,7 @@
 {
     "Статья не найдена": "Article not found",
-    "Произошла ошибка при загрузке статьи": "Error loading the article"
+    "Произошла ошибка при загрузке статьи": "Error loading the article",
+    "Просмотров_zero": "{{count}} views",
+    "Просмотров_one": "{{count}} view",
+    "Просмотров_other": "{{count}} views"
 }

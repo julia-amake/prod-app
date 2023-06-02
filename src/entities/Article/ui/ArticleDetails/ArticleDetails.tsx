@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import CalendarLine from '@/shared/assets/icons/CalendarLine.svg';
@@ -15,18 +15,13 @@ import { ContentImage } from '@/shared/ui/deprecated/Image';
 import { Informer } from '@/shared/ui/deprecated/Informer';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { Text, TextMargin, TextSize } from '@/shared/ui/deprecated/Text';
-import { ArticleBlockType } from '../../model/consts/consts';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlock } from '../../model/types/article';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleDividerBlockComponent } from '../ArticleDividerBlockComponent/ArticleDividerBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import renderBlock from './renderBlock';
 import s from './ArticleDetails.module.scss';
 
 const reducers: ReducersList = {
@@ -48,51 +43,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const error = useSelector(getArticleDetailsError);
 
     useDynamicModuleLoader(reducers, true);
-
-    const renderBlock = useCallback(
-        (block: ArticleBlock) => {
-            const mods = {
-                [s.block_last]: data?.blocks[data.blocks.length - 1] === block,
-            };
-
-            switch (block.type) {
-                case ArticleBlockType.TEXT:
-                    return (
-                        <ArticleTextBlockComponent
-                            block={block}
-                            key={block.id}
-                            className={cn(s.block, mods)}
-                        />
-                    );
-                case ArticleBlockType.CODE:
-                    return (
-                        <ArticleCodeBlockComponent
-                            block={block}
-                            key={block.id}
-                            className={cn(s.block, mods)}
-                        />
-                    );
-                case ArticleBlockType.IMAGE:
-                    return (
-                        <ArticleImageBlockComponent
-                            block={block}
-                            key={block.id}
-                            className={cn(s.block, mods)}
-                        />
-                    );
-                case ArticleBlockType.DIVIDER:
-                    return (
-                        <ArticleDividerBlockComponent
-                            key={block.id}
-                            className={cn(s.block, mods)}
-                        />
-                    );
-                default:
-                    return null;
-            }
-        },
-        [data],
-    );
 
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
@@ -161,10 +111,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     </div>
                 </div>
                 <ContentImage src={data.image} alt="" />
-                {data.blocks.map((block) => renderBlock(block))}
+                {data.blocks.map((block) => renderBlock(block, data?.blocks))}
             </>
         );
-    }, [renderBlock, isLoading, error, data, t]);
+    }, [isLoading, error, data, t]);
 
     return <div className={cn(s.outer, {}, [className])}>{content}</div>;
 });

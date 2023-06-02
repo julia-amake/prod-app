@@ -49,7 +49,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = memo((props: ButtonProps) => {
     const {
-        as = 'button',
+        as: ButtonElement = 'button',
+        to,
         variant = 'primary',
         shape = 'rounded',
         size = 'm',
@@ -79,7 +80,6 @@ export const Button = memo((props: ButtonProps) => {
         });
     }, [label, icon, size]);
 
-    const ButtonElement = as;
     const Icon = useMemo(() => currIcon?.element, [currIcon]);
 
     const mods = useMemo(() => {
@@ -112,8 +112,9 @@ export const Button = memo((props: ButtonProps) => {
                 s[variant],
                 s[`size_${size}`],
             ])}
-            type="button"
             disabled={disabled || isLoading}
+            {...(to ? { to } : {})}
+            {...(ButtonElement === 'button' ? { type: 'button' } : {})}
             {...otherProps}
         >
             {label && (Icon ? <span>{label}</span> : label)}

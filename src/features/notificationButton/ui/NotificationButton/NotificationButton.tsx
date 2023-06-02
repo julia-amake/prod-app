@@ -41,6 +41,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             feature="isAppRedesigned"
             on={
                 <Button
+                    as="div"
                     icon={{ element: NotesRedesigned }}
                     className={s.triggerRedesigned}
                     onClick={onOpenDrawer}

@@ -28,8 +28,8 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                 <Avatar
                     size={view === ArticleView.LIST ? 32 : 28}
                     src={article.user.avatar}
+                    userName={article.user.username}
                 />
-                <Text content={article.user.username} margin="none" isBold />
             </HStack>
         ),
         [article.user.avatar, article.user.username, view],

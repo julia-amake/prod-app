@@ -11,3 +11,16 @@
   letter-spacing: 0;
   font-family: var(--font-family-secondary);
 }
+
+.redesigned {
+  &_pic {
+    display: block;
+    aspect-ratio: 732 / 420;
+    object-fit: cover;
+  }
+
+  &_title {
+    margin-top: 0.5em;
+    font-style: italic;
+  }
+}

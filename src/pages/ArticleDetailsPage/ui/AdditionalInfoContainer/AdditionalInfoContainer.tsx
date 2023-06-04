@@ -34,8 +34,6 @@ export const AdditionalInfoContainer = memo(
                 {article && (
                     <ArticleAdditionalInfo
                         views={article.views}
-                        author={article.user}
-                        createdAt={article.createdAt}
                         canEdit={canEdit}
                         onEditArticle={onEditArticle}
                     />

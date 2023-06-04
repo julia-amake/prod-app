@@ -36,7 +36,7 @@ export const ArticleTextBlockComponent = memo(
                             />
                         )}
                         {block.paragraphs.map((p) => (
-                            <Text content={p} key={p} />
+                            <Text content={p} key={p} margin="none" size="m" />
                         ))}
                     </div>
                 }

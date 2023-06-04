@@ -62,16 +62,6 @@ const ArticleDetailsPage = memo((props: ArticleDetailsPageProps) => {
                             dataTestid="ArticleDetailsPage"
                         >
                             <DetailsContainer />
-                            <ToggleFeatures
-                                feature="isArticleRatingEnabled"
-                                on={<ArticleRating articleId={id} />}
-                                off={<div>{t('Рейтинг скоро появится')}</div>}
-                            />
-                            <ArticleDetailsComments
-                                id={id}
-                                isLoading={isLoading}
-                            />
-                            <ArticleRecommendationsList id={id} />
                         </Page>
                     }
                     right={<AdditionalInfoContainer />}

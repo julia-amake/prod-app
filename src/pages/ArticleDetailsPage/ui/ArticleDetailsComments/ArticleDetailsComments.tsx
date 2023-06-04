@@ -1,9 +1,12 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { PageSection } from '@/shared/ui/deprecated/Page';
+import { PageSection as PageSectionDeprecated } from '@/shared/ui/deprecated/Page';
+import { PageSection } from '@/shared/ui/redesigned/PageSection';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import {
@@ -46,17 +49,41 @@ export const ArticleDetailsComments = memo(
         if (error) return null;
 
         return (
-            <PageSection className={className} title={t('Комментарии')}>
-                <AddCommentForm
-                    onSendComment={onSendComment}
-                    className={s.form}
-                    isLoading={commentsIsLoading || isLoading}
-                />
-                <CommentList
-                    comments={comments}
-                    isLoading={commentsIsLoading || isLoading}
-                />
-            </PageSection>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <VStack
+                        as={PageSection}
+                        className={className}
+                        customProps={{ title: t('Комментарии') }}
+                    >
+                        <AddCommentForm
+                            onSendComment={onSendComment}
+                            isLoading={commentsIsLoading || isLoading}
+                        />
+                        <CommentList
+                            comments={comments}
+                            isLoading={commentsIsLoading || isLoading}
+                        />
+                    </VStack>
+                }
+                off={
+                    <PageSectionDeprecated
+                        className={className}
+                        title={t('Комментарии')}
+                    >
+                        <AddCommentForm
+                            onSendComment={onSendComment}
+                            className={s.form}
+                            isLoading={commentsIsLoading || isLoading}
+                        />
+                        <CommentList
+                            comments={comments}
+                            isLoading={commentsIsLoading || isLoading}
+                        />
+                    </PageSectionDeprecated>
+                }
+            />
         );
     },
 );

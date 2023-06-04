@@ -12,3 +12,9 @@
   padding-right: 48px;
   color: var(--secondary-color);
 }
+
+.redesigned {
+  &_feedback_button {
+    flex-grow: 1;
+  }
+}

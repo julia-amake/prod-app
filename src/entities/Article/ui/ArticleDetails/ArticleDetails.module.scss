@@ -39,3 +39,19 @@
     margin-bottom: 0;
   }
 }
+
+.redesigned {
+  &_outer {
+    margin-bottom: 8px;
+  }
+
+  &_author {
+    margin-bottom: 8px;
+  }
+
+  &_image {
+    display: block;
+    aspect-ratio: 732 / 420;
+    object-fit: cover;
+  }
+}

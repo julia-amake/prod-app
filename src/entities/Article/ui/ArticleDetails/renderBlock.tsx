@@ -1,50 +1,21 @@
 import React from 'react';
-import { cn } from '@/shared/lib/classNames/classNames';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleDividerBlockComponent } from '../ArticleDividerBlockComponent/ArticleDividerBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import s from './renderBlock.module.scss';
 
-const renderArticleBlock = (block: ArticleBlock, blocks: ArticleBlock[]) => {
-    const mods = {
-        [s.block_last]: blocks[blocks.length - 1] === block,
-    };
-
+const renderArticleBlock = (block: ArticleBlock) => {
     switch (block.type) {
         case ArticleBlockType.TEXT:
-            return (
-                <ArticleTextBlockComponent
-                    block={block}
-                    key={block.id}
-                    className={cn(s.block, mods)}
-                />
-            );
+            return <ArticleTextBlockComponent block={block} key={block.id} />;
         case ArticleBlockType.CODE:
-            return (
-                <ArticleCodeBlockComponent
-                    block={block}
-                    key={block.id}
-                    className={cn(s.block, mods)}
-                />
-            );
+            return <ArticleCodeBlockComponent block={block} key={block.id} />;
         case ArticleBlockType.IMAGE:
-            return (
-                <ArticleImageBlockComponent
-                    block={block}
-                    key={block.id}
-                    className={cn(s.block, mods)}
-                />
-            );
+            return <ArticleImageBlockComponent block={block} key={block.id} />;
         case ArticleBlockType.DIVIDER:
-            return (
-                <ArticleDividerBlockComponent
-                    key={block.id}
-                    className={cn(s.block, mods)}
-                />
-            );
+            return <ArticleDividerBlockComponent key={block.id} />;
         default:
             return null;
     }

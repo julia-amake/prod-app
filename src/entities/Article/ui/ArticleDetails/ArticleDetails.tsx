@@ -4,17 +4,30 @@ import { useSelector } from 'react-redux';
 import CalendarLine from '@/shared/assets/icons/CalendarLine.svg';
 import EyeLine from '@/shared/assets/icons/EyeLine.svg';
 import { cn } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
     useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Heading, HeadingSize } from '@/shared/ui/deprecated/Heading';
-import { ContentImage } from '@/shared/ui/deprecated/Image';
-import { Informer } from '@/shared/ui/deprecated/Informer';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { Text, TextMargin, TextSize } from '@/shared/ui/deprecated/Text';
+import {
+    Heading as HeadingDeprecated,
+    HeadingSize,
+} from '@/shared/ui/deprecated/Heading';
+import { ContentImage as ContentImageDeprecated } from '@/shared/ui/deprecated/Image';
+import { Informer as InformerDeprecated } from '@/shared/ui/deprecated/Informer';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import {
+    Text as TextDeprecated,
+    TextMargin,
+    TextSize,
+} from '@/shared/ui/deprecated/Text';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Heading } from '@/shared/ui/redesigned/Heading';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -34,6 +47,78 @@ interface ArticleDetailsProps {
     className?: string;
 }
 
+const ContentRedesigned = () => {
+    const data = useSelector(getArticleDetailsData);
+
+    if (!data) return null;
+
+    return (
+        <>
+            <HStack className={s.redesigned_author} align="center" gap="8">
+                <Avatar
+                    src={data.user.avatar}
+                    userName={data.user.username}
+                    size={32}
+                />
+                <Text content={data.createdAt} size="s" margin="none" />
+            </HStack>
+            <VStack className={s.redesigned_content} gap="16">
+                <Heading
+                    as="h1"
+                    content={data?.title}
+                    data-testid="ArticleDetails.Header"
+                />
+                <Heading size="s" content={data.subtitle} isBold={false} />
+                <AppImage
+                    src={data.image}
+                    alt=""
+                    className={s.redesigned_image}
+                />
+                <VStack gap="24">
+                    {data.blocks.map((block) => renderArticleBlock(block))}
+                </VStack>
+            </VStack>
+        </>
+    );
+};
+const ContentDeprecated = () => {
+    const data = useSelector(getArticleDetailsData);
+
+    if (!data) return null;
+
+    return (
+        <>
+            <HeadingDeprecated
+                className={s.title}
+                size={HeadingSize.L}
+                content={data?.title}
+                data-testid="ArticleDetails.Header"
+            />
+            <TextDeprecated content={data.subtitle} className={s.subtitle} />
+            <div className={s.stats}>
+                <div className={s.stat}>
+                    <CalendarLine className={s.stat_icon} />
+                    <TextDeprecated
+                        size={TextSize.XS}
+                        margin={TextMargin.NONE}
+                        content={data.createdAt}
+                    />
+                </div>
+                <div className={cn(s.stat, {}, [s.stat_last])}>
+                    <EyeLine className={s.stat_icon} />
+                    <TextDeprecated
+                        size={TextSize.XS}
+                        margin={TextMargin.NONE}
+                        content={data.views.toString()}
+                    />
+                </div>
+            </div>
+            <ContentImageDeprecated src={data.image} alt="" />
+            {data.blocks.map((block) => renderArticleBlock(block))}
+        </>
+    );
+};
+
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { id, isLoading, className = '' } = props;
 
@@ -52,71 +137,77 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         if (isLoading) {
             return (
                 <>
-                    <Skeleton
+                    <SkeletonDeprecated
                         width="70%"
                         height={48}
                         marginBottom={20}
                         borderRadius={16}
                     />
-                    <Skeleton width="50%" height={18} marginBottom={10} />
-                    <Skeleton width="40%" height={18} marginBottom={16} />
-                    <Skeleton
+                    <SkeletonDeprecated
+                        width="50%"
+                        height={18}
+                        marginBottom={10}
+                    />
+                    <SkeletonDeprecated
+                        width="40%"
+                        height={18}
+                        marginBottom={16}
+                    />
+                    <SkeletonDeprecated
                         width={86}
                         height={16}
                         marginBottom={24}
                         marginRight={10}
                         inline
                     />
-                    <Skeleton width={86} height={16} marginBottom={24} inline />
-                    <Skeleton width="100%" height={360} marginBottom={24} />
-                    <Skeleton width="90%" height={18} marginBottom={10} />
-                    <Skeleton width="90%" height={18} marginBottom={10} />
-                    <Skeleton width="70%" height={18} />
+                    <SkeletonDeprecated
+                        width={86}
+                        height={16}
+                        marginBottom={24}
+                        inline
+                    />
+                    <SkeletonDeprecated
+                        width="100%"
+                        height={360}
+                        marginBottom={24}
+                    />
+                    <SkeletonDeprecated
+                        width="90%"
+                        height={18}
+                        marginBottom={10}
+                    />
+                    <SkeletonDeprecated
+                        width="90%"
+                        height={18}
+                        marginBottom={10}
+                    />
+                    <SkeletonDeprecated width="70%" height={18} />
                 </>
             );
         }
         if (error || !data) {
             return (
-                <Informer
+                <InformerDeprecated
                     title={t('Произошла ошибка при загрузке статьи')}
                     isCentered
                 />
             );
         }
         return (
-            <>
-                <Heading
-                    className={s.title}
-                    size={HeadingSize.L}
-                    content={data?.title}
-                    data-testid="ArticleDetails.Header"
-                />
-                <Text content={data.subtitle} className={s.subtitle} />
-                <div className={s.stats}>
-                    <div className={s.stat}>
-                        <CalendarLine className={s.stat_icon} />
-                        <Text
-                            size={TextSize.XS}
-                            margin={TextMargin.NONE}
-                            content={data.createdAt}
-                        />
-                    </div>
-                    <div className={cn(s.stat, {}, [s.stat_last])}>
-                        <EyeLine className={s.stat_icon} />
-                        <Text
-                            size={TextSize.XS}
-                            margin={TextMargin.NONE}
-                            content={data.views.toString()}
-                        />
-                    </div>
-                </div>
-                <ContentImage src={data.image} alt="" />
-                {data.blocks.map((block) =>
-                    renderArticleBlock(block, data?.blocks),
-                )}
-            </>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={<ContentRedesigned />}
+                off={<ContentDeprecated />}
+            />
         );
     }, [isLoading, error, data, t]);
+    const outerClassNames = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => s.redesigned_outer,
+        off: () => s.outer,
+    });
 
-    return <div className={cn(s.outer, {}, [className])}>{content}</div>;
+    return (
+        <div className={cn(outerClassNames, {}, [className])}>{content}</div>
+    );
 });

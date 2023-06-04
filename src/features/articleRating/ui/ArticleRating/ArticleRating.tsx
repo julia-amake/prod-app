@@ -1,7 +1,9 @@
 import React, { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 import {
@@ -58,16 +60,33 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
         [handleRateArticle],
     );
 
-    if (isLoading) return <Skeleton height={158} />;
+    const ratingProps = {
+        onAccept,
+        onCancel,
+        rate: rating,
+        className,
+        hasFeedback: true,
+    };
+
+    if (isLoading)
+        return (
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={<Skeleton height={70} borderRadius={20} />}
+                off={<SkeletonDeprecated height={158} />}
+            />
+        );
 
     return (
-        <RatingCard
-            onAccept={onAccept}
-            onCancel={onCancel}
-            rate={rating}
-            className={className}
-            title={t('Вам понравилась статья?')}
-            hasFeedback
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={<RatingCard {...ratingProps} title={t('Оцените статью')} />}
+            off={
+                <RatingCard
+                    {...ratingProps}
+                    title={t('Вам понравилась статья?')}
+                />
+            }
         />
     );
 });

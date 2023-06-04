@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
+import { BODY_MODAL_OPENED_CLASS_NAME } from '@/shared/consts/ui';
 import { cn, Mode } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
@@ -45,6 +46,14 @@ export const Modal: React.FC<ModalProps> = (props) => {
         [s.opened]: isShown,
         [s.isClosing]: isClosing,
     };
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add(BODY_MODAL_OPENED_CLASS_NAME);
+            return;
+        }
+        document.body.classList.remove(BODY_MODAL_OPENED_CLASS_NAME);
+    }, [isOpen]);
 
     if (lazy && !isMounted) return null;
     return (

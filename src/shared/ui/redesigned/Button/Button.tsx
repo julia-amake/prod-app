@@ -16,7 +16,7 @@ type ButtonVariant =
     | 'outlined'
     | 'red_outlined'
     | 'green_outlined';
-type ButtonShape = 'rounded' | 'square' | 'circle';
+type ButtonShape = 'rounded' | 'partial_rounded';
 type ButtonSize = 's' | 'm' | 'l';
 
 export enum IconPosition {

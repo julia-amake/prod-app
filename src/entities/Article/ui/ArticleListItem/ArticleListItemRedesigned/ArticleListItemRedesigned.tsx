@@ -131,7 +131,7 @@ const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                         as={Link}
                         size="m"
                         variant="outlined"
-                        shape="square"
+                        shape="partial_rounded"
                         label="Читать далее..."
                         to={getRouteArticleDetails(article.id)}
                     />

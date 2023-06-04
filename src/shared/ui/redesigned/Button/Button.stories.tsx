@@ -40,7 +40,7 @@ export const PrimarySquaredS = Template.bind({});
 PrimarySquaredS.args = {
     label: 'Button',
     variant: 'primary',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 's',
 };
 
@@ -48,7 +48,7 @@ export const PrimarySquaredM = Template.bind({});
 PrimarySquaredM.args = {
     label: 'Button',
     variant: 'primary',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 'm',
 };
 
@@ -56,7 +56,7 @@ export const PrimarySquaredL = Template.bind({});
 PrimarySquaredL.args = {
     label: 'Button',
     variant: 'primary',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 'l',
 };
 
@@ -88,7 +88,7 @@ export const OutlinedSquaredS = Template.bind({});
 OutlinedSquaredS.args = {
     label: 'Button',
     variant: 'outlined',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 's',
 };
 
@@ -96,7 +96,7 @@ export const OutlinedSquaredM = Template.bind({});
 OutlinedSquaredM.args = {
     label: 'Button',
     variant: 'outlined',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 'm',
 };
 
@@ -104,7 +104,7 @@ export const OutlinedSquaredL = Template.bind({});
 OutlinedSquaredL.args = {
     label: 'Button',
     variant: 'outlined',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 'l',
 };
 
@@ -136,7 +136,7 @@ export const ClearSquaredS = Template.bind({});
 ClearSquaredS.args = {
     label: 'Button',
     variant: 'clear',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 's',
 };
 
@@ -144,7 +144,7 @@ export const ClearSquaredM = Template.bind({});
 ClearSquaredM.args = {
     label: 'Button',
     variant: 'clear',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 'm',
 };
 
@@ -152,7 +152,7 @@ export const ClearSquaredL = Template.bind({});
 ClearSquaredL.args = {
     label: 'Button',
     variant: 'clear',
-    shape: 'square',
+    shape: 'partial_rounded',
     size: 'l',
 };
 

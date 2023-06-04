@@ -50,7 +50,7 @@ export const Page = (props: PageProps) => {
             return;
         }
 
-        document.body.scrollIntoView({ behavior: 'smooth' });
+        document.documentElement.scrollTop = 0;
     }, [pathname]);
 
     const onScrollHandler = useThrottle((e: UIEvent<HTMLDivElement>) => {

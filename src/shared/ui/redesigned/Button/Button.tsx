@@ -24,6 +24,8 @@ export enum IconPosition {
     RIGHT = 'position_right',
 }
 
+type ButtonWidth = 'content' | 'full';
+
 interface ButtonIcon {
     element: React.VFC<React.SVGProps<SVGSVGElement>>;
     position?: IconPosition;
@@ -37,6 +39,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;
     shape?: ButtonShape;
     size?: ButtonSize;
+    width?: ButtonWidth;
     disabled?: boolean;
     isLoading?: boolean;
     label?: string;
@@ -54,6 +57,7 @@ export const Button = memo((props: ButtonProps) => {
         variant = 'primary',
         shape = 'rounded',
         size = 'm',
+        width = 'content',
         className = '',
         label = '',
         icon,
@@ -111,6 +115,7 @@ export const Button = memo((props: ButtonProps) => {
                 className,
                 s[variant],
                 s[`size_${size}`],
+                s[`width_${width}`],
             ])}
             disabled={disabled || isLoading}
             {...(to ? { to } : {})}

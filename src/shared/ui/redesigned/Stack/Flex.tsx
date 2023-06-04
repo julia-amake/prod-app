@@ -8,7 +8,8 @@ export type FlexJustify =
     | 'center'
     | 'between'
     | 'around'
-    | 'evenly';
+    | 'evenly'
+    | 'stretch';
 export type FlexAlign = 'start' | 'end' | 'center' | 'stretch';
 export type FlexDirection = 'row' | 'col' | 'rowReverse' | 'colReverse';
 export type FlexGap = '4' | '8' | '16' | '24' | '32' | '40' | 'none';
@@ -20,6 +21,7 @@ const justifyClasses: Record<FlexJustify, string> = {
     between: s.justify_between,
     around: s.justify_around,
     evenly: s.justify_evenly,
+    stretch: s.justify_stretch,
 };
 
 const alignClasses: Record<FlexAlign, string> = {

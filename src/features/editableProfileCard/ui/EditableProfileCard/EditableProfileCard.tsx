@@ -1,6 +1,7 @@
 import React, { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ReducersList,
@@ -9,8 +10,10 @@ import {
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { IntegerValidation } from '@/shared/lib/utils/validations';
 import { Heading, HeadingSize } from '@/shared/ui/deprecated/Heading';
-import { Informer } from '@/shared/ui/deprecated/Informer';
+import { Informer as InformerDeprecated } from '@/shared/ui/deprecated/Informer';
 import { PageContent } from '@/shared/ui/deprecated/Page';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Informer } from '@/shared/ui/redesigned/Informer';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -174,38 +177,79 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     );
 
     return (
-        <>
-            <EditableProfileCardHeader />
-            <PageContent>
-                <VStack
-                    gap="32"
-                    className={className}
-                    data-testid="EditableProfileCard"
-                >
-                    <Heading size={HeadingSize.L} content={t('Профиль')} />
-                    {validateErrors?.length ? (
-                        <Informer
-                            text={errorsList}
-                            isCentered={validateErrors.length === 1}
-                            data-testid="EditableProfileCard.Error"
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <VStack fullWidth gap="16">
+                    <EditableProfileCardHeader />
+                    <VStack
+                        as={Card}
+                        gap="32"
+                        className={className}
+                        data-testid="EditableProfileCard"
+                    >
+                        <ProfileCard
+                            data={formData}
+                            isLoading={isLoading}
+                            error={error}
+                            readOnly={readonly}
+                            onChangeFirstname={onChangeFirstname}
+                            onChangeLastname={onChangeLastname}
+                            onChangeAge={onChangeAge}
+                            onChangeCity={onChangeCity}
+                            onChangeUsername={onChangeUsername}
+                            onChangeAvatar={onChangeAvatar}
+                            onChangeCurrency={onChangeCurrency}
+                            onChangeCountry={onChangeCountry}
                         />
-                    ) : null}
-                    <ProfileCard
-                        data={formData}
-                        isLoading={isLoading}
-                        error={error}
-                        readOnly={readonly}
-                        onChangeFirstname={onChangeFirstname}
-                        onChangeLastname={onChangeLastname}
-                        onChangeAge={onChangeAge}
-                        onChangeCity={onChangeCity}
-                        onChangeUsername={onChangeUsername}
-                        onChangeAvatar={onChangeAvatar}
-                        onChangeCurrency={onChangeCurrency}
-                        onChangeCountry={onChangeCountry}
-                    />
+                        {validateErrors?.length ? (
+                            <Informer
+                                text={errorsList}
+                                isCentered={validateErrors.length === 1}
+                                data-testid="EditableProfileCard.Error"
+                            />
+                        ) : null}
+                    </VStack>
                 </VStack>
-            </PageContent>
-        </>
+            }
+            off={
+                <>
+                    <EditableProfileCardHeader />
+                    <PageContent>
+                        <VStack
+                            gap="32"
+                            className={className}
+                            data-testid="EditableProfileCard"
+                        >
+                            <Heading
+                                size={HeadingSize.L}
+                                content={t('Профиль')}
+                            />
+                            {validateErrors?.length ? (
+                                <InformerDeprecated
+                                    text={errorsList}
+                                    isCentered={validateErrors.length === 1}
+                                    data-testid="EditableProfileCard.Error"
+                                />
+                            ) : null}
+                            <ProfileCard
+                                data={formData}
+                                isLoading={isLoading}
+                                error={error}
+                                readOnly={readonly}
+                                onChangeFirstname={onChangeFirstname}
+                                onChangeLastname={onChangeLastname}
+                                onChangeAge={onChangeAge}
+                                onChangeCity={onChangeCity}
+                                onChangeUsername={onChangeUsername}
+                                onChangeAvatar={onChangeAvatar}
+                                onChangeCurrency={onChangeCurrency}
+                                onChangeCountry={onChangeCountry}
+                            />
+                        </VStack>
+                    </PageContent>
+                </>
+            }
+        />
     );
 });

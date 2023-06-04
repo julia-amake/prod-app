@@ -4,9 +4,16 @@ import { useSelector } from 'react-redux';
 import DoneLine from '@/shared/assets/icons/DoneLine.svg';
 import EditLine from '@/shared/assets/icons/EditLine.svg';
 import EraserLine from '@/shared/assets/icons/EraserLine.svg';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonSize,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { PageHeader } from '@/shared/ui/deprecated/Page';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getUserAuthData } from '@/entities/User';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
@@ -45,43 +52,46 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (
     }, [dispatch]);
 
     return (
-        <PageHeader>
-            <HStack
-                as="header"
-                className={className}
-                align="center"
-                justify="between"
-                gap="24"
-            >
-                <div />
-                <HStack align="center" gap="16">
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <HStack
+                    as={Card}
+                    className={className}
+                    align="center"
+                    justify="between"
+                    gap="32"
+                >
                     {canEdit &&
                         (readonly ? (
-                            <Button
-                                label={t('Редактировать')}
-                                theme={ButtonTheme.OUTLINED}
-                                size={ButtonSize.M}
-                                icon={{ element: EditLine }}
-                                onClick={onEdit}
-                                disabled={isLoading}
-                                data-testid="EditableProfileCardHeader.EditButton"
-                            />
+                            <>
+                                <div />
+                                <Button
+                                    label={t('Редактировать')}
+                                    variant="outlined"
+                                    shape="partial_rounded"
+                                    size="m"
+                                    onClick={onEdit}
+                                    disabled={isLoading}
+                                    data-testid="EditableProfileCardHeader.EditButton"
+                                />
+                            </>
                         ) : (
                             <>
                                 <Button
                                     label={t('Отменить')}
-                                    theme={ButtonTheme.OUTLINED}
-                                    size={ButtonSize.M}
-                                    icon={{ element: EraserLine }}
+                                    variant="red_outlined"
+                                    shape="partial_rounded"
+                                    size="m"
                                     onClick={onCancelEdit}
                                     disabled={isLoading}
                                     data-testid="EditableProfileCardHeader.CancelButton"
                                 />
                                 <Button
                                     label={t('Сохранить')}
-                                    theme={ButtonTheme.PRIMARY}
-                                    size={ButtonSize.M}
-                                    icon={{ element: DoneLine }}
+                                    variant="green_outlined"
+                                    shape="partial_rounded"
+                                    size="m"
                                     onClick={onSaveEdit}
                                     disabled={isLoading}
                                     data-testid="EditableProfileCardHeader.SaveButton"
@@ -89,7 +99,55 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (
                             </>
                         ))}
                 </HStack>
-            </HStack>
-        </PageHeader>
+            }
+            off={
+                <PageHeader>
+                    <HStack
+                        as="header"
+                        className={className}
+                        align="center"
+                        justify="between"
+                        gap="24"
+                    >
+                        <div />
+                        <HStack align="center" gap="16">
+                            {canEdit &&
+                                (readonly ? (
+                                    <ButtonDeprecated
+                                        label={t('Редактировать')}
+                                        theme={ButtonTheme.OUTLINED}
+                                        size={ButtonSize.M}
+                                        icon={{ element: EditLine }}
+                                        onClick={onEdit}
+                                        disabled={isLoading}
+                                        data-testid="EditableProfileCardHeader.EditButton"
+                                    />
+                                ) : (
+                                    <>
+                                        <ButtonDeprecated
+                                            label={t('Отменить')}
+                                            theme={ButtonTheme.OUTLINED}
+                                            size={ButtonSize.M}
+                                            icon={{ element: EraserLine }}
+                                            onClick={onCancelEdit}
+                                            disabled={isLoading}
+                                            data-testid="EditableProfileCardHeader.CancelButton"
+                                        />
+                                        <ButtonDeprecated
+                                            label={t('Сохранить')}
+                                            theme={ButtonTheme.PRIMARY}
+                                            size={ButtonSize.M}
+                                            icon={{ element: DoneLine }}
+                                            onClick={onSaveEdit}
+                                            disabled={isLoading}
+                                            data-testid="EditableProfileCardHeader.SaveButton"
+                                        />
+                                    </>
+                                ))}
+                        </HStack>
+                    </HStack>
+                </PageHeader>
+            }
+        />
     );
 };

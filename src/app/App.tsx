@@ -18,8 +18,10 @@ function App() {
 
     // берем юзера из local storage
     useEffect(() => {
-        dispatch(initAuthData());
-    }, [dispatch]);
+        if (!isUserInitialized) {
+            dispatch(initAuthData());
+        }
+    }, [isUserInitialized, dispatch]);
 
     if (!isUserInitialized) return <Preloader />;
 

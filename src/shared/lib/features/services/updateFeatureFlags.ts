@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { updateFeatureFlagsMutation } from '../api/featureFlagsApi';
-import { getAllFeatureFlags } from '../lib/setGetFeatures';
+import { getAllFeatureFlags, setFeatureFlags } from '../lib/setGetFeatures';
 
 export interface UpdateFeatureFlagsOptions {
     userId: string;
@@ -17,19 +17,21 @@ export const updateFeatureFlags = createAsyncThunk<
 >('updateFeatureFlags', async ({ userId, newFeatures }, thunkAPI) => {
     const { rejectWithValue, dispatch } = thunkAPI;
 
+    const allFeatures = {
+        ...getAllFeatureFlags(),
+        ...newFeatures,
+    };
+
     try {
         // обновляем фичи на сервере, отправляем patch запрос
         await dispatch(
             updateFeatureFlagsMutation({
                 userId,
-                features: {
-                    ...getAllFeatureFlags(),
-                    ...newFeatures,
-                },
+                features: allFeatures,
             }),
         );
-        // т.к. фичи не реактивные, принудительно обновляем страницу
-        window.location.reload();
+
+        setFeatureFlags(allFeatures);
     } catch (e) {
         console.log(e);
         return rejectWithValue('error');

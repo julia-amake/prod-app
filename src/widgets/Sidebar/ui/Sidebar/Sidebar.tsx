@@ -1,5 +1,4 @@
 import React, { memo, useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Link, LinkProps } from 'react-router-dom';
 import LogoLarge from '@/shared/assets/icons/LogoLarge.svg';
 import LogoSmall from '@/shared/assets/icons/LogoSmall.svg';
@@ -10,7 +9,7 @@ import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import { useSidebarItems } from '../../model/selectors/getSidebarItems';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import SidebarToggle from '../SidebarToggle/SidebarToggle';
 import s from './Sidebar.module.scss';
@@ -24,7 +23,7 @@ const customLogoProps: LinkProps = { to: getRouteMain() };
 const Sidebar = memo((props: SidebarProps) => {
     const { className = '' } = props;
     const [collapsed, setCollapsed] = useState(false);
-    const SidebarItemsList = useSelector(getSidebarItems);
+    const SidebarItemsList = useSidebarItems();
 
     const itemsList = useMemo(
         () =>

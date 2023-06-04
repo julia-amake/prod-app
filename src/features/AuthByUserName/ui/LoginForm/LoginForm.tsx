@@ -8,6 +8,7 @@ import {
     ReducersList,
     useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import {
     Heading as HeadingDeprecated,
@@ -44,6 +45,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
+    const forceUpdate = useForceUpdate();
 
     useDynamicModuleLoader(initialReducers, true);
 
@@ -65,8 +67,9 @@ const LoginForm = memo((props: LoginFormProps) => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
+            forceUpdate();
         }
-    }, [username, password, dispatch, onSuccess]);
+    }, [dispatch, username, password, onSuccess, forceUpdate]);
 
     return (
         <ToggleFeatures

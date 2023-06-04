@@ -116,6 +116,7 @@ export const Input = memo((props: InputProps) => {
                         [s.inner_icon_left]: !!icon?.position && isIconLeft,
                         [s.inner_icon_right]: !!icon?.position && !isIconLeft,
                         [s.inner_focused]: isFocused && !readOnly,
+                        [s.textarea]: type === 'textarea',
                     },
                     [s[`inner_size_${size}`]],
                 )}

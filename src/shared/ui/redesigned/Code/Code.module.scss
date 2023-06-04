@@ -1,0 +1,32 @@
+.outer {
+  position: relative;
+  margin: 0;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(var(--devider-color-rgb), 0.5);
+  background: rgba(var(--inverted-bg-color-rgb), 0.03);
+  font-size: 14px;
+  overflow: auto;
+}
+
+.copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px !important;
+  transition: opacity 0.1s ease-in-out;
+
+  &_icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &_done {
+      opacity: 1;
+    }
+  }
+}

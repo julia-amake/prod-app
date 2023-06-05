@@ -13,6 +13,8 @@ body {
   &.modal_opened {
     overflow: hidden;
   }
+
+  @include scrollbar-redesigned;
 }
 
 .app {

@@ -25,8 +25,7 @@ function App() {
         }
     }, [isUserInitialized, dispatch]);
 
-    // if (!isUserInitialized)
-    if (true)
+    if (!isUserInitialized)
         return (
             <ToggleFeatures
                 feature="isAppRedesigned"

@@ -1,9 +1,10 @@
 import React, { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { MainLayout } from '@/shared/layouts';
+import { AppLoaderLayout, MainLayout } from '@/shared/layouts';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { ContentLoader } from '@/shared/ui';
 import { Preloader } from '@/shared/ui/deprecated/Preloader';
 import { getUserIsInitialized, initAuthData } from '@/entities/User';
@@ -15,6 +16,7 @@ import { AppRouter } from '@/app/providers/router';
 function App() {
     const dispatch = useAppDispatch();
     const isUserInitialized = useSelector(getUserIsInitialized);
+    const { theme } = useTheme();
 
     // берем юзера из local storage
     useEffect(() => {
@@ -23,7 +25,19 @@ function App() {
         }
     }, [isUserInitialized, dispatch]);
 
-    if (!isUserInitialized) return <Preloader />;
+    // if (!isUserInitialized)
+    if (true)
+        return (
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <div id="app" className={cn('app_redesigned', {}, [theme])}>
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={<Preloader />}
+            />
+        );
 
     return (
         <ToggleFeatures

@@ -24,17 +24,17 @@ export const getRouteSettings = () => `/settings`;
 export const getRouteForbidden = () => '/forbidden';
 export const getRouteNotFound = () => '*';
 
-export const getRoute = (pathName: AppRoutes, id?: string) => {
-    switch (pathName) {
-        case AppRoutes.MAIN:
-            return '/';
-        case AppRoutes.PROFILE:
-        case AppRoutes.ARTICLE_DETAILS:
-        case AppRoutes.ARTICLE_EDIT:
-            return `/${pathName}/${id}`;
-        case AppRoutes.NOT_FOUND:
-            return '*';
-        default:
-            return `/${pathName}`;
-    }
+// мапим маршруты в роуты
+export const AppRouteByPathPattern: Record<string, AppRoutes> = {
+    [getRouteMain()]: AppRoutes.MAIN,
+    [getRouteAbout()]: AppRoutes.ABOUT,
+    [getRouteProfile(':id')]: AppRoutes.PROFILE,
+    [getRouteArticles()]: AppRoutes.ARTICLES,
+    [getRouteArticleDetails(':id')]: AppRoutes.ARTICLE_DETAILS,
+    [getRouteArticleCreate()]: AppRoutes.ARTICLE_CREATE,
+    [getRouteArticleEdit(':id')]: AppRoutes.ARTICLE_EDIT,
+    [getRouteAdminPanel()]: AppRoutes.ADMIN_PANEL,
+    [getRouteSettings()]: AppRoutes.SETTINGS,
+    [getRouteForbidden()]: AppRoutes.FORBIDDEN,
+    [getRouteNotFound()]: AppRoutes.NOT_FOUND,
 };

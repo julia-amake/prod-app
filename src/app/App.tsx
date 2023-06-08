@@ -11,12 +11,15 @@ import { getUserIsInitialized, initAuthData } from '@/entities/User';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 // eslint-disable-next-line amake-plugin/layer-imports
+import { useAppToolbar } from '@/app/lib/useAppToolbar';
+// eslint-disable-next-line amake-plugin/layer-imports
 import { AppRouter } from '@/app/providers/router';
 
 function App() {
     const dispatch = useAppDispatch();
     const isUserInitialized = useSelector(getUserIsInitialized);
     const { theme } = useTheme();
+    const toolbar = useAppToolbar();
 
     // берем юзера из local storage
     useEffect(() => {
@@ -46,7 +49,7 @@ function App() {
                     content={<AppRouter />}
                     header={<Navbar />}
                     sidebar={<Sidebar />}
-                    toolbar={<div>...</div>}
+                    toolbar={toolbar}
                     className="app_redesigned"
                     id="app"
                 />

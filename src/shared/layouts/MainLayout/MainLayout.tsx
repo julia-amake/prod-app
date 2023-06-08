@@ -20,7 +20,7 @@ export const MainLayout = (props: MainLayoutProps) => {
             <div className={s.middle}>{content}</div>
             <div className={s.right}>
                 <div className={s.header}>{header}</div>
-                <div className={s.toolbar}>{toolbar}</div>
+                {toolbar && <div className={s.toolbar}>{toolbar}</div>}
             </div>
         </div>
     );

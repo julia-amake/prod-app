@@ -41,8 +41,8 @@ PrimaryOnlyText.args = {
         'это относится к тому, какой объект отображается в файле.map.',
 };
 
-export const withoutIcon = Template.bind({});
-withoutIcon.args = {
+export const WithoutIcon = Template.bind({});
+WithoutIcon.args = {
     title: 'Заголовок',
     text:
         'Этот текст показывает, как можно использовать файл.map ' +

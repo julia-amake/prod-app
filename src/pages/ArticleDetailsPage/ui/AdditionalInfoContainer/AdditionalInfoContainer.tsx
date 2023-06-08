@@ -9,7 +9,7 @@ import {
     getArticleDetailsIsLoading,
 } from '@/entities/Article';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
-import { getCanEditArticle } from '../..';
+import { getCanEditArticle } from '../../model/selectors/article/article';
 import s from './AdditionalInfoContainer.module.scss';
 
 interface AdditionalInfoContainerProps {

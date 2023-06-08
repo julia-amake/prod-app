@@ -20,7 +20,7 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
     const { isShort = true, className = '' } = props;
 
     const { t } = useTranslation();
-    const { data, isLoading, error } = useGetNotificationsList(null, {
+    const { data, isLoading } = useGetNotificationsList(null, {
         pollingInterval: 5000,
     });
     const [notifications, setNotifications] = useState<Notification[] | null>(

@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { cn } from '@/shared/lib/classNames/classNames';
 import { getFeatureFlag, updateFeatureFlags } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import { ListBox } from '@/shared/ui/redesigned/Popups/ui';
 import { getUserAuthData } from '@/entities/User';
 import s from './UiDesignSwitcher.module.scss';
@@ -20,7 +19,6 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     const user = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
     const [isLoading, setIsLoading] = useState(false);
-    const forceUpdate = useForceUpdate();
 
     const options = [
         {

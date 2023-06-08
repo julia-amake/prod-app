@@ -31,6 +31,7 @@ export const updateFeatureFlags = createAsyncThunk<
         // т.к. фичи не реактивные, принудительно обновляем стейт
         window.location.reload();
     } catch (e) {
+        // eslint-disable-next-line no-console
         console.log(e);
         return rejectWithValue('error');
     }

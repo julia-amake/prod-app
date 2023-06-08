@@ -17,10 +17,7 @@ import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import {
-    getAddCommentFormError,
-    getAddCommentFormText,
-} from '../../model/selectors/addCommentsFormSelectors';
+import { getAddCommentFormText } from '../../model/selectors/addCommentsFormSelectors';
 import {
     addCommentFormActions,
     addCommentFormReducer,
@@ -42,7 +39,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     const { t } = useTranslation();
     const text = useSelector(getAddCommentFormText);
-    const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
 
     useDynamicModuleLoader(reducers);

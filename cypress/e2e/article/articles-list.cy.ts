@@ -1,6 +1,6 @@
 describe('The user opened the articles page', () => {
     beforeEach(() => {
-        cy.login().then((data) => {
+        cy.login().then(() => {
             cy.visit('articles');
         });
     });

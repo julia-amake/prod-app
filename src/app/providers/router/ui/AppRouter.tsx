@@ -14,6 +14,7 @@ const AppRouter = memo(() => {
                     route.authOnly ? (
                         // eslint-disable-next-line react/jsx-no-useless-fragment
                         <RequireAuth roles={route.roles}>
+                            {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
                             <>{route.element}</>
                         </RequireAuth>
                     ) : (

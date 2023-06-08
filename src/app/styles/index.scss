@@ -52,7 +52,11 @@ img {
 button {
   color: inherit;
   outline: none;
-  transition: color 0.2s ease-in-out, background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    color 0.2s ease-in-out,
+    background 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
 }
 
 .sr-only {

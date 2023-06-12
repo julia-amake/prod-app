@@ -18,7 +18,7 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
-import { ValidateProfileError } from '../../model/consts/consts';
+import { ValidateProfileError } from '../../model/consts/validate';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';

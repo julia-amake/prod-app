@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { memo, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AppLoaderLayout, MainLayout } from '@/shared/layouts';
 import { cn } from '@/shared/lib/classNames/classNames';
@@ -10,12 +10,11 @@ import { Preloader } from '@/shared/ui/deprecated/Preloader';
 import { getUserIsInitialized, initAuthData } from '@/entities/User';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-// eslint-disable-next-line amake-plugin/layer-imports
-import { useAppToolbar } from '@/app/lib/useAppToolbar';
-// eslint-disable-next-line amake-plugin/layer-imports
-import { AppRouter } from '@/app/providers/router';
+import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
+import { AppRouter } from './providers/router';
 
-function App() {
+const App = memo(() => {
     const dispatch = useAppDispatch();
     const isUserInitialized = useSelector(getUserIsInitialized);
     const { theme } = useTheme();
@@ -71,6 +70,6 @@ function App() {
             }
         />
     );
-}
+});
 
-export default App;
+export default withTheme(App);

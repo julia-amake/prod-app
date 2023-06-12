@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { CommentCard } from './CommentCard';
 
@@ -34,6 +35,14 @@ export const Normal = Template.bind({});
 Normal.args = {
     comment,
 };
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = {
+    comment,
+};
+NormalRedesigned.decorators = [
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+];
 
 export const NoAvatar = Template.bind({});
 NoAvatar.args = {

@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
+import { RedesignedAppDecorator } from '@/shared/config/storybook/RedesignedAppDecorator/RedesignedAppDecorator';
 import { AVATAR } from '@/shared/consts/tests';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -31,6 +32,13 @@ Primary.args = {
     readOnly: true,
     isLoading: false,
 };
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = {
+    readOnly: true,
+    isLoading: false,
+};
+PrimaryRedesigned.decorators = [RedesignedAppDecorator];
 
 export const Editable = Template.bind({});
 Editable.args = {

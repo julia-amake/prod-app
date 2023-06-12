@@ -2,7 +2,7 @@ import { AVATAR } from '@/shared/consts/tests';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { ValidateProfileError } from '../../consts/consts';
+import { ValidateProfileError } from '../../consts/validate';
 import { updateProfileData } from './updateProfileData';
 
 const profileData = {

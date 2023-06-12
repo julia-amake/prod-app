@@ -14,7 +14,9 @@ body {
     overflow: hidden;
   }
 
-  @include scrollbar-redesigned;
+  &:not(.app) {
+    @include scrollbar-redesigned;
+  }
 }
 
 .app {

@@ -1,5 +1,5 @@
 import { Profile } from '@/entities/Profile';
-import { ValidateProfileError } from '../../consts/consts';
+import { ValidateProfileError } from '../../consts/validate';
 
 export const validateProfileData = (profile?: Profile | null) => {
     if (!profile) {

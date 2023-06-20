@@ -8,6 +8,11 @@ Pet проект ...в разработке 👩‍💻
 
 [https://amake-prod-app.netlify.app](https://amake-prod-app.netlify.app)
 
+**Тестовый пользователь:**
+
+`login:` admin<br />
+`password:` 123
+
 ---
 
 ## Основной стек

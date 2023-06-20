@@ -12,7 +12,6 @@ import {
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Heading } from '@/shared/ui/deprecated/Heading';
 import { PageContent } from '@/shared/ui/deprecated/Page';
-import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { Page } from '@/widgets/Page';
 import {
     getArticlesPageHasMore,
@@ -67,7 +66,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
                         content={
                             <>
                                 <ArticlesInfiniteList />
-                                <ArticlePageGreeting />
+                                {/* <ArticlePageGreeting /> */}
                             </>
                         }
                         left={<ViewSelectorContainer />}
@@ -85,7 +84,7 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
                         <Heading content={t('Статьи')} className={s.title} />
                         <ArticlesPageFilters className={s.filters} />
                         <ArticlesInfiniteList />
-                        <ArticlePageGreeting />
+                        {/* <ArticlePageGreeting /> */}
                     </PageContent>
                 </Page>
             }
